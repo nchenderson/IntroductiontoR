@@ -1,3 +1,4 @@
-down-the-rabbit-hole
+intro
+using-r-as-a-calculator
+variables-in-r
 the-pool-of-tears
-a-caucus-race-and-a-long-tale
