@@ -1,0 +1,40 @@
+# Getting Started {#intro}
+
+
+
+## Using R as a calculator
+
+You can use R as a basic **calculator**. 
+
+For example:
+
+```{r, echo=TRUE}
+42 + 17 
+
+sqrt(243)
+
+1.56*1233
+
+7.21*8^4
+```
+
+
+
+For more complicated mathematical operations, it is useful to
+store intermediate values in **named variables**.
+
+```{r, echo=TRUE}
+x <- (42 + 17)*sqrt(43)
+y <- 7.21*8^4 + log(2.34)
+z <- x/y
+z  ## print out the value of z
+```
+
+Here, `x`, `y`, and `z` are examples of **variables**.
+
+The pair of characters `<-` used together is known as the **assignment operator** in **R**.
+`x <- 2` assigns the value `2` to the variable `x`.
+
+
+## Variables in R
+
