@@ -1,4 +1,12 @@
 intro
 using-r-as-a-calculator
 variables-in-r
-the-pool-of-tears
+rules-for-choosing-variable-names-in-r
+examples-of-valid-and-invalid-variable-names-in-r
+variable-assignment
+vs.
+types-of-variables
+r-operations-with-numbers
+exercises
+functions
+using-r-as-a-calculator-1

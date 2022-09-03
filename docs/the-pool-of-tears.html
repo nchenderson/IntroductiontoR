@@ -139,7 +139,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#using-r-as-a-calculator"><i class="fa fa-check"></i><b>1.1</b> Using R as a calculator</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#variables-in-r"><i class="fa fa-check"></i><b>1.2</b> Variables in R</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#variables-in-r"><i class="fa fa-check"></i><b>1.2</b> Variables in R</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#choosing-variable-names-in-r"><i class="fa fa-check"></i><b>1.2.1</b> Choosing variable names in R</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="the-pool-of-tears.html"><a href="the-pool-of-tears.html"><i class="fa fa-check"></i><b>2</b> The pool of tears</a></li>
 <li class="divider"></li>
@@ -225,6 +228,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
