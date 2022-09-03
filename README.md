@@ -1,2 +1,2 @@
-This is an introduction to R with statistics applicatisons written in **[bookdown](https://github.com/rstudio/bookdown)**.
+This is an introduction to R with statistics applications written in **[bookdown](https://github.com/rstudio/bookdown)**.
 
