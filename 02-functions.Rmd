@@ -1,8 +1,0 @@
-# If-Else Statements and Functions in R {#functions}
-
-
-
-## Using R as a calculator
-
-
-

@@ -1,0 +1,69 @@
+# Logical Expressions and If-Else Statements in R {#functions}
+
+
+
+## Logical Expression in R
+
+* A **Logical** expression is an expression that evaluates to either **TRUE** or **FALSE**.
+
+* The following are examples of logical expressions in **R**:
+    + `4 > 2`
+    + `3 <= 5`
+    + `15.0 + 1.3*1.3 > 17.0`
+    + ` "cat" == "dog" `
+    
+* Each of the above expressions will evaluate to either
+**TRUE** or **FALSE** if you run them in R.
+
+```{r, echo=TRUE}
+4 > 2
+```
+
+```{r, echo=TRUE}
+3 <= 5
+```
+
+```{r, echo=TRUE}
+15.0 + 1.3*1.3 > 17.0
+```
+
+```{r, echo=TRUE}
+x <- "cat" == "dog" # assign to the variable x the value 
+                    # returned by this logical expression
+x
+```
+
+---
+
+* Most logical expressions are constructed by using some **combination** of:
+    + **Comparison** operators (<, <=, ==, !=)
+    + **Logical** operators (**and**, **or**, **not**) (in **R**: &&, ||, !)
+
+### Comparison Operators
+
+```{r, echo=FALSE}
+add.operator <- c("<", ">", "<=", ">=", "==", "!=")
+add.meaning <- c("Less than", "Greater than", "Less than or equal to","Greater than or equal to","Equal to","Not equal to")
+add.example <- c("5 < 3", "5 > 3", "3 <= 6", "4 >= 3","2 == 2","'str' != 'stR'")
+add.result <- c("FALSE", "TRUE", "TRUE","TRUE","TRUE","TRUE")
+AddOperators <- data.frame(Operator=add.operator, Meaning=add.meaning, Example =add.example, Result = add.result)
+knitr::kable(AddOperators, format = 'markdown', align=rep('c', 4), padding=4)
+```
+
+### Logical Operators
+
+* The first main logical operator we will discuss is the **logical AND**
+
+* In **R**, the logical operator **&&** is used to represent the logical **AND**
+
+* The **logical AND** is used to test whether or not two statements are **both** true.
+
+* For two logical expressions **A** and **B**, the logical expression **A && B** is true
+only if both **A** and **B** evaluate to true.
+
+```{r, echo=TRUE}
+4 > 2 && 5/2 == 1   ## only the first statement is TRUE
+4 > 2 && "car" == "truck"   ## only the first statement is TRUE
+4 > 2 && 3 < 5   ## both statements are TRUE
+```
+

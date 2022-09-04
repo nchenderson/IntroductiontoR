@@ -9,4 +9,6 @@ types-of-variables
 r-operations-with-numbers
 exercises
 functions
-using-r-as-a-calculator-1
+logical-expression-in-r
+comparison-operators
+logical-operators
