@@ -1,7 +1,5 @@
 # Getting Started {#intro}
 
-
-
 ## Using R as a calculator
 
 * You can use R as a basic **calculator**. 

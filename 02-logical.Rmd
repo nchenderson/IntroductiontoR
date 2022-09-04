@@ -1,4 +1,4 @@
-# Logical Expressions and If-Else Statements in R {#functions}
+# Logical Expressions and If-Else Statements in R {#ifelse}
 
 
 
