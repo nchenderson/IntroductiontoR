@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Lists in R | An Introduction to R programming</title>
-  <meta name="description" content="Chapter 7 Lists in R | An Introduction to R programming" />
+  <title>Chapter 8 R always store data as a “.red[collection]” | An Introduction to R programming</title>
+  <meta name="description" content="Chapter 8 R always store data as a “.red[collection]” | An Introduction to R programming" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Lists in R | An Introduction to R programming" />
+  <meta property="og:title" content="Chapter 8 R always store data as a “.red[collection]” | An Introduction to R programming" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Lists in R | An Introduction to R programming" />
+  <meta name="twitter:title" content="Chapter 8 R always store data as a “.red[collection]” | An Introduction to R programming" />
   
   
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="matrix.html"/>
+<link rel="prev" href="list.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -139,15 +139,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#using-r-as-a-calculator"><i class="fa fa-check"></i><b>1.1</b> Using R as a calculator</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#variables-in-r"><i class="fa fa-check"></i><b>1.2</b> Variables in R</a>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#variables-in-r"><i class="fa fa-check"></i><b>1.2</b> Variables in R</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#rules-for-choosing-variable-names-in-r"><i class="fa fa-check"></i><b>1.3</b> Rules for choosing <strong>variable names</strong> in R</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#examples-of-valid-and-invalid-variable-names-in-r"><i class="fa fa-check"></i><b>1.4</b> Examples of <strong>valid</strong> and <strong>invalid</strong> variable names in R</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#variable-assignment"><i class="fa fa-check"></i><b>1.5</b> Variable <strong>Assignment</strong></a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#rules-for-choosing-variable-names-in-r"><i class="fa fa-check"></i><b>1.2.1</b> Rules for choosing <strong>variable names</strong> in R</a></li>
-<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#variable-assignment"><i class="fa fa-check"></i><b>1.2.2</b> Variable <strong>Assignment</strong></a></li>
+<li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#vs."><i class="fa fa-check"></i><b>1.5.1</b> <strong>&lt;-</strong> vs. <strong>=</strong></a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#types-of-variables"><i class="fa fa-check"></i><b>1.3</b> <strong>Types</strong> of variables</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#r-operations-with-numbers"><i class="fa fa-check"></i><b>1.4</b> R Operations with <strong>numbers</strong></a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#brief-intro-to-vectors-in-r"><i class="fa fa-check"></i><b>1.5</b> Brief intro to vectors in R</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#types-of-variables"><i class="fa fa-check"></i><b>1.6</b> <strong>Types</strong> of variables</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#r-operations-with-numbers"><i class="fa fa-check"></i><b>1.7</b> R Operations with <strong>numbers</strong></a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.8</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>2</b> Logical Expressions and If-Else Statements in R</a>
 <ul>
@@ -228,20 +229,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.1" data-path="matrix.html"><a href="matrix.html#creating-a-matrices-in-r"><i class="fa fa-check"></i><b>6.1</b> Creating a matrices in R</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>7</b> Lists in R</a>
+<li class="chapter" data-level="7" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>7</b> Lists in R</a></li>
+<li class="chapter" data-level="8" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html"><i class="fa fa-check"></i><b>8</b> R always store data as a “.red[collection]”</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="list.html"><a href="list.html#creating-lists-in-r"><i class="fa fa-check"></i><b>7.1</b> Creating Lists in R</a></li>
-<li class="chapter" data-level="7.2" data-path="list.html"><a href="list.html#accessing-list-elements"><i class="fa fa-check"></i><b>7.2</b> Accessing list elements</a></li>
-<li class="chapter" data-level="7.3" data-path="list.html"><a href="list.html#working-with-lists"><i class="fa fa-check"></i><b>7.3</b> Working with lists</a>
+<li class="chapter" data-level="8.1" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html#creating-lists-in-r"><i class="fa fa-check"></i><b>8.1</b> Creating Lists in R</a></li>
+<li class="chapter" data-level="8.2" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html#accessing-list-elements"><i class="fa fa-check"></i><b>8.2</b> Accessing list elements</a></li>
+<li class="chapter" data-level="8.3" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html#working-with-lists"><i class="fa fa-check"></i><b>8.3</b> Working with lists</a></li>
+<li class="chapter" data-level="8.4" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html#working-with-lists-.redadding-components-of-a-list"><i class="fa fa-check"></i><b>8.4</b> Working with lists: .red[adding] components of a list</a></li>
+<li class="chapter" data-level="8.5" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html#when-are-lists-useful"><i class="fa fa-check"></i><b>8.5</b> When are lists useful?</a></li>
+<li class="chapter" data-level="8.6" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html#lapply-applying-functions-to-lists"><i class="fa fa-check"></i><b>8.6</b> lapply(): Applying functions to lists</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="list.html"><a href="list.html#expanding-a-list-adding-more-components"><i class="fa fa-check"></i><b>7.3.1</b> Expanding a list: adding more components</a></li>
+<li class="chapter" data-level="8.6.1" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html#use-sapply-for-simpler-output"><i class="fa fa-check"></i><b>8.6.1</b> Use sapply() for simpler output</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="list.html"><a href="list.html#when-are-lists-useful"><i class="fa fa-check"></i><b>7.4</b> When are lists useful?</a></li>
-<li class="chapter" data-level="7.5" data-path="list.html"><a href="list.html#lapply-applying-functions-to-lists"><i class="fa fa-check"></i><b>7.5</b> lapply(): Applying functions to lists</a>
-<ul>
-<li class="chapter" data-level="7.5.1" data-path="list.html"><a href="list.html#use-sapply-for-simpler-output"><i class="fa fa-check"></i><b>7.5.1</b> Use sapply() for simpler output</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="list.html"><a href="list.html#exercises-4"><i class="fa fa-check"></i><b>7.6</b> Exercises</a></li>
+<li class="chapter" data-level="8.7" data-path="r-always-store-data-as-a-.html"><a href="r-always-store-data-as-a-.html#exercises-4"><i class="fa fa-check"></i><b>8.7</b> Exercises</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -262,11 +262,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="list" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Lists in R<a href="list.html#list" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<ul>
-<li>R always store data as a <strong>“collection”</strong>.</li>
-</ul>
+<div id="r-always-store-data-as-a-.redcollection" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> R always store data as a “.red[collection]”<a href="r-always-store-data-as-a-.html#r-always-store-data-as-a-.redcollection" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <table>
 <thead>
 <tr class="header">
@@ -298,16 +295,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Even a single-valued object, it is considered as a “vector” with size 1</p></li>
 </ul>
 <p>Source: <a href="http://adv-r.had.co.nz/Data-structures.html" class="uri">http://adv-r.had.co.nz/Data-structures.html</a></p>
-<div id="creating-lists-in-r" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Creating Lists in R<a href="list.html#creating-lists-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="creating-lists-in-r" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Creating Lists in R<a href="r-always-store-data-as-a-.html#creating-lists-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>Lists can store a collection of items that have <strong>different types</strong>.</p></li>
 <li><p>To <strong>create a list</strong>, you can use the <code>list</code> function.</p></li>
 </ul>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="list.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Use a keyword argument to define any attribute of any data type</span></span>
-<span id="cb316-2"><a href="list.html#cb316-2" aria-hidden="true" tabindex="-1"></a>emp_info <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Nicholas Henderson&quot;</span>, <span class="at">UMID=</span><span class="dv">12345678</span>, </span>
-<span id="cb316-3"><a href="list.html#cb316-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">faculty=</span><span class="cn">TRUE</span>)</span>
-<span id="cb316-4"><a href="list.html#cb316-4" aria-hidden="true" tabindex="-1"></a>emp_info <span class="co"># list has character, numeric, and logical types</span></span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="r-always-store-data-as-a-.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Use a keyword argument to define any attribute of any data type</span></span>
+<span id="cb316-2"><a href="r-always-store-data-as-a-.html#cb316-2" aria-hidden="true" tabindex="-1"></a>emp_info <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Nicholas Henderson&quot;</span>, <span class="at">UMID=</span><span class="dv">12345678</span>, </span>
+<span id="cb316-3"><a href="r-always-store-data-as-a-.html#cb316-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">faculty=</span><span class="cn">TRUE</span>)</span>
+<span id="cb316-4"><a href="r-always-store-data-as-a-.html#cb316-4" aria-hidden="true" tabindex="-1"></a>emp_info <span class="co"># list has character, numeric, and logical types</span></span></code></pre></div>
 <pre><code>## $name
 ## [1] &quot;Nicholas Henderson&quot;
 ## 
@@ -316,13 +313,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## $faculty
 ## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="list.html#cb318-1" aria-hidden="true" tabindex="-1"></a>emp_info<span class="sc">$</span>name <span class="co"># access components with $component_name</span></span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="r-always-store-data-as-a-.html#cb318-1" aria-hidden="true" tabindex="-1"></a>emp_info<span class="sc">$</span>name <span class="co"># access components with $component_name</span></span></code></pre></div>
 <pre><code>## [1] &quot;Nicholas Henderson&quot;</code></pre>
 <ul>
 <li>Create a list with <strong>named components</strong>: <strong>a</strong>, <strong>b</strong>, and <strong>d</strong>.</li>
 </ul>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="list.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>),</span>
-<span id="cb320-2"><a href="list.html#cb320-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">d=</span><span class="cn">TRUE</span>) <span class="do">## list elements can be vectors</span></span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="r-always-store-data-as-a-.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>),</span>
+<span id="cb320-2"><a href="r-always-store-data-as-a-.html#cb320-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">d=</span><span class="cn">TRUE</span>) <span class="do">## list elements can be vectors</span></span></code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3
 ## 
@@ -332,8 +329,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $d
 ## [1] TRUE</code></pre>
 </div>
-<div id="accessing-list-elements" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> Accessing list elements<a href="list.html#accessing-list-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="accessing-list-elements" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Accessing list elements<a href="r-always-store-data-as-a-.html#accessing-list-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>You can create <strong>named lists</strong> or <strong>unnamed lists</strong>.
 <ul>
@@ -347,31 +344,31 @@ the double bracket syntax <code>[[k]]</code>.</li>
 <li>You can access the elements of a <strong>named list</strong> using either the
 indexing <code>[[k]]</code> or the component names.</li>
 </ul>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="list.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an unnamed list and look at the first element:</span></span>
-<span id="cb322-2"><a href="list.html#cb322-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>), <span class="cn">TRUE</span>)  </span>
-<span id="cb322-3"><a href="list.html#cb322-3" aria-hidden="true" tabindex="-1"></a>y[[<span class="dv">1</span>]]  </span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="r-always-store-data-as-a-.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an unnamed list and look at the first element:</span></span>
+<span id="cb322-2"><a href="r-always-store-data-as-a-.html#cb322-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>), <span class="cn">TRUE</span>)  </span>
+<span id="cb322-3"><a href="r-always-store-data-as-a-.html#cb322-3" aria-hidden="true" tabindex="-1"></a>y[[<span class="dv">1</span>]]  </span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <hr />
 <ul>
 <li>Accessing the elements of a named list using
 either the <strong>numeric index</strong> or the <strong>component names</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="list.html#cb324-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>), <span class="at">d=</span><span class="cn">TRUE</span>) </span>
-<span id="cb324-2"><a href="list.html#cb324-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>a</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="r-always-store-data-as-a-.html#cb324-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>), <span class="at">d=</span><span class="cn">TRUE</span>) </span>
+<span id="cb324-2"><a href="r-always-store-data-as-a-.html#cb324-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>a</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="list.html#cb326-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="r-always-store-data-as-a-.html#cb326-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="list.html#cb328-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>b</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="r-always-store-data-as-a-.html#cb328-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>b</span></code></pre></div>
 <pre><code>## [1] &quot;apple&quot;  &quot;banana&quot;</code></pre>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="list.html#cb330-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="r-always-store-data-as-a-.html#cb330-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">2</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;apple&quot;  &quot;banana&quot;</code></pre>
 </div>
-<div id="working-with-lists" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> Working with lists<a href="list.html#working-with-lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="working-with-lists" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Working with lists<a href="r-always-store-data-as-a-.html#working-with-lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Get the names of the list components by using <code>names(list_name)</code></li>
 </ul>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="list.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="r-always-store-data-as-a-.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(x)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;d&quot;</code></pre>
 <ul>
 <li>Find the length of a list by using <code>length</code>.
@@ -380,14 +377,15 @@ either the <strong>numeric index</strong> or the <strong>component names</strong
 and the length does not depend on the length of any of the vector components.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="list.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="r-always-store-data-as-a-.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div id="expanding-a-list-adding-more-components" class="section level3 hasAnchor" number="7.3.1">
-<h3><span class="header-section-number">7.3.1</span> Expanding a list: adding more components<a href="list.html#expanding-a-list-adding-more-components" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="working-with-lists-.redadding-components-of-a-list" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Working with lists: .red[adding] components of a list<a href="r-always-store-data-as-a-.html#working-with-lists-.redadding-components-of-a-list" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Add components to a list using either the index or by name</li>
 </ul>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="list.html#cb336-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="r-always-store-data-as-a-.html#cb336-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3
 ## 
@@ -396,9 +394,9 @@ and the length does not depend on the length of any of the vector components.</l
 ## 
 ## $d
 ## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="list.html#cb338-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">4</span>]] <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb338-2"><a href="list.html#cb338-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>e <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="list.html#cb339-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="r-always-store-data-as-a-.html#cb338-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">4</span>]] <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb338-2"><a href="r-always-store-data-as-a-.html#cb338-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>e <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="r-always-store-data-as-a-.html#cb339-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3
 ## 
@@ -414,25 +412,24 @@ and the length does not depend on the length of any of the vector components.</l
 ## $e
 ## [1] 5</code></pre>
 </div>
-</div>
-<div id="when-are-lists-useful" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> When are lists useful?<a href="list.html#when-are-lists-useful" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="when-are-lists-useful" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> When are lists useful?<a href="r-always-store-data-as-a-.html#when-are-lists-useful" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Many <strong>R</strong> functions return <strong>multiple</strong> items as output.
 <ul>
 <li>It is common to return these multiple items in a single, <strong>named list</strong>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="list.html#cb341-1" aria-hidden="true" tabindex="-1"></a>matrixSum <span class="ot">&lt;-</span> <span class="cf">function</span>(X) { <span class="co"># calculate possible sums of a matrix</span></span>
-<span id="cb341-2"><a href="list.html#cb341-2" aria-hidden="true" tabindex="-1"></a>  s1 <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(X)</span>
-<span id="cb341-3"><a href="list.html#cb341-3" aria-hidden="true" tabindex="-1"></a>  s2 <span class="ot">&lt;-</span> <span class="fu">colSums</span>(X)</span>
-<span id="cb341-4"><a href="list.html#cb341-4" aria-hidden="true" tabindex="-1"></a>  s3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(X)</span>
-<span id="cb341-5"><a href="list.html#cb341-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">row=</span>s1, <span class="at">col=</span>s2, <span class="at">all=</span>s3)) <span class="do">## return multiple values </span></span>
-<span id="cb341-6"><a href="list.html#cb341-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="do">## using a list</span></span>
-<span id="cb341-7"><a href="list.html#cb341-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb341-8"><a href="list.html#cb341-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb341-9"><a href="list.html#cb341-9" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb341-10"><a href="list.html#cb341-10" aria-hidden="true" tabindex="-1"></a><span class="fu">matrixSum</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="r-always-store-data-as-a-.html#cb341-1" aria-hidden="true" tabindex="-1"></a>matrixSum <span class="ot">&lt;-</span> <span class="cf">function</span>(X) { <span class="co"># calculate possible sums of a matrix</span></span>
+<span id="cb341-2"><a href="r-always-store-data-as-a-.html#cb341-2" aria-hidden="true" tabindex="-1"></a>  s1 <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(X)</span>
+<span id="cb341-3"><a href="r-always-store-data-as-a-.html#cb341-3" aria-hidden="true" tabindex="-1"></a>  s2 <span class="ot">&lt;-</span> <span class="fu">colSums</span>(X)</span>
+<span id="cb341-4"><a href="r-always-store-data-as-a-.html#cb341-4" aria-hidden="true" tabindex="-1"></a>  s3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(X)</span>
+<span id="cb341-5"><a href="r-always-store-data-as-a-.html#cb341-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">row=</span>s1, <span class="at">col=</span>s2, <span class="at">all=</span>s3)) <span class="do">## return multiple values </span></span>
+<span id="cb341-6"><a href="r-always-store-data-as-a-.html#cb341-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="do">## using a list</span></span>
+<span id="cb341-7"><a href="r-always-store-data-as-a-.html#cb341-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb341-8"><a href="r-always-store-data-as-a-.html#cb341-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb341-9"><a href="r-always-store-data-as-a-.html#cb341-9" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb341-10"><a href="r-always-store-data-as-a-.html#cb341-10" aria-hidden="true" tabindex="-1"></a><span class="fu">matrixSum</span>(A)</span></code></pre></div>
 <pre><code>## $row
 ## [1]  9 12
 ## 
@@ -450,8 +447,8 @@ where, <strong>for each individual</strong>, you have data stored
 in a vector, a matrix, and a data frame.</p></li>
 </ul>
 </div>
-<div id="lapply-applying-functions-to-lists" class="section level2 hasAnchor" number="7.5">
-<h2><span class="header-section-number">7.5</span> lapply(): Applying functions to lists<a href="list.html#lapply-applying-functions-to-lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="lapply-applying-functions-to-lists" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> lapply(): Applying functions to lists<a href="r-always-store-data-as-a-.html#lapply-applying-functions-to-lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p><strong>lapply</strong> (“list apply”) works like an <strong>apply()</strong> function
 for <strong>lists</strong>.</p></li>
@@ -462,8 +459,8 @@ for <strong>lists</strong>.</p></li>
 </ul></li>
 <li><p><strong>lapply</strong> returns a list with the <strong>same number</strong> of components as the input list:</p></li>
 </ul>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="list.html#cb343-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">matrixSum</span>(A) <span class="co"># r is a list with 3 components.</span></span>
-<span id="cb343-2"><a href="list.html#cb343-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, length) <span class="co"># compute the length of each component of r</span></span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="r-always-store-data-as-a-.html#cb343-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">matrixSum</span>(A) <span class="co"># r is a list with 3 components.</span></span>
+<span id="cb343-2"><a href="r-always-store-data-as-a-.html#cb343-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, length) <span class="co"># compute the length of each component of r</span></span></code></pre></div>
 <pre><code>## $row
 ## [1] 2
 ## 
@@ -472,7 +469,7 @@ for <strong>lists</strong>.</p></li>
 ## 
 ## $all
 ## [1] 1</code></pre>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="list.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, sum) <span class="co"># Compute sum of each component of r</span></span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="r-always-store-data-as-a-.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, sum) <span class="co"># Compute sum of each component of r</span></span></code></pre></div>
 <pre><code>## $row
 ## [1] 21
 ## 
@@ -481,7 +478,7 @@ for <strong>lists</strong>.</p></li>
 ## 
 ## $all
 ## [1] 21</code></pre>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="list.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, <span class="cf">function</span>(x) <span class="fu">sum</span>(x<span class="sc">*</span>x)) <span class="co"># Compute sum of squares for each component</span></span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="r-always-store-data-as-a-.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, <span class="cf">function</span>(x) <span class="fu">sum</span>(x<span class="sc">*</span>x)) <span class="co"># Compute sum of squares for each component</span></span></code></pre></div>
 <pre><code>## $row
 ## [1] 225
 ## 
@@ -490,18 +487,18 @@ for <strong>lists</strong>.</p></li>
 ## 
 ## $all
 ## [1] 441</code></pre>
-<div id="use-sapply-for-simpler-output" class="section level3 hasAnchor" number="7.5.1">
-<h3><span class="header-section-number">7.5.1</span> Use sapply() for simpler output<a href="list.html#use-sapply-for-simpler-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="use-sapply-for-simpler-output" class="section level3 hasAnchor" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Use sapply() for simpler output<a href="r-always-store-data-as-a-.html#use-sapply-for-simpler-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>When applying a function to <strong>each</strong> component of a list,
 it is often preferable to have the <strong>result</strong> returned as a <strong>vector</strong>
 or <strong>matrix</strong> instead of a list.</p></li>
 <li><p>This is what the <strong>sapply()</strong> (“simplified lapply”) function does.</p></li>
 </ul>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="list.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(r, sum) <span class="co"># sapply() returns output as a named vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="r-always-store-data-as-a-.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(r, sum) <span class="co"># sapply() returns output as a named vector</span></span></code></pre></div>
 <pre><code>## row col all 
 ##  21  21  21</code></pre>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="list.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r,sum)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="r-always-store-data-as-a-.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r,sum)</span></code></pre></div>
 <pre><code>## $row
 ## [1] 21
 ## 
@@ -514,7 +511,7 @@ or <strong>matrix</strong> instead of a list.</p></li>
 <li>If the <strong>function</strong> used in <strong>sapply</strong> returns a vector
 with length <strong>longer</strong> than 1, <strong>sapply</strong> will return a matrix.</li>
 </ul>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="list.html#cb353-1" aria-hidden="true" tabindex="-1"></a>r</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="r-always-store-data-as-a-.html#cb353-1" aria-hidden="true" tabindex="-1"></a>r</span></code></pre></div>
 <pre><code>## $row
 ## [1]  9 12
 ## 
@@ -523,19 +520,19 @@ with length <strong>longer</strong> than 1, <strong>sapply</strong> will return 
 ## 
 ## $all
 ## [1] 21</code></pre>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="list.html#cb355-1" aria-hidden="true" tabindex="-1"></a>                                <span class="do">## column names of matrix are same</span></span>
-<span id="cb355-2"><a href="list.html#cb355-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(r, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) ) <span class="do">## as list component names</span></span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="r-always-store-data-as-a-.html#cb355-1" aria-hidden="true" tabindex="-1"></a>                                <span class="do">## column names of matrix are same</span></span>
+<span id="cb355-2"><a href="r-always-store-data-as-a-.html#cb355-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(r, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) ) <span class="do">## as list component names</span></span></code></pre></div>
 <pre><code>##      row col all
 ## [1,]   9   3  21
 ## [2,]  12  11  21</code></pre>
 </div>
 </div>
-<div id="exercises-4" class="section level2 hasAnchor" number="7.6">
-<h2><span class="header-section-number">7.6</span> Exercises<a href="list.html#exercises-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercises-4" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Exercises<a href="r-always-store-data-as-a-.html#exercises-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>Suppose we define the vector <code>x</code> as <code>x &lt;- c(1,2,3)</code>. What is the value of</li>
 </ol>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="list.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">list</span>(x) ) <span class="sc">==</span> <span class="fu">length</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="r-always-store-data-as-a-.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">list</span>(x) ) <span class="sc">==</span> <span class="fu">length</span>(x)</span></code></pre></div>
 
 </div>
 </div>
@@ -544,7 +541,7 @@ with length <strong>longer</strong> than 1, <strong>sapply</strong> will return 
           </div>
         </div>
       </div>
-<a href="matrix.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="list.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

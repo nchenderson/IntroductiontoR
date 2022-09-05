@@ -12,8 +12,7 @@
 
 
 
-* We can compute the square root of 243, $1.56^{124}$, and $7.21 \times 8^{4}$, just by typing these
-expressions into the **R** console
+* We can compute the square root of 243, $1.56^{124}$, and $7.21 \times 8^{4}$, just by typing these expressions into the **R console**
 ```{r, echo=TRUE}
 sqrt(243)
 
@@ -27,7 +26,9 @@ sqrt(243)
 * When working with more complicated mathematical operations in **R**, it is often useful to
 store intermediate values in **named variables**.
 
-* For example, 
+* For example, the following **R** code creates the variables `x, y, z` and assigns
+them the values $(42 + 17)\sqrt{43}$, $7.21(8^{4}) + \ln(2.34)$, and  
+$(42 + 17)\sqrt{43}/[ 7.21(8^{4}) + \ln(2.34) ]$ respectively.
 
 ```{r, echo=TRUE}
 x <- (42 + 17)*sqrt(43)
@@ -57,7 +58,7 @@ z  ## print out the value of z
 * For example, ...
 
 
-## Rules for choosing **variable names** in R
+### Rules for choosing **variable names** in R
 
 * Variables can be named however you want as long as you follow the 
 several variable-naming rules that R has. 
@@ -72,8 +73,7 @@ several variable-naming rules that R has.
   + If a variable name starts with a **period**, it **cannot** be followed by a **number**.
   + Variable names are **case sensitive**.
 
-## Examples of **valid** and **invalid** variable names in R
-  
+* The following tables shows examples of **valid** and **invalid** variable names in R
 ```{r, echo=FALSE}
 add.varlid <- c("i", "my_variable", "answer42", ".name")
 add.invalid <- c("2things", "location@", "_user.name",".3rd")
@@ -92,7 +92,7 @@ knitr::kable(AddOperators, format = 'markdown', align=rep('c', 2), padding=2)
 https://r4ds.had.co.nz/workflow-basics.html
 
 
-## Variable **Assignment**
+### Variable **Assignment**
 
 * Variables can be assigned using either `<-` or `=`
 
@@ -111,8 +111,7 @@ y   # Retrieve the value of y
 * The use of `<-` instead of `=` is often recommended in **R** style guides:
     + http://adv-r.had.co.nz/Style.html
 
-
-### **<-** vs. **=**
+---
 
 * `<-` and `=` will work the same if they are both
 used in the "usual way" (when assigning variables within 
@@ -233,6 +232,8 @@ expressions into the **R** console:
 1 + 2 *3 ^ 4 # power > mult/div > add/sub
 (1 + 2 ) *3 ^ 4 # parenthesis > power
 ```
+
+## Brief intro to vectors in R
 
 ## Exercises
 
