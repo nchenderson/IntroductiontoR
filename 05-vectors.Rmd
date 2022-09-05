@@ -14,7 +14,15 @@ x[1]     ## What does this do?
 
 * Here, `x` is considered to be a **vector** of length 1.
 
-* Vectors that are **homogenous** (all elements have the same type) are more technically referred to as **atomic vectors** in **R**.
+---
+
+* Technically, there are two kinds of vectors in R: 
+     + **atomic vectors**
+     + **lists**
+     
+* However, it is very common to refer to **atomic vectors** as simply "**vectors**" and to refer to lists as "lists".
+
+* Vectors that are **homogenous** (all elements have the same type) are technically referred to as **atomic vectors** in **R**.
     + It is common to refer to any atomic vector as a **vector**.
     + We will also refer to any atomic vector as a **vector**.
 

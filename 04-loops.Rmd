@@ -1,15 +1,15 @@
 # Loops in R {#loops}
 
-* [**Loops**]{style="color:#D96716"} are typically used when we want to repeat some type 
+* **Loops** are typically used when we want to repeat some type 
 of calculation many times.
 
-* The two types of loops in **R** are the [**for**]{style="color:#D96716"} loop 
-and the [**while**]{style="color:#D96716"} loop.
+* The two types of loops in **R** are the **for** loop 
+and the **while** loop.
 
-* [**For**]{style="color:#D96716"} loops: 
+* **For** loops: 
     + Typically used when we know exactly how many times we need to repeat a calculation.
     
-* [**While**]{style="color:#D96716"} loops:
+* **While** loops:
     + Typically used when we only want to repeat some calculation until some condition is satisfied.
 
 
@@ -22,26 +22,26 @@ for (x in vec_name) {
 }
 ```
     
-* The [**for**]{style="color:#D96716"} loop will execute the code underneath the [**for**]{style="color:#D96716"} statement $T$ times where $T$ is the **length** of the vector `vec_name`.
+* The **for** loop will execute the code underneath the **for** statement $T$ times where $T$ is the **length** of the vector `vec_name`.
 
 * **Each** time the code is executed, `x` will be set to one element in `vec_name`.
 
 
 ### Example 1: printing the first 5 integers
 
-* As an example, let's write a [**for**]{style="color:#D96716"} loop that prints the first 5 positive integers:
+* As an example, let's write a **for** loop that prints the first 5 positive integers:
 ```{r, echo=TRUE}
 for (k in 1:5) {
     print(k)
 }
 ```
 
-* [**Each time**]{style="color:#D96716"} you go inside the loop, the variable `k` takes the next value in the vector `1:5` and is printed to the screen.
+* **Each time** you go inside the loop, the variable `k` takes the next value in the vector `1:5` and is printed to the screen.
 
 
 ### Example 2: computing 10 factorial
 
-* As another example, let's use a [**for**]{style="color:#D96716"} loop to compute the product
+* As another example, let's use a **for** loop to compute the product
 \begin{equation}
 10! = 1 \times 2 \times 3 \times ... \times 9 \times 10 \nonumber
 \end{equation}
@@ -60,7 +60,7 @@ print(prod_ten)     # print the product of first 10 integers
 
 * The looping variable **does not** need to be **numeric**.
 
-* Here is an example where the looping variable is a [**character**]{style="color:#D96716"}.
+* Here is an example where the looping variable has **character** type.
 ```{r, echo = TRUE}
 fruits <- c("apple","orange","grape")   # character vector
 for(fruit in fruits)  {  # iterate each element
@@ -71,7 +71,7 @@ for(fruit in fruits)  {  # iterate each element
 
 ### Example 4: first Fibonacci numbers 
 
-* The [**Fibonacci sequence**]{style="color:#D96716"} is a sequence of numbers $x_{1}, x_{2}, x_{3}, ...$ defined by the relationship:
+* The **Fibonacci sequence** is a sequence of numbers $x_{1}, x_{2}, x_{3}, ...$ defined by the relationship:
 \begin{equation}
 x_{k} = x_{k-1} + x_{k-2} \nonumber
 \end{equation}
@@ -116,7 +116,7 @@ x
 
 ### Nested for loops
 
-* You can have a for loop **within** another [**for**]{style="color:#D96716"} loop. 
+* You can have a for loop **within** another **for** loop. 
     + These are usually referred to as **nested** for loops.
 
 ```{r, echo = TRUE}
@@ -128,7 +128,7 @@ for (i in 1:3) {   # i iterates over 1,2,3
 ```
 
 
-### Exiting for loops and skipping iterations: break and next
+### break and next: Exiting for loops and skipping iterations
 
 * You can use the **break statement** to terminate a loop.
      + The **for** loop will be stopped whenever the statement **break** is encountered.
@@ -208,12 +208,12 @@ for (i in 1:3) {   # i iterates over 1,2,3
 
 ## While Loops
 
-* [**For**]{style="color:#D96716"} loops execute a piece of code a set number of times.
+* **For** loops execute a piece of code a set number of times.
 
-* [**While**]{style="color:#D96716"} loops keep executing the piece of code as long as 
+* **While** loops keep executing the piece of code as long as 
 a certain condition is `TRUE`.
 
-* The general form of a [**while**]{style="color:#D96716"} loop in **R** is
+* The general form of a **while** loop in **R** is
 ```{r, echo=TRUE, eval=FALSE}
 while(condition) {
     code chunk
@@ -221,10 +221,10 @@ while(condition) {
 }
 ```
 
-* `condition` is a [**logical**]{style="color:#D96716"} expression.
+* `condition` is a **logical** expression.
 
 * The `code_chunk` inside the loop is repeated until the `condition` becomes `FALSE`
-in which case the loop [**stops**]{style="color:#D96716"}. 
+in which case the loop **stops**. 
 
 ---
 
@@ -242,7 +242,7 @@ while(prod < 100)  {  # repeat the block until condition is true
 
 ### Example 1: a "first which" function
 
-* We can use a [**while loop**]{style="color:#D96716"} to find the [**first occurrence**]{style="color:#D96716"} of a number in a vector.
+* We can use a **while loop** to find the **first occurrence** of a number in a vector.
 
 * Specifically, for an input vector **x** and input number **num**, we want 
 to find the first index `k` such that `x[k] == num`
