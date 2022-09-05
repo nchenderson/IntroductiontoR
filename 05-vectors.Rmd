@@ -1,0 +1,558 @@
+# Vectors in R {#vectors}
+
+* The most basic data type in **R** is the **vector**.
+
+* As we mentioned previously, if we assign the number `42` to a 
+variable named `x`, **R** will treat `x` as a vector.
+
+```{r, echo = TRUE}
+x <- 42  ## the x value is 42
+x        ## print the value of x
+
+x[1]     ## What does this do?
+```
+
+* Here, `x` is considered to be a **vector** of length 1.
+
+* Vectors that are **homogenous** (all elements have the same type) are more technically referred to as **atomic vectors** in **R**.
+    + It is common to refer to any atomic vector as a **vector**.
+    + We will also refer to any atomic vector as a **vector**.
+
+---
+
+* R will always store data as a "**collection**".
+
+```{r, echo=FALSE}
+add.dimension <- c("1-Dimension", "2-Dimensions", ">2-Dimensions")
+add.homogeneous <- c("Atomic Vector", "Matrix", "Multi-dimensional array")
+add.heterogeneous <- c("List", "Data Frame", "")
+AddOperators <- data.frame(Dimension=add.dimension, Homogeneous=add.homogeneous, Heterogeneous=add.heterogeneous)
+knitr::kable(AddOperators, format = 'markdown', align=rep('c', 3), padding=3)
+```
+* There is no "0-dimensional data" in R.
+
+* Even a **single-valued object** is considered to be a "vector" with length 1.
+
+Source: [http://adv-r.had.co.nz/Data-structures.html](http://adv-r.had.co.nz/Data-structures.html) 
+
+
+## Creating vectors in R
+
+### The concatenate function `c()`
+
+* The most straightforward way to **create** vectors in **R** is to use the **concatenate** function `c()`
+
+* This links together a group of values into a **single vector**.
+    + You can also create a single vector from multiple vectors using `c`. 
+
+* Examples of using `c()` to create numeric vectors are:
+```{r, echo=TRUE}
+x <- c(1,2,3) # create a length-3 vector with elements 1, 2, and 3
+x
+
+y <- c(x, 4, 5) # create a vector with elements 1,2,3,4,5
+y
+```
+
+---
+
+* You are **not** limited to using numeric values with `c()`. 
+
+* For example, you can use `c()` to create a vector of **characters or logicals**.
+```{r, echo=TRUE}
+char_vec <- c("cat", "dog", "hamster")  # vector of characters
+char_vec
+
+log_vec <- c(TRUE, FALSE, TRUE, TRUE)  # vector of logicals
+log_vec
+```
+
+
+### colon, seq, rep: Creating vectors with specific patterns
+
+* It is often very useful to be able to create 
+**vectors** with specific patterns.
+
+* The **colon operator** `:` can be used to create
+a sequence of numbers. 
+
+* The code `from:end` will create a vector of numbers 
+starting at `from` and increasing (or decreasing) by 1
+until reaching `end`.
+
+* Examples:
+```{r, echo = TRUE}
+x <- 1:5   # creates the vector (1,2,3,4,5)
+x
+
+y <- 22:28
+y
+```
+
+* You can also use the colon operator to create a **decreasing** sequence of numbers.
+```{r, echo = TRUE}
+z <- 0:-5 # use : to created decreasing vector
+z   
+```
+
+* You can even have use a number with a **decimal point** as the **starting** 
+or **ending** number (but this is not done that frequently).
+
+```{r, echo = TRUE}
+w <- 2.3:6.8 # it keeps increasing by 1 until it reaches
+             # largest value less than 6.8
+w   
+```
+
+
+* Be **careful** when using something like `a:b-1` when creating a vector
+```{r, echo=TRUE}
+b <- 6
+u <- 1:b - 1  # This does not create the vector 1,2,...,b-1
+u
+u <- 1:(b-1) # use this to create vector 1,2,...,b-1
+u
+```
+
+
+---
+
+* The function **seq** is a useful function 
+for creating vectors that have desired
+starting and ending values.
+
+* **seq** provides more **flexibility** than the colon operator `:`
+
+* You can use **seq** to create a sequence with different increments than $1$
+```{r, echo = TRUE}
+seq(1, 11, by=2) # sequence that increases by 2
+seq(1, 10, by=2) # stops at 9 since 11 is larger than 10
+seq(1, 11, by=2.54) # increment by non-integer amount
+```
+
+
+* Use the `length.out` argument in **seq** to 
+create an equally-spaced vector with a given length.
+```{r, echo = TRUE}
+seq(1, 11, length.out=11) # same as 1:11
+seq(1, 11, length.out=6) # vector of length 6, with equal increments
+                              # using length.out is convenient
+seq(21.5, 48.2, length.out=5) # don't have to work out correct increments
+```
+
+---
+
+* The `rep()` (replicate) function is **very useful** for
+creating vectors that have any kind of **repeated** pattern. 
+
+* The basic form of `rep` is
+```{r, echo=TRUE, eval=FALSE}
+rep(x, times)
+```
+    
+* **rep** produces a **vector** which repeats the vector `x` **times** number of times.
+    
+
+```{r, echo = TRUE}
+rep(7, 3) # just creates the vector 7,7,7
+rep(c(2,4,6), 3) # repeats c(2, 4, 6) three times
+```
+
+
+* Using `rep` inside of `c()`:
+```{r, echo = TRUE}
+c(10:12, rep(c(2,4,6), 3)) 
+```
+
+* Using **rep** with the keyword **each** will repeat each element of `x` **each** times
+  before moving on to the next element of `x`. 
+```{r, echo = TRUE}
+rep(c(2,4,6), each=4)  # repeat each element 4 times 
+```
+
+## Subsets of vectors
+
+### Extracting vector elements
+
+* You can **extract** the $k^{th}$ element of a vector by using 
+```{r, echo=TRUE, eval=FALSE}
+vector_name[k]
+```
+
+* For example:
+```{r, echo=TRUE}
+x <- c(1,3,5,100) 
+x[2]  # second element of x
+x[4]  # fourth element of x
+```
+
+
+* You can also extract a **subset** of elements with indices stored by the vector `vec_index` from a vector by using
+```{r, echo=TRUE, eval=FALSE}
+vector_name[ vec_index ]
+```
+
+* For example:
+```{r, echo=TRUE}
+x <- c(1,3,5,100, 1250) 
+x[ c(1,3) ]  # extract first and third elements of x
+x[ 3:5 ]  # extract elements 3 through 5 of x
+```
+
+
+* You can change the value of the $k^{th}$ element of a vector
+by using 
+```{r, echo=TRUE, eval=FALSE}
+vector_name[k] <- new_value
+```
+
+```{r, echo = TRUE}
+x <- c(1,3,5,100) 
+x[2] <- 6   # you may update a single element
+print(x)
+```
+
+* You can also update **multiple elements** of a vector 
+by placing a vector of indices inside brackets `[]`
+```{r, echo=TRUE}
+x[1:3] <- rep(10,3) # update first 3 elements of x
+print(x)
+```
+
+### Subsetting with logical expressions
+
+* We described above how you can take a **subset** of a vector by specifying the vector **indeces** that you want for your subset.
+
+* You can also subset a vector using a **logical expression** rather than explicitly specifying the indeces you want.
+```{r, echo = TRUE}
+x <- c(10, 2, 21, 15)
+y <- x[x > 8]  # returns all elements of x greater than 8
+z <- x[x > 12] # returns all elements of x greater than 12
+y
+z
+```
+
+* You can think of the expression `x[x > 8]` as doing the following:
+```{r, echo=TRUE}
+x[c(TRUE, FALSE, TRUE, TRUE)]
+```
+
+
+### The which function
+
+* You can find the **indeces** of a vector that satisfy a certain
+condition using the **which** function.
+
+```{r, echo = TRUE}
+x <- c(10, 2, 21, 15)
+which(x > 20) # shows that x[3] > 20
+which(x > 12) # shows that x[3] > 12 and x[4] > 12
+```
+
+* The **which** function really just returns the [**indeces**]{style="color:#D96716"} where a logical vector is `TRUE`
+```{r, echo=TRUE}
+which( c(FALSE, TRUE, FALSE) )
+```
+
+
+## Useful methods for vectors
+
+* The `length` function can tell you **how many** elements are in your vector:
+```{r, echo = TRUE}
+x <- 9:0
+x
+
+length(x)  # length of the vector
+
+typeof(x)  # type of elements
+
+sum(x)     # sum of values
+```
+
+* **R** has functions which allow you to compute 
+all the well-known [**summary statistics**]{style="color:#D96716"} from a
+numeric vector.
+
+```{r, echo = TRUE}
+x <- 1:5
+mean(x)   # average of vector elements
+
+var(x)  # variance (denominator is n-1)
+
+sd(x)   # standard deviation (denominator is n-1)
+```
+
+
+```{r, echo = TRUE}
+x <- 1:5
+max(x)    # maximum value
+
+min(x)    # minimum value
+
+median(x) # median
+```
+
+
+## Vectors with different data types
+
+* As we mentioned before, **R** vectors are **not limited** to 
+having numeric elements.
+
+* The main **restriction** for **vectors** is that they must have elements which are all the **same** type.
+```{r, echo = TRUE}
+x <- c(1, 2.5, 42)  ## numeric vector
+print(x)        
+
+y <- c("hello","world","biostat607")  ## character vectors
+print(y)
+
+z <- c(TRUE, FALSE, FALSE) ## logical vectors
+print(z)
+```
+
+---
+
+* You can "create" a vector that has **mixed data types**, but **R** will **automatically**
+convert the types of some of the elements so that **all elements** have the same type.
+```{r, echo = TRUE}
+x <- c(TRUE, FALSE, FALSE) ## homogeneous logical vector
+print(x)      
+
+x <- c(TRUE, FALSE, 2)  ## contains logical and numeric values
+print(x)  ## R translates logical TRUE/FALSE into numeric 1/0  
+
+x <- c(1, 2, "3")  ## numeric + character
+print(x)  ## R translates numeric values translates into characters
+```
+
+
+```{r, echo=TRUE}
+x <- c(TRUE, 2, "3") ## logical + numeric + character
+print(x)  ## R translates logical and numeric values into characters
+```
+
+
+### Explicitly changing the data types
+
+* You can convert a vector to another type using
+`as.logical`, `as.numeric`, or `as.character`.
+
+```{r, echo = TRUE}
+x <- as.logical(c(0,1,2,3)) # numeric to logical conversion
+print(x)      
+
+x <- as.numeric(c(TRUE,FALSE, T,F))  # logical to numeric 
+print(x) 
+
+x <-as.character(c(0,1,2,3)) # numeric to string
+print(x)   
+```
+
+* Sometimes conversion of a vector does **not** work
+
+```{r, echo = TRUE}
+## When a character cannot be converted, it returns NA 
+## as an invalid number
+as.numeric(c("123","12.3","123a")) 
+    
+## Characters cannot be converted into logical values 
+as.logical(c("TRUE","FALSE", "T","TF",0))  
+
+as.integer(c(123, 12.3, "123", "123a"))
+```
+
+
+
+## Mathematical operations with vectors
+
+* When doing **mathematical operations** with two vectors of the same length, **R** will perform addition, subtraction, multiplication, division **element-by-element**.
+
+```{r, echo = TRUE}
+x <- c(10, 5, 0)  
+y <- 1:3
+x+y     # element-wise addition
+
+x*y     # element-wise multiplication
+
+x^y     # element-wise power
+```
+
+
+* Multiplying or dividing a vector by a **single number** multiplies (or divides) each element by that number
+```{r, echo = TRUE}
+x <- c(10, 5, 0, -5)  
+
+3*x
+x/2
+```
+
+* Adding or subtracting a vector by a **single number** also adds (or subtracts) each element by that number
+```{r, echo = TRUE}
+x <- c(10, 5, 0, -5)  
+
+3 + x  # Actually an example of recycling with a one-element vector
+```
+
+### Recycling rules
+
+* You can actually add/subtract vectors of **different lengths**.
+
+* When doing this, **R** **recycles** the values in the shorter vector
+    + **R** will print out a **warning** message if the length of the longer vector is **not** a multiple of the shorter vector
+```{r, echo=TRUE}
+c(1, 2, 4) + c(6, 0, 9, 10)
+```
+
+* What the above code is doing is adding the vector `c(1, 2, 4, 1)` with the
+vector `c(6, 0, 9, 10)`.
+
+---
+
+* Note that if we **add** a vector of **length 3** with a vector of **length 6** we will get no warning message.
+    + This is because $6$ is a multiple of $3$.
+```{r, echo=TRUE}
+c(1, 2, 4) + c(6, 0, 9, 10, 11, 12)
+```
+
+* The above code adds the vector `c(1, 2, 4, 1, 2, 4)` with the
+vector `c(6, 0, 9, 10, 11, 12)`.
+
+* I personally do not use recycling rules much when the length of 
+**both vectors* is 2 or more.
+    + It's probably good to be aware of recycling rules if you are getting this type of warning message.
+    
+    + You may find it helpful to use these recycling rules if you are, for example, adding one vector with another vector that has a simple, **repeating** pattern.
+
+### Logical operations with vectors
+
+```{r, echo = TRUE}
+
+c(TRUE, TRUE, FALSE) & c(TRUE,FALSE,FALSE) # element-wise
+
+c(TRUE, TRUE, FALSE) | c(TRUE,FALSE,FALSE) # element-wise
+c(TRUE, TRUE, FALSE) && c(TRUE,FALSE,FALSE) # only first values
+
+c(TRUE, TRUE, FALSE) || c(TRUE,FALSE,FALSE) # only first values
+```
+
+
+
+## Set operations with vectors
+
+* You can also do **set operations** with vectors. 
+
+* When working with **set operations**, you should think of the **set** associated with a vector as the collection of **unique** elements from that vector.
+
+```{r, echo = TRUE}
+
+x <- c(1,2,3,3,4,5)   # x is c (1,2,3,3,4,5)
+y <- c(1,3,3,5,7,9) # y is c (1,3,3,5,7,9) 
+intersect(x,y)  # set intersection, note that repeated 3 is dropped
+
+union(x,y)     # set union
+
+setdiff(x,y)   # set difference x - y
+```
+
+
+```{r, echo = TRUE}
+
+x <- 1:5            # x is c (1,2,3,4,5)
+y <- c(1,3,3,5,7,9) # y is c (1,3,3,5,7,9) 
+x %in% y            # membership test
+
+match(x, y)       # find indices of first matching values
+
+setdiff(x, y)     # set difference x-y
+
+```
+
+
+## NA and is.na(): missing values in R
+
+* **Missing data** in R is usually represented by the 
+value **NA**.
+   + `NA` stands for **"Not Available"**
+
+* You can create a vector with **NA values** by just
+typing in `NA` for one of the vector elements.
+```{r}
+x <- c(1, 5, NA, 4) # The third element of this vector is NA
+typeof(x)
+```
+
+* You can type in NA for either **numeric or character** variables.
+     + R will automatically convert everything to the appropriate type.
+```{r}
+y <- c("cat", NA, "dog") # The second element of this vector is NA
+typeof(y)
+```
+
+--- 
+
+* Many of the **built-in** R functions will return `NA` 
+if the input numeric vector **contains** any `NA` values.
+
+* For example, if we try to compute the standard deviation of the vector `x`
+```{r}
+x <- c(1, 5, NA, 4, 7) # The third element of this vector is NA
+mx <- sd(x)   # mx will have the value NA
+mx
+```
+
+* You can compute the **standard deviation**
+of the non-NA values by including the argument `na.rm = TRUE`
+```{r}
+sx <- sd(x, na.rm=TRUE) # sx shoud have the standard deviation of 1,5,4,7
+sx
+```
+
+* In the function `sd`, the argument `na.rm` is a good example
+of an argument with a **default value**.
+
+* You can see that `na.rm` has a **default value** by looking at 
+the **function definition** for `sd`
+```{r, echo=TRUE, eval=FALSE}
+sd <- function(x, na.rm = FALSE) {
+    
+}
+```
+
+* The **default** value of `na.rm` is `FALSE`.
+    + So, you need to include `na.rm = TRUE` if you want `sd` to ignore missing values.
+
+### The function `is.na()`
+
+* The function `is.na()` is often very useful when you're working with data that has **mising values**.
+
+* When applied to a vector, `is.na()` will return a vector of
+**logical values** with the **same length** as the input vector.
+
+* The $k^{th}$ element of `is.na(x)` will be `TRUE` if the $k^{th}$ element of `x` is missing.
+    + Otherwise, the $k^{th}$ element of `is.na(x)` will be `FALSE`.
+
+```{r, echo=TRUE}
+x <- c(10, 3, 5, NA, 1, NA)  # Elements 4 and 6 of x have NA values 
+is.na(x)
+```
+
+* You can also use `is.na()` directly on **matrices** and **data frames**.
+
+
+## Exercises
+
+1. Suppose we define the vector `x` as `x <- 1:10`. What is the value of
+`x[ seq(1, 10,by=2)][3]`?
+
+2. Suppose `x <- rep(c(1, 5, 10), each=3)`. What is the value of `sum( x[x > 5] )`?
+
+3. Create a vector called `xvec` that stores the following sequence of numbers:
+$1, 1, 2, 1, 2, 3, 1, 2, 3, 4, ....$ and keeps repeating this pattern 
+until the last number is $10$. 
+   + (a) What is the length of `xvec`?
+   + (b) What number is the $35^{th}$ element of `xvec`?
+   + (c) What is the mean value of the numbers contained in `xvec`?
+   + (d) How many elements of `xvec` equal $2$? How many elements of `xvec` equal $7$?
+   + (e) What is the sum of all the **even** numbers contained in `xvec`?
+
+

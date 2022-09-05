@@ -55,14 +55,22 @@ function_name <- function(params){
 
 ### Example 1
 
-Let's write a function that takes a number as an input and returns the square of that number.
+* Let's **write a function** that takes a number as an input and returns the **square** of that number.
 
 ```{r, echo = TRUE}
 ## define a new function named square
 square <- function(x) { ## function name: square, argument : x
    return(x*x)           ## returns x*x
 } 
+```
 
+* Once we have defined `square`, we can use it as many times as we would like.
+
+* After defining the function, each time the function is used is referred to as
+**calling** the function.
+
+* Let's try **calling** `square` with an input number of `10`:
+```{r, echo=TRUE}
 square(10)    ## example of using the function square
 ```
 
@@ -91,7 +99,7 @@ PositiveEven  <- function(x) {
 ```
 
 
-* Now, let's look at a few examples of **calling** our function `PositiveEven`:
+* Now, let's look at a few examples of **calling** `PositiveEven`:
 
 ```{r, echo=TRUE}
 PositiveEven(3)
