@@ -6,3 +6,6 @@ view: https://github.com/nchenderson/IntroductiontoR/blob/master/%s
 language:
   ui:
     chapter_name: "Chapter "
+rmd_files:
+    html: ["index.Rmd", "01-intro.Rmd", "02-logical.Rmd", "03-functions.Rmd","04-loops.Rmd","05-vectors.Rmd","06-matrix.Rmd","07-list.Rmd"]
+new_session: yes

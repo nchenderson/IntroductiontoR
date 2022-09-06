@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-05" />
+<meta name="date" content="2022-09-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,12 +142,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#variables-in-r"><i class="fa fa-check"></i><b>1.2</b> Variables in R</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#rules-for-choosing-variable-names-in-r"><i class="fa fa-check"></i><b>1.2.1</b> Rules for choosing <strong>variable names</strong> in R</a></li>
-<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#variable-assignment"><i class="fa fa-check"></i><b>1.2.2</b> Variable <strong>Assignment</strong></a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#variable-assignment"><i class="fa fa-check"></i><b>1.2.2</b> Variable Assignment</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#types-of-variables"><i class="fa fa-check"></i><b>1.2.3</b> Types of variables</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#types-of-variables"><i class="fa fa-check"></i><b>1.3</b> <strong>Types</strong> of variables</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#r-operations-with-numbers"><i class="fa fa-check"></i><b>1.4</b> R Operations with <strong>numbers</strong></a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#brief-intro-to-vectors-in-r"><i class="fa fa-check"></i><b>1.5</b> Brief intro to vectors in R</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.6</b> Exercises</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#r-operations-with-numbers"><i class="fa fa-check"></i><b>1.3</b> R Operations with numbers</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#brief-intro-to-vectors-in-r"><i class="fa fa-check"></i><b>1.4</b> Brief intro to vectors in R</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>2</b> Logical Expressions and If-Else Statements in R</a>
 <ul>
@@ -265,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">An Introduction to R programming</h1>
 <p class="author"><em>Nicholas Henderson</em></p>
-<p class="date"><em>2022-09-05</em></p>
+<p class="date"><em>2022-09-06</em></p>
 </div>
 <div id="intro" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Getting Started<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -375,7 +375,7 @@ several variable-naming rules that R has.</p></li>
 <p><a href="https://r4ds.had.co.nz/workflow-basics.html" class="uri">https://r4ds.had.co.nz/workflow-basics.html</a></p>
 </div>
 <div id="variable-assignment" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Variable <strong>Assignment</strong><a href="intro.html#variable-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">1.2.2</span> Variable Assignment<a href="intro.html#variable-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Variables can be assigned using either <code>&lt;-</code> or <code>=</code></li>
 </ul>
@@ -419,9 +419,8 @@ to do assignment from the left by using the reverse symbol <code>-&gt;</code></p
 <span id="cb23-2"><a href="intro.html#cb23-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
 </div>
-</div>
-<div id="types-of-variables" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> <strong>Types</strong> of variables<a href="intro.html#types-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="types-of-variables" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Types of variables<a href="intro.html#types-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>Variables can be used to store <strong>different types</strong> of values.</p></li>
 <li><p>Common types include numeric, text, and logical values.</p></li>
@@ -470,8 +469,9 @@ function <strong>typeof</strong></p></li>
 we discuss <strong>vectors</strong>, <strong>matrices</strong>, and <strong>lists</strong>.</li>
 </ul>
 </div>
-<div id="r-operations-with-numbers" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> R Operations with <strong>numbers</strong><a href="intro.html#r-operations-with-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="r-operations-with-numbers" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> R Operations with numbers<a href="intro.html#r-operations-with-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>As we mentioned before, …</li>
 </ul>
@@ -577,35 +577,35 @@ expressions into the <strong>R</strong> console:</li>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="intro.html#cb39-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> ) <span class="sc">*</span><span class="dv">3</span> <span class="sc">^</span> <span class="dv">4</span> <span class="co"># parenthesis &gt; power</span></span></code></pre></div>
 <pre><code>## [1] 243</code></pre>
 </div>
-<div id="brief-intro-to-vectors-in-r" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Brief intro to vectors in R<a href="intro.html#brief-intro-to-vectors-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="brief-intro-to-vectors-in-r" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Brief intro to vectors in R<a href="intro.html#brief-intro-to-vectors-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
-<div id="exercises" class="section level2 hasAnchor" number="1.6">
-<h2><span class="header-section-number">1.6</span> Exercises<a href="intro.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
+<div id="exercises" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Exercises<a href="intro.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
 <li>Compute the number</li>
-</ul>
+</ol>
 <span class="math display">\[\begin{equation}
 \frac{\sqrt{1.43 + 5^{1.2}}}{3}
 \end{equation}\]</span>
 <p>directly in the <strong>R</strong> console.</p>
-<ul>
+<ol start="2" style="list-style-type: decimal">
 <li>Write an <strong>R script</strong> that assigns the value …</li>
-</ul>
+</ol>
 <span class="math display">\[\begin{equation}
 \ln\Big( 1 + \exp(-2^{1.4}) \Big) + \ln\Big(1 + 2\exp(3^{1.7}) \Big)
 \end{equation}\]</span>
-<ul>
-<li><p>… to a variable named <code>x</code> and prints the result in the Console when you run
-the script.</p></li>
-<li><p>Which of the following is <strong>NOT</strong> a valid variable name in <strong>R</strong>?</p>
+<p>to a variable named <code>x</code> and prints the result in the Console when you run
+the script.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Which of the following is <strong>NOT</strong> a valid variable name in <strong>R</strong>?
 <ul>
 <li>.independent_variable3</li>
 <li>_independent_variable3</li>
 <li>independent_variable3</li>
 <li>independent.variable3</li>
 </ul></li>
-</ul>
+</ol>
 
 </div>
 </div>
@@ -663,7 +663,7 @@ gitbook.start({
 "options": null
 },
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
