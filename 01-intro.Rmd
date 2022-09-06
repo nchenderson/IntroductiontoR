@@ -92,7 +92,7 @@ knitr::kable(AddOperators, format = 'markdown', align=rep('c', 2), padding=2)
 https://r4ds.had.co.nz/workflow-basics.html
 
 
-### Variable **Assignment**
+### Variable Assignment
 
 * Variables can be assigned using either `<-` or `=`
 
@@ -149,7 +149,7 @@ a
 ```
 
 
-## **Types** of variables
+### Types of variables
 
 * Variables can be used to store **different types** of values.
 
@@ -202,7 +202,7 @@ typeof(z)
 we discuss **vectors**, **matrices**, and **lists**.
 
 
-## R Operations with **numbers**
+## R Operations with numbers
   
 * As we mentioned before, ...  
 
@@ -237,7 +237,7 @@ expressions into the **R** console:
 
 ## Exercises
 
-* Compute the number 
+1. Compute the number 
 ```{=tex}
 \begin{equation}
 \frac{\sqrt{1.43 + 5^{1.2}}}{3} 
@@ -245,18 +245,16 @@ expressions into the **R** console:
 ```
 directly in the **R** console.
 
-* Write an **R script** that assigns the value ...
-
+2. Write an **R script** that assigns the value ...
 ```{=tex}
 \begin{equation}
 \ln\Big( 1 + \exp(-2^{1.4}) \Big) + \ln\Big(1 + 2\exp(3^{1.7}) \Big)
 \end{equation}
 ```
-
-* ... to a variable named `x` and prints the result in the Console when you run
+to a variable named `x` and prints the result in the Console when you run
 the script.
 
-* Which of the following is **NOT** a valid variable name in **R**?
+3. Which of the following is **NOT** a valid variable name in **R**?
     + .independent_variable3
     + _independent_variable3
     + independent_variable3
