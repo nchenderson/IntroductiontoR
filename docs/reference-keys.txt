@@ -53,7 +53,17 @@ na-and-is.na-missing-values-in-r
 the-function-is.na
 exercises-3
 matrix
-creating-a-matrices-in-r
+creating-matrices-in-r
+accessing-different-features-of-a-matrix
+naming-rows-or-columns
+combining-rows-or-columns
+applying-functions-to-matrices
+mathematical-operations-with-matrices
+matrix-functionals
+functions-applied-to-each-rowcolumn
+apply-dimension-wise-aggregation
+using-apply-with-your-own-function
+exercises-4
 list
 creating-lists-in-r
 accessing-list-elements
@@ -62,4 +72,4 @@ expanding-a-list-adding-more-components
 when-are-lists-useful
 lapply-applying-functions-to-lists
 use-sapply-for-simpler-output
-exercises-4
+exercises-5

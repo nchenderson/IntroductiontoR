@@ -18,7 +18,7 @@ a_{n1} & a_{12} & \ldots & a_{np}
 * As with vectors, the **elements** of a matrix in **R** must all have the **same type**.
 
 
-## Creating a matrices in R
+## Creating matrices in R
 
 * The most common way to create a matrix is 
 with the **matrix** function.
@@ -68,4 +68,345 @@ D <- matrix(x, 2, 3, byrow=TRUE)
 D
 ```
 
+---
 
+
+* It is often useful to create a matrix which has **all the same** columns (or rows):
+```{r, echo = TRUE}
+matrix(1:2, 2, 3) # duplicates the column vector c(1,2)
+
+matrix(1:3, 2, 3) # this does not duplicate the row vector c(1,2,3)
+
+matrix(1:3, 2, 3, byrow=TRUE) # but this one does!
+```
+
+## Accessing different features of a matrix
+
+* To access specific **elements** of a matrix:
+
+```{r, echo = TRUE}
+
+A <- matrix(1:6, 2, 3, byrow=TRUE) # creating a 2x3 matrix
+A                         # print the matrix
+
+A[2,1]
+A[2,1:2]
+A[,2]
+```
+
+
+
+* Using **nrow()** or **ncol()** let you see the number of 
+**rows** or **columns** of a matrix.
+
+* **dim** will return both the number of rows and columns.
+
+```{r, echo = TRUE}
+
+A <- matrix(1:6, 2, 3, byrow=TRUE) # creating a 2x3 matrix
+
+nrow(A)
+ncol(A)
+dim(A)
+```
+
+---
+
+
+* You can also access the elements of a matrix as you would with a **vector**. 
+
+* For a matrix, the indexing increases column-by-column.
+    + For example, if `A` has 3 rows: 
+    + `A[1]=A[1,1]`, `A[2]=A[2,1]`, `A[3]=A[3,1]`, `A[4]=A[1,2]`, ...
+
+* I don't really use this way of accessing matrix elements much though, 
+in some cases, it is more convenient (e.g., `A[ which(A > 3) ]`)
+
+```{r, echo = TRUE}
+A 
+A[4:5]          ## accessing like a one-dimensional vector
+```
+
+* Accessing elements of a matrix like a vector using **logical subsetting**
+
+```{r,echo=TRUE}
+which( A > 3)      ## getting indices with which
+A[ which(A>3) ]   ## getting the elements greater than 3
+```
+
+
+
+* The **diagonals** of a matrix are the elements of the matrix where
+the **row index** equals the **column index**.
+
+* In a **diagonal matrix**, all **non-diagonal** elements must be zero.
+
+* To create a **diagonal** matrix, use the `diag` function.
+    + You must provide the vector of **diagonal elements** as the input to `diag`
+```{r, echo = TRUE}
+diag(1:4)   # 4x4 diagonal matrix with (1,2,3,4) as diagonals
+```
+
+
+* If you use `diag(A)` where the **input** `A` is a **matrix**, this 
+will return the diagonal elements of `A`.
+
+```{r, echo = TRUE}
+A <- matrix (1:9, 3, 3)
+A
+diag(A)   # returns diagonals of this matrix
+```
+
+
+* Working with **off-diagonal** elements 
+
+```{r, echo = TRUE}
+x <- matrix (1:9,3,3)
+x[upper.tri(x)] <- 0
+x
+x[lower.tri(x,diag=TRUE)] <- 10:15
+x
+```
+
+### Naming rows or columns
+
+* You can give a name to each row with the **rownames** function.
+    + The collection of row names of a matrix should be a vector.
+
+```{r, echo = TRUE}
+x <- matrix(1:6, nrow=2, ncol=3)
+rownames(x) <-c("a","b")
+x
+```
+
+* You can actually access rows of a matrix **by name**:
+
+```{r, echo = TRUE}
+x[1,] 
+rownames(x) <-c("a","b")
+x["a",]
+```
+
+* Similarly, you can access **columns** of a matrix **by name**:
+
+```{r, echo = TRUE}
+colnames(x) <-c("c1","c2","c3") 
+x
+x[2, c(2,3)]
+x["b", c("c2","c3")]
+```
+
+### Combining rows or columns
+
+* You can **"join"** matrices in "vertical" or "horizontal" ways
+by using the functions 
+   + `cbind` (**column** bind)
+   + `rbind` (**row** bind)
+
+```{r, echo = TRUE}
+X <- matrix(1:6,2,3)
+Y <- X^2
+cbind(X,Y)
+rbind(X,Y)
+```
+
+
+
+## Applying functions to matrices
+
+* Functions like **sum** or **mean** will
+take the sum (or average) of **all** 
+the elements of a matrix:
+
+```{r, echo = TRUE}
+A <- matrix (1:6, 2, 3)
+sum(A)  # sum of all elements
+mean(A) # average of all elements
+sd(A)   # standard deviation of all elements
+```
+
+
+* Useful operations on matrices
+
+```{r, echo = TRUE}
+A
+t(A)             ## transpose of A (reverse role of rows/columns)
+as.vector( A )   ## convert matrix to vector in column-wise order
+as.vector( t(A) ) ## convert matrix to vector in row-wise order
+
+```
+
+### Mathematical operations with matrices
+
+* Using `+,-,*,/` with two matrices performs **element-wise** addition,
+subtraction, multiplication, and division.
+
+```{r, echo = TRUE}
+y <- x <- matrix(1:6,2,3,byrow=TRUE)   
+x + y  # matrix addition (element-by-element)
+x - y  # matrix subtraction (element-by-element)
+x*y  # element-wise multiplication
+```
+
+
+* Matrix multiplication is done with `%*%` 
+
+```{r, echo = TRUE}
+x %*% t(y)  # (2x3) x (3x2) matrix
+t(x) %*% y  # (3x2) x (2x3) matrix
+```
+
+
+
+## Matrix Functionals
+
+### Functions applied to **each** row/column
+
+* We can take the **sum** or **mean** of each row/column of a matrix.
+
+```{r, echo = TRUE}
+A
+rowSums(A)
+colSums(A)
+rowMeans(A)
+```
+
+
+* Writing our own **rowSums()** function
+
+```{r, echo = TRUE}
+myRowSums <-function(x){
+  ret <- rep(NA,nrow(x)) ## make an empty vector
+  for(i in 1:nrow(x)) {
+    ret[i] <-sum(x[i,])  ## take the sum of i-th row
+  }
+  return (ret)
+}
+rowSums(A)
+myRowSums(A)
+```
+
+
+* The implementation by the function `myRowSums` works fine.
+
+* However, it is a bit cumbersome to write such a function
+whenever we want to compute **column-wise/row-wise** summary statistics.
+
+* It would be nice if there were a **quick & general** way to do the following:
+  + For each row or column of a matrix ...
+  + Evaluate a function using the row/column vector as input
+  + Return the collection of results as a numeric vector.
+  
+
+### **apply()**: dimension-wise aggregation
+
+
+```{r, echo = TRUE}
+rowSums(A)    ## original row-wise sum
+apply(A, 1, sum) ## this also performs row-wise sum
+colSums(A)    ## original column-wise sum
+apply(A, 2, sum) ## this also performs column-wise sum
+```
+
+
+
+* **First parameter** of apply: the **input matrix**.
+
+* **Second parameter** of apply: the **dimension** over which to aggregate 
+    + 1:rows,  2:columns
+
+* **Third parameter** of apply: **function** to evaluate for each row/column
+
+```{r, echo = TRUE}
+A
+apply(A, 1, sum)  # row sums
+apply(A, 2, sum)  # column sums
+```
+
+
+* Examples of using apply:
+
+```{r, echo = TRUE}
+colMeans(A)  ## original columnw-wise mean
+apply(A, 2, mean) ## same as above
+# colMax(A)   ## This will cause ERROR. colmax() does not exist!
+apply(A, 2, max) ## But this works!
+```
+
+
+
+### Using apply with your own function
+
+* Suppose that we want to do the following:
+
+* For **each** row/column:
+  + Calculate the squared sum of each row/column.
+  + Return the vector of squared sums.
+
+* How can we do this using **apply()**?
+
+---
+
+
+* A **big** advantage of the **apply** function is the
+**flexibility** it gives you.
+
+* You can use **your own** functions to compute **row-wise/column-wise summary measures** 
+for certain measures that may not be implemented in base **R**. 
+
+```{r, echo = TRUE}
+## define a function named sqsum
+sqsum <- function(x) {
+  return( sum(x*x) )  ## very simple implementation
+}
+apply(A, 1, sqsum)    ## run sqsum() funciton
+```
+
+---
+
+
+* You can actually write the function definition **inside**
+of the apply function.
+
+* This can be convenient when using straightforward functions that can be written on a single line:
+```{r, echo = TRUE}
+apply(A, 1, function(x) {return (sum(x*x))} )    ## much simpler!
+```
+
+* Or, we can write the above apply statement in an even simpler form:
+
+```{r, echo = TRUE}
+## You can omit return() and {} especially 
+## for simple function definitions
+apply(A, 1, function(x) sum(x*x) )    ## Even simpler!
+```
+
+---
+
+* **apply()** can also return a **matrix**
+
+```{r, echo = TRUE}
+## if apply() returns a vector, each row stores results
+apply(A, 1, function(x) c(min(x),max(x)) )
+apply(A, 2, function(x) c(min(x),max(x)) )
+```
+
+
+## Exercises
+
+1. Write a **function** that has two input arguments **A** and **B**
+    + **A** and **B** are both matrices with the same dimension (same number of rows and columns).
+    + The function returns a matrix **D**.
+    + The `[i,j]` element of **D** should equal `A[i,j]` if `A[i,j] < B[i,j]` and equal `B[i,j]` if `A[i,j] >= B[i,j]`.
+    + You can use either a **nested** for loop or **logical indexing**.
+    
+2. Suppose we define the matrix `X` as
+```{r, echo=TRUE, eval=FALSE}
+X <- rbind( rep(c(1,4), each=3), rep(c(8,6), each=3))
+```
+What will then be the value of `apply(X, 2, sum)[2]`?
+
+
+    
+    
+    
