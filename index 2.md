@@ -1,10 +1,8 @@
 --- 
 title: "An Introduction to R programming"
 author: "Nicholas Henderson"
-date: "`r Sys.Date()`"
+date: "2022-09-06"
 site: bookdown::bookdown_site
 ---
 
-# Preface {-}
 
-This book contains notes related to the R module of Biostatistics 607.
