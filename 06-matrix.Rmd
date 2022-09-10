@@ -406,7 +406,8 @@ X <- rbind( rep(c(1,4), each=3), rep(c(8,6), each=3))
 ```
 What will then be the value of `apply(X, 2, sum)[2]`?
 
+3. Write a function called `PairwiseMedianDiffs` that
+has **two numeric matrices** `A` and `B` as the input arguments. These two input matrices are assumed to have the same dimensions. This function should return a $p \times p$ matrix (where $p$ is the number of columns in `A`). The `[i,j]` element of the returned matrix should equal the median of the $i^{th}$ column of `A` minus the median of the $j^{th}$ column of `B`.
 
-    
     
     

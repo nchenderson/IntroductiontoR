@@ -181,9 +181,19 @@ sapply(r, function(x) c(min(x),max(x)) ) ## as list component names
 
 ## Exercises
 
-
 1. Suppose we define the vector `x` as `x <- c(1,2,3)`. What is the value of 
 ```{r, echo=TRUE, eval=FALSE}
 length( list(x) ) == length(x)
 ```
+
+2. Write a function that takes a **list** called **x** as input, and the elements of `x` can be assumed to be numeric vectors. The function should **return** a matrix where
+    + the **number of columns** of the matrix equal the number of elements of the input list.
+    + the **number of rows**of the matrix equals 4
+    + If the $k^{th}$ element of the list has length greater than 4, 
+the $k^{th}$ column of the output matrix should be `(mean(x[[k]]), median(x[[k]]), min(x[[k]]), max(x[[k]]))`
+    + If the $k^{th}$ element of the list has length 4 or less, the 
+$k^{th}$ column of the output matrix should be `(0, 0, 0, 0)`.
+
+
+
 
