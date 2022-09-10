@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 Getting Started | An Introduction to R programming</title>
-  <meta name="description" content="Chapter 1 Getting Started | An Introduction to R programming" />
+  <title>Chapter 9 Factors | An Introduction to R programming</title>
+  <meta name="description" content="Chapter 9 Factors | An Introduction to R programming" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 Getting Started | An Introduction to R programming" />
+  <meta property="og:title" content="Chapter 9 Factors | An Introduction to R programming" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 Getting Started | An Introduction to R programming" />
+  <meta name="twitter:title" content="Chapter 9 Factors | An Introduction to R programming" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="ifelse.html"/>
+<link rel="prev" href="dataframe.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -295,358 +295,247 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Getting Started<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="using-r-as-a-calculator" class="section level2 hasAnchor" number="1.1">
-<h2><span class="header-section-number">1.1</span> Using R as a calculator<a href="intro.html#using-r-as-a-calculator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="factors" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Factors<a href="factors.html#factors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ul>
-<li><p>You can use R as a basic <strong>calculator</strong>.</p></li>
-<li><p>For example, if we just type in <code>42 + 17</code> into the R console, it should print out the sum:</p></li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span> <span class="sc">+</span> <span class="dv">17</span> </span></code></pre></div>
-<pre><code>## [1] 59</code></pre>
+<li><p><strong>Factors</strong> in <strong>R</strong> were created to represent <strong>categorical variables</strong> in statistics.</p></li>
+<li><p><strong>Categorical Variable:</strong></p>
 <ul>
-<li>We can compute the square root of 243, <span class="math inline">\(1.56^{124}\)</span>, and <span class="math inline">\(7.21 \times 8^{4}\)</span>, just by typing these expressions into the <strong>R console</strong></li>
-</ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">243</span>)</span></code></pre></div>
-<pre><code>## [1] 15.58846</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="intro.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.56</span><span class="sc">*</span><span class="dv">124</span></span></code></pre></div>
-<pre><code>## [1] 193.44</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="intro.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fl">7.21</span><span class="sc">*</span><span class="dv">8</span><span class="sc">^</span><span class="dv">4</span></span></code></pre></div>
-<pre><code>## [1] 29532.16</code></pre>
-</div>
-<div id="variables-in-r" class="section level2 hasAnchor" number="1.2">
-<h2><span class="header-section-number">1.2</span> Variables in R<a href="intro.html#variables-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>When working with more complicated mathematical operations in <strong>R</strong>, it is often useful to
-store intermediate values in <strong>named variables</strong>.</p></li>
-<li><p>For example, the following <strong>R</strong> code creates the variables <code>x, y, z</code> and assigns
-them the values <span class="math inline">\((42 + 17)\sqrt{43}\)</span>, <span class="math inline">\(7.21(8^{4}) + \ln(2.34)\)</span>, and<br />
-<span class="math inline">\((42 + 17)\sqrt{43}/[ 7.21(8^{4}) + \ln(2.34) ]\)</span> respectively.</p></li>
-</ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="intro.html#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">42</span> <span class="sc">+</span> <span class="dv">17</span>)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">43</span>)</span>
-<span id="cb9-2"><a href="intro.html#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fl">7.21</span><span class="sc">*</span><span class="dv">8</span><span class="sc">^</span><span class="dv">4</span> <span class="sc">+</span> <span class="fu">log</span>(<span class="fl">2.34</span>)</span>
-<span id="cb9-3"><a href="intro.html#cb9-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> x<span class="sc">/</span>y</span>
-<span id="cb9-4"><a href="intro.html#cb9-4" aria-hidden="true" tabindex="-1"></a>z  <span class="do">## print out the value of z</span></span></code></pre></div>
-<pre><code>## [1] 0.01310022</code></pre>
-<ul>
-<li><p>Here, <code>x</code>, <code>y</code>, and <code>z</code> are examples of <strong>variables</strong>.</p></li>
-<li><p>The pair of characters <code>&lt;-</code> used together is known as the <strong>assignment operator</strong> in <strong>R</strong>.
-<code>x &lt;- 2</code> assigns the value <code>2</code> to the variable <code>x</code>.</p></li>
-<li><p>A <strong>variable</strong> is the <strong>named storage</strong> of a value (or an object) in memory.</p></li>
-<li><p>Why do we need variables?</p>
-<ul>
-<li>To <strong>reuse</strong> the same value later on.</li>
-<li>To <strong>generalize</strong> an expression to use in many cases.</li>
-</ul></li>
-<li><p>How to use variables in <strong>R</strong>?</p>
-<ul>
-<li><p>To set the value of a variable, use <strong>assignment</strong> operator <code>&lt;-</code></p></li>
-<li><p>To use the value, simply use the <strong>variable name</strong> as if it were its stored value.</p></li>
-</ul></li>
-<li><p>For example, …</p></li>
-</ul>
-<div id="rules-for-choosing-variable-names-in-r" class="section level3 hasAnchor" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Rules for choosing <strong>variable names</strong> in R<a href="intro.html#rules-for-choosing-variable-names-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li><p>Variables can be named however you want as long as you follow the
-several variable-naming rules that R has.</p></li>
-<li><p>In <strong>R</strong> variable names can include the following:</p>
-<ul>
-<li><strong>letters</strong>: A-Z a-z</li>
-<li><strong>digits</strong>: 0-9</li>
-<li><strong>underscore and period</strong>: _ .</li>
-</ul></li>
-<li><p>Additional rules:</p>
-<ul>
-<li>Variable names <strong>must start with letters or a period (not underscore or digits)</strong></li>
-<li>If a variable name starts with a <strong>period</strong>, it <strong>cannot</strong> be followed by a <strong>number</strong>.</li>
-<li>Variable names are <strong>case sensitive</strong>.</li>
-</ul></li>
-<li><p>The following tables shows examples of <strong>valid</strong> and <strong>invalid</strong> variable names in R</p></li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Valid</th>
-<th align="center">Invalid</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">i</td>
-<td align="center">2things</td>
-</tr>
-<tr class="even">
-<td align="center">my_variable</td>
-<td align="center">location@</td>
-</tr>
-<tr class="odd">
-<td align="center">answer42</td>
-<td align="center">_user.name</td>
-</tr>
-<tr class="even">
-<td align="center">.name</td>
-<td align="center">.3rd</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><p>While you are free to choose variable names however you like as long as you follow the variable-naming rules of <strong>R</strong>, making variable names <strong>descriptive</strong> is highly <strong>recommended</strong>.</p></li>
-<li><p><strong>Descriptive</strong> variable names make it easier to read code. This is very helpful if:</p>
-<ul>
-<li>You are sharing your code or</li>
-<li>Looking back at code you wrote many weeks/months ago</li>
-</ul></li>
-<li><p>Using a <strong>consistent</strong> convention for naming variables is recommended, too:</p></li>
-</ul>
-<p><a href="https://r4ds.had.co.nz/workflow-basics.html" class="uri">https://r4ds.had.co.nz/workflow-basics.html</a></p>
-</div>
-<div id="variable-assignment" class="section level3 hasAnchor" number="1.2.2">
-<h3><span class="header-section-number">1.2.2</span> Variable Assignment<a href="intro.html#variable-assignment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ul>
-<li>Variables can be assigned using either <code>&lt;-</code> or <code>=</code></li>
-</ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="intro.html#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">123</span>    <span class="co"># Use = to assign a variable</span></span>
-<span id="cb11-2"><a href="intro.html#cb11-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">123</span>   <span class="co"># Or use &lt;- to assign a variable</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="intro.html#cb12-1" aria-hidden="true" tabindex="-1"></a>x   <span class="co"># Retrieve the value of x</span></span></code></pre></div>
-<pre><code>## [1] 123</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="intro.html#cb14-1" aria-hidden="true" tabindex="-1"></a>y   <span class="co"># Retrieve the value of y</span></span></code></pre></div>
-<pre><code>## [1] 123</code></pre>
-<ul>
-<li><p>The pair of characters <code>&lt;-</code> is the classic symbol used for variable assignment in <strong>R</strong>.</p></li>
-<li><p>The use of <code>&lt;-</code> instead of <code>=</code> is often recommended in <strong>R</strong> style guides:</p>
-<ul>
-<li><a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a></li>
+<li><p><strong>Categorical variables</strong> represent membership in some category rather than a numerical value <strong>(e.g., blood type, country, language spoken, treatment group)</strong>.</p></li>
+<li><p><strong>Categorical variables</strong> can only assume one of a finite collection values.</p></li>
+<li><p>It does not usually make sense to make <strong>numerical comparisons</strong> between categorical variables.</p></li>
 </ul></li>
 </ul>
+<div id="definition-of-factors" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Definition of Factors<a href="factors.html#definition-of-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>In <strong>R</strong>, a factor can be thought of as a vector that
+contains <strong>specific extra information</strong> about that vector.</p>
+<ul>
+<li>More specifically, a factor is a vector that has certain <strong>attributes</strong> that
+distinguish from non-factor vectors.</li>
+</ul></li>
+<li><p>One key attribute stored by a factor vector is its <strong>levels</strong>.</p></li>
+<li><p>The <strong>levels</strong> of a factor vector determine the <strong>set of allowable values</strong> in that vector.</p></li>
+<li><p>For example, let’s look at the <strong>group</strong> variable in the <strong>PlantGrowth</strong> dataset</p></li>
+</ul>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="factors.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span>
+<span id="cb528-2"><a href="factors.html#cb528-2" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group</span></code></pre></div>
+<pre><code>##  [1] ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl trt1 trt1 trt1 trt1 trt1
+## [16] trt1 trt1 trt1 trt1 trt1 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2
+## Levels: ctrl trt1 trt2</code></pre>
+<ul>
+<li><p>The <strong>group</strong> variable is a factor with the following 3 levels:
+<strong>ctrl</strong>, <strong>trt1</strong>, <strong>trt2</strong>.</p></li>
+<li><p>It is appropriate to make the <strong>group</strong> variable in <strong>PlantGrowth</strong>
+a <strong>factor</strong> since this variable represents the treatment condition in this study.</p></li>
+<li><p>Because the <strong>levels</strong> of group (<strong>ctrl</strong>, <strong>trt1</strong>, <strong>trt2</strong>) represent the collection of possible values,
+you <strong>cannot</strong> assign the elements of <strong>PlantGrowth$group</strong> a value
+which is not either <strong>ctrl</strong>, <strong>trt1</strong>, or <strong>trt2</strong>.</p></li>
+</ul>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="factors.html#cb530-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">&quot;trt&quot;</span> </span></code></pre></div>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 4, value = structure(c(1L, 1L, 1L, NA, :
+## invalid factor level, NA generated</code></pre>
+<ul>
+<li>Assigning the 5th element the value <code>"trt1"</code> works though:</li>
+</ul>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="factors.html#cb532-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="st">&quot;trt1&quot;</span> </span></code></pre></div>
 <hr />
 <ul>
-<li><p><code>&lt;-</code> and <code>=</code> will work the same if they are both
-used in the “usual way” (when assigning variables within
-or outside of a function).</p></li>
-<li><p>One exception, is when used inside a <strong>function call</strong>. For example, if we use <code>=</code> in the function <code>sd(x)</code>:</p></li>
+<li>The other <strong>main attribute</strong> which distinguishes factors is its <strong>class</strong>.</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="intro.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)) <span class="co"># only sets the argument x in sd(x) to (1,2,3,4,5)</span></span></code></pre></div>
-<pre><code>## [1] 1.581139</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="intro.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#x      ## will return an error if we try to print x</span></span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="intro.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)) <span class="co"># This actually assigns the vector (1,2,3,4,5) to x</span></span></code></pre></div>
-<pre><code>## [1] 1.581139</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="intro.html#cb21-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="factors.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(PlantGrowth<span class="sc">$</span>group, <span class="st">&quot;class&quot;</span>)  <span class="co"># Check the class attribute</span></span></code></pre></div>
+<pre><code>## [1] &quot;factor&quot;</code></pre>
 <ul>
-<li><p>However, using something like <code>sd(x &lt;- c(1,2,3,4,5))</code> where we assign variables in a function call is not really done that often.</p></li>
-<li><p>It is <strong>not common</strong> to assign variables in a function call (I never do it).</p></li>
-<li><p>Whenever, using a function <code>f</code> with a keyword such as <code>x</code>, you will generally
-want to call that function using <code>f(x = ...)</code></p></li>
-<li><p>So, in my opinion, there is not really a strong reason to prefer using <code>&lt;-</code> over <code>=</code> for assignment.</p></li>
-<li><p>There are other justifications for using <code>&lt;-</code> such as the ability
-to do assignment from the left by using the reverse symbol <code>-&gt;</code></p></li>
+<li>If the <strong>class</strong> of a vector is a <strong>factor</strong>, numerical comparisons
+between elements will return an error:</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="intro.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>) <span class="ot">-&gt;</span> a <span class="co"># Using c(1,2,3,4) = a will not work!  </span></span>
-<span id="cb23-2"><a href="intro.html#cb23-2" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="factors.html#cb535-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group[<span class="dv">5</span>] <span class="sc">&gt;</span> PlantGrowth<span class="sc">$</span>group[<span class="dv">15</span>]</span></code></pre></div>
+<pre><code>## Warning in Ops.factor(PlantGrowth$group[5], PlantGrowth$group[15]): &#39;&gt;&#39; not
+## meaningful for factors</code></pre>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="factors.html#cb538-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group[<span class="dv">5</span>] <span class="sc">+</span> PlantGrowth<span class="sc">$</span>group[<span class="dv">15</span>] <span class="co"># This returns an error</span></span></code></pre></div>
+<pre><code>## Warning in Ops.factor(PlantGrowth$group[5], PlantGrowth$group[15]): &#39;+&#39; not
+## meaningful for factors</code></pre>
+<pre><code>## [1] NA</code></pre>
 </div>
-<div id="types-of-variables" class="section level3 hasAnchor" number="1.2.3">
-<h3><span class="header-section-number">1.2.3</span> Types of variables<a href="intro.html#types-of-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="adding-new-levels-to-a-factor" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Adding new levels to a factor<a href="factors.html#adding-new-levels-to-a-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>Variables can be used to store <strong>different types</strong> of values.</p></li>
-<li><p>Common types include numeric, text, and logical values.</p></li>
+<li><p>In some cases, you want to <strong>add data
+to a factor vector</strong>, and the new data contains new
+categories which are not in the original factor vector.</p></li>
+<li><p>To do this, you can assign <strong>new levels</strong> to your factor
+vector by using the assignment:</p></li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="intro.html#cb25-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fl">3.2</span></span>
-<span id="cb25-2"><a href="intro.html#cb25-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
-<pre><code>## [1] 3.2</code></pre>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="factors.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">levels(vec_name) &lt;- </span><span class="st">`</span></span></code></pre></div>
 <ul>
-<li><p>Here, <code>x</code> is actually a <strong>vector</strong> (basically a collection of elements storing the same type of data).</p></li>
-<li><p>It is a vector of <strong>length one</strong> (i.e., it only has one element).</p></li>
-<li><p>This is the reason why you see <code>[1]</code> printed out next to the number 3.2.</p>
-<ul>
-<li>This means that the <strong>first element</strong> of the vector <code>x</code> is <span class="math inline">\(3.2\)</span>.</li>
-</ul></li>
-<li><p><strong>R</strong> treats every variable as some type of collection (e.g., vectors, matrices, lists, etc.).</p>
-<ul>
-<li>There are no separate data types in <strong>R</strong> for individual numbers.</li>
-</ul></li>
-<li><p>The elements in a vector can have different <strong>types</strong> (or modes).</p></li>
-<li><p>You can find the types of the elements in a vector by using the
-function <strong>typeof</strong></p></li>
+<li>For example, look what happens when we try to change the
+value of one element from a factor vector</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="intro.html#cb27-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1743</span>)</span>
-<span id="cb27-2"><a href="intro.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)  <span class="co"># double and integer are the two numeric types </span></span></code></pre></div>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="intro.html#cb29-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># R automatically treats every number as double</span></span>
-<span id="cb29-2"><a href="intro.html#cb29-2" aria-hidden="true" tabindex="-1"></a>z</span></code></pre></div>
-<pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="intro.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(z)</span></code></pre></div>
-<pre><code>## [1] &quot;double&quot;</code></pre>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="factors.html#cb542-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="co"># create factor with levels 1, 2, 3</span></span>
+<span id="cb542-2"><a href="factors.html#cb542-2" aria-hidden="true" tabindex="-1"></a>y[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">4</span>  <span class="co"># Try to assign 3rd element the value 4</span></span></code></pre></div>
+<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 3, value = 4): invalid factor level, NA
+## generated</code></pre>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="factors.html#cb544-1" aria-hidden="true" tabindex="-1"></a>y  <span class="co"># Note that the third element is now NA</span></span></code></pre></div>
+<pre><code>## [1] 1    2    &lt;NA&gt; 1    2    3    1    2    3   
+## Levels: 1 2 3</code></pre>
 <ul>
-<li>The other common types for the elements in a vector include
-<ul>
-<li><strong>logical</strong> (TRUE or FALSE) values</li>
-<li><strong>character</strong> basically text, e.g., “hello”, “car”, …</li>
-</ul></li>
+<li>We <strong>can add</strong> the value <span class="math inline">\(4\)</span> to this vector, but we need to change
+the <strong>factor levels</strong> first:</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="intro.html#cb33-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb33-2"><a href="intro.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)   </span></code></pre></div>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="intro.html#cb35-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="st">&quot;dog&quot;</span> <span class="co"># to define a character variable, place it inside quotes</span></span>
-<span id="cb35-2"><a href="intro.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(z)</span></code></pre></div>
-<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="factors.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb546-2"><a href="factors.html#cb546-2" aria-hidden="true" tabindex="-1"></a>y[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb546-3"><a href="factors.html#cb546-3" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>## [1] 1 2 4 1 2 3 1 2 3
+## Levels: 1 2 3 4</code></pre>
+<hr />
 <ul>
-<li>We will discuss these types in more detail later on when
-we discuss <strong>vectors</strong>, <strong>matrices</strong>, and <strong>lists</strong>.</li>
+<li><p>The <code>str()</code> function gives a description of any <strong>R</strong> object.</p></li>
+<li><p>For a data frame, you can see which variables are treated as <strong>factors</strong>
+and which are treated as <strong>numeric</strong></p></li>
+</ul>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="factors.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>( PlantGrowth )</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    30 obs. of  2 variables:
+##  $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...
+##  $ group : Factor w/ 3 levels &quot;ctrl&quot;,&quot;trt1&quot;,..: 1 1 1 NA 2 1 1 1 1 1 ...</code></pre>
+</div>
+<div id="the-table-function" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> The table() function<a href="factors.html#the-table-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>The <code>table()</code> function can be used to count the <strong>number of observations</strong> at
+each <strong>level</strong> of a factor.</p></li>
+<li><p><code>table()</code> can also be used to count the number of observations
+ocurring at each .<strong>level combination</strong> for <strong>2 or more factors</strong>.</p></li>
+<li><p>For example, let’s count the number of observations in each treatment
+group in the <strong>PlantGrowth</strong> data:</p></li>
+</ul>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="factors.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>( PlantGrowth<span class="sc">$</span>group ) <span class="co"># 10 observations in each group</span></span></code></pre></div>
+<pre><code>## 
+## ctrl trt1 trt2 
+##   10   10   10</code></pre>
+<hr />
+<ul>
+<li>To see how <strong>table</strong> works for multiple factors, let’s look at
+the <strong>VA</strong> dataset from the <strong>MASS</strong> package</li>
+</ul>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="factors.html#cb552-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb552-2"><a href="factors.html#cb552-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(VA)  <span class="co"># load the VA data frame</span></span>
+<span id="cb552-3"><a href="factors.html#cb552-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(VA)  <span class="co"># look at the structure of this data frame</span></span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    137 obs. of  8 variables:
+##  $ stime    : num  72 411 228 126 118 10 82 110 314 100 ...
+##  $ status   : num  1 1 1 1 1 1 1 1 1 0 ...
+##  $ treat    : Factor w/ 2 levels &quot;1&quot;,&quot;2&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ age      : num  69 64 38 63 65 49 69 68 43 70 ...
+##  $ Karn     : num  60 70 60 60 70 20 40 80 50 70 ...
+##  $ diag.time: num  7 5 3 9 11 5 10 29 18 6 ...
+##  $ cell     : Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ prior    : Factor w/ 2 levels &quot;0&quot;,&quot;10&quot;: 1 2 1 2 2 1 2 1 1 1 ...</code></pre>
+<ul>
+<li><p>Notice that the variables <strong>treat</strong> and <strong>cell</strong> are <strong>factors</strong> in the <strong>VA</strong> data frame.</p></li>
+<li><p>You can <strong>cross-tabulate</strong> these two factors by using plugging both variables into the <strong>table</strong> function.</p></li>
+</ul>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="factors.html#cb554-1" aria-hidden="true" tabindex="-1"></a>tab.VA <span class="ot">&lt;-</span> <span class="fu">table</span>(VA<span class="sc">$</span>treat, VA<span class="sc">$</span>cell)</span>
+<span id="cb554-2"><a href="factors.html#cb554-2" aria-hidden="true" tabindex="-1"></a>tab.VA</span></code></pre></div>
+<pre><code>##    
+##      1  2  3  4
+##   1 15 30  9 15
+##   2 20 18 18 12</code></pre>
+<ul>
+<li><p><strong>tab.VA</strong> is an example of what’s usually called a 2x4 <strong>contingency table.</strong></p></li>
+<li><p>You can compute the table margins as if <strong>tab.VA</strong> were a matrix</p></li>
+</ul>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="factors.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(tab.VA)</span></code></pre></div>
+<pre><code>##  1  2  3  4 
+## 35 48 27 27</code></pre>
+<ul>
+<li><p>You are not limited to cross-tabulating two factor variables.</p></li>
+<li><p>For example, we can cross-tabulate the factors <strong>treat</strong>, <strong>cell</strong>, and <strong>prior</strong>:</p></li>
+</ul>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="factors.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(VA<span class="sc">$</span>treat, VA<span class="sc">$</span>cell, VA<span class="sc">$</span>prior)</span></code></pre></div>
+<pre><code>## , ,  = 0
+## 
+##    
+##      1  2  3  4
+##   1  8 23  7 10
+##   2 13 14 15  7
+## 
+## , ,  = 10
+## 
+##    
+##      1  2  3  4
+##   1  7  7  2  5
+##   2  7  4  3  5</code></pre>
+<ul>
+<li>This outputs <strong>two</strong> 2x4 contingency tables: A contingency table of <strong>treat</strong> and <strong>cell</strong> for
+each level of <strong>prior</strong>.</li>
 </ul>
 </div>
-</div>
-<div id="r-operations-with-numbers" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> R Operations with numbers<a href="intro.html#r-operations-with-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tapply-and-aggregate" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> tapply() and aggregate<a href="factors.html#tapply-and-aggregate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>As we mentioned before, …</li>
+<li><p><code>tapply()</code> is useful when you want to compute
+certain summary statistics <strong>for each</strong> level of a factor variable.</p></li>
+<li><p>For example, suppose we wanted to compute
+the <strong>mean</strong> and <strong>standard deviation</strong> of
+<strong>age</strong> in the <strong>VA</strong> data within each treatment group.</p></li>
+<li><p>This can be done with the following code:</p></li>
 </ul>
-<table>
-<thead>
-<tr class="header">
-<th align="center">Operator</th>
-<th align="center">Meaning</th>
-<th align="center">Example</th>
-<th align="center">Result</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">+</td>
-<td align="center">addition</td>
-<td align="center">5 + 8</td>
-<td align="center">13</td>
-</tr>
-<tr class="even">
-<td align="center">-</td>
-<td align="center">subtraction</td>
-<td align="center">90 - 10</td>
-<td align="center">80</td>
-</tr>
-<tr class="odd">
-<td align="center">*</td>
-<td align="center">multiplication</td>
-<td align="center">4 * 7</td>
-<td align="center">28</td>
-</tr>
-<tr class="even">
-<td align="center">/</td>
-<td align="center">division</td>
-<td align="center">7 / 2</td>
-<td align="center">3.5</td>
-</tr>
-<tr class="odd">
-<td align="center">%%</td>
-<td align="center">remainder</td>
-<td align="center">7 %% 2</td>
-<td align="center">1</td>
-</tr>
-<tr class="even">
-<td align="center">^</td>
-<td align="center">exponent</td>
-<td align="center">3 ^ 4</td>
-<td align="center">81</td>
-</tr>
-<tr class="odd">
-<td align="center">**</td>
-<td align="center">exponent</td>
-<td align="center">3 ** 4</td>
-<td align="center">81</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="factors.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(VA<span class="sc">$</span>age, VA<span class="sc">$</span>treat, mean) <span class="co"># compute mean age in each trt. group</span></span></code></pre></div>
+<pre><code>##        1        2 
+## 57.50725 59.11765</code></pre>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="factors.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(VA<span class="sc">$</span>age, VA<span class="sc">$</span>treat, sd)  <span class="co"># compute sd of age in each trt. group</span></span></code></pre></div>
+<pre><code>##        1        2 
+## 10.81070 10.27754</code></pre>
 <ul>
-<li>R operations with numbers have similar <strong>precedence rules</strong> to arithmetic operations</li>
+<li><p>You can use the <code>aggregate()</code> function to
+use <code>tapply()</code> across multiple variables.</p></li>
+<li><p>This is useful, for example, if you want to compute
+the mean of <strong>each</strong> of the numeric variables in a data frame
+using a single command.</p></li>
+<li><p>Note that the variables <strong>stime</strong>, <strong>status</strong>, <strong>age</strong>, <strong>Karn</strong>,
+<strong>diag.time</strong> in the <strong>VA</strong> data are numeric:</p></li>
 </ul>
-<table>
-<colgroup>
-<col width="27%" />
-<col width="51%" />
-<col width="20%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Operator</th>
-<th align="center">Description</th>
-<th align="center">Precedence</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">+, -</td>
-<td align="center">addition and subtraction</td>
-<td align="center">low</td>
-</tr>
-<tr class="even">
-<td align="center">*, /, %%</td>
-<td align="center">multiplication, division, remainder</td>
-<td align="center">…</td>
-</tr>
-<tr class="odd">
-<td align="center">**, ^</td>
-<td align="center">exponentiation</td>
-<td align="center">…</td>
-</tr>
-<tr class="even">
-<td align="center">(expressions…)</td>
-<td align="center">Parenthesis</td>
-<td align="center">high</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="factors.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(VA)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    137 obs. of  8 variables:
+##  $ stime    : num  72 411 228 126 118 10 82 110 314 100 ...
+##  $ status   : num  1 1 1 1 1 1 1 1 1 0 ...
+##  $ treat    : Factor w/ 2 levels &quot;1&quot;,&quot;2&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ age      : num  69 64 38 63 65 49 69 68 43 70 ...
+##  $ Karn     : num  60 70 60 60 70 20 40 80 50 70 ...
+##  $ diag.time: num  7 5 3 9 11 5 10 29 18 6 ...
+##  $ cell     : Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ prior    : Factor w/ 2 levels &quot;0&quot;,&quot;10&quot;: 1 2 1 2 2 1 2 1 1 1 ...</code></pre>
 <ul>
-<li>Examples of operation <strong>precedence</strong> can be seen when typing the following
-expressions into the <strong>R</strong> console:</li>
+<li>We can compute the mean of each of the numeric variables in
+<strong>VA</strong>, stratified by cell type, by using <code>aggregate()</code> in the following way:</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="intro.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span><span class="dv">3</span> <span class="sc">^</span> <span class="dv">4</span> <span class="co"># power &gt; mult/div &gt; add/sub</span></span></code></pre></div>
-<pre><code>## [1] 163</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="intro.html#cb39-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> ) <span class="sc">*</span><span class="dv">3</span> <span class="sc">^</span> <span class="dv">4</span> <span class="co"># parenthesis &gt; power</span></span></code></pre></div>
-<pre><code>## [1] 243</code></pre>
-</div>
-<div id="brief-intro-to-vectors-in-r" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Brief intro to vectors in R<a href="intro.html#brief-intro-to-vectors-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="exercises" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Exercises<a href="intro.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li>Compute the number</li>
-</ol>
-<span class="math display">\[\begin{equation}
-\frac{\sqrt{1.43 + 5^{1.2}}}{3}
-\end{equation}\]</span>
-<p>directly in the <strong>R</strong> console.</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Write an <strong>R script</strong> that assigns the value …</li>
-</ol>
-<span class="math display">\[\begin{equation}
-\ln\Big( 1 + \exp(-2^{1.4}) \Big) + \ln\Big(1 + 2\exp(3^{1.7}) \Big)
-\end{equation}\]</span>
-<p>to a variable named <code>x</code> and prints the result in the Console when you run
-the script.</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Which of the following is <strong>NOT</strong> a valid variable name in <strong>R</strong>?
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="factors.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use aggregate on VA only using 1st, 2nd, 4th, 5th, 6th variables</span></span>
+<span id="cb566-2"><a href="factors.html#cb566-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(VA[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)], <span class="fu">list</span>(VA<span class="sc">$</span>cell), mean)</span></code></pre></div>
+<pre><code>##   Group.1     stime    status      age     Karn diag.time
+## 1       1 200.20000 0.8857143 58.45714 60.85714 11.028571
+## 2       2  71.66667 0.9375000 59.87500 53.54167  9.250000
+## 3       3  64.11111 0.9629630 57.40741 58.11111  5.629630
+## 4       4 166.11111 0.9629630 56.22222 65.00000  8.148148</code></pre>
 <ul>
-<li>.independent_variable3</li>
-<li>_independent_variable3</li>
-<li>independent_variable3</li>
-<li>independent.variable3</li>
-</ul></li>
-</ol>
+<li>Compute the <strong>median</strong> of each of the variables stratified by cell type</li>
+</ul>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="factors.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(VA[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)], <span class="fu">list</span>(VA<span class="sc">$</span>cell), median)</span></code></pre></div>
+<pre><code>##   Group.1 stime status  age Karn diag.time
+## 1       1   111      1 62.0   60         7
+## 2       2    51      1 62.5   60         4
+## 3       3    51      1 61.0   60         4
+## 4       4   156      1 62.0   70         8</code></pre>
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ifelse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="dataframe.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -677,7 +566,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/nchenderson/IntroductiontoR/edit/master/01-intro.Rmd",
+"link": "https://github.com/nchenderson/IntroductiontoR/edit/master/09-factors.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -685,7 +574,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/nchenderson/IntroductiontoR/blob/master/01-intro.Rmd",
+"link": "https://github.com/nchenderson/IntroductiontoR/blob/master/09-factors.Rmd",
 "text": null
 },
 "download": null,

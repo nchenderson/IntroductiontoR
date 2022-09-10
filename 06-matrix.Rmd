@@ -1,4 +1,4 @@
-# Matrices in R {#matrix}
+# Matrices {#matrix}
 
 * A **matrix** is a table of data organized into **rows** and **columns**. 
 \begin{equation}

@@ -1,4 +1,4 @@
-# Lists in R {#list}
+# Lists {#list}
 
 * R always store data as a **"collection"**.
 

@@ -78,3 +78,8 @@ creating-data-frames
 accessing-and-modifying-data-frames
 subsetting-data-frames
 exercises-6
+factors
+definition-of-factors
+adding-new-levels-to-a-factor
+the-table-function
+tapply-and-aggregate

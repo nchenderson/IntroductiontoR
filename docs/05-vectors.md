@@ -1,6 +1,6 @@
 # (PART) R Data Structures {-}
 
-# Vectors in R {#vectors}
+# Vectors {#vectors}
 
 * The most basic data type in **R** is the **vector**.
 
