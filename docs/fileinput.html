@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Factors | An Introduction to R programming</title>
-  <meta name="description" content="Chapter 9 Factors | An Introduction to R programming" />
+  <title>Chapter 10 File Input | An Introduction to R programming</title>
+  <meta name="description" content="Chapter 10 File Input | An Introduction to R programming" />
   <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Factors | An Introduction to R programming" />
+  <meta property="og:title" content="Chapter 10 File Input | An Introduction to R programming" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Factors | An Introduction to R programming" />
+  <meta name="twitter:title" content="Chapter 10 File Input | An Introduction to R programming" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dataframe.html"/>
-<link rel="next" href="fileinput.html"/>
+<link rel="prev" href="factors.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -303,250 +303,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="factors" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Factors<a href="factors.html#factors" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="fileinput" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapter 10</span> File Input<a href="fileinput.html#fileinput" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <ul>
-<li><p><strong>Factors</strong> in <strong>R</strong> were created to represent <strong>categorical variables</strong> in statistics.</p></li>
-<li><p><strong>Categorical Variable:</strong></p>
+<li><p><strong>Text files</strong></p>
 <ul>
-<li><p><strong>Categorical variables</strong> represent membership in some category rather than a numerical value <strong>(e.g., blood type, country, language spoken, treatment group)</strong>.</p></li>
-<li><p><strong>Categorical variables</strong> can only assume one of a finite collection values.</p></li>
-<li><p>It does not usually make sense to make <strong>numerical comparisons</strong> between categorical variables.</p></li>
+<li><p>Files with human readable characters such as letters, numbers, special characters (e.g., .red[“, ’, ?]), typically composed of multiple lines.</p></li>
+<li><p>Can represent different characters by text encodings</p></li>
+<li><p>There are many types of text files, e.g.,</p>
+<p>-R files (.R)</p>
+<p>-html files (.html) / cascading style sheet (.css)</p>
+<p>-text files (.txt)</p></li>
 </ul></li>
 </ul>
-<div id="definition-of-factors" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> Definition of Factors<a href="factors.html#definition-of-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="downloading-a-file-locally" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Downloading a file locally<a href="fileinput.html#downloading-a-file-locally" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><p>In <strong>R</strong>, a factor can be thought of as a vector that
-contains <strong>specific extra information</strong> about that vector.</p>
-<ul>
-<li>More specifically, a factor is a vector that has certain <strong>attributes</strong> that
-distinguish from non-factor vectors.</li>
-</ul></li>
-<li><p>One key attribute stored by a factor vector is its <strong>levels</strong>.</p></li>
-<li><p>The <strong>levels</strong> of a factor vector determine the <strong>set of allowable values</strong> in that vector.</p></li>
-<li><p>For example, let’s look at the <strong>group</strong> variable in the <strong>PlantGrowth</strong> dataset</p></li>
+<li><p>Need to download a file to your local computer</p></li>
+<li><p>To test out reading in datasets into <strong>R</strong> that you have stored locally on your computer, we will first download the <strong>gapminder</strong> dataset.</p></li>
 </ul>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="factors.html#cb527-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span>
-<span id="cb527-2"><a href="factors.html#cb527-2" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group</span></code></pre></div>
-<pre><code>##  [1] ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl ctrl trt1 trt1 trt1 trt1 trt1
-## [16] trt1 trt1 trt1 trt1 trt1 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2 trt2
-## Levels: ctrl trt1 trt2</code></pre>
-<ul>
-<li><p>The <strong>group</strong> variable is a factor with the following 3 levels:
-<strong>ctrl</strong>, <strong>trt1</strong>, <strong>trt2</strong>.</p></li>
-<li><p>It is appropriate to make the <strong>group</strong> variable in <strong>PlantGrowth</strong>
-a <strong>factor</strong> since this variable represents the treatment condition in this study.</p></li>
-<li><p>Because the <strong>levels</strong> of group (<strong>ctrl</strong>, <strong>trt1</strong>, <strong>trt2</strong>) represent the collection of possible values,
-you <strong>cannot</strong> assign the elements of <strong>PlantGrowth$group</strong> a value
-which is not either <strong>ctrl</strong>, <strong>trt1</strong>, or <strong>trt2</strong>.</p></li>
-</ul>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="factors.html#cb529-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group[<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">&quot;trt&quot;</span> </span></code></pre></div>
-<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 4, value = structure(c(1L, 1L, 1L, NA, :
-## invalid factor level, NA generated</code></pre>
-<ul>
-<li>Assigning the 5th element the value <code>"trt1"</code> works though:</li>
-</ul>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="factors.html#cb531-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="st">&quot;trt1&quot;</span> </span></code></pre></div>
-<hr />
-<ul>
-<li>The other <strong>main attribute</strong> which distinguishes factors is its <strong>class</strong>.</li>
-</ul>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="factors.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attr</span>(PlantGrowth<span class="sc">$</span>group, <span class="st">&quot;class&quot;</span>)  <span class="co"># Check the class attribute</span></span></code></pre></div>
-<pre><code>## [1] &quot;factor&quot;</code></pre>
-<ul>
-<li>If the <strong>class</strong> of a vector is a <strong>factor</strong>, numerical comparisons
-between elements will return an error:</li>
-</ul>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="factors.html#cb534-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group[<span class="dv">5</span>] <span class="sc">&gt;</span> PlantGrowth<span class="sc">$</span>group[<span class="dv">15</span>]</span></code></pre></div>
-<pre><code>## Warning in Ops.factor(PlantGrowth$group[5], PlantGrowth$group[15]): &#39;&gt;&#39; not
-## meaningful for factors</code></pre>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="factors.html#cb537-1" aria-hidden="true" tabindex="-1"></a>PlantGrowth<span class="sc">$</span>group[<span class="dv">5</span>] <span class="sc">+</span> PlantGrowth<span class="sc">$</span>group[<span class="dv">15</span>] <span class="co"># This returns an error</span></span></code></pre></div>
-<pre><code>## Warning in Ops.factor(PlantGrowth$group[5], PlantGrowth$group[15]): &#39;+&#39; not
-## meaningful for factors</code></pre>
-<pre><code>## [1] NA</code></pre>
-</div>
-<div id="adding-new-levels-to-a-factor" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Adding new levels to a factor<a href="factors.html#adding-new-levels-to-a-factor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>In some cases, you want to <strong>add data
-to a factor vector</strong>, and the new data contains new
-categories which are not in the original factor vector.</p></li>
-<li><p>To do this, you can assign <strong>new levels</strong> to your factor
-vector by using the assignment:</p></li>
-</ul>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="factors.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">levels(vec_name) &lt;- </span><span class="st">`</span></span></code></pre></div>
-<ul>
-<li>For example, look what happens when we try to change the
-value of one element from a factor vector</li>
-</ul>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="factors.html#cb541-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="co"># create factor with levels 1, 2, 3</span></span>
-<span id="cb541-2"><a href="factors.html#cb541-2" aria-hidden="true" tabindex="-1"></a>y[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">4</span>  <span class="co"># Try to assign 3rd element the value 4</span></span></code></pre></div>
-<pre><code>## Warning in `[&lt;-.factor`(`*tmp*`, 3, value = 4): invalid factor level, NA
-## generated</code></pre>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="factors.html#cb543-1" aria-hidden="true" tabindex="-1"></a>y  <span class="co"># Note that the third element is now NA</span></span></code></pre></div>
-<pre><code>## [1] 1    2    &lt;NA&gt; 1    2    3    1    2    3   
-## Levels: 1 2 3</code></pre>
-<ul>
-<li>We <strong>can add</strong> the value <span class="math inline">\(4\)</span> to this vector, but we need to change
-the <strong>factor levels</strong> first:</li>
-</ul>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="factors.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
-<span id="cb545-2"><a href="factors.html#cb545-2" aria-hidden="true" tabindex="-1"></a>y[<span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb545-3"><a href="factors.html#cb545-3" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
-<pre><code>## [1] 1 2 4 1 2 3 1 2 3
-## Levels: 1 2 3 4</code></pre>
-<hr />
-<ul>
-<li><p>The <code>str()</code> function gives a description of any <strong>R</strong> object.</p></li>
-<li><p>For a data frame, you can see which variables are treated as <strong>factors</strong>
-and which are treated as <strong>numeric</strong></p></li>
-</ul>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="factors.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>( PlantGrowth )</span></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    30 obs. of  2 variables:
-##  $ weight: num  4.17 5.58 5.18 6.11 4.5 4.61 5.17 4.53 5.33 5.14 ...
-##  $ group : Factor w/ 3 levels &quot;ctrl&quot;,&quot;trt1&quot;,..: 1 1 1 NA 2 1 1 1 1 1 ...</code></pre>
-</div>
-<div id="the-table-function" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> The table() function<a href="factors.html#the-table-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>The <code>table()</code> function can be used to count the <strong>number of observations</strong> at
-each <strong>level</strong> of a factor.</p></li>
-<li><p><code>table()</code> can also be used to count the number of observations
-ocurring at each .<strong>level combination</strong> for <strong>2 or more factors</strong>.</p></li>
-<li><p>For example, let’s count the number of observations in each treatment
-group in the <strong>PlantGrowth</strong> data:</p></li>
-</ul>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="factors.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>( PlantGrowth<span class="sc">$</span>group ) <span class="co"># 10 observations in each group</span></span></code></pre></div>
-<pre><code>## 
-## ctrl trt1 trt2 
-##   10   10   10</code></pre>
-<hr />
-<ul>
-<li>To see how <strong>table</strong> works for multiple factors, let’s look at
-the <strong>VA</strong> dataset from the <strong>MASS</strong> package</li>
-</ul>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="factors.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb551-2"><a href="factors.html#cb551-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(VA)  <span class="co"># load the VA data frame</span></span>
-<span id="cb551-3"><a href="factors.html#cb551-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(VA)  <span class="co"># look at the structure of this data frame</span></span></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    137 obs. of  8 variables:
-##  $ stime    : num  72 411 228 126 118 10 82 110 314 100 ...
-##  $ status   : num  1 1 1 1 1 1 1 1 1 0 ...
-##  $ treat    : Factor w/ 2 levels &quot;1&quot;,&quot;2&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ age      : num  69 64 38 63 65 49 69 68 43 70 ...
-##  $ Karn     : num  60 70 60 60 70 20 40 80 50 70 ...
-##  $ diag.time: num  7 5 3 9 11 5 10 29 18 6 ...
-##  $ cell     : Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ prior    : Factor w/ 2 levels &quot;0&quot;,&quot;10&quot;: 1 2 1 2 2 1 2 1 1 1 ...</code></pre>
-<ul>
-<li><p>Notice that the variables <strong>treat</strong> and <strong>cell</strong> are <strong>factors</strong> in the <strong>VA</strong> data frame.</p></li>
-<li><p>You can <strong>cross-tabulate</strong> these two factors by using plugging both variables into the <strong>table</strong> function.</p></li>
-</ul>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="factors.html#cb553-1" aria-hidden="true" tabindex="-1"></a>tab.VA <span class="ot">&lt;-</span> <span class="fu">table</span>(VA<span class="sc">$</span>treat, VA<span class="sc">$</span>cell)</span>
-<span id="cb553-2"><a href="factors.html#cb553-2" aria-hidden="true" tabindex="-1"></a>tab.VA</span></code></pre></div>
-<pre><code>##    
-##      1  2  3  4
-##   1 15 30  9 15
-##   2 20 18 18 12</code></pre>
-<ul>
-<li><p><strong>tab.VA</strong> is an example of what’s usually called a 2x4 <strong>contingency table.</strong></p></li>
-<li><p>You can compute the table margins as if <strong>tab.VA</strong> were a matrix</p></li>
-</ul>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="factors.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(tab.VA)</span></code></pre></div>
-<pre><code>##  1  2  3  4 
-## 35 48 27 27</code></pre>
-<ul>
-<li><p>You are not limited to cross-tabulating two factor variables.</p></li>
-<li><p>For example, we can cross-tabulate the factors <strong>treat</strong>, <strong>cell</strong>, and <strong>prior</strong>:</p></li>
-</ul>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="factors.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(VA<span class="sc">$</span>treat, VA<span class="sc">$</span>cell, VA<span class="sc">$</span>prior)</span></code></pre></div>
-<pre><code>## , ,  = 0
-## 
-##    
-##      1  2  3  4
-##   1  8 23  7 10
-##   2 13 14 15  7
-## 
-## , ,  = 10
-## 
-##    
-##      1  2  3  4
-##   1  7  7  2  5
-##   2  7  4  3  5</code></pre>
-<ul>
-<li>This outputs <strong>two</strong> 2x4 contingency tables: A contingency table of <strong>treat</strong> and <strong>cell</strong> for
-each level of <strong>prior</strong>.</li>
-</ul>
-</div>
-<div id="tapply-and-aggregate" class="section level2 hasAnchor" number="9.4">
-<h2><span class="header-section-number">9.4</span> tapply() and aggregate<a href="factors.html#tapply-and-aggregate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p><code>tapply()</code> is useful when you want to compute
-certain summary statistics <strong>for each</strong> level of a factor variable.</p></li>
-<li><p>For example, suppose we wanted to compute
-the <strong>mean</strong> and <strong>standard deviation</strong> of
-<strong>age</strong> in the <strong>VA</strong> data within each treatment group.</p></li>
-<li><p>This can be done with the following code:</p></li>
-</ul>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="factors.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(VA<span class="sc">$</span>age, VA<span class="sc">$</span>treat, mean) <span class="co"># compute mean age in each trt. group</span></span></code></pre></div>
-<pre><code>##        1        2 
-## 57.50725 59.11765</code></pre>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="factors.html#cb561-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(VA<span class="sc">$</span>age, VA<span class="sc">$</span>treat, sd)  <span class="co"># compute sd of age in each trt. group</span></span></code></pre></div>
-<pre><code>##        1        2 
-## 10.81070 10.27754</code></pre>
-<ul>
-<li><p>You can use the <code>aggregate()</code> function to
-use <code>tapply()</code> across multiple variables.</p></li>
-<li><p>This is useful, for example, if you want to compute
-the mean of <strong>each</strong> of the numeric variables in a data frame
-using a single command.</p></li>
-<li><p>Note that the variables <strong>stime</strong>, <strong>status</strong>, <strong>age</strong>, <strong>Karn</strong>,
-<strong>diag.time</strong> in the <strong>VA</strong> data are numeric:</p></li>
-</ul>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="factors.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(VA)</span></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    137 obs. of  8 variables:
-##  $ stime    : num  72 411 228 126 118 10 82 110 314 100 ...
-##  $ status   : num  1 1 1 1 1 1 1 1 1 0 ...
-##  $ treat    : Factor w/ 2 levels &quot;1&quot;,&quot;2&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ age      : num  69 64 38 63 65 49 69 68 43 70 ...
-##  $ Karn     : num  60 70 60 60 70 20 40 80 50 70 ...
-##  $ diag.time: num  7 5 3 9 11 5 10 29 18 6 ...
-##  $ cell     : Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ prior    : Factor w/ 2 levels &quot;0&quot;,&quot;10&quot;: 1 2 1 2 2 1 2 1 1 1 ...</code></pre>
-<ul>
-<li>We can compute the mean of each of the numeric variables in
-<strong>VA</strong>, stratified by cell type, by using <code>aggregate()</code> in the following way:</li>
-</ul>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="factors.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use aggregate on VA only using 1st, 2nd, 4th, 5th, 6th variables</span></span>
-<span id="cb565-2"><a href="factors.html#cb565-2" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(VA[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)], <span class="fu">list</span>(VA<span class="sc">$</span>cell), mean)</span></code></pre></div>
-<pre><code>##   Group.1     stime    status      age     Karn diag.time
-## 1       1 200.20000 0.8857143 58.45714 60.85714 11.028571
-## 2       2  71.66667 0.9375000 59.87500 53.54167  9.250000
-## 3       3  64.11111 0.9629630 57.40741 58.11111  5.629630
-## 4       4 166.11111 0.9629630 56.22222 65.00000  8.148148</code></pre>
-<ul>
-<li>Compute the <strong>median</strong> of each of the variables stratified by cell type</li>
-</ul>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="factors.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(VA[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)], <span class="fu">list</span>(VA<span class="sc">$</span>cell), median)</span></code></pre></div>
-<pre><code>##   Group.1 stime status  age Karn diag.time
-## 1       1   111      1 62.0   60         7
-## 2       2    51      1 62.5   60         4
-## 3       3    51      1 61.0   60         4
-## 4       4   156      1 62.0   70         8</code></pre>
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="dataframe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="fileinput.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="factors.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -577,7 +362,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/nchenderson/IntroductiontoR/edit/master/09-factors.Rmd",
+"link": "https://github.com/nchenderson/IntroductiontoR/edit/master/10-fileinputs.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -585,7 +370,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/nchenderson/IntroductiontoR/blob/master/09-factors.Rmd",
+"link": "https://github.com/nchenderson/IntroductiontoR/blob/master/10-fileinputs.Rmd",
 "text": null
 },
 "download": null,

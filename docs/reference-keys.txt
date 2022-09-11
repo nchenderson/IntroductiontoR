@@ -49,6 +49,7 @@ mathematical-operations-with-vectors
 recycling-rules
 logical-operations-with-vectors
 set-operations-with-vectors
+the-function-unique
 na-and-is.na-missing-values-in-r
 the-function-is.na
 exercises-3
@@ -83,3 +84,5 @@ definition-of-factors
 adding-new-levels-to-a-factor
 the-table-function
 tapply-and-aggregate
+fileinput
+downloading-a-file-locally

@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-09" />
+<meta name="date" content="2022-09-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -220,7 +220,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.1" data-path="vectors.html"><a href="vectors.html#recycling-rules"><i class="fa fa-check"></i><b>5.5.1</b> Recycling rules</a></li>
 <li class="chapter" data-level="5.5.2" data-path="vectors.html"><a href="vectors.html#logical-operations-with-vectors"><i class="fa fa-check"></i><b>5.5.2</b> Logical operations with vectors</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="vectors.html"><a href="vectors.html#set-operations-with-vectors"><i class="fa fa-check"></i><b>5.6</b> Set operations with vectors</a></li>
+<li class="chapter" data-level="5.6" data-path="vectors.html"><a href="vectors.html#set-operations-with-vectors"><i class="fa fa-check"></i><b>5.6</b> Set operations with vectors</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="vectors.html"><a href="vectors.html#the-function-unique"><i class="fa fa-check"></i><b>5.6.1</b> The function unique()</a></li>
+</ul></li>
 <li class="chapter" data-level="5.7" data-path="vectors.html"><a href="vectors.html#na-and-is.na-missing-values-in-r"><i class="fa fa-check"></i><b>5.7</b> NA and is.na(): missing values in R</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="vectors.html"><a href="vectors.html#the-function-is.na"><i class="fa fa-check"></i><b>5.7.1</b> The function <code>is.na()</code></a></li>
@@ -275,6 +278,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2" data-path="factors.html"><a href="factors.html#adding-new-levels-to-a-factor"><i class="fa fa-check"></i><b>9.2</b> Adding new levels to a factor</a></li>
 <li class="chapter" data-level="9.3" data-path="factors.html"><a href="factors.html#the-table-function"><i class="fa fa-check"></i><b>9.3</b> The table() function</a></li>
 <li class="chapter" data-level="9.4" data-path="factors.html"><a href="factors.html#tapply-and-aggregate"><i class="fa fa-check"></i><b>9.4</b> tapply() and aggregate</a></li>
+</ul></li>
+<li class="part"><span><b>III Importing and Organizing Data</b></span></li>
+<li class="chapter" data-level="10" data-path="fileinput.html"><a href="fileinput.html"><i class="fa fa-check"></i><b>10</b> File Input</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="fileinput.html"><a href="fileinput.html#downloading-a-file-locally"><i class="fa fa-check"></i><b>10.1</b> Downloading a file locally</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -666,7 +674,7 @@ convert the types of some of the elements so that <strong>all elements</strong> 
 <div id="mathematical-operations-with-vectors" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Mathematical operations with vectors<a href="vectors.html#mathematical-operations-with-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>When doing <strong>mathematical operations</strong> with two vectors of the same length, <strong>R</strong> will perform addition, subtraction, multiplication, division <strong>element-by-element</strong>.</li>
+<li>When doing <strong>mathematical operations</strong> with two vectors of the <strong>same length</strong>, <strong>R</strong> will perform addition, subtraction, multiplication, division <strong>element-by-element</strong>.</li>
 </ul>
 <div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="vectors.html#cb259-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">0</span>)  </span>
 <span id="cb259-2"><a href="vectors.html#cb259-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
@@ -695,19 +703,23 @@ convert the types of some of the elements so that <strong>all elements</strong> 
 <div id="recycling-rules" class="section level3 hasAnchor" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Recycling rules<a href="vectors.html#recycling-rules" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>You can actually add/subtract vectors of <strong>different lengths</strong>.</p></li>
-<li><p>When doing this, <strong>R</strong> <strong>recycles</strong> the values in the shorter vector</p>
+<li><p>You can actually add/subtract vectors of <strong>different lengths</strong> in <strong>R</strong>.</p></li>
+<li><p>When doing this, <strong>R</strong> <strong>recycles</strong> the values in the shorter vector.</p>
 <ul>
-<li><strong>R</strong> will print out a <strong>warning</strong> message if the length of the longer vector is <strong>not</strong> a multiple of the shorter vector</li>
+<li><strong>R</strong> will print out a <strong>warning</strong> message if the length of the longer vector is <strong>not a multiple</strong> of the shorter vector.</li>
 </ul></li>
+<li><p>Specifically, when <strong>R</strong> adds two vectors (say <strong>a</strong> <span class="math inline">\(=(a[1], \ldots, a[n_{a}])\)</span> and <strong>b</strong><span class="math inline">\(=(b[1], \ldots, b[n_{b}])\)</span>) with lengths <span class="math inline">\(n_{a}\)</span> and <span class="math inline">\(n_{b}\)</span> respectively (with <span class="math inline">\(n_{a} &lt; n_{b}\)</span>), <strong>R</strong> returns the <strong>following sum</strong>
+<span class="math display">\[\begin{equation}
+\sum_{j=1}^{n_{b}} a[((j - 1)\mod n_{a}) + 1]b[j]
+\end{equation}\]</span></p></li>
+<li><p>We can see an example of this <strong>recycling rule</strong> in <strong>R</strong> when we try to add a vector of <strong>length 3</strong> with a vector of <strong>length 4</strong>:</p></li>
 </ul>
 <div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="vectors.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">0</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## Warning in c(1, 2, 4) + c(6, 0, 9, 10): longer object length is not a multiple
 ## of shorter object length</code></pre>
 <pre><code>## [1]  7  2 13 11</code></pre>
 <ul>
-<li>What the above code is doing is adding the vector <code>c(1, 2, 4, 1)</code> with the
-vector <code>c(6, 0, 9, 10)</code>.</li>
+<li>You can think of the above code as adding the vector <code>c(1, 2, 4, 1)</code> with the vector <code>c(6, 0, 9, 10)</code>.</li>
 </ul>
 <hr />
 <ul>
@@ -731,6 +743,13 @@ vector <code>c(6, 0, 9, 10, 11, 12)</code>.</p></li>
 </div>
 <div id="logical-operations-with-vectors" class="section level3 hasAnchor" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> Logical operations with vectors<a href="vectors.html#logical-operations-with-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>You can do <strong>AND</strong> and <strong>OR</strong>-type operations with logical vectors.
+<ul>
+<li>Remember that <code>&amp;</code> acts like a <strong>“vector version”</strong> of <code>&amp;&amp;</code></li>
+<li>Remember that <code>|</code> acts like a <strong>“vector version”</strong> of <code>||</code></li>
+</ul></li>
+</ul>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="vectors.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>) <span class="sc">&amp;</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>) <span class="co"># element-wise</span></span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE</code></pre>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="vectors.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>) <span class="sc">|</span> <span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>) <span class="co"># element-wise</span></span></code></pre></div>
@@ -746,23 +765,43 @@ vector <code>c(6, 0, 9, 10, 11, 12)</code>.</p></li>
 <ul>
 <li><p>You can also do <strong>set operations</strong> with vectors.</p></li>
 <li><p>When working with <strong>set operations</strong>, you should think of the <strong>set</strong> associated with a vector as the collection of <strong>unique</strong> elements from that vector.</p></li>
+<li><p>For example, consider the vectors <code>x</code> and <code>y</code> defined as</p></li>
 </ul>
 <div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="vectors.html#cb284-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)   <span class="co"># x is c (1,2,3,3,4,5)</span></span>
-<span id="cb284-2"><a href="vectors.html#cb284-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>) <span class="co"># y is c (1,3,3,5,7,9) </span></span>
-<span id="cb284-3"><a href="vectors.html#cb284-3" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(x,y)  <span class="co"># set intersection, note that repeated 3 is dropped</span></span></code></pre></div>
+<span id="cb284-2"><a href="vectors.html#cb284-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>) <span class="co"># y is c (1,3,3,5,7,9) </span></span></code></pre></div>
+<ul>
+<li><p>The <strong>“set”</strong> associated with <code>x</code> is <span class="math inline">\(\{1,2,3,4,5\}\)</span> and the <strong>“set”</strong> associated with <code>y</code> is <span class="math inline">\(\{1,3,5,7,9\}\)</span>.</p></li>
+<li><p>Then, the <strong>intersection</strong> of <code>x</code> and <code>y</code> using the <code>intersect</code> function in <strong>R</strong> is <span class="math inline">\(\{1, 3, 5\}\)</span></p></li>
+</ul>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="vectors.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(x,y)  <span class="co"># set intersection, note that repeated 3 is dropped</span></span></code></pre></div>
 <pre><code>## [1] 1 3 5</code></pre>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="vectors.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">union</span>(x,y)     <span class="co"># set union</span></span></code></pre></div>
+<ul>
+<li>Similarly, the <code>union</code> function in <strong>R</strong> computes the <strong>“union”</strong> of <code>x</code> and <code>y</code>: <span class="math inline">\(\{1,2,3,4,5,7,9\}\)</span></li>
+</ul>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="vectors.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">union</span>(x,y)     <span class="co"># set union</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 7 9</code></pre>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="vectors.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(x,y)   <span class="co"># set difference x - y</span></span></code></pre></div>
+<hr />
+<ul>
+<li>One can compute the <strong>“set difference”</strong> of two sets using <code>setdiff</code>.
+<ul>
+<li>These are the elements that are in <code>x</code> but are <strong>not</strong> in <code>y</code>.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="vectors.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(x,y)   <span class="co"># set difference x - y</span></span></code></pre></div>
 <pre><code>## [1] 2 4</code></pre>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="vectors.html#cb290-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>            <span class="co"># x is c (1,2,3,4,5)</span></span>
-<span id="cb290-2"><a href="vectors.html#cb290-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>) <span class="co"># y is c (1,3,3,5,7,9) </span></span>
-<span id="cb290-3"><a href="vectors.html#cb290-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%in%</span> y            <span class="co"># membership test</span></span></code></pre></div>
-<pre><code>## [1]  TRUE FALSE  TRUE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="vectors.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">match</span>(x, y)       <span class="co"># find indices of first matching values</span></span></code></pre></div>
-<pre><code>## [1]  1 NA  2 NA  4</code></pre>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="vectors.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(x, y)     <span class="co"># set difference x-y</span></span></code></pre></div>
-<pre><code>## [1] 2 4</code></pre>
+<ul>
+<li>The operation <code>x %in% y</code> returns a <strong>logical vector</strong> the same length as <code>x</code> indicating whether or not each element of <code>x</code> <strong>belongs</strong> to the set of <strong>unique elements</strong> of <code>y</code></li>
+</ul>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="vectors.html#cb291-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%in%</span> y            <span class="co"># membership test</span></span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE</code></pre>
+<ul>
+<li>The function <code>match</code></li>
+</ul>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="vectors.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">match</span>(x, y)       <span class="co"># find indices of first matching values</span></span></code></pre></div>
+<pre><code>## [1]  1 NA  2  2 NA  4</code></pre>
+<div id="the-function-unique" class="section level3 hasAnchor" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> The function unique()<a href="vectors.html#the-function-unique" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
 </div>
 <div id="na-and-is.na-missing-values-in-r" class="section level2 hasAnchor" number="5.7">
 <h2><span class="header-section-number">5.7</span> NA and is.na(): missing values in R<a href="vectors.html#na-and-is.na-missing-values-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -775,8 +814,8 @@ value <strong>NA</strong>.
 <li>You can create a vector with <strong>NA values</strong> by just
 typing in <code>NA</code> for one of the vector elements.</li>
 </ul>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="vectors.html#cb296-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">4</span>) <span class="co"># The third element of this vector is NA</span></span>
-<span id="cb296-2"><a href="vectors.html#cb296-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="vectors.html#cb295-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">4</span>) <span class="co"># The third element of this vector is NA</span></span>
+<span id="cb295-2"><a href="vectors.html#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code></pre></div>
 <pre><code>## [1] &quot;double&quot;</code></pre>
 <ul>
 <li>You can type in NA for either <strong>numeric or character</strong> variables.
@@ -784,25 +823,25 @@ typing in <code>NA</code> for one of the vector elements.</li>
 <li>R will automatically convert everything to the appropriate type.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="vectors.html#cb298-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;cat&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;dog&quot;</span>) <span class="co"># The second element of this vector is NA</span></span>
-<span id="cb298-2"><a href="vectors.html#cb298-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="vectors.html#cb297-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;cat&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;dog&quot;</span>) <span class="co"># The second element of this vector is NA</span></span>
+<span id="cb297-2"><a href="vectors.html#cb297-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(y)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <hr />
 <ul>
 <li><p>Many of the <strong>built-in</strong> R functions will return <code>NA</code>
 if the input numeric vector <strong>contains</strong> any <code>NA</code> values.</p></li>
-<li><p>For example, if we try to compute the standard deviation of the vector <code>x</code></p></li>
+<li><p>For example, if we try to compute the <strong>standard deviation</strong> of the vector <code>x</code></p></li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="vectors.html#cb300-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">7</span>) <span class="co"># The third element of this vector is NA</span></span>
-<span id="cb300-2"><a href="vectors.html#cb300-2" aria-hidden="true" tabindex="-1"></a>mx <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)   <span class="co"># mx will have the value NA</span></span>
-<span id="cb300-3"><a href="vectors.html#cb300-3" aria-hidden="true" tabindex="-1"></a>mx</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="vectors.html#cb299-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">7</span>) <span class="co"># The third element of this vector is NA</span></span>
+<span id="cb299-2"><a href="vectors.html#cb299-2" aria-hidden="true" tabindex="-1"></a>mx <span class="ot">&lt;-</span> <span class="fu">sd</span>(x)   <span class="co"># mx will have the value NA</span></span>
+<span id="cb299-3"><a href="vectors.html#cb299-3" aria-hidden="true" tabindex="-1"></a>mx</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <ul>
 <li>You can compute the <strong>standard deviation</strong>
 of the non-NA values by including the argument <code>na.rm = TRUE</code></li>
 </ul>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="vectors.html#cb302-1" aria-hidden="true" tabindex="-1"></a>sx <span class="ot">&lt;-</span> <span class="fu">sd</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co"># sx shoud have the standard deviation of 1,5,4,7</span></span>
-<span id="cb302-2"><a href="vectors.html#cb302-2" aria-hidden="true" tabindex="-1"></a>sx</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="vectors.html#cb301-1" aria-hidden="true" tabindex="-1"></a>sx <span class="ot">&lt;-</span> <span class="fu">sd</span>(x, <span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="co"># sx shoud have the standard deviation of 1,5,4,7</span></span>
+<span id="cb301-2"><a href="vectors.html#cb301-2" aria-hidden="true" tabindex="-1"></a>sx</span></code></pre></div>
 <pre><code>## [1] 2.5</code></pre>
 <ul>
 <li><p>In the function <code>sd</code>, the argument <code>na.rm</code> is a good example
@@ -810,9 +849,9 @@ of an argument with a <strong>default value</strong>.</p></li>
 <li><p>You can see that <code>na.rm</code> has a <strong>default value</strong> by looking at
 the <strong>function definition</strong> for <code>sd</code></p></li>
 </ul>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="vectors.html#cb304-1" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>) {</span>
-<span id="cb304-2"><a href="vectors.html#cb304-2" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb304-3"><a href="vectors.html#cb304-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="vectors.html#cb303-1" aria-hidden="true" tabindex="-1"></a>sd <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">na.rm =</span> <span class="cn">FALSE</span>) {</span>
+<span id="cb303-2"><a href="vectors.html#cb303-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb303-3"><a href="vectors.html#cb303-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>The <strong>default</strong> value of <code>na.rm</code> is <code>FALSE</code>.
 <ul>
@@ -830,8 +869,8 @@ the <strong>function definition</strong> for <code>sd</code></p></li>
 <li>Otherwise, the <span class="math inline">\(k^{th}\)</span> element of <code>is.na(x)</code> will be <code>FALSE</code>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="vectors.html#cb305-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">1</span>, <span class="cn">NA</span>)  <span class="co"># Elements 4 and 6 of x have NA values </span></span>
-<span id="cb305-2"><a href="vectors.html#cb305-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="vectors.html#cb304-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">1</span>, <span class="cn">NA</span>)  <span class="co"># Elements 4 and 6 of x have NA values </span></span>
+<span id="cb304-2"><a href="vectors.html#cb304-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.na</span>(x)</span></code></pre></div>
 <pre><code>## [1] FALSE FALSE FALSE  TRUE FALSE  TRUE</code></pre>
 <ul>
 <li>You can also use <code>is.na()</code> directly on <strong>matrices</strong> and <strong>data frames</strong>.</li>

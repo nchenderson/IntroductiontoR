@@ -710,7 +710,7 @@ as.integer(c(123, 12.3, "123", "123a"))
 
 ## Mathematical operations with vectors
 
-* When doing **mathematical operations** with two vectors of the same length, **R** will perform addition, subtraction, multiplication, division **element-by-element**.
+* When doing **mathematical operations** with two vectors of the **same length**, **R** will perform addition, subtraction, multiplication, division **element-by-element**.
 
 
 ```r
@@ -774,10 +774,17 @@ x <- c(10, 5, 0, -5)
 
 ### Recycling rules
 
-* You can actually add/subtract vectors of **different lengths**.
+* You can actually add/subtract vectors of **different lengths** in **R**.
 
-* When doing this, **R** **recycles** the values in the shorter vector
-    + **R** will print out a **warning** message if the length of the longer vector is **not** a multiple of the shorter vector
+* When doing this, **R** **recycles** the values in the shorter vector.
+    + **R** will print out a **warning** message if the length of the longer vector is **not a multiple** of the shorter vector.
+    
+* Specifically, when **R** adds two vectors (say **a** $=(a[1], \ldots, a[n_{a}])$  and **b**$=(b[1], \ldots, b[n_{b}])$) with lengths $n_{a}$ and $n_{b}$ respectively (with $n_{a} < n_{b}$), **R** returns the **following sum**
+\begin{equation}
+\sum_{j=1}^{n_{b}} a[((j - 1)\mod n_{a}) + 1]b[j]
+\end{equation}
+
+* We can see an example of this **recycling rule** in **R** when we try to add a vector of **length 3** with a vector of **length 4**:
 
 ```r
 c(1, 2, 4) + c(6, 0, 9, 10)
@@ -792,8 +799,7 @@ c(1, 2, 4) + c(6, 0, 9, 10)
 ## [1]  7  2 13 11
 ```
 
-* What the above code is doing is adding the vector `c(1, 2, 4, 1)` with the
-vector `c(6, 0, 9, 10)`.
+* You can think of the above code as adding the vector `c(1, 2, 4, 1)` with the vector `c(6, 0, 9, 10)`.
 
 ---
 
@@ -818,6 +824,10 @@ vector `c(6, 0, 9, 10, 11, 12)`.
     + You may find it helpful to use these recycling rules if you are, for example, adding one vector with another vector that has a simple, **repeating** pattern.
 
 ### Logical operations with vectors
+
+* You can do **AND** and **OR**-type operations with logical vectors.
+    + Remember that `&` acts like a **"vector version"** of `&&`
+    + Remember that `|` acts like a **"vector version"** of `||`
 
 
 ```r
@@ -860,16 +870,26 @@ c(TRUE, TRUE, FALSE) || c(TRUE,FALSE,FALSE) # only first values
 
 * When working with **set operations**, you should think of the **set** associated with a vector as the collection of **unique** elements from that vector.
 
+* For example, consider the vectors `x` and `y` defined as
 
 ```r
 x <- c(1,2,3,3,4,5)   # x is c (1,2,3,3,4,5)
 y <- c(1,3,3,5,7,9) # y is c (1,3,3,5,7,9) 
+```
+
+* The **"set"** associated with `x` is $\{1,2,3,4,5\}$ and the **"set"** associated with `y` is $\{1,3,5,7,9\}$.
+
+* Then, the **intersection** of `x` and `y` using the `intersect` function in **R** is $\{1, 3, 5\}$
+
+```r
 intersect(x,y)  # set intersection, note that repeated 3 is dropped
 ```
 
 ```
 ## [1] 1 3 5
 ```
+
+* Similarly, the `union` function in **R** computes the **"union"** of `x` and `y`: $\{1,2,3,4,5,7,9\}$
 
 ```r
 union(x,y)     # set union
@@ -879,6 +899,11 @@ union(x,y)     # set union
 ## [1] 1 2 3 4 5 7 9
 ```
 
+---
+
+* One can compute the **"set difference"** of two sets using `setdiff`.
+    + These are the elements that are in `x` but are **not** in `y`.
+
 ```r
 setdiff(x,y)   # set difference x - y
 ```
@@ -887,34 +912,28 @@ setdiff(x,y)   # set difference x - y
 ## [1] 2 4
 ```
 
-
+* The operation `x %in% y` returns a **logical vector** the same length as `x` indicating whether or not each element of `x` **belongs** to the set of **unique elements** of `y`
 
 ```r
-x <- 1:5            # x is c (1,2,3,4,5)
-y <- c(1,3,3,5,7,9) # y is c (1,3,3,5,7,9) 
 x %in% y            # membership test
 ```
 
 ```
-## [1]  TRUE FALSE  TRUE FALSE  TRUE
+## [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE
 ```
+
+* The function `match`
+
 
 ```r
 match(x, y)       # find indices of first matching values
 ```
 
 ```
-## [1]  1 NA  2 NA  4
+## [1]  1 NA  2  2 NA  4
 ```
 
-```r
-setdiff(x, y)     # set difference x-y
-```
-
-```
-## [1] 2 4
-```
-
+### The function unique()
 
 ## NA and is.na(): missing values in R
 
@@ -951,7 +970,7 @@ typeof(y)
 * Many of the **built-in** R functions will return `NA` 
 if the input numeric vector **contains** any `NA` values.
 
-* For example, if we try to compute the standard deviation of the vector `x`
+* For example, if we try to compute the **standard deviation** of the vector `x`
 
 ```r
 x <- c(1, 5, NA, 4, 7) # The third element of this vector is NA
