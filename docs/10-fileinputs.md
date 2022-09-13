@@ -1,6 +1,6 @@
 # (PART) Importing and Organizing Data {-}
 
-# File Input {#fileinput}
+# Reading Data Files into R {#fileinput}
 
 * **Text files**
 
