@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-11" />
+<meta name="date" content="2022-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -157,7 +157,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="ifelse.html"><a href="ifelse.html#comparison-operators"><i class="fa fa-check"></i><b>2.1.1</b> Comparison Operators</a></li>
 <li class="chapter" data-level="2.1.2" data-path="ifelse.html"><a href="ifelse.html#logical-operators"><i class="fa fa-check"></i><b>2.1.2</b> Logical Operators</a></li>
+<li class="chapter" data-level="2.1.3" data-path="ifelse.html"><a href="ifelse.html#precedence-with-logical-operations"><i class="fa fa-check"></i><b>2.1.3</b> Precedence with logical operations</a></li>
+<li class="chapter" data-level="2.1.4" data-path="ifelse.html"><a href="ifelse.html#abbreviating-true-and-false-with-t-and-f"><i class="fa fa-check"></i><b>2.1.4</b> Abbreviating TRUE and FALSE with T and F</a></li>
+<li class="chapter" data-level="2.1.5" data-path="ifelse.html"><a href="ifelse.html#examples-of-logical-operations-in-r"><i class="fa fa-check"></i><b>2.1.5</b> Examples of logical operations in R</a></li>
+<li class="chapter" data-level="2.1.6" data-path="ifelse.html"><a href="ifelse.html#vs.-and-vs."><i class="fa fa-check"></i><b>2.1.6</b> &amp;&amp; vs. &amp; and || vs. |</a></li>
 </ul></li>
+<li class="chapter" data-level="2.2" data-path="ifelse.html"><a href="ifelse.html#if-and-if-else-statements"><i class="fa fa-check"></i><b>2.2</b> If and If-else statements</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ifelse.html"><a href="ifelse.html#if-statements"><i class="fa fa-check"></i><b>2.2.1</b> if statements</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ifelse.html"><a href="ifelse.html#if-statement-examples"><i class="fa fa-check"></i><b>2.2.2</b> if statement examples</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ifelse.html"><a href="ifelse.html#single-line-if-statements"><i class="fa fa-check"></i><b>2.2.3</b> Single-line if statements</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ifelse.html"><a href="ifelse.html#if-else-statements"><i class="fa fa-check"></i><b>2.3</b> if-else statements</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ifelse.html"><a href="ifelse.html#if-else-if-chains"><i class="fa fa-check"></i><b>2.3.1</b> if-else-if chains</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ifelse.html"><a href="ifelse.html#nested-if-else-statements"><i class="fa fa-check"></i><b>2.3.2</b> Nested if-else statements</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ifelse.html"><a href="ifelse.html#exercises-1"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3</b> Functions in R</a>
 <ul>
@@ -177,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="functions.html"><a href="functions.html#example-1-2"><i class="fa fa-check"></i><b>3.4.1</b> Example 1</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="functions.html"><a href="functions.html#exercises-1"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
+<li class="chapter" data-level="3.5" data-path="functions.html"><a href="functions.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>4</b> Loops in R</a>
 <ul>
@@ -194,7 +210,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.2.1" data-path="loops.html"><a href="loops.html#example-1-a-first-which-function"><i class="fa fa-check"></i><b>4.2.1</b> Example 1: a “first which” function</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="loops.html"><a href="loops.html#exercises-2"><i class="fa fa-check"></i><b>4.3</b> Exercises</a></li>
+<li class="chapter" data-level="4.3" data-path="loops.html"><a href="loops.html#exercises-3"><i class="fa fa-check"></i><b>4.3</b> Exercises</a></li>
 </ul></li>
 <li class="part"><span><b>II R Data Structures</b></span></li>
 <li class="chapter" data-level="5" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>5</b> Vectors</a>
@@ -228,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="vectors.html"><a href="vectors.html#the-function-is.na"><i class="fa fa-check"></i><b>5.7.1</b> The function <code>is.na()</code></a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="vectors.html"><a href="vectors.html#exercises-3"><i class="fa fa-check"></i><b>5.8</b> Exercises</a></li>
+<li class="chapter" data-level="5.8" data-path="vectors.html"><a href="vectors.html#exercises-4"><i class="fa fa-check"></i><b>5.8</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>6</b> Matrices</a>
 <ul>
@@ -248,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.2" data-path="matrix.html"><a href="matrix.html#apply-dimension-wise-aggregation"><i class="fa fa-check"></i><b>6.4.2</b> <strong>apply()</strong>: dimension-wise aggregation</a></li>
 <li class="chapter" data-level="6.4.3" data-path="matrix.html"><a href="matrix.html#using-apply-with-your-own-function"><i class="fa fa-check"></i><b>6.4.3</b> Using apply with your own function</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="matrix.html"><a href="matrix.html#exercises-4"><i class="fa fa-check"></i><b>6.5</b> Exercises</a></li>
+<li class="chapter" data-level="6.5" data-path="matrix.html"><a href="matrix.html#exercises-5"><i class="fa fa-check"></i><b>6.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>7</b> Lists</a>
 <ul>
@@ -263,14 +279,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.5.1" data-path="list.html"><a href="list.html#use-sapply-for-simpler-output"><i class="fa fa-check"></i><b>7.5.1</b> Use sapply() for simpler output</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="list.html"><a href="list.html#exercises-5"><i class="fa fa-check"></i><b>7.6</b> Exercises</a></li>
+<li class="chapter" data-level="7.6" data-path="list.html"><a href="list.html#exercises-6"><i class="fa fa-check"></i><b>7.6</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>8</b> Data Frames</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="dataframe.html"><a href="dataframe.html#creating-data-frames"><i class="fa fa-check"></i><b>8.1</b> Creating Data Frames</a></li>
 <li class="chapter" data-level="8.2" data-path="dataframe.html"><a href="dataframe.html#accessing-and-modifying-data-frames"><i class="fa fa-check"></i><b>8.2</b> Accessing and Modifying Data Frames</a></li>
 <li class="chapter" data-level="8.3" data-path="dataframe.html"><a href="dataframe.html#subsetting-data-frames"><i class="fa fa-check"></i><b>8.3</b> Subsetting data frames</a></li>
-<li class="chapter" data-level="8.4" data-path="dataframe.html"><a href="dataframe.html#exercises-6"><i class="fa fa-check"></i><b>8.4</b> Exercises</a></li>
+<li class="chapter" data-level="8.4" data-path="dataframe.html"><a href="dataframe.html#exercises-7"><i class="fa fa-check"></i><b>8.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>9</b> Factors</a>
 <ul>
@@ -280,9 +296,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="factors.html"><a href="factors.html#tapply-and-aggregate"><i class="fa fa-check"></i><b>9.4</b> tapply() and aggregate</a></li>
 </ul></li>
 <li class="part"><span><b>III Importing and Organizing Data</b></span></li>
-<li class="chapter" data-level="10" data-path="fileinput.html"><a href="fileinput.html"><i class="fa fa-check"></i><b>10</b> File Input</a>
+<li class="chapter" data-level="10" data-path="fileinput.html"><a href="fileinput.html"><i class="fa fa-check"></i><b>10</b> Reading Data Files into R</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="fileinput.html"><a href="fileinput.html#downloading-a-file-locally"><i class="fa fa-check"></i><b>10.1</b> Downloading a file locally</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="datawrangling.html"><a href="datawrangling.html"><i class="fa fa-check"></i><b>11</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="datawrangling.html"><a href="datawrangling.html#the-nycflights13-data"><i class="fa fa-check"></i><b>11.1</b> The nycflights13 data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -324,9 +344,9 @@ and the <strong>while</strong> loop.</p></li>
 <ul>
 <li>The general form of a <strong>for</strong> loop in <strong>R</strong> is</li>
 </ul>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="loops.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> vec_name) {</span>
-<span id="cb104-2"><a href="loops.html#cb104-2" aria-hidden="true" tabindex="-1"></a>    perform a <span class="fu">calculation</span> (often involving x)</span>
-<span id="cb104-3"><a href="loops.html#cb104-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="loops.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> vec_name) {</span>
+<span id="cb199-2"><a href="loops.html#cb199-2" aria-hidden="true" tabindex="-1"></a>    perform a <span class="fu">calculation</span> (often involving x)</span>
+<span id="cb199-3"><a href="loops.html#cb199-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p>The <strong>for</strong> loop will execute the code underneath the <strong>for</strong> statement <span class="math inline">\(T\)</span> times where <span class="math inline">\(T\)</span> is the <strong>length</strong> of the vector <code>vec_name</code>.</p></li>
 <li><p><strong>Each</strong> time the code is executed, <code>x</code> will be set to one element in <code>vec_name</code>.</p></li>
@@ -336,9 +356,9 @@ and the <strong>while</strong> loop.</p></li>
 <ul>
 <li>As an example, let’s write a <strong>for</strong> loop that prints the first 5 positive integers:</li>
 </ul>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="loops.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb105-2"><a href="loops.html#cb105-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(k)</span>
-<span id="cb105-3"><a href="loops.html#cb105-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="loops.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb200-2"><a href="loops.html#cb200-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(k)</span>
+<span id="cb200-3"><a href="loops.html#cb200-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3
@@ -356,12 +376,12 @@ and the <strong>while</strong> loop.</p></li>
 10! = 1 \times 2 \times 3 \times ... \times 9 \times 10 \nonumber
 \end{equation}\]</span></li>
 </ul>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="loops.html#cb107-1" aria-hidden="true" tabindex="-1"></a>prod_ten <span class="ot">&lt;-</span> <span class="dv">1</span>   <span class="co"># start from 1</span></span>
-<span id="cb107-2"><a href="loops.html#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb107-3"><a href="loops.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>)  {  <span class="co"># iterate x from 1 thru 10</span></span>
-<span id="cb107-4"><a href="loops.html#cb107-4" aria-hidden="true" tabindex="-1"></a>   prod_ten <span class="ot">&lt;-</span> prod_ten<span class="sc">*</span>x   <span class="co"># multiply each value</span></span>
-<span id="cb107-5"><a href="loops.html#cb107-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb107-6"><a href="loops.html#cb107-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(prod_ten)     <span class="co"># print the product of first 10 integers</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="loops.html#cb202-1" aria-hidden="true" tabindex="-1"></a>prod_ten <span class="ot">&lt;-</span> <span class="dv">1</span>   <span class="co"># start from 1</span></span>
+<span id="cb202-2"><a href="loops.html#cb202-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-3"><a href="loops.html#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(x <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>)  {  <span class="co"># iterate x from 1 thru 10</span></span>
+<span id="cb202-4"><a href="loops.html#cb202-4" aria-hidden="true" tabindex="-1"></a>   prod_ten <span class="ot">&lt;-</span> prod_ten<span class="sc">*</span>x   <span class="co"># multiply each value</span></span>
+<span id="cb202-5"><a href="loops.html#cb202-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb202-6"><a href="loops.html#cb202-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(prod_ten)     <span class="co"># print the product of first 10 integers</span></span></code></pre></div>
 <pre><code>## [1] 3628800</code></pre>
 </div>
 <div id="example-3-a-non-numeric-looping-variable" class="section level3 hasAnchor" number="4.1.3">
@@ -370,10 +390,10 @@ and the <strong>while</strong> loop.</p></li>
 <li><p>The looping variable <strong>does not</strong> need to be <strong>numeric</strong>.</p></li>
 <li><p>Here is an example where the looping variable has <strong>character</strong> type.</p></li>
 </ul>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="loops.html#cb109-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;grape&quot;</span>)   <span class="co"># character vector</span></span>
-<span id="cb109-2"><a href="loops.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(fruit <span class="cf">in</span> fruits)  {  <span class="co"># iterate each element</span></span>
-<span id="cb109-3"><a href="loops.html#cb109-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(fruit)   </span>
-<span id="cb109-4"><a href="loops.html#cb109-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="loops.html#cb204-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;grape&quot;</span>)   <span class="co"># character vector</span></span>
+<span id="cb204-2"><a href="loops.html#cb204-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(fruit <span class="cf">in</span> fruits)  {  <span class="co"># iterate each element</span></span>
+<span id="cb204-3"><a href="loops.html#cb204-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(fruit)   </span>
+<span id="cb204-4"><a href="loops.html#cb204-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;apple&quot;
 ## [1] &quot;orange&quot;
 ## [1] &quot;grape&quot;</code></pre>
@@ -392,15 +412,15 @@ x_{k} = x_{k-1} + x_{k-2} \nonumber
 <li>This is done by first assigning <code>x</code> the vector <code>rep(0, n)</code></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="loops.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R code for computing first 12 Fibonacci numbers</span></span>
-<span id="cb111-2"><a href="loops.html#cb111-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">12</span>)  <span class="co"># First initialize a vector of size 12</span></span>
-<span id="cb111-3"><a href="loops.html#cb111-3" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb111-4"><a href="loops.html#cb111-4" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb111-5"><a href="loops.html#cb111-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>) {</span>
-<span id="cb111-6"><a href="loops.html#cb111-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## start at index 3 since first 2 elements are filled in</span></span>
-<span id="cb111-7"><a href="loops.html#cb111-7" aria-hidden="true" tabindex="-1"></a>    x[k] <span class="ot">&lt;-</span> x[k<span class="dv">-1</span>] <span class="sc">+</span> x[k<span class="dv">-2</span>]</span>
-<span id="cb111-8"><a href="loops.html#cb111-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb111-9"><a href="loops.html#cb111-9" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="loops.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R code for computing first 12 Fibonacci numbers</span></span>
+<span id="cb206-2"><a href="loops.html#cb206-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">12</span>)  <span class="co"># First initialize a vector of size 12</span></span>
+<span id="cb206-3"><a href="loops.html#cb206-3" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb206-4"><a href="loops.html#cb206-4" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb206-5"><a href="loops.html#cb206-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>) {</span>
+<span id="cb206-6"><a href="loops.html#cb206-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## start at index 3 since first 2 elements are filled in</span></span>
+<span id="cb206-7"><a href="loops.html#cb206-7" aria-hidden="true" tabindex="-1"></a>    x[k] <span class="ot">&lt;-</span> x[k<span class="dv">-1</span>] <span class="sc">+</span> x[k<span class="dv">-2</span>]</span>
+<span id="cb206-8"><a href="loops.html#cb206-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb206-9"><a href="loops.html#cb206-9" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##  [1]  0  1  1  2  3  5  8 13 21 34 55 89</code></pre>
 <hr />
 <ul>
@@ -410,12 +430,12 @@ we go in the loop.</p></li>
 <li><p>This is usually much slower than first initializing a vector as was done
 on the previous slide.</p></li>
 </ul>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="loops.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R code for computing first 12 Fibonacci numbers</span></span>
-<span id="cb113-2"><a href="loops.html#cb113-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb113-3"><a href="loops.html#cb113-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>) {</span>
-<span id="cb113-4"><a href="loops.html#cb113-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">c</span>(x, x[k<span class="dv">-1</span>] <span class="sc">+</span> x[k<span class="dv">-2</span>])</span>
-<span id="cb113-5"><a href="loops.html#cb113-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb113-6"><a href="loops.html#cb113-6" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="loops.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="do">## R code for computing first 12 Fibonacci numbers</span></span>
+<span id="cb208-2"><a href="loops.html#cb208-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb208-3"><a href="loops.html#cb208-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">12</span>) {</span>
+<span id="cb208-4"><a href="loops.html#cb208-4" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="fu">c</span>(x, x[k<span class="dv">-1</span>] <span class="sc">+</span> x[k<span class="dv">-2</span>])</span>
+<span id="cb208-5"><a href="loops.html#cb208-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb208-6"><a href="loops.html#cb208-6" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##  [1]  0  1  1  2  3  5  8 13 21 34 55 89</code></pre>
 </div>
 <div id="nested-for-loops" class="section level3 hasAnchor" number="4.1.5">
@@ -426,11 +446,11 @@ on the previous slide.</p></li>
 <li>These are usually referred to as <strong>nested</strong> for loops.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="loops.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {   <span class="co"># i iterates over 1,2,3</span></span>
-<span id="cb115-2"><a href="loops.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>i) { <span class="co"># j iterates over 1 to i</span></span>
-<span id="cb115-3"><a href="loops.html#cb115-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">c</span>(i,j))     </span>
-<span id="cb115-4"><a href="loops.html#cb115-4" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb115-5"><a href="loops.html#cb115-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="loops.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {   <span class="co"># i iterates over 1,2,3</span></span>
+<span id="cb210-2"><a href="loops.html#cb210-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>i) { <span class="co"># j iterates over 1 to i</span></span>
+<span id="cb210-3"><a href="loops.html#cb210-3" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">c</span>(i,j))     </span>
+<span id="cb210-4"><a href="loops.html#cb210-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb210-5"><a href="loops.html#cb210-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1 1
 ## [1] 2 1
 ## [1] 2 2
@@ -447,12 +467,12 @@ on the previous slide.</p></li>
 </ul></li>
 <li>As an example of this, let’s write a loop that should run for 5 iterations, but is terminated after during it’s 3rd iteration.</li>
 </ul>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="loops.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb117-2"><a href="loops.html#cb117-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(k)</span>
-<span id="cb117-3"><a href="loops.html#cb117-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(k <span class="sc">&gt;=</span> <span class="dv">3</span>) {</span>
-<span id="cb117-4"><a href="loops.html#cb117-4" aria-hidden="true" tabindex="-1"></a>       <span class="cf">break</span>   <span class="do">## loop will stop when break is run</span></span>
-<span id="cb117-5"><a href="loops.html#cb117-5" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb117-6"><a href="loops.html#cb117-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="loops.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb212-2"><a href="loops.html#cb212-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(k)</span>
+<span id="cb212-3"><a href="loops.html#cb212-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(k <span class="sc">&gt;=</span> <span class="dv">3</span>) {</span>
+<span id="cb212-4"><a href="loops.html#cb212-4" aria-hidden="true" tabindex="-1"></a>       <span class="cf">break</span>   <span class="do">## loop will stop when break is run</span></span>
+<span id="cb212-5"><a href="loops.html#cb212-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb212-6"><a href="loops.html#cb212-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3</code></pre>
@@ -460,12 +480,12 @@ on the previous slide.</p></li>
 <li>Note that if we move the <code>print</code> statement after <code>break</code> in the above example,
 then only <code>1</code> and <code>2</code> will be printed to the screen.</li>
 </ul>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="loops.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb119-2"><a href="loops.html#cb119-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(k <span class="sc">&gt;=</span> <span class="dv">3</span>) {</span>
-<span id="cb119-3"><a href="loops.html#cb119-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">break</span>   <span class="do">## loop will stop when break is run</span></span>
-<span id="cb119-4"><a href="loops.html#cb119-4" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb119-5"><a href="loops.html#cb119-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(k)</span>
-<span id="cb119-6"><a href="loops.html#cb119-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="loops.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb214-2"><a href="loops.html#cb214-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(k <span class="sc">&gt;=</span> <span class="dv">3</span>) {</span>
+<span id="cb214-3"><a href="loops.html#cb214-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">break</span>   <span class="do">## loop will stop when break is run</span></span>
+<span id="cb214-4"><a href="loops.html#cb214-4" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb214-5"><a href="loops.html#cb214-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(k)</span>
+<span id="cb214-6"><a href="loops.html#cb214-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2</code></pre>
 <hr />
@@ -473,14 +493,14 @@ then only <code>1</code> and <code>2</code> will be printed to the screen.</li>
 <li><p><strong>break</strong> statements can be used within <strong>nested loops</strong>.</p></li>
 <li><p>If using a <strong>break statement</strong> in the <strong>inner loop</strong> of a nested loop, only the inner loop will be terminated when <strong>break</strong> is run.</p></li>
 </ul>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="loops.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {   <span class="co"># i iterates over 1,2,3</span></span>
-<span id="cb121-2"><a href="loops.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># j iterates over 1,2,3</span></span>
-<span id="cb121-3"><a href="loops.html#cb121-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">c</span>(i,j))</span>
-<span id="cb121-4"><a href="loops.html#cb121-4" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> (j <span class="sc">==</span> i) {  <span class="do">## if j and i are the same</span></span>
-<span id="cb121-5"><a href="loops.html#cb121-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span>        <span class="do">## finish the inner loop </span></span>
-<span id="cb121-6"><a href="loops.html#cb121-6" aria-hidden="true" tabindex="-1"></a>     }</span>
-<span id="cb121-7"><a href="loops.html#cb121-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb121-8"><a href="loops.html#cb121-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="loops.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {   <span class="co"># i iterates over 1,2,3</span></span>
+<span id="cb216-2"><a href="loops.html#cb216-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># j iterates over 1,2,3</span></span>
+<span id="cb216-3"><a href="loops.html#cb216-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">print</span>(<span class="fu">c</span>(i,j))</span>
+<span id="cb216-4"><a href="loops.html#cb216-4" aria-hidden="true" tabindex="-1"></a>     <span class="cf">if</span> (j <span class="sc">==</span> i) {  <span class="do">## if j and i are the same</span></span>
+<span id="cb216-5"><a href="loops.html#cb216-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span>        <span class="do">## finish the inner loop </span></span>
+<span id="cb216-6"><a href="loops.html#cb216-6" aria-hidden="true" tabindex="-1"></a>     }</span>
+<span id="cb216-7"><a href="loops.html#cb216-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb216-8"><a href="loops.html#cb216-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1 1
 ## [1] 2 1
 ## [1] 2 2
@@ -493,12 +513,12 @@ then only <code>1</code> and <code>2</code> will be printed to the screen.</li>
 <li><p>When the <strong>next statement</strong> is encountered, you will go directly to the next iteration and not execute whatever was remaining inside the body of the <strong>for loop</strong>.</p></li>
 <li><p>Let’s try an example where we have 5 iterations setup, but we use a <strong>next statement</strong> within the 3rd iteration</p></li>
 </ul>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="loops.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb123-2"><a href="loops.html#cb123-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span>(k <span class="sc">==</span> <span class="dv">3</span>) {</span>
-<span id="cb123-3"><a href="loops.html#cb123-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">next</span></span>
-<span id="cb123-4"><a href="loops.html#cb123-4" aria-hidden="true" tabindex="-1"></a>   }</span>
-<span id="cb123-5"><a href="loops.html#cb123-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(k)  <span class="co"># this will not print when k==3 </span></span>
-<span id="cb123-6"><a href="loops.html#cb123-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="loops.html#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb218-2"><a href="loops.html#cb218-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span>(k <span class="sc">==</span> <span class="dv">3</span>) {</span>
+<span id="cb218-3"><a href="loops.html#cb218-3" aria-hidden="true" tabindex="-1"></a>       <span class="cf">next</span></span>
+<span id="cb218-4"><a href="loops.html#cb218-4" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb218-5"><a href="loops.html#cb218-5" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(k)  <span class="co"># this will not print when k==3 </span></span>
+<span id="cb218-6"><a href="loops.html#cb218-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 4
@@ -508,14 +528,14 @@ then only <code>1</code> and <code>2</code> will be printed to the screen.</li>
 <li><p><code>next</code> can also be used within a <strong>nested loop</strong>.</p></li>
 <li><p>If used in an <strong>inner loop</strong>, the <strong>next statement</strong> will skip the remainder of the current <strong>inner loop</strong> iteration and go to the next <strong>inner loop</strong> iteration.</p></li>
 </ul>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="loops.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {   <span class="co"># i iterates over 1,2,3</span></span>
-<span id="cb125-2"><a href="loops.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># j iterates over 1,2,3</span></span>
-<span id="cb125-3"><a href="loops.html#cb125-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (j <span class="sc">==</span> i) {   <span class="do">## if j equals i </span></span>
-<span id="cb125-4"><a href="loops.html#cb125-4" aria-hidden="true" tabindex="-1"></a>       <span class="cf">next</span>         <span class="do">## go to next iteration</span></span>
-<span id="cb125-5"><a href="loops.html#cb125-5" aria-hidden="true" tabindex="-1"></a>    }               <span class="do">## of inner loop</span></span>
-<span id="cb125-6"><a href="loops.html#cb125-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">c</span>(i,j))</span>
-<span id="cb125-7"><a href="loops.html#cb125-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb125-8"><a href="loops.html#cb125-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="loops.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {   <span class="co"># i iterates over 1,2,3</span></span>
+<span id="cb220-2"><a href="loops.html#cb220-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) { <span class="co"># j iterates over 1,2,3</span></span>
+<span id="cb220-3"><a href="loops.html#cb220-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (j <span class="sc">==</span> i) {   <span class="do">## if j equals i </span></span>
+<span id="cb220-4"><a href="loops.html#cb220-4" aria-hidden="true" tabindex="-1"></a>       <span class="cf">next</span>         <span class="do">## go to next iteration</span></span>
+<span id="cb220-5"><a href="loops.html#cb220-5" aria-hidden="true" tabindex="-1"></a>    }               <span class="do">## of inner loop</span></span>
+<span id="cb220-6"><a href="loops.html#cb220-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">c</span>(i,j))</span>
+<span id="cb220-7"><a href="loops.html#cb220-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb220-8"><a href="loops.html#cb220-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1 2
 ## [1] 1 3
 ## [1] 2 1
@@ -532,10 +552,10 @@ then only <code>1</code> and <code>2</code> will be printed to the screen.</li>
 a certain condition is <code>TRUE</code>.</p></li>
 <li><p>The general form of a <strong>while</strong> loop in <strong>R</strong> is</p></li>
 </ul>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="loops.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(condition) {</span>
-<span id="cb127-2"><a href="loops.html#cb127-2" aria-hidden="true" tabindex="-1"></a>    code chunk</span>
-<span id="cb127-3"><a href="loops.html#cb127-3" aria-hidden="true" tabindex="-1"></a>    then, usually update something related to condition</span>
-<span id="cb127-4"><a href="loops.html#cb127-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="loops.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(condition) {</span>
+<span id="cb222-2"><a href="loops.html#cb222-2" aria-hidden="true" tabindex="-1"></a>    code chunk</span>
+<span id="cb222-3"><a href="loops.html#cb222-3" aria-hidden="true" tabindex="-1"></a>    then, usually update something related to condition</span>
+<span id="cb222-4"><a href="loops.html#cb222-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p><code>condition</code> is a <strong>logical</strong> expression.</p></li>
 <li><p>The <code>code_chunk</code> inside the loop is repeated until the <code>condition</code> becomes <code>FALSE</code>
@@ -545,11 +565,11 @@ in which case the loop <strong>stops</strong>.</p></li>
 <ul>
 <li>Basic example of while loop:</li>
 </ul>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="loops.html#cb128-1" aria-hidden="true" tabindex="-1"></a>prod <span class="ot">&lt;-</span> <span class="dv">1</span>   <span class="co"># start from 1</span></span>
-<span id="cb128-2"><a href="loops.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(prod <span class="sc">&lt;</span> <span class="dv">100</span>)  {  <span class="co"># repeat the block until condition is true</span></span>
-<span id="cb128-3"><a href="loops.html#cb128-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(prod)          <span class="co"># print the value of prod</span></span>
-<span id="cb128-4"><a href="loops.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  prod <span class="ot">&lt;-</span> prod <span class="sc">*</span> <span class="dv">2</span>     <span class="co"># and double the value</span></span>
-<span id="cb128-5"><a href="loops.html#cb128-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="loops.html#cb223-1" aria-hidden="true" tabindex="-1"></a>prod <span class="ot">&lt;-</span> <span class="dv">1</span>   <span class="co"># start from 1</span></span>
+<span id="cb223-2"><a href="loops.html#cb223-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span>(prod <span class="sc">&lt;</span> <span class="dv">100</span>)  {  <span class="co"># repeat the block until condition is true</span></span>
+<span id="cb223-3"><a href="loops.html#cb223-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(prod)          <span class="co"># print the value of prod</span></span>
+<span id="cb223-4"><a href="loops.html#cb223-4" aria-hidden="true" tabindex="-1"></a>  prod <span class="ot">&lt;-</span> prod <span class="sc">*</span> <span class="dv">2</span>     <span class="co"># and double the value</span></span>
+<span id="cb223-5"><a href="loops.html#cb223-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 4
@@ -565,35 +585,35 @@ in which case the loop <strong>stops</strong>.</p></li>
 to find the first index <code>k</code> such that <code>x[k] == num</code></p></li>
 <li><p>This function will also return <code>NA</code> if no match is found.</p></li>
 </ul>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="loops.html#cb130-1" aria-hidden="true" tabindex="-1"></a>first_while <span class="ot">&lt;-</span> <span class="cf">function</span>(x, num) {</span>
-<span id="cb130-2"><a href="loops.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  index.count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb130-3"><a href="loops.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  match.not.found <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb130-4"><a href="loops.html#cb130-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span>(match.not.found <span class="sc">&amp;&amp;</span> index.count <span class="sc">&lt;</span> <span class="fu">length</span>(x)) {</span>
-<span id="cb130-5"><a href="loops.html#cb130-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># want to keep loop running while match is not found</span></span>
-<span id="cb130-6"><a href="loops.html#cb130-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and the index is less than the length of x</span></span>
-<span id="cb130-7"><a href="loops.html#cb130-7" aria-hidden="true" tabindex="-1"></a>    index.count <span class="ot">&lt;-</span> index.count <span class="sc">+</span> <span class="dv">1</span> </span>
-<span id="cb130-8"><a href="loops.html#cb130-8" aria-hidden="true" tabindex="-1"></a>    match.not.found <span class="ot">&lt;-</span> <span class="sc">!</span>(x[index.count] <span class="sc">==</span> num)</span>
-<span id="cb130-9"><a href="loops.html#cb130-9" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb130-10"><a href="loops.html#cb130-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(match.not.found) {</span>
-<span id="cb130-11"><a href="loops.html#cb130-11" aria-hidden="true" tabindex="-1"></a>    index.count <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb130-12"><a href="loops.html#cb130-12" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb130-13"><a href="loops.html#cb130-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(index.count)</span>
-<span id="cb130-14"><a href="loops.html#cb130-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="loops.html#cb225-1" aria-hidden="true" tabindex="-1"></a>first_while <span class="ot">&lt;-</span> <span class="cf">function</span>(x, num) {</span>
+<span id="cb225-2"><a href="loops.html#cb225-2" aria-hidden="true" tabindex="-1"></a>  index.count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb225-3"><a href="loops.html#cb225-3" aria-hidden="true" tabindex="-1"></a>  match.not.found <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb225-4"><a href="loops.html#cb225-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span>(match.not.found <span class="sc">&amp;&amp;</span> index.count <span class="sc">&lt;</span> <span class="fu">length</span>(x)) {</span>
+<span id="cb225-5"><a href="loops.html#cb225-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># want to keep loop running while match is not found</span></span>
+<span id="cb225-6"><a href="loops.html#cb225-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and the index is less than the length of x</span></span>
+<span id="cb225-7"><a href="loops.html#cb225-7" aria-hidden="true" tabindex="-1"></a>    index.count <span class="ot">&lt;-</span> index.count <span class="sc">+</span> <span class="dv">1</span> </span>
+<span id="cb225-8"><a href="loops.html#cb225-8" aria-hidden="true" tabindex="-1"></a>    match.not.found <span class="ot">&lt;-</span> <span class="sc">!</span>(x[index.count] <span class="sc">==</span> num)</span>
+<span id="cb225-9"><a href="loops.html#cb225-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb225-10"><a href="loops.html#cb225-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(match.not.found) {</span>
+<span id="cb225-11"><a href="loops.html#cb225-11" aria-hidden="true" tabindex="-1"></a>    index.count <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb225-12"><a href="loops.html#cb225-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb225-13"><a href="loops.html#cb225-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(index.count)</span>
+<span id="cb225-14"><a href="loops.html#cb225-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>Let’s try running <code>first_while</code> on a few examples:</li>
 </ul>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="loops.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_while</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="loops.html#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_while</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="loops.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_while</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="loops.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_while</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="loops.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_while</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="loops.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_while</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="loops.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_while</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each=</span><span class="dv">4</span>), <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="loops.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">first_while</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">each=</span><span class="dv">4</span>), <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 </div>
 </div>
-<div id="exercises-2" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Exercises<a href="loops.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exercises-3" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Exercises<a href="loops.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
