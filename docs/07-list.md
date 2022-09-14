@@ -10,14 +10,14 @@
 |   >2-Dimensions   |   Multi-dimensional array   |                   |
 * There is no "0-dimensional data" in R.
 
-* Even a single-valued object, it is considered as a "vector" with size 1
+* Even a single-valued object is considered to be a **"vector"** with **length 1**.
 
 Source: http://adv-r.had.co.nz/Data-structures.html 
 
 
 ## Creating Lists in R
 
-* Lists can store a collection of items that have **different types**.
+* **Lists** can store a collection of items that have **different types**.
 
 * To **create a list**, you can use the `list` function. 
 

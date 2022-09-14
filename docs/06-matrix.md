@@ -134,8 +134,11 @@ matrix(1:3, 2, 3, byrow=TRUE) # but this one does!
 
 ## Accessing different features of a matrix
 
-* To access specific **elements** of a matrix:
+### Accessing elements of a matrix
 
+* To access the $(i,j)$ **element** of a matrix `A`, use the syntax `A[i,j]`
+
+* As an example of this, let's create a $2 x 3$ matrix `A` and look at the $(2,1)$ element of `A`:
 
 ```r
 A <- matrix(1:6, 2, 3, byrow=TRUE) # creating a 2x3 matrix
@@ -156,6 +159,10 @@ A[2,1]
 ## [1] 4
 ```
 
+* You can access different subsets of a matrix by using vectors of indeces rather than single numbers in the indexing bracket.
+
+* For example, if you want to look at elements $(2, 1)$ and $(2,2)$ of `A`, you can use the following syntax:
+
 ```r
 A[2,1:2]
 ```
@@ -164,21 +171,39 @@ A[2,1:2]
 ## [1] 4 5
 ```
 
+* Similarly, if you want to access all elements of `A` in either the first two rows or first two columns of `A`, you can use the following syntax:
+
 ```r
-A[,2]
+A[1:2, 1:2]
+```
+
+```
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    4    5
+```
+
+* To access the entire **kth column** of `A`, use the syntax `A[,k]`.
+     + To access the entire **kth row** of `A`, use the syntax `A[k,]`
+
+```r
+A[,2]  ## access 2nd column of A
 ```
 
 ```
 ## [1] 2 5
 ```
+     
+     
 
 
+
+
+
+---
 
 * Using **nrow()** or **ncol()** let you see the number of 
 **rows** or **columns** of a matrix.
-
-* **dim** will return both the number of rows and columns.
-
 
 ```r
 A <- matrix(1:6, 2, 3, byrow=TRUE) # creating a 2x3 matrix
@@ -198,6 +223,9 @@ ncol(A)
 ## [1] 3
 ```
 
+* **dim** will return **both** the number of rows and columns.
+
+
 ```r
 dim(A)
 ```
@@ -209,15 +237,14 @@ dim(A)
 ---
 
 
-* You can also access the elements of a matrix as you would with a **vector**. 
+* While using the `A[i,j]` syntax is a more typical way of accessing specific elements of a matrix, you can **also** access the elements of a matrix as you would with a **vector**. 
 
-* For a matrix, the indexing increases column-by-column.
+* For a matrix, the indexing increases **by column**
     + For example, if `A` has 3 rows: 
     + `A[1]=A[1,1]`, `A[2]=A[2,1]`, `A[3]=A[3,1]`, `A[4]=A[1,2]`, ...
 
-* I don't really use this way of accessing matrix elements much though, 
-in some cases, it is more convenient (e.g., `A[ which(A > 3) ]`)
-
+* For example if we access the "4th" and "5th" elements of a $2 x 3$
+matrix
 
 ```r
 A 
@@ -237,7 +264,12 @@ A[4:5]          ## accessing like a one-dimensional vector
 ## [1] 5 3
 ```
 
-* Accessing elements of a matrix like a vector using **logical subsetting**
+* I don't really use this way of accessing matrix elements much though, 
+in some cases, it is more convenient (e.g., `A[ which(A > 3) ]`)
+
+---
+
+* You can also access elements of a matrix **like a vector** using **logical subsetting**
 
 
 ```r
@@ -256,14 +288,14 @@ A[ which(A>3) ]   ## getting the elements greater than 3
 ## [1] 4 5 6
 ```
 
-
+### Diagonals of Matrices
 
 * The **diagonals** of a matrix are the elements of the matrix where
 the **row index** equals the **column index**.
 
 * In a **diagonal matrix**, all **non-diagonal** elements must be zero.
 
-* To create a **diagonal** matrix, use the `diag` function.
+* To create a **diagonal** matrix in **R**, use the `diag` function.
     + You must provide the vector of **diagonal elements** as the input to `diag`
 
 ```r
@@ -279,8 +311,8 @@ diag(1:4)   # 4x4 diagonal matrix with (1,2,3,4) as diagonals
 ```
 
 
-* If you use `diag(A)` where the **input** `A` is a **matrix**, this 
-will return the diagonal elements of `A`.
+* If you use `diag(A)` where the **input** argument `A` is a **matrix**, this 
+will return the **diagonal elements** of `A`.
 
 
 ```r
@@ -303,12 +335,16 @@ diag(A)   # returns diagonals of this matrix
 ## [1] 1 5 9
 ```
 
+---
 
-* Working with **off-diagonal** elements 
+* Working with **off-diagonal** elements.
+
+* The function `upper.tri(A)` returns a **logical matrix** of the same dimension as `A` with `TRUE` values on the "upper diagonal" part of the matrix.
+    + Thus, you can use `upper.tri` to update the upper diagonal parts of a matrix.
 
 
 ```r
-x <- matrix (1:9,3,3)
+x <- matrix (1:9, 3, 3)
 x[upper.tri(x)] <- 0
 x
 ```
@@ -319,6 +355,8 @@ x
 ## [2,]    2    5    0
 ## [3,]    3    6    9
 ```
+
+* Similarly, `lower.tri(A)` allows you to look at the subset of entries on the "lower diagonal" part of a matrix. 
 
 ```r
 x[lower.tri(x,diag=TRUE)] <- 10:15
@@ -332,10 +370,12 @@ x
 ## [3,]   12   14   15
 ```
 
+
+
 ### Naming rows or columns
 
 * You can give a name to each row with the **rownames** function.
-    + The collection of row names of a matrix should be a vector.
+    + The collection of **row names** of a matrix should be a **vector**.
 
 
 ```r
@@ -438,6 +478,8 @@ rbind(X,Y)
 
 ## Applying functions to matrices
 
+* You can directly use **matrices** as input arguments with many of the widely-used built-in **R** functions.
+
 * Functions like **sum** or **mean** will
 take the sum (or average) of **all** 
 the elements of a matrix:
@@ -469,7 +511,8 @@ sd(A)   # standard deviation of all elements
 ```
 
 
-* Useful operations on matrices
+* You can take the **transpose** of a matrix `A` using `t(A)`.
+    + You can **convert** a matrix `A` into a vector using `as.vector(A)` or simply `c(A)`.
 
 
 ```r
@@ -546,6 +589,7 @@ x*y  # element-wise multiplication
 ## [2,]   16   25   36
 ```
 
+* Note that `A*B` **does not** perform true matrix multiplication of matrices `A` and `B`.
 
 * Matrix multiplication is done with `%*%` 
 
@@ -572,12 +616,11 @@ t(x) %*% y  # (3x2) x (2x3) matrix
 ```
 
 
-
 ## Matrix Functionals
 
 ### Functions applied to **each** row/column
 
-* We can take the **sum** or **mean** of each row/column of a matrix.
+* We can take the **sum** or **mean** of each row/column of a matrix by using either `rowSums`, `rowMeans`, `colSums`, or `colMeans`.
 
 
 ```r
@@ -615,8 +658,7 @@ rowMeans(A)
 ```
 
 
-* Writing our own **rowSums()** function
-
+* While `rowSums` works perfectly fine, let's try writing our own **rowSums()** function:
 
 ```r
 myRowSums <-function(x){
@@ -648,9 +690,9 @@ myRowSums(A)
 whenever we want to compute **column-wise/row-wise** summary statistics.
 
 * It would be nice if there were a **quick & general** way to do the following:
-  + For each row or column of a matrix ...
-  + Evaluate a function using the row/column vector as input
-  + Return the collection of results as a numeric vector.
+  + For **each** row or column of a matrix ...
+  + Evaluate a **function** using the row/column vector as input
+  + Return the collection of results as a **numeric vector**.
   
 
 ### **apply()**: dimension-wise aggregation
@@ -758,7 +800,7 @@ apply(A, 2, max) ## But this works!
 
 ### Using apply with your own function
 
-* Suppose that we want to do the following:
+* Suppose that instead of simply taking the row-wise or column-wise means we want to do the following:
 
 * For **each** row/column:
   + Calculate the squared sum of each row/column.
@@ -768,12 +810,10 @@ apply(A, 2, max) ## But this works!
 
 ---
 
-
 * A **big** advantage of the **apply** function is the
 **flexibility** it gives you.
 
-* You can use **your own** functions to compute **row-wise/column-wise summary measures** 
-for certain measures that may not be implemented in base **R**. 
+* You can use **your own** functions to compute **row-wise/column-wise summary measures** for certain measures that may not be implemented in base **R**. 
 
 
 ```r
@@ -857,7 +897,7 @@ apply(A, 2, function(x) c(min(x),max(x)) )
 ```r
 X <- rbind( rep(c(1,4), each=3), rep(c(8,6), each=3))
 ```
-What will then be the value of `apply(X, 2, sum)[2]`?
+What will be the value of `apply(X, 2, sum)[2]`?
 
 3. Write a function called `PairwiseMedianDiffs` that
 has **two numeric matrices** `A` and `B` as the input arguments. These two input matrices are assumed to have the same dimensions. This function should return a $p \times p$ matrix (where $p$ is the number of columns in `A`). The `[i,j]` element of the returned matrix should equal the median of the $i^{th}$ column of `A` minus the median of the $j^{th}$ column of `B`.

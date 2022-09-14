@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-13" />
+<meta name="date" content="2022-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -251,8 +251,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="matrix.html"><a href="matrix.html#creating-matrices-in-r"><i class="fa fa-check"></i><b>6.1</b> Creating matrices in R</a></li>
 <li class="chapter" data-level="6.2" data-path="matrix.html"><a href="matrix.html#accessing-different-features-of-a-matrix"><i class="fa fa-check"></i><b>6.2</b> Accessing different features of a matrix</a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="matrix.html"><a href="matrix.html#naming-rows-or-columns"><i class="fa fa-check"></i><b>6.2.1</b> Naming rows or columns</a></li>
-<li class="chapter" data-level="6.2.2" data-path="matrix.html"><a href="matrix.html#combining-rows-or-columns"><i class="fa fa-check"></i><b>6.2.2</b> Combining rows or columns</a></li>
+<li class="chapter" data-level="6.2.1" data-path="matrix.html"><a href="matrix.html#accessing-elements-of-a-matrix"><i class="fa fa-check"></i><b>6.2.1</b> Accessing elements of a matrix</a></li>
+<li class="chapter" data-level="6.2.2" data-path="matrix.html"><a href="matrix.html#diagonals-of-matrices"><i class="fa fa-check"></i><b>6.2.2</b> Diagonals of Matrices</a></li>
+<li class="chapter" data-level="6.2.3" data-path="matrix.html"><a href="matrix.html#naming-rows-or-columns"><i class="fa fa-check"></i><b>6.2.3</b> Naming rows or columns</a></li>
+<li class="chapter" data-level="6.2.4" data-path="matrix.html"><a href="matrix.html#combining-rows-or-columns"><i class="fa fa-check"></i><b>6.2.4</b> Combining rows or columns</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="matrix.html"><a href="matrix.html#applying-functions-to-matrices"><i class="fa fa-check"></i><b>6.3</b> Applying functions to matrices</a>
 <ul>
@@ -303,6 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11" data-path="datawrangling.html"><a href="datawrangling.html"><i class="fa fa-check"></i><b>11</b> Data Wrangling</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="datawrangling.html"><a href="datawrangling.html#the-nycflights13-data"><i class="fa fa-check"></i><b>11.1</b> The nycflights13 data</a></li>
+<li class="chapter" data-level="11.2" data-path="datawrangling.html"><a href="datawrangling.html#exploring-the-dataset"><i class="fa fa-check"></i><b>11.2</b> Exploring the Dataset</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -346,9 +349,27 @@ vary a lot depending on how <strong>“clean”</strong> the original dataset is
 </ul>
 <div id="the-nycflights13-data" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> The nycflights13 data<a href="datawrangling.html#the-nycflights13-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="datawrangling.html#cb664-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span></code></pre></div>
-<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="datawrangling.html#cb665-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(flights)</span></code></pre></div>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="datawrangling.html#cb666-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>( flights )</span></code></pre></div>
+<ul>
+<li><p>To illustrate the techniques described in this chapter, we will use the <strong>“NYC Flights Dataset”</strong> available from the <code>nycflights13</code> <strong>R</strong> package.</p></li>
+<li><p>To load this package into <strong>R</strong>, first install the <code>nycflights13</code> and
+then load it into <strong>R</strong> with the following command:</p></li>
+</ul>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="datawrangling.html#cb666-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span></code></pre></div>
+<ul>
+<li><p>This package has several datasets available.</p></li>
+<li><p>We will use the <code>flights</code> dataset.</p>
+<ul>
+<li>This dataset can be loaded into <strong>R</strong> with the following command.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="datawrangling.html#cb667-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(flights)</span></code></pre></div>
+<ul>
+<li>tibble vs. data frame here.</li>
+</ul>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="datawrangling.html#cb668-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>( flights )</span></code></pre></div>
+</div>
+<div id="exploring-the-dataset" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Exploring the Dataset<a href="datawrangling.html#exploring-the-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

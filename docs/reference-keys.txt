@@ -68,6 +68,8 @@ exercises-4
 matrix
 creating-matrices-in-r
 accessing-different-features-of-a-matrix
+accessing-elements-of-a-matrix
+diagonals-of-matrices
 naming-rows-or-columns
 combining-rows-or-columns
 applying-functions-to-matrices
@@ -100,3 +102,4 @@ fileinput
 downloading-a-file-locally
 datawrangling
 the-nycflights13-data
+exploring-the-dataset

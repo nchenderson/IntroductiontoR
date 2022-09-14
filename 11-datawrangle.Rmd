@@ -19,19 +19,27 @@ vary a lot depending on how **"clean"** the original dataset is.
 
 ## The nycflights13 data
 
+* To illustrate the techniques described in this chapter, we will use the **"NYC Flights Dataset"** available from the `nycflights13` **R** package.
+
+* To load this package into **R**, first install the `nycflights13` and 
+then load it into **R** with the following command:
 ```{r}
 library(nycflights13)
 ```
 
+* This package has several datasets available.
 
+* We will use the `flights` dataset. 
+    + This dataset can be loaded into **R** with the following command.
 ```{r}
 data(flights)
 ```
 
+* tibble vs. data frame here.
 ```{r}
 flights <- as.data.frame( flights )
 ```
 
-
+## Exploring the Dataset
 
 
