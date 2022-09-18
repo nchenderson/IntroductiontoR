@@ -353,3 +353,26 @@ subset(df, x>1 & y =="a")
 ```
 
 ## Exercises
+
+1. For this exercise, you will use the `Loblolly` dataset which is a built-in **R** dataset.  You can load the `Loblolly` data frame and look at the first few rows with the following \textbf{R} commands: 
+
+```r
+data(Loblolly)
+head(Loblolly)
+```
++ In `Loblolly`, each different value of the variable `Seed` variable corresponds to a different tree.
+    + How many rows are in the `Loblolly` data frame?
+    + What is the **mean** and **standard deviation** of the `age` variable in `Loblolly`?
+    + How many of the values in the variable `height` are greater than $50$ feet?
+    + What is the correlation between the `height` and `age` variables? (For this part, you can use the `cor` function)
+    + Add a variable called `Seed.first` to the `Loblolly` data frame. This 
+variable should equal $1$ at the **first** occurrence of a value of **Seed** 
+and equal $0$ if the value of **Seed** is already in a previous row of `Loblolly`. 
+    + How many different trees (i.e., unique values of the `Seed` variable) are there in this data frame?
+    + Add another variable called `obs.num` to the `Loblolly` data frame. This
+variable should equal $1$ the first time a value of `Seed` occurs, should equal $2$ the second time a value of `Seed` occurs, etc. ...
+    + Add another variable to `Loblolly` called `height.change` which measures 
+the change in height from the earliest age of the tree to the latest age of the tree. After completing steps (a)-(h), the first 8 rows your modified `Loblolly` data frame should look like the following ... 
+    + Compute a vector which contains the "within-tree" correlations between `height` and `age`. The $k^{th}$ element of this vector should contain the correlation between the height and age values from the $k^{th}$ tree.
+
+

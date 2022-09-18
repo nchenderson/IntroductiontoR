@@ -138,7 +138,7 @@ matrix(1:3, 2, 3, byrow=TRUE) # but this one does!
 
 * To access the $(i,j)$ **element** of a matrix `A`, use the syntax `A[i,j]`
 
-* As an example of this, let's create a $2 x 3$ matrix `A` and look at the $(2,1)$ element of `A`:
+* As an example of this, let's create a $2 \times 3$ matrix `A` and look at the $(2,1)$ element of `A`:
 
 ```r
 A <- matrix(1:6, 2, 3, byrow=TRUE) # creating a 2x3 matrix

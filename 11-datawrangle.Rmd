@@ -29,7 +29,7 @@ library(nycflights13)
 
 * This package has several datasets available.
 
-* We will use the `flights` dataset. 
+* We will explore the `flights` dataset in this chapter. 
     + This dataset can be loaded into **R** with the following command.
 ```{r}
 data(flights)
@@ -41,5 +41,44 @@ flights <- as.data.frame( flights )
 ```
 
 ## Exploring the Dataset
+
+* The first thing you usually want to note about a dataset after first loading it is **how many observations** and **variables** there are.
+
+* While you can note the dimensions of your data under the **"Environment"** tab in Rstudio, you can see this by using `dim`
+```{r}
+dim(flights)
+```
+
+* This data frame has $336,776$ observations and $19$ variables.
+
+* To see what is stored in the **first few rows** of `flights` use `head`:
+```{r}
+head(flights)
+```
+
+---
+
+* Each row of `flights` holds information related to a **single flight** that departed from the New York City area in 2013.
+
+* The `carrier` variable in `flights` contains the abbreviation for the airline carrier. 
+
+* We can see that there are 16 **different carriers** in this dataset by using `unique`:
+```{r, echo=TRUE}
+length( unique(flights$carrier) )  ## 16 unique carriers
+```
+
+* Each plane has a unique **tail number**. Using `unique`, we can see that 
+there are $4044$ unique planes represented in the `flights` dataset
+```{r}
+length( unique(flights$tailnum) )
+```
+
+* Using `table`, we can see which **carriers** had the most flights out of the New York City area:
+```{r}
+table( flights$carrier )
+```
+
+
+
 
 

@@ -30,7 +30,7 @@ library(nycflights13)
 
 * This package has several datasets available.
 
-* We will use the `flights` dataset. 
+* We will explore the `flights` dataset in this chapter. 
     + This dataset can be loaded into **R** with the following command.
 
 ```r
@@ -44,5 +44,93 @@ flights <- as.data.frame( flights )
 ```
 
 ## Exploring the Dataset
+
+* The first thing you usually want to note about a dataset after first loading it is **how many observations** and **variables** there are.
+
+* While you can note the dimensions of your data under the **"Environment"** tab in Rstudio, you can see this by using `dim`
+
+```r
+dim(flights)
+```
+
+```
+## [1] 336776     19
+```
+
+* This data frame has $336,776$ observations and $19$ variables.
+
+* To see what is stored in the **first few rows** of `flights` use `head`:
+
+```r
+head(flights)
+```
+
+```
+##   year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+## 1 2013     1   1      517            515         2      830            819
+## 2 2013     1   1      533            529         4      850            830
+## 3 2013     1   1      542            540         2      923            850
+## 4 2013     1   1      544            545        -1     1004           1022
+## 5 2013     1   1      554            600        -6      812            837
+## 6 2013     1   1      554            558        -4      740            728
+##   arr_delay carrier flight tailnum origin dest air_time distance hour minute
+## 1        11      UA   1545  N14228    EWR  IAH      227     1400    5     15
+## 2        20      UA   1714  N24211    LGA  IAH      227     1416    5     29
+## 3        33      AA   1141  N619AA    JFK  MIA      160     1089    5     40
+## 4       -18      B6    725  N804JB    JFK  BQN      183     1576    5     45
+## 5       -25      DL    461  N668DN    LGA  ATL      116      762    6      0
+## 6        12      UA   1696  N39463    EWR  ORD      150      719    5     58
+##             time_hour
+## 1 2013-01-01 05:00:00
+## 2 2013-01-01 05:00:00
+## 3 2013-01-01 05:00:00
+## 4 2013-01-01 05:00:00
+## 5 2013-01-01 06:00:00
+## 6 2013-01-01 05:00:00
+```
+
+---
+
+* Each row of `flights` holds information related to a **single flight** that departed from the New York City area in 2013.
+
+* The `carrier` variable in `flights` contains the abbreviation for the airline carrier. 
+
+* We can see that there are 16 **different carriers** in this dataset by using `unique`:
+
+```r
+length( unique(flights$carrier) )  ## 16 unique carriers
+```
+
+```
+## [1] 16
+```
+
+* Each plane has a unique **tail number**. Using `unique`, we can see that 
+there are $4044$ unique planes represented in the `flights` dataset
+
+```r
+length( unique(flights$tailnum) )
+```
+
+```
+## [1] 4044
+```
+
+* Using `table`, we can see which **carriers** had the most flights out of the New York City area:
+
+```r
+table( flights$carrier )
+```
+
+```
+## 
+##    9E    AA    AS    B6    DL    EV    F9    FL    HA    MQ    OO    UA    US 
+## 18460 32729   714 54635 48110 54173   685  3260   342 26397    32 58665 20536 
+##    VX    WN    YV 
+##  5162 12275   601
+```
+
+
+
 
 

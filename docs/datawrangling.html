@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-14" />
+<meta name="date" content="2022-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -277,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.1" data-path="list.html"><a href="list.html#expanding-a-list-adding-more-components"><i class="fa fa-check"></i><b>7.3.1</b> Expanding a list: adding more components</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="list.html"><a href="list.html#when-are-lists-useful"><i class="fa fa-check"></i><b>7.4</b> When are lists useful?</a></li>
-<li class="chapter" data-level="7.5" data-path="list.html"><a href="list.html#lapply-applying-functions-to-lists"><i class="fa fa-check"></i><b>7.5</b> lapply(): Applying functions to lists</a>
+<li class="chapter" data-level="7.5" data-path="list.html"><a href="list.html#lapply-and-sapply-applying-functions-to-lists"><i class="fa fa-check"></i><b>7.5</b> lapply() and sapply(): Applying functions to lists</a>
 <ul>
 <li class="chapter" data-level="7.5.1" data-path="list.html"><a href="list.html#use-sapply-for-simpler-output"><i class="fa fa-check"></i><b>7.5.1</b> Use sapply() for simpler output</a></li>
 </ul></li>
@@ -301,6 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="fileinput.html"><a href="fileinput.html"><i class="fa fa-check"></i><b>10</b> Reading Data Files into R</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="fileinput.html"><a href="fileinput.html#downloading-a-file-locally"><i class="fa fa-check"></i><b>10.1</b> Downloading a file locally</a></li>
+<li class="chapter" data-level="10.2" data-path="fileinput.html"><a href="fileinput.html#opening-a-remote-file-using-read.table"><i class="fa fa-check"></i><b>10.2</b> Opening a remote file using read.table()</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datawrangling.html"><a href="datawrangling.html"><i class="fa fa-check"></i><b>11</b> Data Wrangling</a>
 <ul>
@@ -354,22 +355,77 @@ vary a lot depending on how <strong>“clean”</strong> the original dataset is
 <li><p>To load this package into <strong>R</strong>, first install the <code>nycflights13</code> and
 then load it into <strong>R</strong> with the following command:</p></li>
 </ul>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="datawrangling.html#cb666-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span></code></pre></div>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="datawrangling.html#cb691-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span></code></pre></div>
 <ul>
 <li><p>This package has several datasets available.</p></li>
-<li><p>We will use the <code>flights</code> dataset.</p>
+<li><p>We will explore the <code>flights</code> dataset in this chapter.</p>
 <ul>
 <li>This dataset can be loaded into <strong>R</strong> with the following command.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="datawrangling.html#cb667-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="datawrangling.html#cb692-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(flights)</span></code></pre></div>
 <ul>
 <li>tibble vs. data frame here.</li>
 </ul>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="datawrangling.html#cb668-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>( flights )</span></code></pre></div>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="datawrangling.html#cb693-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>( flights )</span></code></pre></div>
 </div>
 <div id="exploring-the-dataset" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> Exploring the Dataset<a href="datawrangling.html#exploring-the-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>The first thing you usually want to note about a dataset after first loading it is <strong>how many observations</strong> and <strong>variables</strong> there are.</p></li>
+<li><p>While you can note the dimensions of your data under the <strong>“Environment”</strong> tab in Rstudio, you can see this by using <code>dim</code></p></li>
+</ul>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="datawrangling.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(flights)</span></code></pre></div>
+<pre><code>## [1] 336776     19</code></pre>
+<ul>
+<li><p>This data frame has <span class="math inline">\(336,776\)</span> observations and <span class="math inline">\(19\)</span> variables.</p></li>
+<li><p>To see what is stored in the <strong>first few rows</strong> of <code>flights</code> use <code>head</code>:</p></li>
+</ul>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="datawrangling.html#cb696-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flights)</span></code></pre></div>
+<pre><code>##   year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+## 1 2013     1   1      517            515         2      830            819
+## 2 2013     1   1      533            529         4      850            830
+## 3 2013     1   1      542            540         2      923            850
+## 4 2013     1   1      544            545        -1     1004           1022
+## 5 2013     1   1      554            600        -6      812            837
+## 6 2013     1   1      554            558        -4      740            728
+##   arr_delay carrier flight tailnum origin dest air_time distance hour minute
+## 1        11      UA   1545  N14228    EWR  IAH      227     1400    5     15
+## 2        20      UA   1714  N24211    LGA  IAH      227     1416    5     29
+## 3        33      AA   1141  N619AA    JFK  MIA      160     1089    5     40
+## 4       -18      B6    725  N804JB    JFK  BQN      183     1576    5     45
+## 5       -25      DL    461  N668DN    LGA  ATL      116      762    6      0
+## 6        12      UA   1696  N39463    EWR  ORD      150      719    5     58
+##             time_hour
+## 1 2013-01-01 05:00:00
+## 2 2013-01-01 05:00:00
+## 3 2013-01-01 05:00:00
+## 4 2013-01-01 05:00:00
+## 5 2013-01-01 06:00:00
+## 6 2013-01-01 05:00:00</code></pre>
+<hr />
+<ul>
+<li><p>Each row of <code>flights</code> holds information related to a <strong>single flight</strong> that departed from the New York City area in 2013.</p></li>
+<li><p>The <code>carrier</code> variable in <code>flights</code> contains the abbreviation for the airline carrier.</p></li>
+<li><p>We can see that there are 16 <strong>different carriers</strong> in this dataset by using <code>unique</code>:</p></li>
+</ul>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="datawrangling.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>carrier) )  <span class="do">## 16 unique carriers</span></span></code></pre></div>
+<pre><code>## [1] 16</code></pre>
+<ul>
+<li>Each plane has a unique <strong>tail number</strong>. Using <code>unique</code>, we can see that
+there are <span class="math inline">\(4044\)</span> unique planes represented in the <code>flights</code> dataset</li>
+</ul>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="datawrangling.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>tailnum) )</span></code></pre></div>
+<pre><code>## [1] 4044</code></pre>
+<ul>
+<li>Using <code>table</code>, we can see which <strong>carriers</strong> had the most flights out of the New York City area:</li>
+</ul>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="datawrangling.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>( flights<span class="sc">$</span>carrier )</span></code></pre></div>
+<pre><code>## 
+##    9E    AA    AS    B6    DL    EV    F9    FL    HA    MQ    OO    UA    US 
+## 18460 32729   714 54635 48110 54173   685  3260   342 26397    32 58665 20536 
+##    VX    WN    YV 
+##  5162 12275   601</code></pre>
 
 </div>
 </div>

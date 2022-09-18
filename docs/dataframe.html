@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-14" />
+<meta name="date" content="2022-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -277,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.1" data-path="list.html"><a href="list.html#expanding-a-list-adding-more-components"><i class="fa fa-check"></i><b>7.3.1</b> Expanding a list: adding more components</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="list.html"><a href="list.html#when-are-lists-useful"><i class="fa fa-check"></i><b>7.4</b> When are lists useful?</a></li>
-<li class="chapter" data-level="7.5" data-path="list.html"><a href="list.html#lapply-applying-functions-to-lists"><i class="fa fa-check"></i><b>7.5</b> lapply(): Applying functions to lists</a>
+<li class="chapter" data-level="7.5" data-path="list.html"><a href="list.html#lapply-and-sapply-applying-functions-to-lists"><i class="fa fa-check"></i><b>7.5</b> lapply() and sapply(): Applying functions to lists</a>
 <ul>
 <li class="chapter" data-level="7.5.1" data-path="list.html"><a href="list.html#use-sapply-for-simpler-output"><i class="fa fa-check"></i><b>7.5.1</b> Use sapply() for simpler output</a></li>
 </ul></li>
@@ -301,6 +301,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="fileinput.html"><a href="fileinput.html"><i class="fa fa-check"></i><b>10</b> Reading Data Files into R</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="fileinput.html"><a href="fileinput.html#downloading-a-file-locally"><i class="fa fa-check"></i><b>10.1</b> Downloading a file locally</a></li>
+<li class="chapter" data-level="10.2" data-path="fileinput.html"><a href="fileinput.html#opening-a-remote-file-using-read.table"><i class="fa fa-check"></i><b>10.2</b> Opening a remote file using read.table()</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datawrangling.html"><a href="datawrangling.html"><i class="fa fa-check"></i><b>11</b> Data Wrangling</a>
 <ul>
@@ -554,6 +555,29 @@ using the syntax: <code>df_name$var_name</code>.</li>
 </div>
 <div id="exercises-7" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Exercises<a href="dataframe.html#exercises-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>For this exercise, you will use the <code>Loblolly</code> dataset which is a built-in <strong>R</strong> dataset. You can load the <code>Loblolly</code> data frame and look at the first few rows with the following commands:</li>
+</ol>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="dataframe.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Loblolly)</span>
+<span id="cb624-2"><a href="dataframe.html#cb624-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Loblolly)</span></code></pre></div>
+<ul>
+<li>In <code>Loblolly</code>, each different value of the variable <code>Seed</code> variable corresponds to a different tree.
+<ul>
+<li>How many rows are in the <code>Loblolly</code> data frame?</li>
+<li>What is the <strong>mean</strong> and <strong>standard deviation</strong> of the <code>age</code> variable in <code>Loblolly</code>?</li>
+<li>How many of the values in the variable <code>height</code> are greater than <span class="math inline">\(50\)</span> feet?</li>
+<li>What is the correlation between the <code>height</code> and <code>age</code> variables? (For this part, you can use the <code>cor</code> function)</li>
+<li>Add a variable called <code>Seed.first</code> to the <code>Loblolly</code> data frame. This
+variable should equal <span class="math inline">\(1\)</span> at the <strong>first</strong> occurrence of a value of <strong>Seed</strong>
+and equal <span class="math inline">\(0\)</span> if the value of <strong>Seed</strong> is already in a previous row of <code>Loblolly</code>.</li>
+<li>How many different trees (i.e., unique values of the <code>Seed</code> variable) are there in this data frame?</li>
+<li>Add another variable called <code>obs.num</code> to the <code>Loblolly</code> data frame. This
+variable should equal <span class="math inline">\(1\)</span> the first time a value of <code>Seed</code> occurs, should equal <span class="math inline">\(2\)</span> the second time a value of <code>Seed</code> occurs, etc. …</li>
+<li>Add another variable to <code>Loblolly</code> called <code>height.change</code> which measures
+the change in height from the earliest age of the tree to the latest age of the tree. After completing steps (a)-(h), the first 8 rows your modified <code>Loblolly</code> data frame should look like the following …</li>
+<li>Compute a vector which contains the “within-tree” correlations between <code>height</code> and <code>age</code>. The <span class="math inline">\(k^{th}\)</span> element of this vector should contain the correlation between the height and age values from the <span class="math inline">\(k^{th}\)</span> tree.</li>
+</ul></li>
+</ul>
 
 </div>
 </div>

@@ -132,7 +132,7 @@ in a vector, a matrix, and a data frame.
 
 
 
-## lapply(): Applying functions to lists
+## lapply() and sapply(): Applying functions to lists
 
 * **lapply** ("list apply") works like an **apply()** function
 for **lists**.
