@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-17" />
+<meta name="date" content="2022-09-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -307,6 +307,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="11.1" data-path="datawrangling.html"><a href="datawrangling.html#the-nycflights13-data"><i class="fa fa-check"></i><b>11.1</b> The nycflights13 data</a></li>
 <li class="chapter" data-level="11.2" data-path="datawrangling.html"><a href="datawrangling.html#exploring-the-dataset"><i class="fa fa-check"></i><b>11.2</b> Exploring the Dataset</a></li>
+<li class="chapter" data-level="11.3" data-path="datawrangling.html"><a href="datawrangling.html#summarizing-each-variable"><i class="fa fa-check"></i><b>11.3</b> Summarizing each variable</a></li>
+<li class="chapter" data-level="11.4" data-path="datawrangling.html"><a href="datawrangling.html#using-the-dplyr-package"><i class="fa fa-check"></i><b>11.4</b> Using the dplyr package</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -405,27 +407,62 @@ then load it into <strong>R</strong> with the following command:</p></li>
 ## 6 2013-01-01 05:00:00</code></pre>
 <hr />
 <ul>
+<li>You can use <code>str</code> to see which variables are stored as <strong>numeric</strong> vs. <strong>character</strong> vs. <strong>factor</strong>.
+<ul>
+<li><p>In many cases, you may want to change the character variables to factor.</p></li>
+<li><p>You may notice that one of the variables in this dataset has the <code>POSIXct</code> type which is a special data type used to store times.</p></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="datawrangling.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(flights)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    336776 obs. of  19 variables:
+##  $ year          : int  2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
+##  $ month         : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ day           : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ dep_time      : int  517 533 542 544 554 554 555 557 557 558 ...
+##  $ sched_dep_time: int  515 529 540 545 600 558 600 600 600 600 ...
+##  $ dep_delay     : num  2 4 2 -1 -6 -4 -5 -3 -3 -2 ...
+##  $ arr_time      : int  830 850 923 1004 812 740 913 709 838 753 ...
+##  $ sched_arr_time: int  819 830 850 1022 837 728 854 723 846 745 ...
+##  $ arr_delay     : num  11 20 33 -18 -25 12 19 -14 -8 8 ...
+##  $ carrier       : chr  &quot;UA&quot; &quot;UA&quot; &quot;AA&quot; &quot;B6&quot; ...
+##  $ flight        : int  1545 1714 1141 725 461 1696 507 5708 79 301 ...
+##  $ tailnum       : chr  &quot;N14228&quot; &quot;N24211&quot; &quot;N619AA&quot; &quot;N804JB&quot; ...
+##  $ origin        : chr  &quot;EWR&quot; &quot;LGA&quot; &quot;JFK&quot; &quot;JFK&quot; ...
+##  $ dest          : chr  &quot;IAH&quot; &quot;IAH&quot; &quot;MIA&quot; &quot;BQN&quot; ...
+##  $ air_time      : num  227 227 160 183 116 150 158 53 140 138 ...
+##  $ distance      : num  1400 1416 1089 1576 762 ...
+##  $ hour          : num  5 5 5 5 6 5 6 6 6 6 ...
+##  $ minute        : num  15 29 40 45 0 58 0 0 0 0 ...
+##  $ time_hour     : POSIXct, format: &quot;2013-01-01 05:00:00&quot; &quot;2013-01-01 05:00:00&quot; ...</code></pre>
+<hr />
+<ul>
 <li><p>Each row of <code>flights</code> holds information related to a <strong>single flight</strong> that departed from the New York City area in 2013.</p></li>
 <li><p>The <code>carrier</code> variable in <code>flights</code> contains the abbreviation for the airline carrier.</p></li>
 <li><p>We can see that there are 16 <strong>different carriers</strong> in this dataset by using <code>unique</code>:</p></li>
 </ul>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="datawrangling.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>carrier) )  <span class="do">## 16 unique carriers</span></span></code></pre></div>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="datawrangling.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>carrier) )  <span class="do">## 16 unique carriers</span></span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
 <ul>
 <li>Each plane has a unique <strong>tail number</strong>. Using <code>unique</code>, we can see that
 there are <span class="math inline">\(4044\)</span> unique planes represented in the <code>flights</code> dataset</li>
 </ul>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="datawrangling.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>tailnum) )</span></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="datawrangling.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>tailnum) )</span></code></pre></div>
 <pre><code>## [1] 4044</code></pre>
 <ul>
 <li>Using <code>table</code>, we can see which <strong>carriers</strong> had the most flights out of the New York City area:</li>
 </ul>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="datawrangling.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>( flights<span class="sc">$</span>carrier )</span></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="datawrangling.html#cb704-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>( flights<span class="sc">$</span>carrier )</span></code></pre></div>
 <pre><code>## 
 ##    9E    AA    AS    B6    DL    EV    F9    FL    HA    MQ    OO    UA    US 
 ## 18460 32729   714 54635 48110 54173   685  3260   342 26397    32 58665 20536 
 ##    VX    WN    YV 
 ##  5162 12275   601</code></pre>
+</div>
+<div id="summarizing-each-variable" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Summarizing each variable<a href="datawrangling.html#summarizing-each-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="using-the-dplyr-package" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> Using the dplyr package<a href="datawrangling.html#using-the-dplyr-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

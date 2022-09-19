@@ -104,3 +104,5 @@ opening-a-remote-file-using-read.table
 datawrangling
 the-nycflights13-data
 exploring-the-dataset
+summarizing-each-variable
+using-the-dplyr-package

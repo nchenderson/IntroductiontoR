@@ -58,6 +58,17 @@ head(flights)
 
 ---
 
+* You can use `str` to see which variables are stored as **numeric** vs. **character** vs. **factor**.
+    + In many cases, you may want to change the character variables to factor.
+    
+    + You may notice that one of the variables in this dataset has the `POSIXct` type which is a special data type used to store times.
+
+```{r}
+str(flights)
+```
+
+---
+
 * Each row of `flights` holds information related to a **single flight** that departed from the New York City area in 2013.
 
 * The `carrier` variable in `flights` contains the abbreviation for the airline carrier. 
@@ -78,7 +89,9 @@ length( unique(flights$tailnum) )
 table( flights$carrier )
 ```
 
+## Summarizing each variable
 
 
 
+## Using the dplyr package
 

@@ -2,6 +2,9 @@
 
 # Reading Data Files into R {#fileinput}
 
+
+* All of the files storing data that we will read into **R** will be assumed to be **text files**.
+
 * **Text files**
 
   + Files with human readable characters such as letters, numbers, special characters (e.g., .red[", ', ?]), typically composed of multiple lines.
