@@ -175,4 +175,13 @@ variable should equal $1$ the first time a value of `Seed` occurs, should equal 
 the change in height from the earliest age of the tree to the latest age of the tree. After completing steps (a)-(h), the first 8 rows your modified `Loblolly` data frame should look like the following ... 
     + Compute a vector which contains the "within-tree" correlations between `height` and `age`. The $k^{th}$ element of this vector should contain the correlation between the height and age values from the $k^{th}$ tree.
 
+2. Create a data frame with the following variables:
+    + **x** a numeric variable equal to 1:12
+    + **y** a numeric variable equal to **x^2**
+    + **z** a character variable with elements: "a", "b", "c", "a", "b", "c", ....
+    + Compute the mean of **y** only for those observations where **z == "a"**.
+    + Compute the mean of **x** only for those observations where
+**both** **x > 5** and **z==a**.
+    + Change the 10th element of the **z** variable to "d".
+    + Create a subset of this data frame for observations where **x** is even.
 
