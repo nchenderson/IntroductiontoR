@@ -2,6 +2,8 @@
 
 ## Using R as a calculator
 
+* Hello
+
 * You can use R as a basic **calculator**. 
 
 * For example, if we just type in `42 + 17` into the R console, it should print out the sum:
