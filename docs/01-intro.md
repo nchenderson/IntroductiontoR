@@ -2,12 +2,14 @@
 
 ## Using R as a calculator
 
+* Hello
+
 * You can use R as a basic **calculator**. 
 
 * For example, if we just type in `42 + 17` into the R console, it should print out the sum:
 
 
-```r
+``` r
 42 + 17 
 ```
 
@@ -19,7 +21,7 @@
 
 * We can compute the square root of 243, $1.56^{124}$, and $7.21 \times 8^{4}$, just by typing these expressions into the **R console**
 
-```r
+``` r
 sqrt(243)
 ```
 
@@ -27,7 +29,7 @@ sqrt(243)
 ## [1] 15.58846
 ```
 
-```r
+``` r
 1.56*124
 ```
 
@@ -35,7 +37,7 @@ sqrt(243)
 ## [1] 193.44
 ```
 
-```r
+``` r
 7.21*8^4
 ```
 
@@ -53,7 +55,7 @@ them the values $(42 + 17)\sqrt{43}$, $7.21(8^{4}) + \ln(2.34)$, and
 $(42 + 17)\sqrt{43}/[ 7.21(8^{4}) + \ln(2.34) ]$ respectively.
 
 
-```r
+``` r
 x <- (42 + 17)*sqrt(43)
 y <- 7.21*8^4 + log(2.34)
 z <- x/y
@@ -125,13 +127,13 @@ https://r4ds.had.co.nz/workflow-basics.html
 * Variables can be assigned using either `<-` or `=`
 
 
-```r
+``` r
 x = 123    # Use = to assign a variable
 y <- 123   # Or use <- to assign a variable
 ```
 
 
-```r
+``` r
 x   # Retrieve the value of x
 ```
 
@@ -139,7 +141,7 @@ x   # Retrieve the value of x
 ## [1] 123
 ```
 
-```r
+``` r
 y   # Retrieve the value of y
 ```
 
@@ -162,7 +164,7 @@ or outside of a function).
 
 
 
-```r
+``` r
 sd(x = c(1,2,3,4,5)) # only sets the argument x in sd(x) to (1,2,3,4,5)
 ```
 
@@ -170,12 +172,12 @@ sd(x = c(1,2,3,4,5)) # only sets the argument x in sd(x) to (1,2,3,4,5)
 ## [1] 1.581139
 ```
 
-```r
+``` r
 #x      ## will return an error if we try to print x
 ```
 
 
-```r
+``` r
 sd(x <- c(1,2,3,4,5)) # This actually assigns the vector (1,2,3,4,5) to x
 ```
 
@@ -183,7 +185,7 @@ sd(x <- c(1,2,3,4,5)) # This actually assigns the vector (1,2,3,4,5) to x
 ## [1] 1.581139
 ```
 
-```r
+``` r
 x
 ```
 
@@ -203,7 +205,7 @@ want to call that function using `f(x = ...)`
 * There are other justifications for using `<-` such as the ability 
 to do assignment from the left by using the reverse symbol `->`
 
-```r
+``` r
 c(1, 2, 3, 4) -> a # Using c(1,2,3,4) = a will not work!  
 a
 ```
@@ -219,7 +221,7 @@ a
 
 * Common types include numeric, text, and logical values.
 
-```r
+``` r
 x <- 3.2
 x
 ```
@@ -244,7 +246,7 @@ x
 * You can find the types of the elements in a vector by using the
 function **typeof**
 
-```r
+``` r
 y <- sqrt(1743)
 typeof(y)  # double and integer are the two numeric types 
 ```
@@ -254,7 +256,7 @@ typeof(y)  # double and integer are the two numeric types
 ```
 
 
-```r
+``` r
 z <- 3 # R automatically treats every number as double
 z
 ```
@@ -263,7 +265,7 @@ z
 ## [1] 3
 ```
 
-```r
+``` r
 typeof(z)
 ```
 
@@ -275,7 +277,7 @@ typeof(z)
     + **logical** (TRUE or FALSE) values
     + **character** basically text, e.g., "hello", "car", ...
 
-```r
+``` r
 y <- TRUE
 typeof(y)   
 ```
@@ -285,7 +287,7 @@ typeof(y)
 ```
 
 
-```r
+``` r
 z <- "dog" # to define a character variable, place it inside quotes
 typeof(z)
 ```
@@ -327,7 +329,7 @@ we discuss **vectors**, **matrices**, and **lists**.
 expressions into the **R** console:
 
 
-```r
+``` r
 1 + 2 *3 ^ 4 # power > mult/div > add/sub
 ```
 
@@ -335,7 +337,7 @@ expressions into the **R** console:
 ## [1] 163
 ```
 
-```r
+``` r
 (1 + 2 ) *3 ^ 4 # parenthesis > power
 ```
 

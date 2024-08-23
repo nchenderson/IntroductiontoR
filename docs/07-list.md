@@ -22,7 +22,7 @@ Source: http://adv-r.had.co.nz/Data-structures.html
 * To **create a list**, you can use the `list` function. 
 
 
-```r
+``` r
 ## Use a keyword argument to define any attribute of any data type
 emp_info <- list(name="Nicholas Henderson", UMID=12345678, 
                  faculty=TRUE)
@@ -40,7 +40,7 @@ emp_info # list has character, numeric, and logical types
 ## [1] TRUE
 ```
 
-```r
+``` r
 emp_info$name # access components with $component_name
 ```
 
@@ -52,7 +52,7 @@ emp_info$name # access components with $component_name
 * Create a list with **named components**: **a**, **b**, and **d**.
 
 
-```r
+``` r
 list(a=c(1,2,3), b=c("apple","banana"),
      d=TRUE) ## list elements can be vectors
 ```
@@ -83,7 +83,7 @@ the double bracket syntax `[[k]]`.
 indexing `[[k]]` or the component names.
 
 
-```r
+``` r
 # Create an unnamed list and look at the first element:
 y <- list(c(1,2,3), c("apple","banana"), TRUE)  
 y[[1]]  
@@ -98,7 +98,7 @@ y[[1]]
 * Accessing the elements of a named list using 
 either the **numeric index** or the **component names**:
 
-```r
+``` r
 x <- list(a=c(1,2,3), b=c("apple", "banana"), d=TRUE) 
 x$a
 ```
@@ -107,7 +107,7 @@ x$a
 ## [1] 1 2 3
 ```
 
-```r
+``` r
 x[[1]]
 ```
 
@@ -115,7 +115,7 @@ x[[1]]
 ## [1] 1 2 3
 ```
 
-```r
+``` r
 x$b
 ```
 
@@ -123,7 +123,7 @@ x$b
 ## [1] "apple"  "banana"
 ```
 
-```r
+``` r
 x[[2]]
 ```
 
@@ -136,7 +136,7 @@ x[[2]]
 
 * Get the names of the list components by using `names(list_name)`
 
-```r
+``` r
 names(x)
 ```
 
@@ -149,7 +149,7 @@ names(x)
     and the length does not depend on the length of any of the vector components.
     
 
-```r
+``` r
 length(x)
 ```
 
@@ -163,7 +163,7 @@ length(x)
 
 * Add components to a list using either the index or by name
 
-```r
+``` r
 x
 ```
 
@@ -178,13 +178,13 @@ x
 ## [1] TRUE
 ```
 
-```r
+``` r
 x[[4]] <- 4
 x$e <- 5
 ```
 
 
-```r
+``` r
 x
 ```
 
@@ -212,7 +212,7 @@ x
     + It is common to return these multiple items in a single, **named list**. 
     
 
-```r
+``` r
 matrixSum <- function(X) { # calculate possible sums of a matrix
   s1 <- rowSums(X)
   s2 <- colSums(X)
@@ -259,7 +259,7 @@ for **lists**.
 
 * **lapply** returns a list with the **same number** of components as the input list:
 
-```r
+``` r
 r <- matrixSum(A) # r is a list with 3 components.
 lapply(r, length) # compute the length of each component of r
 ```
@@ -277,7 +277,7 @@ lapply(r, length) # compute the length of each component of r
 
 
 
-```r
+``` r
 lapply(r, sum) # Compute sum of each component of r
 ```
 
@@ -292,7 +292,7 @@ lapply(r, sum) # Compute sum of each component of r
 ## [1] 21
 ```
 
-```r
+``` r
 lapply(r, function(x) sum(x*x)) # Compute sum of squares for each component
 ```
 
@@ -317,7 +317,7 @@ or **matrix** instead of a list.
 * This is what the **sapply()** ("simplified lapply") function does.
 
 
-```r
+``` r
 sapply(r, sum) # sapply() returns output as a named vector
 ```
 
@@ -326,7 +326,7 @@ sapply(r, sum) # sapply() returns output as a named vector
 ##  21  21  21
 ```
 
-```r
+``` r
 lapply(r,sum)
 ```
 
@@ -346,7 +346,7 @@ lapply(r,sum)
 with length **longer** than 1, **sapply** will return a matrix.
 
 
-```r
+``` r
 r
 ```
 
@@ -361,7 +361,7 @@ r
 ## [1] 21
 ```
 
-```r
+``` r
                                 ## column names of matrix are same
 sapply(r, function(x) c(min(x),max(x)) ) ## as list component names
 ```
@@ -378,7 +378,7 @@ sapply(r, function(x) c(min(x),max(x)) ) ## as list component names
 
 1. Suppose we define the vector `x` as `x <- c(1,2,3)`. What is the value of 
 
-```r
+``` r
 length( list(x) ) == length(x)
 ```
 

@@ -42,7 +42,7 @@
 
 * The general syntax for writing your own **R** function is:
 
-```r
+``` r
 function_name <- function(params){ 
      ## function_name is the name of the function 
      ## params name of the input variable within this function 
@@ -59,7 +59,7 @@ function_name <- function(params){
 * Let's **write a function** that takes a number as an input and returns the **square** of that number.
 
 
-```r
+``` r
 ## define a new function named square
 square <- function(x) { ## function name: square, argument : x
    return(x*x)           ## returns x*x
@@ -73,7 +73,7 @@ square <- function(x) { ## function name: square, argument : x
 
 * Let's try **calling** `square` with an input number of `10`:
 
-```r
+``` r
 square(10)    ## example of using the function square
 ```
 
@@ -91,7 +91,7 @@ Let's write another function that takes a single number (assumed to be an intege
     + if the input number if **not positive and odd**, return the number **-1** 
 
 
-```r
+``` r
 PositiveEven  <- function(x) { 
    if( x > 0 && x%%2==0 ) {
        return_value <- 2
@@ -110,7 +110,7 @@ PositiveEven  <- function(x) {
 * Now, let's look at a few examples of **calling** `PositiveEven`:
 
 
-```r
+``` r
 PositiveEven(3)
 ```
 
@@ -118,7 +118,7 @@ PositiveEven(3)
 ## [1] 1
 ```
 
-```r
+``` r
 PositiveEven(-6)
 ```
 
@@ -126,7 +126,7 @@ PositiveEven(-6)
 ## [1] -2
 ```
 
-```r
+``` r
 PositiveEven(0)
 ```
 
@@ -134,7 +134,7 @@ PositiveEven(0)
 ## [1] -2
 ```
 
-```r
+``` r
 PositiveEven(4)
 ```
 
@@ -150,7 +150,7 @@ user inputs a number that is **not** an integer.
 
 
 
-```r
+``` r
 PositiveEvenSafe <- function(x) { # Function named PositiveEvenSafe
    if( x%%1 != 0) { # x%%1 will equal 0 if x is an integer 
        stop("x must be an integer")  
@@ -174,7 +174,7 @@ PositiveEvenSafe <- function(x) { # Function named PositiveEvenSafe
 * Now, let's see what happens if we call the function `PositiveEvenSafe` with 
 the argument `x = 2` and then `x = 7.1`
 
-```r
+``` r
 PositiveEvenSafe(2)
 ```
 
@@ -183,7 +183,7 @@ PositiveEvenSafe(2)
 ```
 
 
-```r
+``` r
 PositiveEvenSafe(7.1)
 Error in PositiveEvenSafe(7.1) : x must be an integer
 ```
@@ -222,7 +222,7 @@ as a function name or variable name.
 
 * You can find the list of **reserved words** in **R** by typing 
 
-```r
+``` r
 ?reserved
 ```
 directly in the R console
@@ -247,7 +247,7 @@ directly in the R console
 * As an example, let's write a function that adds 3 numbers and, **as a default**, 
 sets one of these numbers to zero:
 
-```r
+``` r
 add3 <- function(x, y, z=0) {
     return(x + y + z)
 }
@@ -256,7 +256,7 @@ add3 <- function(x, y, z=0) {
 * The **default** value for `z` here is $0$.
   
 
-```r
+``` r
 add3(1, 2)     ## omit z
 ```
 
@@ -264,7 +264,7 @@ add3(1, 2)     ## omit z
 ## [1] 3
 ```
 
-```r
+``` r
 add3(1, 2, 0)  ## this should give the same as add3(1,2)
 ```
 
@@ -272,7 +272,7 @@ add3(1, 2, 0)  ## this should give the same as add3(1,2)
 ## [1] 3
 ```
 
-```r
+``` r
 add3(1, 2, 3)  ## set z to 3 instead of 0
 ```
 
@@ -290,7 +290,7 @@ order but by **names** with **keyword arguments**.
 
 * For example, we could call our function `add3` with  **keywords** in the following way:
 
-```r
+``` r
 add3(2, 2, 1)      # Call function using original positions
 ```
 
@@ -298,7 +298,7 @@ add3(2, 2, 1)      # Call function using original positions
 ## [1] 5
 ```
 
-```r
+``` r
 add3(x=2, y=2, z=1) # Call function using keywords
 ```
 
@@ -306,7 +306,7 @@ add3(x=2, y=2, z=1) # Call function using keywords
 ## [1] 5
 ```
 
-```r
+``` r
 add3(y=2, x=2, z=1) # With keywords, position does not matter
 ```
 
@@ -321,7 +321,7 @@ add3(y=2, x=2, z=1) # With keywords, position does not matter
     + The **default** value of `z` is $0$, and the **default** value of `w` is **TRUE**.
 
 
-```r
+``` r
 foo <- function (x, y, z=0, w=TRUE) { 
     if(w) {
        1000*x + 100*y + 10*z  ## this is equivalent to return(...)
@@ -335,7 +335,7 @@ foo <- function (x, y, z=0, w=TRUE) {
 arguments in the function definition.
 
 
-```r
+``` r
 foo(9, 3, 5,TRUE) ## specify all arguments
 ```
 
@@ -343,7 +343,7 @@ foo(9, 3, 5,TRUE) ## specify all arguments
 ## [1] 9350
 ```
 
-```r
+``` r
 foo(9, 3, 5)      ## omit argument w
 ```
 
@@ -351,7 +351,7 @@ foo(9, 3, 5)      ## omit argument w
 ## [1] 9350
 ```
 
-```r
+``` r
 foo(9, 3)       ## omit both z and w
 ```
 
@@ -363,7 +363,7 @@ foo(9, 3)       ## omit both z and w
 * Now, let's try calling `foo` using **keyword** arguments and 
 change the orders of `x` and `y`.
 
-```r
+``` r
 ## foo(9)      ## this will cause error because y is unknown
 foo(x=9, y=5)   ## specify x and y as keyword arguments
 ```
@@ -375,7 +375,7 @@ foo(x=9, y=5)   ## specify x and y as keyword arguments
 * We can even switch the positions of `x` and `y` when using **keyword**
 arguments
 
-```r
+``` r
 foo(y=5, x=9)  ## when using keywords, argument order doesn't matter
 ```
 
@@ -385,7 +385,7 @@ foo(y=5, x=9)  ## when using keywords, argument order doesn't matter
 
 * You can even **mix** which arguments you specify as positional and keyword:
 
-```r
+``` r
 foo(9, y=5)     ## specify x as positional, y as keyword argument
 ```
 
@@ -393,7 +393,7 @@ foo(9, y=5)     ## specify x as positional, y as keyword argument
 ## [1] 9500
 ```
 
-```r
+``` r
 foo(9, z=3, y=5)  ## y,z are keyword arguments, x is positional
 ```
 
@@ -406,7 +406,7 @@ foo(9, z=3, y=5)  ## y,z are keyword arguments, x is positional
 
 1. Suppose we define the function `quiz` as
 
-```r
+``` r
 quiz <- function(bool_var1, x=0, bool_var2 = TRUE) {
     y <- 0
     if(bool_var1 && bool_var2) {
@@ -421,7 +421,7 @@ quiz <- function(bool_var1, x=0, bool_var2 = TRUE) {
 ```
 What value does the following function call return?
 
-```r
+``` r
 quiz(FALSE, 1.3)
 ```
 
@@ -447,7 +447,7 @@ and should return `NA` if `y` does not equal either $0$, $1$, or $2$
 of three entered numbers which are greater than $0$.
  The function should have the following **function definition**
 
-```r
+``` r
 PropGtZero <- function(x, y, z, gt=TRUE) {
   
 }

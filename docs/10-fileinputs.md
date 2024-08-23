@@ -37,13 +37,13 @@ which **folder** it is in and that you can find the file path for the downloaded
    
    + For example, if the **gapminder** data was stored in a folder with path **"~/IntrotoR/Data**, we could first type
 
-```r
+``` r
 setwd("~/IntrotoR/Data")
 ```
 
 * After running `setwd`, we can now load in the **gapminder** dataset (stored as `gapminder_full.csv` on my computer) using `read.csv`
 
-```r
+``` r
 fname <- "gapminder_full.csv"
 gapminder <- read.csv(fname)
 ```
@@ -68,7 +68,7 @@ for reading in rectangular data stored in text files.
 
 * For example, we could read in the **gapminder** data with **read.table()** using:
 
-```r
+``` r
 df <- read.table(fname, header=TRUE, sep=",") # Set header=TRUE
 head(df)
 ```
@@ -88,7 +88,7 @@ head(df)
 * You can look at the **first few rows** of a loaded data frame using `head`:
 
 
-```r
+``` r
 dim(gapminder) # 1704 observations, 6 variables
 ```
 
@@ -96,7 +96,7 @@ dim(gapminder) # 1704 observations, 6 variables
 ## [1] 1704    6
 ```
 
-```r
+``` r
 head(gapminder, 8)  ## look at first 8 rows
 ```
 
@@ -112,7 +112,7 @@ head(gapminder, 8)  ## look at first 8 rows
 ## 8 Afghanistan 1987   13867957      Asia   40.822 852.3959
 ```
 
-```r
+``` r
 gapminder$country[1:5] # note that country is a factor
 ```
 
@@ -125,7 +125,7 @@ gapminder$country[1:5] # note that country is a factor
 * Looking at the **structure** of the data frame using `str()`
 
 
-```r
+``` r
 str( gapminder )
 ```
 
@@ -144,7 +144,7 @@ str( gapminder )
 * Reading strings as **non-factors**: 
 
 
-```r
+``` r
 gapminder_nofac <- read.csv(fname, stringsAsFactors = FALSE) 
 head(gapminder_nofac)
 ```
@@ -159,7 +159,7 @@ head(gapminder_nofac)
 ## 6 Afghanistan 1977   14880372      Asia   38.438 786.1134
 ```
 
-```r
+``` r
 gapminder_nofac$country[1:5] # No more "levels"
 ```
 
@@ -173,7 +173,7 @@ gapminder_nofac$country[1:5] # No more "levels"
     + This is useful if you don't want to read
 in the "header" line of the .csv file: 
 
-```r
+``` r
 df <- read.table(fname, header=FALSE, sep=",",skip=1) 
 head(df)
 ```
@@ -190,7 +190,7 @@ head(df)
 
 * Or, skip the header and the first two rows of the .csv file
 
-```r
+``` r
 df <- read.table(fname, header=FALSE, sep=",",skip=3) 
 head(df)
 ```
@@ -210,7 +210,7 @@ head(df)
 
 * You can read in a dataset directly from a URL:
 
-```r
+``` r
 # Read in ignoring the fact that there is a header line
 urlname <- paste("https://web.stanford.edu/~hastie/",
                  "ElemStatLearn/datasets/bone.data", sep="")
@@ -227,7 +227,7 @@ head(bone_dat, 4)
 ```
 
 
-```r
+``` r
 # Set header=TRUE to read in top line as the variable names
 bone_dat2 <- read.table(urlname, header=TRUE)
 head(bone_dat2, 4)

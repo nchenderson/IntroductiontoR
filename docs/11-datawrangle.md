@@ -24,7 +24,7 @@ vary a lot depending on how **"clean"** the original dataset is.
 * To load this package into **R**, first install the `nycflights13` and 
 then load it into **R** with the following command:
 
-```r
+``` r
 library(nycflights13)
 ```
 
@@ -33,13 +33,13 @@ library(nycflights13)
 * We will explore the `flights` dataset in this chapter. 
     + This dataset can be loaded into **R** with the following command.
 
-```r
+``` r
 data(flights)
 ```
 
 * tibble vs. data frame here.
 
-```r
+``` r
 flights <- as.data.frame( flights )
 ```
 
@@ -49,7 +49,7 @@ flights <- as.data.frame( flights )
 
 * While you can note the dimensions of your data under the **"Environment"** tab in Rstudio, you can see this by using `dim`
 
-```r
+``` r
 dim(flights)
 ```
 
@@ -61,7 +61,7 @@ dim(flights)
 
 * To see what is stored in the **first few rows** of `flights` use `head`:
 
-```r
+``` r
 head(flights)
 ```
 
@@ -97,7 +97,7 @@ head(flights)
     + You may notice that one of the variables in this dataset has the `POSIXct` type which is a special data type used to store times.
 
 
-```r
+``` r
 str(flights)
 ```
 
@@ -132,7 +132,7 @@ str(flights)
 
 * We can see that there are 16 **different carriers** in this dataset by using `unique`:
 
-```r
+``` r
 length( unique(flights$carrier) )  ## 16 unique carriers
 ```
 
@@ -143,7 +143,7 @@ length( unique(flights$carrier) )  ## 16 unique carriers
 * Each plane has a unique **tail number**. Using `unique`, we can see that 
 there are $4044$ unique planes represented in the `flights` dataset
 
-```r
+``` r
 length( unique(flights$tailnum) )
 ```
 
@@ -153,7 +153,7 @@ length( unique(flights$tailnum) )
 
 * Using `table`, we can see which **carriers** had the most flights out of the New York City area:
 
-```r
+``` r
 table( flights$carrier )
 ```
 

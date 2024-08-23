@@ -218,13 +218,13 @@ y
 
 * Let's see what happens if we then run `x && y` and `x & y`:
 
-```{r, echo=TRUE}
+```{r, echo=TRUE, eval=FALSE}
 x && y  ## && just compares the first two elements 
 x & y  ## & returns a vector comparing element-by-element
 ```
 
 * Similarly, let's see what happens when we run `x || y` vs. `x | y`:
-```{r, echo=TRUE}
+```{r, echo=TRUE, eval=FALSE}
 x || y  ## || just compares the first two elements 
 x | y  ## | returns a vector comparing element-by-element
 !x

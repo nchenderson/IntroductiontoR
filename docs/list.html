@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Lists | An Introduction to R programming</title>
   <meta name="description" content="Chapter 7 Lists | An Introduction to R programming" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Lists | An Introduction to R programming" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-20" />
+<meta name="date" content="2024-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -371,10 +375,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Lists</strong> can store a collection of items that have <strong>different types</strong>.</p></li>
 <li><p>To <strong>create a list</strong>, you can use the <code>list</code> function.</p></li>
 </ul>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="list.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Use a keyword argument to define any attribute of any data type</span></span>
-<span id="cb533-2"><a href="list.html#cb533-2" aria-hidden="true" tabindex="-1"></a>emp_info <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Nicholas Henderson&quot;</span>, <span class="at">UMID=</span><span class="dv">12345678</span>, </span>
-<span id="cb533-3"><a href="list.html#cb533-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">faculty=</span><span class="cn">TRUE</span>)</span>
-<span id="cb533-4"><a href="list.html#cb533-4" aria-hidden="true" tabindex="-1"></a>emp_info <span class="co"># list has character, numeric, and logical types</span></span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="list.html#cb521-1" tabindex="-1"></a><span class="do">## Use a keyword argument to define any attribute of any data type</span></span>
+<span id="cb521-2"><a href="list.html#cb521-2" tabindex="-1"></a>emp_info <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Nicholas Henderson&quot;</span>, <span class="at">UMID=</span><span class="dv">12345678</span>, </span>
+<span id="cb521-3"><a href="list.html#cb521-3" tabindex="-1"></a>                 <span class="at">faculty=</span><span class="cn">TRUE</span>)</span>
+<span id="cb521-4"><a href="list.html#cb521-4" tabindex="-1"></a>emp_info <span class="co"># list has character, numeric, and logical types</span></span></code></pre></div>
 <pre><code>## $name
 ## [1] &quot;Nicholas Henderson&quot;
 ## 
@@ -383,13 +387,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ## $faculty
 ## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="list.html#cb535-1" aria-hidden="true" tabindex="-1"></a>emp_info<span class="sc">$</span>name <span class="co"># access components with $component_name</span></span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="list.html#cb523-1" tabindex="-1"></a>emp_info<span class="sc">$</span>name <span class="co"># access components with $component_name</span></span></code></pre></div>
 <pre><code>## [1] &quot;Nicholas Henderson&quot;</code></pre>
 <ul>
 <li>Create a list with <strong>named components</strong>: <strong>a</strong>, <strong>b</strong>, and <strong>d</strong>.</li>
 </ul>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="list.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>),</span>
-<span id="cb537-2"><a href="list.html#cb537-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">d=</span><span class="cn">TRUE</span>) <span class="do">## list elements can be vectors</span></span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="list.html#cb525-1" tabindex="-1"></a><span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>),</span>
+<span id="cb525-2"><a href="list.html#cb525-2" tabindex="-1"></a>     <span class="at">d=</span><span class="cn">TRUE</span>) <span class="do">## list elements can be vectors</span></span></code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3
 ## 
@@ -414,23 +418,23 @@ the double bracket syntax <code>[[k]]</code>.</li>
 <li>You can access the elements of a <strong>named list</strong> using either the
 indexing <code>[[k]]</code> or the component names.</li>
 </ul>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="list.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an unnamed list and look at the first element:</span></span>
-<span id="cb539-2"><a href="list.html#cb539-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>), <span class="cn">TRUE</span>)  </span>
-<span id="cb539-3"><a href="list.html#cb539-3" aria-hidden="true" tabindex="-1"></a>y[[<span class="dv">1</span>]]  </span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="list.html#cb527-1" tabindex="-1"></a><span class="co"># Create an unnamed list and look at the first element:</span></span>
+<span id="cb527-2"><a href="list.html#cb527-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>), <span class="cn">TRUE</span>)  </span>
+<span id="cb527-3"><a href="list.html#cb527-3" tabindex="-1"></a>y[[<span class="dv">1</span>]]  </span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
 <hr />
 <ul>
 <li>Accessing the elements of a named list using
 either the <strong>numeric index</strong> or the <strong>component names</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="list.html#cb541-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>), <span class="at">d=</span><span class="cn">TRUE</span>) </span>
-<span id="cb541-2"><a href="list.html#cb541-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>a</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="list.html#cb529-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>), <span class="at">d=</span><span class="cn">TRUE</span>) </span>
+<span id="cb529-2"><a href="list.html#cb529-2" tabindex="-1"></a>x<span class="sc">$</span>a</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="list.html#cb543-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">1</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="list.html#cb531-1" tabindex="-1"></a>x[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="list.html#cb545-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>b</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="list.html#cb533-1" tabindex="-1"></a>x<span class="sc">$</span>b</span></code></pre></div>
 <pre><code>## [1] &quot;apple&quot;  &quot;banana&quot;</code></pre>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="list.html#cb547-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="list.html#cb535-1" tabindex="-1"></a>x[[<span class="dv">2</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;apple&quot;  &quot;banana&quot;</code></pre>
 </div>
 <div id="working-with-lists" class="section level2 hasAnchor" number="7.3">
@@ -438,7 +442,7 @@ either the <strong>numeric index</strong> or the <strong>component names</strong
 <ul>
 <li>Get the names of the list components by using <code>names(list_name)</code></li>
 </ul>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="list.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="list.html#cb537-1" tabindex="-1"></a><span class="fu">names</span>(x)</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;d&quot;</code></pre>
 <ul>
 <li>Find the length of a list by using <code>length</code>.
@@ -447,14 +451,14 @@ either the <strong>numeric index</strong> or the <strong>component names</strong
 and the length does not depend on the length of any of the vector components.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="list.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="list.html#cb539-1" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <div id="expanding-a-list-adding-more-components" class="section level3 hasAnchor" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Expanding a list: adding more components<a href="list.html#expanding-a-list-adding-more-components" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Add components to a list using either the index or by name</li>
 </ul>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="list.html#cb553-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="list.html#cb541-1" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3
 ## 
@@ -463,9 +467,9 @@ and the length does not depend on the length of any of the vector components.</l
 ## 
 ## $d
 ## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="list.html#cb555-1" aria-hidden="true" tabindex="-1"></a>x[[<span class="dv">4</span>]] <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb555-2"><a href="list.html#cb555-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>e <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="list.html#cb556-1" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="list.html#cb543-1" tabindex="-1"></a>x[[<span class="dv">4</span>]] <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb543-2"><a href="list.html#cb543-2" tabindex="-1"></a>x<span class="sc">$</span>e <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="list.html#cb544-1" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3
 ## 
@@ -490,16 +494,16 @@ and the length does not depend on the length of any of the vector components.</l
 <li>It is common to return these multiple items in a single, <strong>named list</strong>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="list.html#cb558-1" aria-hidden="true" tabindex="-1"></a>matrixSum <span class="ot">&lt;-</span> <span class="cf">function</span>(X) { <span class="co"># calculate possible sums of a matrix</span></span>
-<span id="cb558-2"><a href="list.html#cb558-2" aria-hidden="true" tabindex="-1"></a>  s1 <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(X)</span>
-<span id="cb558-3"><a href="list.html#cb558-3" aria-hidden="true" tabindex="-1"></a>  s2 <span class="ot">&lt;-</span> <span class="fu">colSums</span>(X)</span>
-<span id="cb558-4"><a href="list.html#cb558-4" aria-hidden="true" tabindex="-1"></a>  s3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(X)</span>
-<span id="cb558-5"><a href="list.html#cb558-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">row=</span>s1, <span class="at">col=</span>s2, <span class="at">all=</span>s3)) <span class="do">## return multiple values </span></span>
-<span id="cb558-6"><a href="list.html#cb558-6" aria-hidden="true" tabindex="-1"></a>                                       <span class="do">## using a list</span></span>
-<span id="cb558-7"><a href="list.html#cb558-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb558-8"><a href="list.html#cb558-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb558-9"><a href="list.html#cb558-9" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb558-10"><a href="list.html#cb558-10" aria-hidden="true" tabindex="-1"></a><span class="fu">matrixSum</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="list.html#cb546-1" tabindex="-1"></a>matrixSum <span class="ot">&lt;-</span> <span class="cf">function</span>(X) { <span class="co"># calculate possible sums of a matrix</span></span>
+<span id="cb546-2"><a href="list.html#cb546-2" tabindex="-1"></a>  s1 <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(X)</span>
+<span id="cb546-3"><a href="list.html#cb546-3" tabindex="-1"></a>  s2 <span class="ot">&lt;-</span> <span class="fu">colSums</span>(X)</span>
+<span id="cb546-4"><a href="list.html#cb546-4" tabindex="-1"></a>  s3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(X)</span>
+<span id="cb546-5"><a href="list.html#cb546-5" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">row=</span>s1, <span class="at">col=</span>s2, <span class="at">all=</span>s3)) <span class="do">## return multiple values </span></span>
+<span id="cb546-6"><a href="list.html#cb546-6" tabindex="-1"></a>                                       <span class="do">## using a list</span></span>
+<span id="cb546-7"><a href="list.html#cb546-7" tabindex="-1"></a>}</span>
+<span id="cb546-8"><a href="list.html#cb546-8" tabindex="-1"></a></span>
+<span id="cb546-9"><a href="list.html#cb546-9" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb546-10"><a href="list.html#cb546-10" tabindex="-1"></a><span class="fu">matrixSum</span>(A)</span></code></pre></div>
 <pre><code>## $row
 ## [1]  9 12
 ## 
@@ -529,8 +533,8 @@ for <strong>lists</strong>.</p></li>
 </ul></li>
 <li><p><strong>lapply</strong> returns a list with the <strong>same number</strong> of components as the input list:</p></li>
 </ul>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="list.html#cb560-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">matrixSum</span>(A) <span class="co"># r is a list with 3 components.</span></span>
-<span id="cb560-2"><a href="list.html#cb560-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, length) <span class="co"># compute the length of each component of r</span></span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="list.html#cb548-1" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">matrixSum</span>(A) <span class="co"># r is a list with 3 components.</span></span>
+<span id="cb548-2"><a href="list.html#cb548-2" tabindex="-1"></a><span class="fu">lapply</span>(r, length) <span class="co"># compute the length of each component of r</span></span></code></pre></div>
 <pre><code>## $row
 ## [1] 2
 ## 
@@ -539,7 +543,7 @@ for <strong>lists</strong>.</p></li>
 ## 
 ## $all
 ## [1] 1</code></pre>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="list.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, sum) <span class="co"># Compute sum of each component of r</span></span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="list.html#cb550-1" tabindex="-1"></a><span class="fu">lapply</span>(r, sum) <span class="co"># Compute sum of each component of r</span></span></code></pre></div>
 <pre><code>## $row
 ## [1] 21
 ## 
@@ -548,7 +552,7 @@ for <strong>lists</strong>.</p></li>
 ## 
 ## $all
 ## [1] 21</code></pre>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="list.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r, <span class="cf">function</span>(x) <span class="fu">sum</span>(x<span class="sc">*</span>x)) <span class="co"># Compute sum of squares for each component</span></span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="list.html#cb552-1" tabindex="-1"></a><span class="fu">lapply</span>(r, <span class="cf">function</span>(x) <span class="fu">sum</span>(x<span class="sc">*</span>x)) <span class="co"># Compute sum of squares for each component</span></span></code></pre></div>
 <pre><code>## $row
 ## [1] 225
 ## 
@@ -565,10 +569,10 @@ it is often preferable to have the <strong>result</strong> returned as a <strong
 or <strong>matrix</strong> instead of a list.</p></li>
 <li><p>This is what the <strong>sapply()</strong> (“simplified lapply”) function does.</p></li>
 </ul>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="list.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(r, sum) <span class="co"># sapply() returns output as a named vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="list.html#cb554-1" tabindex="-1"></a><span class="fu">sapply</span>(r, sum) <span class="co"># sapply() returns output as a named vector</span></span></code></pre></div>
 <pre><code>## row col all 
 ##  21  21  21</code></pre>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="list.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(r,sum)</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="list.html#cb556-1" tabindex="-1"></a><span class="fu">lapply</span>(r,sum)</span></code></pre></div>
 <pre><code>## $row
 ## [1] 21
 ## 
@@ -581,7 +585,7 @@ or <strong>matrix</strong> instead of a list.</p></li>
 <li>If the <strong>function</strong> used in <strong>sapply</strong> returns a vector
 with length <strong>longer</strong> than 1, <strong>sapply</strong> will return a matrix.</li>
 </ul>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="list.html#cb570-1" aria-hidden="true" tabindex="-1"></a>r</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="list.html#cb558-1" tabindex="-1"></a>r</span></code></pre></div>
 <pre><code>## $row
 ## [1]  9 12
 ## 
@@ -590,8 +594,8 @@ with length <strong>longer</strong> than 1, <strong>sapply</strong> will return 
 ## 
 ## $all
 ## [1] 21</code></pre>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="list.html#cb572-1" aria-hidden="true" tabindex="-1"></a>                                <span class="do">## column names of matrix are same</span></span>
-<span id="cb572-2"><a href="list.html#cb572-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(r, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) ) <span class="do">## as list component names</span></span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="list.html#cb560-1" tabindex="-1"></a>                                <span class="do">## column names of matrix are same</span></span>
+<span id="cb560-2"><a href="list.html#cb560-2" tabindex="-1"></a><span class="fu">sapply</span>(r, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) ) <span class="do">## as list component names</span></span></code></pre></div>
 <pre><code>##      row col all
 ## [1,]   9   3  21
 ## [2,]  12  11  21</code></pre>
@@ -602,7 +606,7 @@ with length <strong>longer</strong> than 1, <strong>sapply</strong> will return 
 <ol style="list-style-type: decimal">
 <li>Suppose we define the vector <code>x</code> as <code>x &lt;- c(1,2,3)</code>. What is the value of</li>
 </ol>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="list.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">list</span>(x) ) <span class="sc">==</span> <span class="fu">length</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="list.html#cb562-1" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">list</span>(x) ) <span class="sc">==</span> <span class="fu">length</span>(x)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Write a function that takes a <strong>list</strong> called <strong>x</strong> as input, and the elements of <code>x</code> can be assumed to be numeric vectors. The function should <strong>return</strong> a matrix where
 <ul>
@@ -683,7 +687,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -23,7 +23,7 @@ contains **specific extra information** about that vector.
 
 * For example, let's look at the **group** variable in the **PlantGrowth** dataset 
 
-```r
+``` r
 data(PlantGrowth)
 PlantGrowth$group
 ```
@@ -45,7 +45,7 @@ a **factor** since this variable represents the treatment condition in this stud
 you **cannot** assign the elements of **PlantGrowth$group** a value 
 which is not either **ctrl**, **trt1**, or **trt2**.
 
-```r
+``` r
 PlantGrowth$group[4] <- "trt" 
 ```
 
@@ -56,7 +56,7 @@ PlantGrowth$group[4] <- "trt"
 
 * Assigning the 5th element the value `"trt1"` works though:
 
-```r
+``` r
 PlantGrowth$group[5] <- "trt1" 
 ```
 
@@ -66,7 +66,7 @@ PlantGrowth$group[5] <- "trt1"
 
 * The other **main attribute** which distinguishes factors is its **class**.
 
-```r
+``` r
 attr(PlantGrowth$group, "class")  # Check the class attribute
 ```
 
@@ -77,7 +77,7 @@ attr(PlantGrowth$group, "class")  # Check the class attribute
 * If the **class** of a vector is a **factor**, numerical comparisons
 between elements will return an error:
 
-```r
+``` r
 PlantGrowth$group[5] > PlantGrowth$group[15]
 ```
 
@@ -91,7 +91,7 @@ PlantGrowth$group[5] > PlantGrowth$group[15]
 ```
 
 
-```r
+``` r
 PlantGrowth$group[5] + PlantGrowth$group[15] # This returns an error
 ```
 
@@ -114,14 +114,14 @@ categories which are not in the original factor vector.
 * To do this, you can assign **new levels** to your factor 
 vector by using the assignment:
 
-```r
+``` r
 `levels(vec_name) <- `
 ```
 
 * For example, look what happens when we try to change the 
 value of one element from a factor vector
 
-```r
+``` r
 y <- factor(rep(1:3, 3)) # create factor with levels 1, 2, 3
 y[3] <- 4  # Try to assign 3rd element the value 4
 ```
@@ -131,7 +131,7 @@ y[3] <- 4  # Try to assign 3rd element the value 4
 ## generated
 ```
 
-```r
+``` r
 y  # Note that the third element is now NA
 ```
 
@@ -144,7 +144,7 @@ y  # Note that the third element is now NA
 * We **can add** the value $4$ to this vector, but we need to change
 the **factor levels** first:
 
-```r
+``` r
 levels(y) <- c(1,2,3,4)
 y[3] <- 4
 y
@@ -163,7 +163,7 @@ y
 and which are treated as **numeric**
 
 
-```r
+``` r
 str( PlantGrowth )
 ```
 
@@ -188,7 +188,7 @@ ocurring at each .**level combination** for **2 or more factors**.
 * For example, let's count the number of observations in each treatment 
 group in the **PlantGrowth** data:
 
-```r
+``` r
 table( PlantGrowth$group ) # 10 observations in each group
 ```
 
@@ -203,7 +203,7 @@ table( PlantGrowth$group ) # 10 observations in each group
 * To see how **table** works for multiple factors, let's look at
 the **VA** dataset from the **MASS** package
 
-```r
+``` r
 library(MASS)
 data(VA)  # load the VA data frame
 str(VA)  # look at the structure of this data frame
@@ -226,7 +226,7 @@ str(VA)  # look at the structure of this data frame
 
 * You can **cross-tabulate** these two factors by using plugging both variables into the **table** function.
 
-```r
+``` r
 tab.VA <- table(VA$treat, VA$cell)
 tab.VA
 ```
@@ -242,7 +242,7 @@ tab.VA
 
 * You can compute the table margins as if **tab.VA** were a matrix
 
-```r
+``` r
 colSums(tab.VA)
 ```
 
@@ -256,7 +256,7 @@ colSums(tab.VA)
 
 * For example, we can cross-tabulate the factors **treat**, **cell**, and **prior**:
 
-```r
+``` r
 table(VA$treat, VA$cell, VA$prior)
 ```
 
@@ -291,7 +291,7 @@ the **mean** and **standard deviation** of
 
 * This can be done with the following code:
 
-```r
+``` r
 tapply(VA$age, VA$treat, mean) # compute mean age in each trt. group
 ```
 
@@ -300,7 +300,7 @@ tapply(VA$age, VA$treat, mean) # compute mean age in each trt. group
 ## 57.50725 59.11765
 ```
 
-```r
+``` r
 tapply(VA$age, VA$treat, sd)  # compute sd of age in each trt. group
 ```
 
@@ -320,7 +320,7 @@ using a single command.
 * Note that the variables **stime**, **status**, **age**, **Karn**,
 **diag.time** in the **VA** data are numeric:
 
-```r
+``` r
 str(VA)
 ```
 
@@ -340,7 +340,7 @@ str(VA)
 * We can compute the mean of each of the numeric variables in 
 **VA**, stratified by cell type, by using `aggregate()` in the following way:
 
-```r
+``` r
 # Use aggregate on VA only using 1st, 2nd, 4th, 5th, 6th variables
 aggregate(VA[,c(1,2,4,5,6)], list(VA$cell), mean)
 ```
@@ -355,7 +355,7 @@ aggregate(VA[,c(1,2,4,5,6)], list(VA$cell), mean)
 
 * Compute the **median** of each of the variables stratified by cell type
 
-```r
+``` r
 aggregate(VA[,c(1,2,4,5,6)], list(VA$cell), median)
 ```
 

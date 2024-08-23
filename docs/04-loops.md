@@ -17,7 +17,7 @@ and the **while** loop.
 
 * The general form of a **for** loop in **R** is
 
-```r
+``` r
 for (x in vec_name) {
     perform a calculation (often involving x)
 }
@@ -32,7 +32,7 @@ for (x in vec_name) {
 
 * As an example, let's write a **for** loop that prints the first 5 positive integers:
 
-```r
+``` r
 for (k in 1:5) {
     print(k)
 }
@@ -57,7 +57,7 @@ for (k in 1:5) {
 \end{equation}
 
 
-```r
+``` r
 prod_ten <- 1   # start from 1
 
 for(x in 2:10)  {  # iterate x from 1 thru 10
@@ -77,7 +77,7 @@ print(prod_ten)     # print the product of first 10 integers
 
 * Here is an example where the looping variable has **character** type.
 
-```r
+``` r
 fruits <- c("apple","orange","grape")   # character vector
 for(fruit in fruits)  {  # iterate each element
    print(fruit)   
@@ -106,7 +106,7 @@ x_{k} = x_{k-1} + x_{k-2} \nonumber
     + This is done by first assigning `x` the vector `rep(0, n)`
 
 
-```r
+``` r
 ## R code for computing first 12 Fibonacci numbers
 x <- rep(0, 12)  # First initialize a vector of size 12
 x[1] <- 0
@@ -132,7 +132,7 @@ we go in the loop.
 on the previous slide.
 
 
-```r
+``` r
 ## R code for computing first 12 Fibonacci numbers
 x <- c(0, 1)
 for(k in 3:12) {
@@ -152,7 +152,7 @@ x
     + These are usually referred to as **nested** for loops.
 
 
-```r
+``` r
 for (i in 1:3) {   # i iterates over 1,2,3
   for (j in 1:i) { # j iterates over 1 to i
       print(c(i,j))     
@@ -178,7 +178,7 @@ for (i in 1:3) {   # i iterates over 1,2,3
 * As an example of this, let's write a loop that should run for 5 iterations, but is terminated after during it's 3rd iteration.
 
 
-```r
+``` r
 for(k in 1:5) {
     print(k)
     if(k >= 3) {
@@ -196,7 +196,7 @@ for(k in 1:5) {
 * Note that if we move the `print` statement after `break` in the above example,
 then only `1` and `2` will be printed to the screen.
 
-```r
+``` r
 for(k in 1:5) {
     if(k >= 3) {
        break   ## loop will stop when break is run
@@ -215,7 +215,7 @@ for(k in 1:5) {
 
 * If using a **break statement** in the **inner loop** of a nested loop, only the inner loop will be terminated when **break** is run.
 
-```r
+``` r
 for (i in 1:3) {   # i iterates over 1,2,3
   for (j in 1:3) { # j iterates over 1,2,3
      print(c(i,j))
@@ -243,7 +243,7 @@ for (i in 1:3) {   # i iterates over 1,2,3
 
 * Let's try an example where we have 5 iterations setup, but we use a **next statement** within the 3rd iteration
 
-```r
+``` r
 for(k in 1:5) {
    if(k == 3) {
        next
@@ -267,7 +267,7 @@ for(k in 1:5) {
 * If used in an **inner loop**, the **next statement** will skip the remainder of the current **inner loop** iteration and go to the next **inner loop** iteration.
 
 
-```r
+``` r
 for (i in 1:3) {   # i iterates over 1,2,3
   for (j in 1:3) { # j iterates over 1,2,3
     if (j == i) {   ## if j equals i 
@@ -297,7 +297,7 @@ a certain condition is `TRUE`.
 
 * The general form of a **while** loop in **R** is
 
-```r
+``` r
 while(condition) {
     code chunk
     then, usually update something related to condition
@@ -313,7 +313,7 @@ in which case the loop **stops**.
 
 * Basic example of while loop:
 
-```r
+``` r
 prod <- 1   # start from 1
 while(prod < 100)  {  # repeat the block until condition is true
   print(prod)          # print the value of prod
@@ -341,7 +341,7 @@ to find the first index `k` such that `x[k] == num`
 
 * This function will also return `NA` if no match is found.
 
-```r
+``` r
 first_while <- function(x, num) {
   index.count <- 0
   match.not.found <- TRUE
@@ -360,7 +360,7 @@ first_while <- function(x, num) {
 
 * Let's try running `first_while` on a few examples:
 
-```r
+``` r
 first_while(1:5, 3)
 ```
 
@@ -368,7 +368,7 @@ first_while(1:5, 3)
 ## [1] 3
 ```
 
-```r
+``` r
 first_while(1:5, 6)
 ```
 
@@ -376,7 +376,7 @@ first_while(1:5, 6)
 ## [1] NA
 ```
 
-```r
+``` r
 first_while(1:5, 5)
 ```
 
@@ -384,7 +384,7 @@ first_while(1:5, 5)
 ## [1] 5
 ```
 
-```r
+``` r
 first_while(rep(1:3, each=4), 2)
 ```
 

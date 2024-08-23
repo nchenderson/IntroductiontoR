@@ -25,7 +25,7 @@ with the **matrix** function.
 
 * The form of the **matrix** function is
 
-```r
+``` r
 matrix(x, nrow, ncol)
 ```
 
@@ -41,7 +41,7 @@ matrix(x, nrow, ncol)
 * If we wanted to create a matrix named `A` with **2 rows** and **3 columns** that contains
 **only zeros**, we could use the following code
 
-```r
+``` r
 A <- matrix(0, 2, 3) 
 A
 ```
@@ -56,7 +56,7 @@ A
 
 * **Convert** the vector (1, 2, 3, 4, 5, 6) into a matrix with 2 rows and 3 columns
 
-```r
+``` r
 x <- 1:6     # x is a vector of 1,2,3,4,5,6 
 B <- matrix(x, 2, 3) # create a matrix from this vector
 B
@@ -72,7 +72,7 @@ B
 * Notice that **matrix** function fills in the matrix entries by columns (i.e, it fills in the numbers from `x` in the first column, then moves to the second, etc.)
    + This is referred to as filling in the entries "**by column**"
 
-```r
+``` r
 x <- 1:6     # x is a vector of 1,2,3,4,5,6 
 B <- matrix(x, 2, 3) # create a matrix from this vector
 B
@@ -86,7 +86,7 @@ B
 
 * You can instead fill in the matrix entries **by rows** by using the **keyword** argument `byrow = TRUE`
 
-```r
+``` r
 D <- matrix(x, 2, 3, byrow=TRUE)
 D
 ```
@@ -102,7 +102,7 @@ D
 
 * It is often useful to create a matrix which has **all the same** columns (or rows):
 
-```r
+``` r
 matrix(1:2, 2, 3) # duplicates the column vector c(1,2)
 ```
 
@@ -112,7 +112,7 @@ matrix(1:2, 2, 3) # duplicates the column vector c(1,2)
 ## [2,]    2    2    2
 ```
 
-```r
+``` r
 matrix(1:3, 2, 3) # this does not duplicate the row vector c(1,2,3)
 ```
 
@@ -122,7 +122,7 @@ matrix(1:3, 2, 3) # this does not duplicate the row vector c(1,2,3)
 ## [2,]    2    1    3
 ```
 
-```r
+``` r
 matrix(1:3, 2, 3, byrow=TRUE) # but this one does!
 ```
 
@@ -140,7 +140,7 @@ matrix(1:3, 2, 3, byrow=TRUE) # but this one does!
 
 * As an example of this, let's create a $2 \times 3$ matrix `A` and look at the $(2,1)$ element of `A`:
 
-```r
+``` r
 A <- matrix(1:6, 2, 3, byrow=TRUE) # creating a 2x3 matrix
 A                         # print the matrix
 ```
@@ -151,7 +151,7 @@ A                         # print the matrix
 ## [2,]    4    5    6
 ```
 
-```r
+``` r
 A[2,1]
 ```
 
@@ -163,7 +163,7 @@ A[2,1]
 
 * For example, if you want to look at elements $(2, 1)$ and $(2,2)$ of `A`, you can use the following syntax:
 
-```r
+``` r
 A[2,1:2]
 ```
 
@@ -173,7 +173,7 @@ A[2,1:2]
 
 * Similarly, if you want to access all elements of `A` in either the first two rows or first two columns of `A`, you can use the following syntax:
 
-```r
+``` r
 A[1:2, 1:2]
 ```
 
@@ -186,7 +186,7 @@ A[1:2, 1:2]
 * To access the entire **kth column** of `A`, use the syntax `A[,k]`.
      + To access the entire **kth row** of `A`, use the syntax `A[k,]`
 
-```r
+``` r
 A[,2]  ## access 2nd column of A
 ```
 
@@ -205,7 +205,7 @@ A[,2]  ## access 2nd column of A
 * Using **nrow()** or **ncol()** let you see the number of 
 **rows** or **columns** of a matrix.
 
-```r
+``` r
 A <- matrix(1:6, 2, 3, byrow=TRUE) # creating a 2x3 matrix
 
 nrow(A)
@@ -215,7 +215,7 @@ nrow(A)
 ## [1] 2
 ```
 
-```r
+``` r
 ncol(A)
 ```
 
@@ -226,7 +226,7 @@ ncol(A)
 * **dim** will return **both** the number of rows and columns.
 
 
-```r
+``` r
 dim(A)
 ```
 
@@ -246,7 +246,7 @@ dim(A)
 * For example if we access the "4th" and "5th" elements of a $2 x 3$
 matrix
 
-```r
+``` r
 A 
 ```
 
@@ -256,7 +256,7 @@ A
 ## [2,]    4    5    6
 ```
 
-```r
+``` r
 A[4:5]          ## accessing like a one-dimensional vector
 ```
 
@@ -272,7 +272,7 @@ in some cases, it is more convenient (e.g., `A[ which(A > 3) ]`)
 * You can also access elements of a matrix **like a vector** using **logical subsetting**
 
 
-```r
+``` r
 which( A > 3)      ## getting indices with which
 ```
 
@@ -280,7 +280,7 @@ which( A > 3)      ## getting indices with which
 ## [1] 2 4 6
 ```
 
-```r
+``` r
 A[ which(A>3) ]   ## getting the elements greater than 3
 ```
 
@@ -298,7 +298,7 @@ the **row index** equals the **column index**.
 * To create a **diagonal** matrix in **R**, use the `diag` function.
     + You must provide the vector of **diagonal elements** as the input to `diag`
 
-```r
+``` r
 diag(1:4)   # 4x4 diagonal matrix with (1,2,3,4) as diagonals
 ```
 
@@ -315,7 +315,7 @@ diag(1:4)   # 4x4 diagonal matrix with (1,2,3,4) as diagonals
 will return the **diagonal elements** of `A`.
 
 
-```r
+``` r
 A <- matrix (1:9, 3, 3)
 A
 ```
@@ -327,7 +327,7 @@ A
 ## [3,]    3    6    9
 ```
 
-```r
+``` r
 diag(A)   # returns diagonals of this matrix
 ```
 
@@ -343,7 +343,7 @@ diag(A)   # returns diagonals of this matrix
     + Thus, you can use `upper.tri` to update the upper diagonal parts of a matrix.
 
 
-```r
+``` r
 x <- matrix (1:9, 3, 3)
 x[upper.tri(x)] <- 0
 x
@@ -358,7 +358,7 @@ x
 
 * Similarly, `lower.tri(A)` allows you to look at the subset of entries on the "lower diagonal" part of a matrix. 
 
-```r
+``` r
 x[lower.tri(x,diag=TRUE)] <- 10:15
 x
 ```
@@ -378,7 +378,7 @@ x
     + The collection of **row names** of a matrix should be a **vector**.
 
 
-```r
+``` r
 x <- matrix(1:6, nrow=2, ncol=3)
 rownames(x) <-c("a","b")
 x
@@ -393,7 +393,7 @@ x
 * You can actually access rows of a matrix **by name**:
 
 
-```r
+``` r
 x[1,] 
 ```
 
@@ -401,7 +401,7 @@ x[1,]
 ## [1] 1 3 5
 ```
 
-```r
+``` r
 rownames(x) <-c("a","b")
 x["a",]
 ```
@@ -413,7 +413,7 @@ x["a",]
 * Similarly, you can access **columns** of a matrix **by name**:
 
 
-```r
+``` r
 colnames(x) <-c("c1","c2","c3") 
 x
 ```
@@ -424,7 +424,7 @@ x
 ## b  2  4  6
 ```
 
-```r
+``` r
 x[2, c(2,3)]
 ```
 
@@ -433,7 +433,7 @@ x[2, c(2,3)]
 ##  4  6
 ```
 
-```r
+``` r
 x["b", c("c2","c3")]
 ```
 
@@ -450,7 +450,7 @@ by using the functions
    + `rbind` (**row** bind)
 
 
-```r
+``` r
 X <- matrix(1:6,2,3)
 Y <- X^2
 cbind(X,Y)
@@ -462,7 +462,7 @@ cbind(X,Y)
 ## [2,]    2    4    6    4   16   36
 ```
 
-```r
+``` r
 rbind(X,Y)
 ```
 
@@ -485,7 +485,7 @@ take the sum (or average) of **all**
 the elements of a matrix:
 
 
-```r
+``` r
 A <- matrix (1:6, 2, 3)
 sum(A)  # sum of all elements
 ```
@@ -494,7 +494,7 @@ sum(A)  # sum of all elements
 ## [1] 21
 ```
 
-```r
+``` r
 mean(A) # average of all elements
 ```
 
@@ -502,7 +502,7 @@ mean(A) # average of all elements
 ## [1] 3.5
 ```
 
-```r
+``` r
 sd(A)   # standard deviation of all elements
 ```
 
@@ -515,7 +515,7 @@ sd(A)   # standard deviation of all elements
     + You can **convert** a matrix `A` into a vector using `as.vector(A)` or simply `c(A)`.
 
 
-```r
+``` r
 A
 ```
 
@@ -525,7 +525,7 @@ A
 ## [2,]    2    4    6
 ```
 
-```r
+``` r
 t(A)             ## transpose of A (reverse role of rows/columns)
 ```
 
@@ -536,7 +536,7 @@ t(A)             ## transpose of A (reverse role of rows/columns)
 ## [3,]    5    6
 ```
 
-```r
+``` r
 as.vector( A )   ## convert matrix to vector in column-wise order
 ```
 
@@ -544,7 +544,7 @@ as.vector( A )   ## convert matrix to vector in column-wise order
 ## [1] 1 2 3 4 5 6
 ```
 
-```r
+``` r
 as.vector( t(A) ) ## convert matrix to vector in row-wise order
 ```
 
@@ -558,7 +558,7 @@ as.vector( t(A) ) ## convert matrix to vector in row-wise order
 subtraction, multiplication, and division.
 
 
-```r
+``` r
 y <- x <- matrix(1:6,2,3,byrow=TRUE)   
 x + y  # matrix addition (element-by-element)
 ```
@@ -569,7 +569,7 @@ x + y  # matrix addition (element-by-element)
 ## [2,]    8   10   12
 ```
 
-```r
+``` r
 x - y  # matrix subtraction (element-by-element)
 ```
 
@@ -579,7 +579,7 @@ x - y  # matrix subtraction (element-by-element)
 ## [2,]    0    0    0
 ```
 
-```r
+``` r
 x*y  # element-wise multiplication
 ```
 
@@ -594,7 +594,7 @@ x*y  # element-wise multiplication
 * Matrix multiplication is done with `%*%` 
 
 
-```r
+``` r
 x %*% t(y)  # (2x3) x (3x2) matrix
 ```
 
@@ -604,7 +604,7 @@ x %*% t(y)  # (2x3) x (3x2) matrix
 ## [2,]   32   77
 ```
 
-```r
+``` r
 t(x) %*% y  # (3x2) x (2x3) matrix
 ```
 
@@ -623,7 +623,7 @@ t(x) %*% y  # (3x2) x (2x3) matrix
 * We can take the **sum** or **mean** of each row/column of a matrix by using either `rowSums`, `rowMeans`, `colSums`, or `colMeans`.
 
 
-```r
+``` r
 A
 ```
 
@@ -633,7 +633,7 @@ A
 ## [2,]    2    4    6
 ```
 
-```r
+``` r
 rowSums(A)
 ```
 
@@ -641,7 +641,7 @@ rowSums(A)
 ## [1]  9 12
 ```
 
-```r
+``` r
 colSums(A)
 ```
 
@@ -649,7 +649,7 @@ colSums(A)
 ## [1]  3  7 11
 ```
 
-```r
+``` r
 rowMeans(A)
 ```
 
@@ -660,7 +660,7 @@ rowMeans(A)
 
 * While `rowSums` works perfectly fine, let's try writing our own **rowSums()** function:
 
-```r
+``` r
 myRowSums <-function(x){
   ret <- rep(NA,nrow(x)) ## make an empty vector
   for(i in 1:nrow(x)) {
@@ -675,7 +675,7 @@ rowSums(A)
 ## [1]  9 12
 ```
 
-```r
+``` r
 myRowSums(A)
 ```
 
@@ -699,7 +699,7 @@ whenever we want to compute **column-wise/row-wise** summary statistics.
 
 
 
-```r
+``` r
 rowSums(A)    ## original row-wise sum
 ```
 
@@ -707,7 +707,7 @@ rowSums(A)    ## original row-wise sum
 ## [1]  9 12
 ```
 
-```r
+``` r
 apply(A, 1, sum) ## this also performs row-wise sum
 ```
 
@@ -715,7 +715,7 @@ apply(A, 1, sum) ## this also performs row-wise sum
 ## [1]  9 12
 ```
 
-```r
+``` r
 colSums(A)    ## original column-wise sum
 ```
 
@@ -723,7 +723,7 @@ colSums(A)    ## original column-wise sum
 ## [1]  3  7 11
 ```
 
-```r
+``` r
 apply(A, 2, sum) ## this also performs column-wise sum
 ```
 
@@ -741,7 +741,7 @@ apply(A, 2, sum) ## this also performs column-wise sum
 * **Third parameter** of apply: **function** to evaluate for each row/column
 
 
-```r
+``` r
 A
 ```
 
@@ -751,7 +751,7 @@ A
 ## [2,]    2    4    6
 ```
 
-```r
+``` r
 apply(A, 1, sum)  # row sums
 ```
 
@@ -759,7 +759,7 @@ apply(A, 1, sum)  # row sums
 ## [1]  9 12
 ```
 
-```r
+``` r
 apply(A, 2, sum)  # column sums
 ```
 
@@ -771,7 +771,7 @@ apply(A, 2, sum)  # column sums
 * Examples of using apply:
 
 
-```r
+``` r
 colMeans(A)  ## original columnw-wise mean
 ```
 
@@ -779,7 +779,7 @@ colMeans(A)  ## original columnw-wise mean
 ## [1] 1.5 3.5 5.5
 ```
 
-```r
+``` r
 apply(A, 2, mean) ## same as above
 ```
 
@@ -787,7 +787,7 @@ apply(A, 2, mean) ## same as above
 ## [1] 1.5 3.5 5.5
 ```
 
-```r
+``` r
 # colMax(A)   ## This will cause ERROR. colmax() does not exist!
 apply(A, 2, max) ## But this works!
 ```
@@ -816,7 +816,7 @@ apply(A, 2, max) ## But this works!
 * You can use **your own** functions to compute **row-wise/column-wise summary measures** for certain measures that may not be implemented in base **R**. 
 
 
-```r
+``` r
 ## define a function named sqsum
 sqsum <- function(x) {
   return( sum(x*x) )  ## very simple implementation
@@ -836,7 +836,7 @@ of the apply function.
 
 * This can be convenient when using straightforward functions that can be written on a single line:
 
-```r
+``` r
 apply(A, 1, function(x) {return (sum(x*x))} )    ## much simpler!
 ```
 
@@ -847,7 +847,7 @@ apply(A, 1, function(x) {return (sum(x*x))} )    ## much simpler!
 * Or, we can write the above apply statement in an even simpler form:
 
 
-```r
+``` r
 ## You can omit return() and {} especially 
 ## for simple function definitions
 apply(A, 1, function(x) sum(x*x) )    ## Even simpler!
@@ -862,7 +862,7 @@ apply(A, 1, function(x) sum(x*x) )    ## Even simpler!
 * **apply()** can also return a **matrix**
 
 
-```r
+``` r
 ## if apply() returns a vector, each row stores results
 apply(A, 1, function(x) c(min(x),max(x)) )
 ```
@@ -873,7 +873,7 @@ apply(A, 1, function(x) c(min(x),max(x)) )
 ## [2,]    5    6
 ```
 
-```r
+``` r
 apply(A, 2, function(x) c(min(x),max(x)) )
 ```
 
@@ -894,7 +894,7 @@ apply(A, 2, function(x) c(min(x),max(x)) )
     
 2. Suppose we define the matrix `X` as
 
-```r
+``` r
 X <- rbind( rep(c(1,4), each=3), rep(c(8,6), each=3))
 ```
 What will be the value of `apply(X, 2, sum)[2]`?

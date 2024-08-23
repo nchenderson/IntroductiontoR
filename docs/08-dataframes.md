@@ -33,13 +33,13 @@ datasets.
 
 * You can **load** this dataset into your **R** session by typing in
 
-```r
+``` r
 data(PlantGrowth)
 ```
 
 * Check that `PlantGrowth` is a data frame by using
 
-```r
+``` r
 class(PlantGrowth)
 ```
 
@@ -51,7 +51,7 @@ class(PlantGrowth)
 
 * You can display the first few rows of the **PlantGrowth** data by using `head()`:
 
-```r
+``` r
 head( PlantGrowth )
 ```
 
@@ -68,7 +68,7 @@ head( PlantGrowth )
 * This dataset has **30 observations** and **2 variables**.
     + This can be seen by applying `dim()` to the data frame: 
 
-```r
+``` r
 dim( PlantGrowth )
 ```
 
@@ -83,7 +83,7 @@ dim( PlantGrowth )
 
 * To create a data frame with 5 observations and two variables named **x** and **y**:
 
-```r
+``` r
 # x and y have to be the same length
 df <- data.frame(x=c(1,2,3,4,5), y=c(1,4,9,16,25))
 df
@@ -101,7 +101,7 @@ df
 * **Converting** a data frame to a matrix
 
 
-```r
+``` r
 df.mat <- as.matrix(df) ## How a Data Frame looks like  
 df
 ```
@@ -115,7 +115,7 @@ df
 ## 5 5 25
 ```
 
-```r
+``` r
 df.mat  ## How a matrix looks like
 ```
 
@@ -132,7 +132,7 @@ df.mat  ## How a matrix looks like
 * You can use `as.data.frame` to convert a matrix into a data frame. 
 
 
-```r
+``` r
 X <- matrix(1:6,3,2) 
 colnames(X) <- c("a","b")
 X.df <- as.data.frame(X)
@@ -146,7 +146,7 @@ X
 ## [3,] 3 6
 ```
 
-```r
+``` r
 X.df
 ```
 
@@ -159,7 +159,7 @@ X.df
 
 * Remember that a data frame can take **heterogeneous** data types.
 
-```r
+``` r
 df <- data.frame(x=c(1,2,3),y=c("a","a","bc"))
 colnames(X) <- c("a","b")
 X.df <- as.data.frame(X)
@@ -173,7 +173,7 @@ X
 ## [3,] 3 6
 ```
 
-```r
+``` r
 X.df
 ```
 
@@ -191,7 +191,7 @@ X.df
     + This is done in exactly the **same way** as with a **matrix**.
 
 
-```r
+``` r
 df[,1]   ## access a column just like a matrix
 ```
 
@@ -199,7 +199,7 @@ df[,1]   ## access a column just like a matrix
 ## [1] 1 2 3
 ```
 
-```r
+``` r
 df[1:2,] ## access rows like matrix
 ```
 
@@ -209,7 +209,7 @@ df[1:2,] ## access rows like matrix
 ## 2 2 a
 ```
 
-```r
+``` r
 df[2, 1] ## access individual elements
 ```
 
@@ -222,7 +222,7 @@ df[2, 1] ## access individual elements
 using the syntax: `df_name$var_name`.
 
 
-```r
+``` r
 df$y   ## access a column by name
 ```
 
@@ -230,7 +230,7 @@ df$y   ## access a column by name
 ## [1] "a"  "a"  "bc"
 ```
 
-```r
+``` r
        ## what happens if we omit a comma?
 df[1]  ## (Remember that df is actually list)
 ```
@@ -245,7 +245,7 @@ df[1]  ## (Remember that df is actually list)
 
 * Differences in element access between matrices and data frames:
 
-```r
+``` r
 df.mat <- as.matrix(df) 
 df[2] #df[10] will not work
 ```
@@ -257,7 +257,7 @@ df[2] #df[10] will not work
 ## 3 bc
 ```
 
-```r
+``` r
 df.mat[2]
 ```
 
@@ -265,7 +265,7 @@ df.mat[2]
 ## [1] "2"
 ```
 
-```r
+``` r
 df.mat[10]
 ```
 
@@ -277,7 +277,7 @@ df.mat[10]
 * **Modifying** data frames:
 
 
-```r
+``` r
 df <- data.frame(x=c(1,2,3),y=c("a","a","bc")) 
 df$z = c("def","123","123") ## adding a new column
 df
@@ -290,7 +290,7 @@ df
 ## 3 3 bc 123
 ```
 
-```r
+``` r
 df2 <- data.frame(w=c(TRUE,FALSE,FALSE))
 cbind(df,df2)  # combine columns
 ```
@@ -305,7 +305,7 @@ cbind(df,df2)  # combine columns
 
 * **Adding** new rows to a data frame:
 
-```r
+``` r
 df3 <- data.frame(x=4,y="a",z="def") 
 rbind(df,df3)  
 ```
@@ -322,7 +322,7 @@ rbind(df,df3)
 ## Subsetting data frames
 
 
-```r
+``` r
 df
 ```
 
@@ -333,7 +333,7 @@ df
 ## 3 3 bc 123
 ```
 
-```r
+``` r
 subset(df, x>1)
 ```
 
@@ -343,7 +343,7 @@ subset(df, x>1)
 ## 3 3 bc 123
 ```
 
-```r
+``` r
 subset(df, x>1 & y =="a")  
 ```
 
@@ -356,7 +356,7 @@ subset(df, x>1 & y =="a")
 
 1. For this exercise, you will use the `Loblolly` dataset which is a built-in **R** dataset.  You can load the `Loblolly` data frame and look at the first few rows with the following \textbf{R} commands: 
 
-```r
+``` r
 data(Loblolly)
 head(Loblolly)
 ```

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 Data Wrangling | An Introduction to R programming</title>
   <meta name="description" content="Chapter 11 Data Wrangling | An Introduction to R programming" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Data Wrangling | An Introduction to R programming" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2022-09-20" />
+<meta name="date" content="2024-08-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -357,7 +361,7 @@ vary a lot depending on how <strong>“clean”</strong> the original dataset is
 <li><p>To load this package into <strong>R</strong>, first install the <code>nycflights13</code> and
 then load it into <strong>R</strong> with the following command:</p></li>
 </ul>
-<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb691-1"><a href="datawrangling.html#cb691-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span></code></pre></div>
+<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb679-1"><a href="datawrangling.html#cb679-1" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span></code></pre></div>
 <ul>
 <li><p>This package has several datasets available.</p></li>
 <li><p>We will explore the <code>flights</code> dataset in this chapter.</p>
@@ -365,11 +369,11 @@ then load it into <strong>R</strong> with the following command:</p></li>
 <li>This dataset can be loaded into <strong>R</strong> with the following command.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="datawrangling.html#cb692-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="datawrangling.html#cb680-1" tabindex="-1"></a><span class="fu">data</span>(flights)</span></code></pre></div>
 <ul>
 <li>tibble vs. data frame here.</li>
 </ul>
-<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb693-1"><a href="datawrangling.html#cb693-1" aria-hidden="true" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>( flights )</span></code></pre></div>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="datawrangling.html#cb681-1" tabindex="-1"></a>flights <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>( flights )</span></code></pre></div>
 </div>
 <div id="exploring-the-dataset" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> Exploring the Dataset<a href="datawrangling.html#exploring-the-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -377,13 +381,13 @@ then load it into <strong>R</strong> with the following command:</p></li>
 <li><p>The first thing you usually want to note about a dataset after first loading it is <strong>how many observations</strong> and <strong>variables</strong> there are.</p></li>
 <li><p>While you can note the dimensions of your data under the <strong>“Environment”</strong> tab in Rstudio, you can see this by using <code>dim</code></p></li>
 </ul>
-<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="datawrangling.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="datawrangling.html#cb682-1" tabindex="-1"></a><span class="fu">dim</span>(flights)</span></code></pre></div>
 <pre><code>## [1] 336776     19</code></pre>
 <ul>
 <li><p>This data frame has <span class="math inline">\(336,776\)</span> observations and <span class="math inline">\(19\)</span> variables.</p></li>
 <li><p>To see what is stored in the <strong>first few rows</strong> of <code>flights</code> use <code>head</code>:</p></li>
 </ul>
-<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="datawrangling.html#cb696-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="datawrangling.html#cb684-1" tabindex="-1"></a><span class="fu">head</span>(flights)</span></code></pre></div>
 <pre><code>##   year month day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ## 1 2013     1   1      517            515         2      830            819
 ## 2 2013     1   1      533            529         4      850            830
@@ -413,7 +417,7 @@ then load it into <strong>R</strong> with the following command:</p></li>
 <li><p>You may notice that one of the variables in this dataset has the <code>POSIXct</code> type which is a special data type used to store times.</p></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="datawrangling.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(flights)</span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="datawrangling.html#cb686-1" tabindex="-1"></a><span class="fu">str</span>(flights)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    336776 obs. of  19 variables:
 ##  $ year          : int  2013 2013 2013 2013 2013 2013 2013 2013 2013 2013 ...
 ##  $ month         : int  1 1 1 1 1 1 1 1 1 1 ...
@@ -440,18 +444,18 @@ then load it into <strong>R</strong> with the following command:</p></li>
 <li><p>The <code>carrier</code> variable in <code>flights</code> contains the abbreviation for the airline carrier.</p></li>
 <li><p>We can see that there are 16 <strong>different carriers</strong> in this dataset by using <code>unique</code>:</p></li>
 </ul>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="datawrangling.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>carrier) )  <span class="do">## 16 unique carriers</span></span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="datawrangling.html#cb688-1" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>carrier) )  <span class="do">## 16 unique carriers</span></span></code></pre></div>
 <pre><code>## [1] 16</code></pre>
 <ul>
 <li>Each plane has a unique <strong>tail number</strong>. Using <code>unique</code>, we can see that
 there are <span class="math inline">\(4044\)</span> unique planes represented in the <code>flights</code> dataset</li>
 </ul>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="datawrangling.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>tailnum) )</span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="datawrangling.html#cb690-1" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">unique</span>(flights<span class="sc">$</span>tailnum) )</span></code></pre></div>
 <pre><code>## [1] 4044</code></pre>
 <ul>
 <li>Using <code>table</code>, we can see which <strong>carriers</strong> had the most flights out of the New York City area:</li>
 </ul>
-<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="datawrangling.html#cb704-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>( flights<span class="sc">$</span>carrier )</span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="datawrangling.html#cb692-1" tabindex="-1"></a><span class="fu">table</span>( flights<span class="sc">$</span>carrier )</span></code></pre></div>
 <pre><code>## 
 ##    9E    AA    AS    B6    DL    EV    F9    FL    HA    MQ    OO    UA    US 
 ## 18460 32729   714 54635 48110 54173   685  3260   342 26397    32 58665 20536 
@@ -532,7 +536,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

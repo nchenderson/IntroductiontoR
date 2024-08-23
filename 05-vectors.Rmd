@@ -450,9 +450,6 @@ vector `c(6, 0, 9, 10, 11, 12)`.
 c(TRUE, TRUE, FALSE) & c(TRUE,FALSE,FALSE) # element-wise
 
 c(TRUE, TRUE, FALSE) | c(TRUE,FALSE,FALSE) # element-wise
-c(TRUE, TRUE, FALSE) && c(TRUE,FALSE,FALSE) # only first values
-
-c(TRUE, TRUE, FALSE) || c(TRUE,FALSE,FALSE) # only first values
 ```
 
 
