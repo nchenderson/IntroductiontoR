@@ -1,0 +1,207 @@
+# Factors {#factors}
+
+
+* **Factors** in **R** were created to represent **categorical variables** in statistics.
+
+* **Categorical Variable:**
+    + **Categorical variables** represent membership in some category rather than a numerical value **(e.g., blood type, country, language spoken, treatment group)**.
+    
+    + **Categorical variables** can only assume one of a finite collection values.
+    
+    + It does not usually make sense to make **numerical comparisons** between categorical variables.
+
+## Definition of Factors
+
+* In **R**, a factor can be thought of as a vector that
+contains **specific extra information** about that vector.
+    + More specifically, a factor is a vector that has certain **attributes** that
+    distinguish from non-factor vectors.
+
+* One key attribute stored by a factor vector is its **levels**. 
+
+* The **levels** of a factor vector determine the **set of allowable values** in that vector.
+
+* For example, let's look at the **group** variable in the **PlantGrowth** dataset 
+```{r, echo=TRUE}
+data(PlantGrowth)
+PlantGrowth$group
+```
+
+* The **group** variable is a factor with the following 3 levels: 
+**ctrl**, **trt1**, **trt2**.
+
+
+* It is appropriate to make the **group** variable in **PlantGrowth** 
+a **factor** since this variable represents the treatment condition in this study.
+
+* Because the **levels** of group (**ctrl**, **trt1**, **trt2**) represent the collection of possible values,
+you **cannot** assign the elements of **PlantGrowth$group** a value 
+which is not either **ctrl**, **trt1**, or **trt2**.
+```{r, echo=TRUE}
+PlantGrowth$group[4] <- "trt" 
+```
+
+* Assigning the 5th element the value `"trt1"` works though:
+```{r, echo=TRUE}
+PlantGrowth$group[5] <- "trt1" 
+```
+
+
+---
+
+
+* The other **main attribute** which distinguishes factors is its **class**.
+```{r, echo=TRUE}
+attr(PlantGrowth$group, "class")  # Check the class attribute
+```
+
+* If the **class** of a vector is a **factor**, numerical comparisons
+between elements will return an error:
+```{r, echo=TRUE}
+PlantGrowth$group[5] > PlantGrowth$group[15]
+```
+
+```{r, echo=TRUE}
+PlantGrowth$group[5] + PlantGrowth$group[15] # This returns an error
+```
+
+
+## Adding new levels to a factor
+
+* In some cases, you want to **add data 
+to a factor vector**, and the new data contains new
+categories which are not in the original factor vector.
+  
+* To do this, you can assign **new levels** to your factor 
+vector by using the assignment:
+```{r, echo=TRUE, eval=FALSE}
+`levels(vec_name) <- `
+```
+
+* For example, look what happens when we try to change the 
+value of one element from a factor vector
+```{r, echo=TRUE}
+y <- factor(rep(1:3, 3)) # create factor with levels 1, 2, 3
+y[3] <- 4  # Try to assign 3rd element the value 4
+y  # Note that the third element is now NA
+```
+
+
+* We **can add** the value $4$ to this vector, but we need to change
+the **factor levels** first:
+```{r, echo=TRUE}
+levels(y) <- c(1,2,3,4)
+y[3] <- 4
+y
+```
+
+---
+
+* The `str()` function gives a description of any **R** object.
+
+* For a data frame, you can see which variables are treated as **factors**
+and which are treated as **numeric**
+
+```{r, echo=TRUE}
+str( PlantGrowth )
+```
+
+```{r, echo=FALSE}
+data(PlantGrowth)
+```
+
+
+
+## The table() function
+
+* The `table()` function can be used to count the **number of observations** at 
+each **level** of a factor.
+
+* `table()` can also be used to count the number of observations
+ocurring at each .**level combination** for **2 or more factors**.
+
+* For example, let's count the number of observations in each treatment 
+group in the **PlantGrowth** data:
+```{r, echo=TRUE}
+table( PlantGrowth$group ) # 10 observations in each group
+```
+
+---
+
+* To see how **table** works for multiple factors, let's look at
+the **VA** dataset from the **MASS** package
+```{r, echo=TRUE}
+library(MASS)
+data(VA)  # load the VA data frame
+str(VA)  # look at the structure of this data frame
+```
+
+
+* Notice that the variables **treat** and **cell** are **factors** in the **VA** data frame.
+
+* You can **cross-tabulate** these two factors by using plugging both variables into the **table** function.
+```{r, echo=TRUE}
+tab.VA <- table(VA$treat, VA$cell)
+tab.VA
+```
+
+* **tab.VA** is an example of what's usually called a 2x4 **contingency table.**
+
+* You can compute the table margins as if **tab.VA** were a matrix
+```{r, echo=TRUE}
+colSums(tab.VA)
+```
+
+
+* You are not limited to cross-tabulating two factor variables.
+
+* For example, we can cross-tabulate the factors **treat**, **cell**, and **prior**:
+```{r, echo=TRUE}
+table(VA$treat, VA$cell, VA$prior)
+```
+
+* This outputs **two** 2x4 contingency tables: A contingency table of **treat** and **cell** for 
+each level of **prior**.
+
+
+## tapply() and aggregate
+
+* `tapply()` is useful when you want to compute
+certain summary statistics **for each** level of a factor variable.
+
+* For example, suppose we wanted to compute 
+the **mean** and **standard deviation** of 
+**age** in the **VA** data within each treatment group.
+
+* This can be done with the following code:
+```{r, echo=TRUE}
+tapply(VA$age, VA$treat, mean) # compute mean age in each trt. group
+tapply(VA$age, VA$treat, sd)  # compute sd of age in each trt. group
+```
+
+
+* You can use the `aggregate()` function to 
+use `tapply()` across multiple variables.
+
+* This is useful, for example, if you want to compute
+the mean of **each** of the numeric variables in a data frame
+using a single command.
+
+* Note that the variables **stime**, **status**, **age**, **Karn**,
+**diag.time** in the **VA** data are numeric:
+```{r, echo=TRUE}
+str(VA)
+```
+
+
+* We can compute the mean of each of the numeric variables in 
+**VA**, stratified by cell type, by using `aggregate()` in the following way:
+```{r, echo=TRUE}
+# Use aggregate on VA only using 1st, 2nd, 4th, 5th, 6th variables
+aggregate(VA[,c(1,2,4,5,6)], list(VA$cell), mean)
+```
+
+* Compute the **median** of each of the variables stratified by cell type
+```{r, echo=TRUE}
+aggregate(VA[,c(1,2,4,5,6)], list(VA$cell), median)
+```

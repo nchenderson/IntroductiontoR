@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Lists | An Introduction to R programming</title>
+  <meta name="description" content="Chapter 7 Lists | An Introduction to R programming" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Lists | An Introduction to R programming" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Lists | An Introduction to R programming" />
+  
+  
+  
+
+<meta name="author" content="Nicholas Henderson" />
+
+
+<meta name="date" content="2024-08-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="matrix.html"/>
+<link rel="next" href="dataframe.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> <span style="color:#D96716"><strong>R</strong></span> and <span style="color:#D96716"><strong>RStudio</strong></span></a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#an-extended-example-the-nyc-flights-data"><i class="fa fa-check"></i><b>1.2</b> An Extended Example: the NYC flights data</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#installing-r-packages"><i class="fa fa-check"></i><b>1.2.1</b> Installing R packages</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#nyc-flights-data-details"><i class="fa fa-check"></i><b>1.2.2</b> NYC flights data details</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#summarizing-specific-data-variables"><i class="fa fa-check"></i><b>1.2.3</b> Summarizing specific data variables</a></li>
+<li class="chapter" data-level="1.2.4" data-path="intro.html"><a href="intro.html#subsetting-data"><i class="fa fa-check"></i><b>1.2.4</b> Subsetting Data</a></li>
+<li class="chapter" data-level="1.2.5" data-path="intro.html"><a href="intro.html#plotting-data"><i class="fa fa-check"></i><b>1.2.5</b> Plotting Data</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#using-r-as-a-calculator"><i class="fa fa-check"></i><b>1.3</b> Using R as a calculator</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#variables-in-r"><i class="fa fa-check"></i><b>1.4</b> Variables in R</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#rules-for-choosing-variable-names-in-r"><i class="fa fa-check"></i><b>1.4.1</b> Rules for choosing <strong>variable names</strong> in R</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#variable-assignment"><i class="fa fa-check"></i><b>1.4.2</b> Variable Assignment</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#types-of-variables"><i class="fa fa-check"></i><b>1.4.3</b> Types of variables</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#r-operations-with-numbers"><i class="fa fa-check"></i><b>1.5</b> R Operations with numbers</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#brief-introduction-to-vectors-in-r"><i class="fa fa-check"></i><b>1.6</b> Brief introduction to vectors in R</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.7</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>I R Programming Fundamentals</b></span></li>
+<li class="chapter" data-level="2" data-path="ifelse.html"><a href="ifelse.html"><i class="fa fa-check"></i><b>2</b> Logical Expressions and If-Else Statements in R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="ifelse.html"><a href="ifelse.html#logical-expression-in-r"><i class="fa fa-check"></i><b>2.1</b> Logical Expression in R</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="ifelse.html"><a href="ifelse.html#comparison-operators"><i class="fa fa-check"></i><b>2.1.1</b> Comparison Operators</a></li>
+<li class="chapter" data-level="2.1.2" data-path="ifelse.html"><a href="ifelse.html#logical-operators"><i class="fa fa-check"></i><b>2.1.2</b> Logical Operators</a></li>
+<li class="chapter" data-level="2.1.3" data-path="ifelse.html"><a href="ifelse.html#precedence-with-logical-operations"><i class="fa fa-check"></i><b>2.1.3</b> Precedence with logical operations</a></li>
+<li class="chapter" data-level="2.1.4" data-path="ifelse.html"><a href="ifelse.html#abbreviating-true-and-false-with-t-and-f"><i class="fa fa-check"></i><b>2.1.4</b> Abbreviating TRUE and FALSE with T and F</a></li>
+<li class="chapter" data-level="2.1.5" data-path="ifelse.html"><a href="ifelse.html#examples-of-logical-operations-in-r"><i class="fa fa-check"></i><b>2.1.5</b> Examples of logical operations in R</a></li>
+<li class="chapter" data-level="2.1.6" data-path="ifelse.html"><a href="ifelse.html#vs.-and-vs."><i class="fa fa-check"></i><b>2.1.6</b> &amp;&amp; vs. &amp; and || vs. |</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="ifelse.html"><a href="ifelse.html#if-and-if-else-statements"><i class="fa fa-check"></i><b>2.2</b> If and If-else statements</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="ifelse.html"><a href="ifelse.html#if-statements"><i class="fa fa-check"></i><b>2.2.1</b> if statements</a></li>
+<li class="chapter" data-level="2.2.2" data-path="ifelse.html"><a href="ifelse.html#if-statement-examples"><i class="fa fa-check"></i><b>2.2.2</b> if statement examples</a></li>
+<li class="chapter" data-level="2.2.3" data-path="ifelse.html"><a href="ifelse.html#single-line-if-statements"><i class="fa fa-check"></i><b>2.2.3</b> Single-line if statements</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="ifelse.html"><a href="ifelse.html#if-else-statements"><i class="fa fa-check"></i><b>2.3</b> if-else statements</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="ifelse.html"><a href="ifelse.html#if-else-if-chains"><i class="fa fa-check"></i><b>2.3.1</b> if-else-if chains</a></li>
+<li class="chapter" data-level="2.3.2" data-path="ifelse.html"><a href="ifelse.html#nested-if-else-statements"><i class="fa fa-check"></i><b>2.3.2</b> Nested if-else statements</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="ifelse.html"><a href="ifelse.html#exercises-1"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3</b> Functions in R</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="functions.html"><a href="functions.html#built-in-r-functions"><i class="fa fa-check"></i><b>3.1</b> Built-in R functions</a></li>
+<li class="chapter" data-level="3.2" data-path="functions.html"><a href="functions.html#construction-your-own-r-functions"><i class="fa fa-check"></i><b>3.2</b> Construction your own R functions</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="functions.html"><a href="functions.html#function-definition-syntax"><i class="fa fa-check"></i><b>3.2.1</b> Function Definition Syntax</a></li>
+<li class="chapter" data-level="3.2.2" data-path="functions.html"><a href="functions.html#example-1"><i class="fa fa-check"></i><b>3.2.2</b> Example 1</a></li>
+<li class="chapter" data-level="3.2.3" data-path="functions.html"><a href="functions.html#example-2"><i class="fa fa-check"></i><b>3.2.3</b> Example 2</a></li>
+<li class="chapter" data-level="3.2.4" data-path="functions.html"><a href="functions.html#rules-for-choosing-function-names"><i class="fa fa-check"></i><b>3.2.4</b> Rules for choosing function names</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="functions.html"><a href="functions.html#default-argument-values-in-functions"><i class="fa fa-check"></i><b>3.3</b> Default argument values in functions</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="functions.html"><a href="functions.html#example-1-1"><i class="fa fa-check"></i><b>3.3.1</b> Example 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="functions.html"><a href="functions.html#specifying-function-arguments-with-keywords"><i class="fa fa-check"></i><b>3.4</b> Specifying function arguments with keywords</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="functions.html"><a href="functions.html#example-1-2"><i class="fa fa-check"></i><b>3.4.1</b> Example 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="functions.html"><a href="functions.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>4</b> Loops in R</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="loops.html"><a href="loops.html#for-loops"><i class="fa fa-check"></i><b>4.1</b> For Loops</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="loops.html"><a href="loops.html#example-1-printing-the-first-5-integers"><i class="fa fa-check"></i><b>4.1.1</b> Example 1: printing the first 5 integers</a></li>
+<li class="chapter" data-level="4.1.2" data-path="loops.html"><a href="loops.html#example-2-computing-10-factorial"><i class="fa fa-check"></i><b>4.1.2</b> Example 2: computing 10 factorial</a></li>
+<li class="chapter" data-level="4.1.3" data-path="loops.html"><a href="loops.html#example-3-a-non-numeric-looping-variable"><i class="fa fa-check"></i><b>4.1.3</b> Example 3: a non-numeric looping variable</a></li>
+<li class="chapter" data-level="4.1.4" data-path="loops.html"><a href="loops.html#example-4-first-fibonacci-numbers"><i class="fa fa-check"></i><b>4.1.4</b> Example 4: first Fibonacci numbers</a></li>
+<li class="chapter" data-level="4.1.5" data-path="loops.html"><a href="loops.html#nested-for-loops"><i class="fa fa-check"></i><b>4.1.5</b> Nested for loops</a></li>
+<li class="chapter" data-level="4.1.6" data-path="loops.html"><a href="loops.html#break-and-next-exiting-for-loops-and-skipping-iterations"><i class="fa fa-check"></i><b>4.1.6</b> break and next: Exiting for loops and skipping iterations</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="loops.html"><a href="loops.html#while-loops"><i class="fa fa-check"></i><b>4.2</b> While Loops</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="loops.html"><a href="loops.html#example-1-a-first-which-function"><i class="fa fa-check"></i><b>4.2.1</b> Example 1: a “first which” function</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="loops.html"><a href="loops.html#exercises-3"><i class="fa fa-check"></i><b>4.3</b> Exercises</a></li>
+</ul></li>
+<li class="part"><span><b>II R Data Structures</b></span></li>
+<li class="chapter" data-level="5" data-path="vectors.html"><a href="vectors.html"><i class="fa fa-check"></i><b>5</b> Vectors</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="vectors.html"><a href="vectors.html#creating-vectors-in-r"><i class="fa fa-check"></i><b>5.1</b> Creating vectors in R</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="vectors.html"><a href="vectors.html#the-concatenate-function-c"><i class="fa fa-check"></i><b>5.1.1</b> The concatenate function <code>c()</code></a></li>
+<li class="chapter" data-level="5.1.2" data-path="vectors.html"><a href="vectors.html#colon-seq-rep-creating-vectors-with-specific-patterns"><i class="fa fa-check"></i><b>5.1.2</b> colon, seq, rep: Creating vectors with specific patterns</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="vectors.html"><a href="vectors.html#subsets-of-vectors"><i class="fa fa-check"></i><b>5.2</b> Subsets of vectors</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="vectors.html"><a href="vectors.html#extracting-vector-elements"><i class="fa fa-check"></i><b>5.2.1</b> Extracting vector elements</a></li>
+<li class="chapter" data-level="5.2.2" data-path="vectors.html"><a href="vectors.html#subsetting-with-logical-expressions"><i class="fa fa-check"></i><b>5.2.2</b> Subsetting with logical expressions</a></li>
+<li class="chapter" data-level="5.2.3" data-path="vectors.html"><a href="vectors.html#the-which-function"><i class="fa fa-check"></i><b>5.2.3</b> The which function</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="vectors.html"><a href="vectors.html#useful-methods-for-vectors"><i class="fa fa-check"></i><b>5.3</b> Useful methods for vectors</a></li>
+<li class="chapter" data-level="5.4" data-path="vectors.html"><a href="vectors.html#vectors-with-different-data-types"><i class="fa fa-check"></i><b>5.4</b> Vectors with different data types</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="vectors.html"><a href="vectors.html#explicitly-changing-the-data-types"><i class="fa fa-check"></i><b>5.4.1</b> Explicitly changing the data types</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="vectors.html"><a href="vectors.html#mathematical-operations-with-vectors"><i class="fa fa-check"></i><b>5.5</b> Mathematical operations with vectors</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="vectors.html"><a href="vectors.html#recycling-rules"><i class="fa fa-check"></i><b>5.5.1</b> Recycling rules</a></li>
+<li class="chapter" data-level="5.5.2" data-path="vectors.html"><a href="vectors.html#logical-operations-with-vectors"><i class="fa fa-check"></i><b>5.5.2</b> Logical operations with vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="vectors.html"><a href="vectors.html#set-operations-with-vectors"><i class="fa fa-check"></i><b>5.6</b> Set operations with vectors</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="vectors.html"><a href="vectors.html#the-function-unique"><i class="fa fa-check"></i><b>5.6.1</b> The function unique()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="vectors.html"><a href="vectors.html#na-and-is.na-missing-values-in-r"><i class="fa fa-check"></i><b>5.7</b> NA and is.na(): missing values in R</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="vectors.html"><a href="vectors.html#the-function-is.na"><i class="fa fa-check"></i><b>5.7.1</b> The function <code>is.na()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="vectors.html"><a href="vectors.html#exercises-4"><i class="fa fa-check"></i><b>5.8</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="matrix.html"><a href="matrix.html"><i class="fa fa-check"></i><b>6</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="matrix.html"><a href="matrix.html#creating-matrices-in-r"><i class="fa fa-check"></i><b>6.1</b> Creating matrices in R</a></li>
+<li class="chapter" data-level="6.2" data-path="matrix.html"><a href="matrix.html#accessing-different-features-of-a-matrix"><i class="fa fa-check"></i><b>6.2</b> Accessing different features of a matrix</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="matrix.html"><a href="matrix.html#accessing-elements-of-a-matrix"><i class="fa fa-check"></i><b>6.2.1</b> Accessing elements of a matrix</a></li>
+<li class="chapter" data-level="6.2.2" data-path="matrix.html"><a href="matrix.html#diagonals-of-matrices"><i class="fa fa-check"></i><b>6.2.2</b> Diagonals of Matrices</a></li>
+<li class="chapter" data-level="6.2.3" data-path="matrix.html"><a href="matrix.html#naming-rows-or-columns"><i class="fa fa-check"></i><b>6.2.3</b> Naming rows or columns</a></li>
+<li class="chapter" data-level="6.2.4" data-path="matrix.html"><a href="matrix.html#combining-rows-or-columns"><i class="fa fa-check"></i><b>6.2.4</b> Combining rows or columns</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="matrix.html"><a href="matrix.html#applying-functions-to-matrices"><i class="fa fa-check"></i><b>6.3</b> Applying functions to matrices</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="matrix.html"><a href="matrix.html#mathematical-operations-with-matrices"><i class="fa fa-check"></i><b>6.3.1</b> Mathematical operations with matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="matrix.html"><a href="matrix.html#matrix-functionals"><i class="fa fa-check"></i><b>6.4</b> Matrix Functionals</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="matrix.html"><a href="matrix.html#functions-applied-to-each-rowcolumn"><i class="fa fa-check"></i><b>6.4.1</b> Functions applied to <strong>each</strong> row/column</a></li>
+<li class="chapter" data-level="6.4.2" data-path="matrix.html"><a href="matrix.html#apply-dimension-wise-aggregation"><i class="fa fa-check"></i><b>6.4.2</b> <strong>apply()</strong>: dimension-wise aggregation</a></li>
+<li class="chapter" data-level="6.4.3" data-path="matrix.html"><a href="matrix.html#using-apply-with-your-own-function"><i class="fa fa-check"></i><b>6.4.3</b> Using apply with your own function</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="matrix.html"><a href="matrix.html#exercises-5"><i class="fa fa-check"></i><b>6.5</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="list.html"><a href="list.html"><i class="fa fa-check"></i><b>7</b> Lists</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="list.html"><a href="list.html#creating-lists-in-r"><i class="fa fa-check"></i><b>7.1</b> Creating Lists in R</a></li>
+<li class="chapter" data-level="7.2" data-path="list.html"><a href="list.html#accessing-list-elements"><i class="fa fa-check"></i><b>7.2</b> Accessing list elements</a></li>
+<li class="chapter" data-level="7.3" data-path="list.html"><a href="list.html#working-with-lists"><i class="fa fa-check"></i><b>7.3</b> Working with lists</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="list.html"><a href="list.html#expanding-a-list-adding-more-components"><i class="fa fa-check"></i><b>7.3.1</b> Expanding a list: adding more components</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="list.html"><a href="list.html#when-are-lists-useful"><i class="fa fa-check"></i><b>7.4</b> When are lists useful?</a></li>
+<li class="chapter" data-level="7.5" data-path="list.html"><a href="list.html#lapply-and-sapply-applying-functions-to-lists"><i class="fa fa-check"></i><b>7.5</b> lapply() and sapply(): Applying functions to lists</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="list.html"><a href="list.html#use-sapply-for-simpler-output"><i class="fa fa-check"></i><b>7.5.1</b> Use sapply() for simpler output</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="list.html"><a href="list.html#exercises-6"><i class="fa fa-check"></i><b>7.6</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="dataframe.html"><a href="dataframe.html"><i class="fa fa-check"></i><b>8</b> Data Frames</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="dataframe.html"><a href="dataframe.html#creating-data-frames"><i class="fa fa-check"></i><b>8.1</b> Creating Data Frames</a></li>
+<li class="chapter" data-level="8.2" data-path="dataframe.html"><a href="dataframe.html#accessing-and-modifying-data-frames"><i class="fa fa-check"></i><b>8.2</b> Accessing and Modifying Data Frames</a></li>
+<li class="chapter" data-level="8.3" data-path="dataframe.html"><a href="dataframe.html#subsetting-data-frames"><i class="fa fa-check"></i><b>8.3</b> Subsetting data frames</a></li>
+<li class="chapter" data-level="8.4" data-path="dataframe.html"><a href="dataframe.html#exercises-7"><i class="fa fa-check"></i><b>8.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="factors.html"><a href="factors.html"><i class="fa fa-check"></i><b>9</b> Factors</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="factors.html"><a href="factors.html#definition-of-factors"><i class="fa fa-check"></i><b>9.1</b> Definition of Factors</a></li>
+<li class="chapter" data-level="9.2" data-path="factors.html"><a href="factors.html#adding-new-levels-to-a-factor"><i class="fa fa-check"></i><b>9.2</b> Adding new levels to a factor</a></li>
+<li class="chapter" data-level="9.3" data-path="factors.html"><a href="factors.html#the-table-function"><i class="fa fa-check"></i><b>9.3</b> The table() function</a></li>
+<li class="chapter" data-level="9.4" data-path="factors.html"><a href="factors.html#tapply-and-aggregate"><i class="fa fa-check"></i><b>9.4</b> tapply() and aggregate</a></li>
+</ul></li>
+<li class="part"><span><b>III Importing and Organizing Data</b></span></li>
+<li class="chapter" data-level="10" data-path="fileinput.html"><a href="fileinput.html"><i class="fa fa-check"></i><b>10</b> Reading Data Files into R</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="fileinput.html"><a href="fileinput.html#downloading-a-file-locally"><i class="fa fa-check"></i><b>10.1</b> Downloading a file locally</a></li>
+<li class="chapter" data-level="10.2" data-path="fileinput.html"><a href="fileinput.html#opening-a-remote-file-using-read.table"><i class="fa fa-check"></i><b>10.2</b> Opening a remote file using read.table()</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="datawrangling.html"><a href="datawrangling.html"><i class="fa fa-check"></i><b>11</b> Data Wrangling</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="datawrangling.html"><a href="datawrangling.html#the-nycflights13-data"><i class="fa fa-check"></i><b>11.1</b> The nycflights13 data</a></li>
+<li class="chapter" data-level="11.2" data-path="datawrangling.html"><a href="datawrangling.html#exploring-the-dataset"><i class="fa fa-check"></i><b>11.2</b> Exploring the Dataset</a></li>
+<li class="chapter" data-level="11.3" data-path="datawrangling.html"><a href="datawrangling.html#summarizing-each-variable"><i class="fa fa-check"></i><b>11.3</b> Summarizing each variable</a></li>
+<li class="chapter" data-level="11.4" data-path="datawrangling.html"><a href="datawrangling.html#using-the-dplyr-package"><i class="fa fa-check"></i><b>11.4</b> Using the dplyr package</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Introduction to R programming</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="list" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Lists<a href="list.html#list" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<ul>
+<li>R always store data as a <strong>“collection”</strong>.</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Dimension</th>
+<th align="center">Homogeneous</th>
+<th align="center">Heterogeneous</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1-Dimension</td>
+<td align="center">Atomic Vector</td>
+<td align="center">List</td>
+</tr>
+<tr class="even">
+<td align="center">2-Dimension</td>
+<td align="center">Matrix</td>
+<td align="center">Data Frame</td>
+</tr>
+<tr class="odd">
+<td align="center">&gt;2-Dimensions</td>
+<td align="center">Multi-dimensional array</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>There is no “0-dimensional data” in R.</p></li>
+<li><p>Even a single-valued object is considered to be a <strong>“vector”</strong> with <strong>length 1</strong>.</p></li>
+</ul>
+<p>Source: <a href="http://adv-r.had.co.nz/Data-structures.html" class="uri">http://adv-r.had.co.nz/Data-structures.html</a></p>
+<div id="creating-lists-in-r" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Creating Lists in R<a href="list.html#creating-lists-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>Lists</strong> can store a collection of items that have <strong>different types</strong>.</p></li>
+<li><p>To <strong>create a list</strong>, you can use the <code>list</code> function.</p></li>
+</ul>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="list.html#cb551-1" tabindex="-1"></a><span class="do">## Use a keyword argument to define any attribute of any data type</span></span>
+<span id="cb551-2"><a href="list.html#cb551-2" tabindex="-1"></a>emp_info <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">name=</span><span class="st">&quot;Nicholas Henderson&quot;</span>, <span class="at">UMID=</span><span class="dv">12345678</span>, </span>
+<span id="cb551-3"><a href="list.html#cb551-3" tabindex="-1"></a>                 <span class="at">faculty=</span><span class="cn">TRUE</span>)</span>
+<span id="cb551-4"><a href="list.html#cb551-4" tabindex="-1"></a>emp_info <span class="co"># list has character, numeric, and logical types</span></span></code></pre></div>
+<pre><code>## $name
+## [1] &quot;Nicholas Henderson&quot;
+## 
+## $UMID
+## [1] 12345678
+## 
+## $faculty
+## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="list.html#cb553-1" tabindex="-1"></a>emp_info<span class="sc">$</span>name <span class="co"># access components with $component_name</span></span></code></pre></div>
+<pre><code>## [1] &quot;Nicholas Henderson&quot;</code></pre>
+<ul>
+<li>Create a list with <strong>named components</strong>: <strong>a</strong>, <strong>b</strong>, and <strong>d</strong>.</li>
+</ul>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="list.html#cb555-1" tabindex="-1"></a><span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>),</span>
+<span id="cb555-2"><a href="list.html#cb555-2" tabindex="-1"></a>     <span class="at">d=</span><span class="cn">TRUE</span>) <span class="do">## list elements can be vectors</span></span></code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+## $b
+## [1] &quot;apple&quot;  &quot;banana&quot;
+## 
+## $d
+## [1] TRUE</code></pre>
+</div>
+<div id="accessing-list-elements" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Accessing list elements<a href="list.html#accessing-list-elements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>You can create <strong>named lists</strong> or <strong>unnamed lists</strong>.
+<ul>
+<li>In an <strong>unnamed list</strong>, the list components <strong>do not</strong> have names.</li>
+</ul></li>
+<li>You can access the <span class="math inline">\(k^{th}\)</span> element of an <strong>unnamed list</strong> using
+the double bracket syntax <code>[[k]]</code>.</li>
+</ul>
+<hr />
+<ul>
+<li>You can access the elements of a <strong>named list</strong> using either the
+indexing <code>[[k]]</code> or the component names.</li>
+</ul>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="list.html#cb557-1" tabindex="-1"></a><span class="co"># Create an unnamed list and look at the first element:</span></span>
+<span id="cb557-2"><a href="list.html#cb557-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>,<span class="st">&quot;banana&quot;</span>), <span class="cn">TRUE</span>)  </span>
+<span id="cb557-3"><a href="list.html#cb557-3" tabindex="-1"></a>y[[<span class="dv">1</span>]]  </span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<hr />
+<ul>
+<li>Accessing the elements of a named list using
+either the <strong>numeric index</strong> or the <strong>component names</strong>:</li>
+</ul>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="list.html#cb559-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">a=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">b=</span><span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>), <span class="at">d=</span><span class="cn">TRUE</span>) </span>
+<span id="cb559-2"><a href="list.html#cb559-2" tabindex="-1"></a>x<span class="sc">$</span>a</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="list.html#cb561-1" tabindex="-1"></a>x[[<span class="dv">1</span>]]</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="list.html#cb563-1" tabindex="-1"></a>x<span class="sc">$</span>b</span></code></pre></div>
+<pre><code>## [1] &quot;apple&quot;  &quot;banana&quot;</code></pre>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="list.html#cb565-1" tabindex="-1"></a>x[[<span class="dv">2</span>]]</span></code></pre></div>
+<pre><code>## [1] &quot;apple&quot;  &quot;banana&quot;</code></pre>
+</div>
+<div id="working-with-lists" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Working with lists<a href="list.html#working-with-lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Get the names of the list components by using <code>names(list_name)</code></li>
+</ul>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="list.html#cb567-1" tabindex="-1"></a><span class="fu">names</span>(x)</span></code></pre></div>
+<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;d&quot;</code></pre>
+<ul>
+<li>Find the length of a list by using <code>length</code>.
+<ul>
+<li>Note that the length of a list is the <strong>number of components</strong> of the list,
+and the length does not depend on the length of any of the vector components.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="list.html#cb569-1" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div id="expanding-a-list-adding-more-components" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Expanding a list: adding more components<a href="list.html#expanding-a-list-adding-more-components" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Add components to a list using either the index or by name</li>
+</ul>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="list.html#cb571-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+## $b
+## [1] &quot;apple&quot;  &quot;banana&quot;
+## 
+## $d
+## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="list.html#cb573-1" tabindex="-1"></a>x[[<span class="dv">4</span>]] <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb573-2"><a href="list.html#cb573-2" tabindex="-1"></a>x<span class="sc">$</span>e <span class="ot">&lt;-</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="list.html#cb574-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+## $b
+## [1] &quot;apple&quot;  &quot;banana&quot;
+## 
+## $d
+## [1] TRUE
+## 
+## [[4]]
+## [1] 4
+## 
+## $e
+## [1] 5</code></pre>
+</div>
+</div>
+<div id="when-are-lists-useful" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> When are lists useful?<a href="list.html#when-are-lists-useful" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Many <strong>R</strong> functions return <strong>multiple</strong> items as output.
+<ul>
+<li>It is common to return these multiple items in a single, <strong>named list</strong>.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="list.html#cb576-1" tabindex="-1"></a>matrixSum <span class="ot">&lt;-</span> <span class="cf">function</span>(X) { <span class="co"># calculate possible sums of a matrix</span></span>
+<span id="cb576-2"><a href="list.html#cb576-2" tabindex="-1"></a>  s1 <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(X)</span>
+<span id="cb576-3"><a href="list.html#cb576-3" tabindex="-1"></a>  s2 <span class="ot">&lt;-</span> <span class="fu">colSums</span>(X)</span>
+<span id="cb576-4"><a href="list.html#cb576-4" tabindex="-1"></a>  s3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(X)</span>
+<span id="cb576-5"><a href="list.html#cb576-5" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">row=</span>s1, <span class="at">col=</span>s2, <span class="at">all=</span>s3)) <span class="do">## return multiple values </span></span>
+<span id="cb576-6"><a href="list.html#cb576-6" tabindex="-1"></a>                                       <span class="do">## using a list</span></span>
+<span id="cb576-7"><a href="list.html#cb576-7" tabindex="-1"></a>}</span>
+<span id="cb576-8"><a href="list.html#cb576-8" tabindex="-1"></a></span>
+<span id="cb576-9"><a href="list.html#cb576-9" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb576-10"><a href="list.html#cb576-10" tabindex="-1"></a><span class="fu">matrixSum</span>(A)</span></code></pre></div>
+<pre><code>## $row
+## [1]  9 12
+## 
+## $col
+## [1]  3  7 11
+## 
+## $all
+## [1] 21</code></pre>
+<ul>
+<li><p>Lists are <strong>useful</strong> in situations where you have a collection of items
+of <strong>different types</strong> and <strong>dimensions</strong> that you want
+to store in a single <strong>“variable”</strong>.</p></li>
+<li><p>For example, you may have data on several individuals
+where, <strong>for each individual</strong>, you have data stored
+in a vector, a matrix, and a data frame.</p></li>
+</ul>
+</div>
+<div id="lapply-and-sapply-applying-functions-to-lists" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> lapply() and sapply(): Applying functions to lists<a href="list.html#lapply-and-sapply-applying-functions-to-lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><strong>lapply</strong> (“list apply”) works like an <strong>apply()</strong> function
+for <strong>lists</strong>.</p></li>
+<li><p><strong>lapply</strong> has two arguments:</p>
+<ul>
+<li>An input <strong>list</strong>.</li>
+<li>The <strong>name</strong> of the <strong>function</strong> to apply to each component of the list.</li>
+</ul></li>
+<li><p><strong>lapply</strong> returns a list with the <strong>same number</strong> of components as the input list:</p></li>
+</ul>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="list.html#cb578-1" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">matrixSum</span>(A) <span class="co"># r is a list with 3 components.</span></span>
+<span id="cb578-2"><a href="list.html#cb578-2" tabindex="-1"></a><span class="fu">lapply</span>(r, length) <span class="co"># compute the length of each component of r</span></span></code></pre></div>
+<pre><code>## $row
+## [1] 2
+## 
+## $col
+## [1] 3
+## 
+## $all
+## [1] 1</code></pre>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="list.html#cb580-1" tabindex="-1"></a><span class="fu">lapply</span>(r, sum) <span class="co"># Compute sum of each component of r</span></span></code></pre></div>
+<pre><code>## $row
+## [1] 21
+## 
+## $col
+## [1] 21
+## 
+## $all
+## [1] 21</code></pre>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="list.html#cb582-1" tabindex="-1"></a><span class="fu">lapply</span>(r, <span class="cf">function</span>(x) <span class="fu">sum</span>(x<span class="sc">*</span>x)) <span class="co"># Compute sum of squares for each component</span></span></code></pre></div>
+<pre><code>## $row
+## [1] 225
+## 
+## $col
+## [1] 179
+## 
+## $all
+## [1] 441</code></pre>
+<div id="use-sapply-for-simpler-output" class="section level3 hasAnchor" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Use sapply() for simpler output<a href="list.html#use-sapply-for-simpler-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>When applying a function to <strong>each</strong> component of a list,
+it is often preferable to have the <strong>result</strong> returned as a <strong>vector</strong>
+or <strong>matrix</strong> instead of a list.</p></li>
+<li><p>This is what the <strong>sapply()</strong> (“simplified lapply”) function does.</p></li>
+</ul>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="list.html#cb584-1" tabindex="-1"></a><span class="fu">sapply</span>(r, sum) <span class="co"># sapply() returns output as a named vector</span></span></code></pre></div>
+<pre><code>## row col all 
+##  21  21  21</code></pre>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="list.html#cb586-1" tabindex="-1"></a><span class="fu">lapply</span>(r,sum)</span></code></pre></div>
+<pre><code>## $row
+## [1] 21
+## 
+## $col
+## [1] 21
+## 
+## $all
+## [1] 21</code></pre>
+<ul>
+<li>If the <strong>function</strong> used in <strong>sapply</strong> returns a vector
+with length <strong>longer</strong> than 1, <strong>sapply</strong> will return a matrix.</li>
+</ul>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="list.html#cb588-1" tabindex="-1"></a>r</span></code></pre></div>
+<pre><code>## $row
+## [1]  9 12
+## 
+## $col
+## [1]  3  7 11
+## 
+## $all
+## [1] 21</code></pre>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="list.html#cb590-1" tabindex="-1"></a>                                <span class="do">## column names of matrix are same</span></span>
+<span id="cb590-2"><a href="list.html#cb590-2" tabindex="-1"></a><span class="fu">sapply</span>(r, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) ) <span class="do">## as list component names</span></span></code></pre></div>
+<pre><code>##      row col all
+## [1,]   9   3  21
+## [2,]  12  11  21</code></pre>
+</div>
+</div>
+<div id="exercises-6" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Exercises<a href="list.html#exercises-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li>Suppose we define the vector <code>x</code> as <code>x &lt;- c(1,2,3)</code>. What is the value of</li>
+</ol>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="list.html#cb592-1" tabindex="-1"></a><span class="fu">length</span>( <span class="fu">list</span>(x) ) <span class="sc">==</span> <span class="fu">length</span>(x)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Write a function that takes a <strong>list</strong> called <strong>x</strong> as input, and the elements of <code>x</code> can be assumed to be numeric vectors. The function should <strong>return</strong> a matrix where
+<ul>
+<li>the <strong>number of columns</strong> of the matrix equal the number of elements of the input list.</li>
+<li>the <strong>number of rows</strong>of the matrix equals 4</li>
+<li>If the <span class="math inline">\(k^{th}\)</span> element of the list has length greater than 4,
+the <span class="math inline">\(k^{th}\)</span> column of the output matrix should be <code>(mean(x[[k]]), median(x[[k]]), min(x[[k]]), max(x[[k]]))</code></li>
+<li>If the <span class="math inline">\(k^{th}\)</span> element of the list has length 4 or less, the
+<span class="math inline">\(k^{th}\)</span> column of the output matrix should be <code>(0, 0, 0, 0)</code>.</li>
+</ul></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="matrix.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dataframe.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/nchenderson/IntroductiontoR/edit/master/07-list.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/nchenderson/IntroductiontoR/blob/master/07-list.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

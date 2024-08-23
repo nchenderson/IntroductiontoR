@@ -1,0 +1,199 @@
+# Lists {#list}
+
+* R always store data as a **"collection"**.
+
+```{r, echo=FALSE}
+add.dimension <- c("1-Dimension", "2-Dimension", ">2-Dimensions")
+add.homogeneous <- c("Atomic Vector", "Matrix", "Multi-dimensional array")
+add.heterogeneous <- c("List", "Data Frame", "")
+AddOperators <- data.frame(Dimension=add.dimension, Homogeneous=add.homogeneous, Heterogeneous=add.heterogeneous)
+knitr::kable(AddOperators, format = 'markdown', align=rep('c', 3), padding=3)
+```
+* There is no "0-dimensional data" in R.
+
+* Even a single-valued object is considered to be a **"vector"** with **length 1**.
+
+Source: http://adv-r.had.co.nz/Data-structures.html 
+
+
+## Creating Lists in R
+
+* **Lists** can store a collection of items that have **different types**.
+
+* To **create a list**, you can use the `list` function. 
+
+```{r, echo=TRUE}
+## Use a keyword argument to define any attribute of any data type
+emp_info <- list(name="Nicholas Henderson", UMID=12345678, 
+                 faculty=TRUE)
+emp_info # list has character, numeric, and logical types
+emp_info$name # access components with $component_name
+```
+
+
+* Create a list with **named components**: **a**, **b**, and **d**.
+
+```{r, echo=TRUE}
+list(a=c(1,2,3), b=c("apple","banana"),
+     d=TRUE) ## list elements can be vectors
+```
+
+
+## Accessing list elements
+
+* You can create **named lists** or **unnamed lists**.
+    + In an **unnamed list**, the list components **do not** have names.
+
+* You can access the $k^{th}$ element of an **unnamed list** using 
+the double bracket syntax `[[k]]`.
+
+---
+
+* You can access the elements of a **named list** using either the 
+indexing `[[k]]` or the component names.
+
+```{r, echo=TRUE}
+# Create an unnamed list and look at the first element:
+y <- list(c(1,2,3), c("apple","banana"), TRUE)  
+y[[1]]  
+```
+
+---
+
+* Accessing the elements of a named list using 
+either the **numeric index** or the **component names**:
+```{r, echo=TRUE}
+x <- list(a=c(1,2,3), b=c("apple", "banana"), d=TRUE) 
+x$a
+x[[1]]
+x$b
+x[[2]]
+```
+
+
+## Working with lists
+
+* Get the names of the list components by using `names(list_name)`
+```{r, echo=TRUE}
+names(x)
+```
+
+* Find the length of a list by using `length`.
+    + Note that the length of a list is the **number of components** of the list,
+    and the length does not depend on the length of any of the vector components.
+    
+```{r, echo=TRUE}
+length(x)
+```
+
+
+
+### Expanding a list: adding more components
+
+* Add components to a list using either the index or by name
+```{r, echo=TRUE}
+x
+x[[4]] <- 4
+x$e <- 5
+```
+
+```{r, echo=TRUE}
+x
+```
+
+
+##  When are lists useful?
+
+* Many **R** functions return **multiple** items as output. 
+    + It is common to return these multiple items in a single, **named list**. 
+    
+```{r, echo=TRUE}  
+matrixSum <- function(X) { # calculate possible sums of a matrix
+  s1 <- rowSums(X)
+  s2 <- colSums(X)
+  s3 <- sum(X)
+  return(list(row=s1, col=s2, all=s3)) ## return multiple values 
+                                       ## using a list
+}
+
+A <- matrix(1:6,2,3)
+matrixSum(A)
+```
+
+
+
+* Lists are **useful** in situations where you have a collection of items 
+of **different types** and **dimensions** that you want
+to store in a single **"variable"**.
+
+* For example, you may have data on several individuals
+where, **for each individual**, you have data stored 
+in a vector, a matrix, and a data frame.
+
+
+
+## lapply() and sapply(): Applying functions to lists
+
+* **lapply** ("list apply") works like an **apply()** function
+for **lists**.
+
+* **lapply** has two arguments:
+    + An input **list**.
+    + The **name** of the **function** to apply to each component of the list.
+
+* **lapply** returns a list with the **same number** of components as the input list:
+```{r, echo=TRUE}
+r <- matrixSum(A) # r is a list with 3 components.
+lapply(r, length) # compute the length of each component of r
+```
+
+
+```{r, echo=TRUE}
+lapply(r, sum) # Compute sum of each component of r
+lapply(r, function(x) sum(x*x)) # Compute sum of squares for each component
+```
+
+
+### Use sapply() for simpler output
+
+* When applying a function to **each** component of a list,
+it is often preferable to have the **result** returned as a **vector**
+or **matrix** instead of a list.
+
+* This is what the **sapply()** ("simplified lapply") function does.
+
+```{r, echo=TRUE}
+sapply(r, sum) # sapply() returns output as a named vector
+lapply(r,sum)
+```
+
+
+* If the **function** used in **sapply** returns a vector 
+with length **longer** than 1, **sapply** will return a matrix.
+
+```{r, echo=TRUE}
+r
+                                ## column names of matrix are same
+sapply(r, function(x) c(min(x),max(x)) ) ## as list component names
+```
+
+
+
+## Exercises
+
+1. Suppose we define the vector `x` as `x <- c(1,2,3)`. What is the value of 
+```{r, echo=TRUE, eval=FALSE}
+length( list(x) ) == length(x)
+```
+
+2. Write a function that takes a **list** called **x** as input, and the elements of `x` can be assumed to be numeric vectors. The function should **return** a matrix where
+    + the **number of columns** of the matrix equal the number of elements of the input list.
+    + the **number of rows**of the matrix equals 4
+    + If the $k^{th}$ element of the list has length greater than 4, 
+the $k^{th}$ column of the output matrix should be `(mean(x[[k]]), median(x[[k]]), min(x[[k]]), max(x[[k]]))`
+    + If the $k^{th}$ element of the list has length 4 or less, the 
+$k^{th}$ column of the output matrix should be `(0, 0, 0, 0)`.
+
+
+
+
