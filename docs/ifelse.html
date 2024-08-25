@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2024-08-23" />
+<meta name="date" content="2024-08-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,7 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.3" data-path="ifelse.html"><a href="ifelse.html#precedence-with-logical-operations"><i class="fa fa-check"></i><b>2.1.3</b> Precedence with logical operations</a></li>
 <li class="chapter" data-level="2.1.4" data-path="ifelse.html"><a href="ifelse.html#abbreviating-true-and-false-with-t-and-f"><i class="fa fa-check"></i><b>2.1.4</b> Abbreviating TRUE and FALSE with T and F</a></li>
 <li class="chapter" data-level="2.1.5" data-path="ifelse.html"><a href="ifelse.html#examples-of-logical-operations-in-r"><i class="fa fa-check"></i><b>2.1.5</b> Examples of logical operations in R</a></li>
-<li class="chapter" data-level="2.1.6" data-path="ifelse.html"><a href="ifelse.html#vs.-and-vs."><i class="fa fa-check"></i><b>2.1.6</b> &amp;&amp; vs. &amp; and || vs. |</a></li>
+<li class="chapter" data-level="2.1.6" data-path="ifelse.html"><a href="ifelse.html#logical-operators-and-vectors"><i class="fa fa-check"></i><b>2.1.6</b> logical operators and vectors</a></li>
+<li class="chapter" data-level="2.1.7" data-path="ifelse.html"><a href="ifelse.html#vs.-and-vs."><i class="fa fa-check"></i><b>2.1.7</b> &amp;&amp; vs. &amp; and || vs. |</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="ifelse.html"><a href="ifelse.html#if-and-if-else-statements"><i class="fa fa-check"></i><b>2.2</b> If and If-else statements</a>
 <ul>
@@ -358,15 +359,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Each of the above expressions will evaluate to either
 <strong>TRUE</strong> or <strong>FALSE</strong> if you run them in R.</p></li>
 </ul>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="ifelse.html#cb71-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="ifelse.html#cb92-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="ifelse.html#cb73-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;=</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="ifelse.html#cb94-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">&lt;=</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="ifelse.html#cb75-1" tabindex="-1"></a><span class="fl">15.0</span> <span class="sc">+</span> <span class="fl">1.3</span><span class="sc">*</span><span class="fl">1.3</span> <span class="sc">&gt;</span> <span class="fl">17.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="ifelse.html#cb96-1" tabindex="-1"></a><span class="fl">15.0</span> <span class="sc">+</span> <span class="fl">1.3</span><span class="sc">*</span><span class="fl">1.3</span> <span class="sc">&gt;</span> <span class="fl">17.0</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="ifelse.html#cb77-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;cat&quot;</span> <span class="sc">==</span> <span class="st">&quot;dog&quot;</span> <span class="co"># assign to the variable x the value </span></span>
-<span id="cb77-2"><a href="ifelse.html#cb77-2" tabindex="-1"></a>                    <span class="co"># returned by this logical expression</span></span>
-<span id="cb77-3"><a href="ifelse.html#cb77-3" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="ifelse.html#cb98-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;cat&quot;</span> <span class="sc">==</span> <span class="st">&quot;dog&quot;</span> <span class="co"># assign to the variable x the value </span></span>
+<span id="cb98-2"><a href="ifelse.html#cb98-2" tabindex="-1"></a>                    <span class="co"># returned by this logical expression</span></span>
+<span id="cb98-3"><a href="ifelse.html#cb98-3" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <hr />
 <ul>
@@ -437,60 +438,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.1.2</span> Logical Operators<a href="ifelse.html#logical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li><p>The first main logical operator we will discuss is the <strong>logical AND</strong></p></li>
-<li><p>In <strong>R</strong>, the logical operator <strong>&amp;&amp;</strong> is used to represent the logical <strong>AND</strong></p></li>
+<li><p>In <strong>R</strong>, the logical operator <code>&amp;</code> is used to represent the logical <strong>AND</strong></p></li>
 <li><p>The <strong>logical AND</strong> is used to test whether or not two statements are <strong>both</strong> true.</p></li>
-<li><p>For two logical expressions <strong>A</strong> and <strong>B</strong>, the logical expression <strong>A &amp;&amp; B</strong> is true
+<li><p>For two logical expressions <strong>A</strong> and <strong>B</strong>, the logical expression <strong>A &amp; B</strong> is true
 only if both <strong>A</strong> and <strong>B</strong> evaluate to true.</p></li>
 </ul>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="ifelse.html#cb79-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;&amp;</span> <span class="dv">5</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>   <span class="do">## only the first statement is TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="ifelse.html#cb100-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">5</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>   <span class="do">## only the first statement is TRUE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="ifelse.html#cb81-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;&amp;</span> <span class="st">&quot;car&quot;</span> <span class="sc">==</span> <span class="st">&quot;truck&quot;</span>   <span class="do">## only the first statement is TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="ifelse.html#cb102-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="st">&quot;car&quot;</span> <span class="sc">==</span> <span class="st">&quot;truck&quot;</span>   <span class="do">## only the first statement is TRUE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="ifelse.html#cb83-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;&amp;</span> <span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">5</span>   <span class="do">## both statements are TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="ifelse.html#cb104-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">5</span>   <span class="do">## both statements are TRUE</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <hr />
 <ul>
-<li><p>The logical operator <strong>||</strong> is used in <strong>R</strong> to represent the logical <strong>OR</strong>.</p></li>
-<li><p>For two Boolean expressions <strong>A</strong> and <strong>B</strong>, the Boolean expression <strong>A || B</strong> is true if at least one of <strong>A</strong> and <strong>B</strong> evaluates to true.</p></li>
-<li><p>Note that if <strong>A</strong> and <strong>B</strong> are both true, <strong>A || B</strong> will be true; <strong>or</strong> does not mean only one of
+<li><p>The logical operator <code>|</code> is used in <strong>R</strong> to represent the logical <strong>OR</strong>.</p></li>
+<li><p>For two Boolean expressions <strong>A</strong> and <strong>B</strong>, the Boolean expression <strong>A | B</strong> is true if at least one of <strong>A</strong> and <strong>B</strong> evaluates to true.</p></li>
+<li><p>Note that if <strong>A</strong> and <strong>B</strong> are both true, <strong>A | B</strong> will be true; <strong>or</strong> does not mean only one of
 <strong>A</strong> and <strong>B</strong> is true.</p></li>
 </ul>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="ifelse.html#cb85-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">||</span> <span class="dv">5</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>  <span class="do">## only the first statement is TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="ifelse.html#cb106-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">5</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>  <span class="do">## only the first statement is TRUE</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="ifelse.html#cb87-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">||</span> <span class="st">&quot;car&quot;</span> <span class="sc">==</span> <span class="st">&quot;truck&quot;</span>  <span class="do">## only the first statement is TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="ifelse.html#cb108-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="st">&quot;car&quot;</span> <span class="sc">==</span> <span class="st">&quot;truck&quot;</span>  <span class="do">## only the first statement is TRUE</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="ifelse.html#cb89-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">||</span> <span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">5</span>  <span class="do">## both statements are TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="ifelse.html#cb110-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">5</span>  <span class="do">## both statements are TRUE</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <hr />
 <ul>
 <li><p>The logical operator <strong>!</strong> is used to represent the logical <strong>NOT</strong>.</p></li>
 <li><p>If the logical expression <strong>A</strong> is true, then <strong>! A</strong> is false.</p></li>
 </ul>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="ifelse.html#cb91-1" tabindex="-1"></a><span class="sc">!</span><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span>  </span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="ifelse.html#cb112-1" tabindex="-1"></a><span class="sc">!</span><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span>  </span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="ifelse.html#cb93-1" tabindex="-1"></a><span class="sc">!</span><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;&amp;</span> <span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">1</span>  <span class="do">## !4 &gt; 2 is FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="ifelse.html#cb114-1" tabindex="-1"></a><span class="sc">!</span><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">1</span>  <span class="do">## !4 &gt; 2 is FALSE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="ifelse.html#cb95-1" tabindex="-1"></a><span class="sc">!</span>(<span class="sc">!</span><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="do">## expression in parentheses is evaluated first</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="ifelse.html#cb116-1" tabindex="-1"></a><span class="sc">!</span>(<span class="sc">!</span><span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="do">## expression in parentheses is evaluated first</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <hr />
 <ul>
 <li>Note that we can apply logical operations to the keywords <code>TRUE</code> and <code>FALSE</code> themselves:</li>
 </ul>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="ifelse.html#cb97-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;&amp;</span> <span class="cn">FALSE</span> <span class="do">## logical AND</span></span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="ifelse.html#cb118-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="cn">FALSE</span> <span class="do">## logical AND</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="ifelse.html#cb99-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">||</span> <span class="cn">FALSE</span> <span class="do">## logical OR</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="ifelse.html#cb120-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">|</span> <span class="cn">FALSE</span> <span class="do">## logical OR</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="ifelse.html#cb101-1" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span>  <span class="do">## logical NOT</span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="ifelse.html#cb122-1" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span>  <span class="do">## logical NOT</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <ul>
 <li>The below table summarizes the logical operations discussed.</li>
 </ul>
 <table>
 <colgroup>
-<col width="23%" />
-<col width="22%" />
-<col width="37%" />
-<col width="16%" />
+<col width="25%" />
+<col width="24%" />
+<col width="32%" />
+<col width="17%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -516,49 +517,49 @@ only if both <strong>A</strong> and <strong>B</strong> evaluate to true.</p></li
 <tr class="odd">
 <td align="center">&amp;&amp;</td>
 <td align="center">Logical AND</td>
-<td align="center">FALSE &amp;&amp; FALSE</td>
+<td align="center">FALSE &amp; FALSE</td>
 <td align="center">FALSE</td>
 </tr>
 <tr class="even">
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">TRUE &amp;&amp; FALSE</td>
+<td align="center">TRUE &amp; FALSE</td>
 <td align="center">FALSE</td>
 </tr>
 <tr class="odd">
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">FALSE &amp;&amp; TRUE</td>
+<td align="center">FALSE &amp; TRUE</td>
 <td align="center">FALSE</td>
 </tr>
 <tr class="even">
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">TRUE &amp;&amp; TRUE</td>
+<td align="center">TRUE &amp; TRUE</td>
 <td align="center">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="center">||</td>
 <td align="center">Logical OR</td>
-<td align="center">FALSE || FALSE</td>
+<td align="center">FALSE | FALSE</td>
 <td align="center">FALSE</td>
 </tr>
 <tr class="even">
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">TRUE || FALSE</td>
+<td align="center">TRUE | FALSE</td>
 <td align="center">TRUE</td>
 </tr>
 <tr class="odd">
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">FALSE || TRUE</td>
+<td align="center">FALSE | TRUE</td>
 <td align="center">TRUE</td>
 </tr>
 <tr class="even">
 <td align="center"></td>
 <td align="center"></td>
-<td align="center">TRUE || TRUE</td>
+<td align="center">TRUE | TRUE</td>
 <td align="center">TRUE</td>
 </tr>
 </tbody>
@@ -568,9 +569,9 @@ only if both <strong>A</strong> and <strong>B</strong> evaluate to true.</p></li
 <h3><span class="header-section-number">2.1.3</span> Precedence with logical operations<a href="ifelse.html#precedence-with-logical-operations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <colgroup>
-<col width="30%" />
-<col width="50%" />
-<col width="19%" />
+<col width="28%" />
+<col width="51%" />
+<col width="20%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -581,7 +582,7 @@ only if both <strong>A</strong> and <strong>B</strong> evaluate to true.</p></li
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">&amp;&amp;, ||, !</td>
+<td align="center">&amp;, |, !</td>
 <td align="center">Boolean operators</td>
 <td align="center">Low</td>
 </tr>
@@ -610,9 +611,9 @@ only if both <strong>A</strong> and <strong>B</strong> evaluate to true.</p></li
 <ul>
 <li>Mathematical operations are generally performed before logical operations.</li>
 </ul>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="ifelse.html#cb103-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">5</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="ifelse.html#cb124-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">5</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="ifelse.html#cb105-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">6</span></span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="ifelse.html#cb126-1" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">6</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="abbreviating-true-and-false-with-t-and-f" class="section level3 hasAnchor" number="2.1.4">
@@ -623,75 +624,88 @@ only if both <strong>A</strong> and <strong>B</strong> evaluate to true.</p></li
 <li>I usually <strong>do not</strong> use <code>T</code> and <code>F</code>, but you will often see <code>T</code> and <code>F</code> used.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="ifelse.html#cb107-1" tabindex="-1"></a>T     <span class="do">## T is shorthand for TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="ifelse.html#cb128-1" tabindex="-1"></a>T     <span class="do">## T is shorthand for TRUE</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="ifelse.html#cb109-1" tabindex="-1"></a>F     <span class="do">## F is shorthand for FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="ifelse.html#cb130-1" tabindex="-1"></a>F     <span class="do">## F is shorthand for FALSE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="ifelse.html#cb111-1" tabindex="-1"></a>T <span class="sc">&amp;&amp;</span> F</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="ifelse.html#cb132-1" tabindex="-1"></a>T <span class="sc">&amp;&amp;</span> F</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="ifelse.html#cb113-1" tabindex="-1"></a>T <span class="sc">||</span> F</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="ifelse.html#cb134-1" tabindex="-1"></a>T <span class="sc">||</span> F</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <ul>
 <li>While you can use <code>T</code> and <code>F</code> in place of <code>TRUE</code> and <code>FALSE</code>, it is good practice to be <strong>careful</strong> when using these logical <strong>abbreviations</strong>.</li>
 </ul>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="ifelse.html#cb115-1" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">2</span>   <span class="do">## T is defined as a variable</span></span>
-<span id="cb115-2"><a href="ifelse.html#cb115-2" tabindex="-1"></a></span>
-<span id="cb115-3"><a href="ifelse.html#cb115-3" tabindex="-1"></a>          <span class="do">## Now T represents a vector with </span></span>
-<span id="cb115-4"><a href="ifelse.html#cb115-4" tabindex="-1"></a>T         <span class="do">## a number value, not TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="ifelse.html#cb136-1" tabindex="-1"></a>T <span class="ot">&lt;-</span> <span class="dv">2</span>   <span class="do">## T is defined as a variable</span></span>
+<span id="cb136-2"><a href="ifelse.html#cb136-2" tabindex="-1"></a></span>
+<span id="cb136-3"><a href="ifelse.html#cb136-3" tabindex="-1"></a>          <span class="do">## Now T represents a vector with </span></span>
+<span id="cb136-4"><a href="ifelse.html#cb136-4" tabindex="-1"></a>T         <span class="do">## a number value, not TRUE</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="ifelse.html#cb117-1" tabindex="-1"></a>F        <span class="do">## F still represents FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="ifelse.html#cb138-1" tabindex="-1"></a>F        <span class="do">## F still represents FALSE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="ifelse.html#cb119-1" tabindex="-1"></a><span class="do">## FALSE &lt;- 3   # this will result in an error</span></span>
-<span id="cb119-2"><a href="ifelse.html#cb119-2" tabindex="-1"></a></span>
-<span id="cb119-3"><a href="ifelse.html#cb119-3" tabindex="-1"></a><span class="do">## TRUE and FALSE cannot be redefined, thus safer to use</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="ifelse.html#cb140-1" tabindex="-1"></a><span class="do">## FALSE &lt;- 3   # this will result in an error</span></span>
+<span id="cb140-2"><a href="ifelse.html#cb140-2" tabindex="-1"></a></span>
+<span id="cb140-3"><a href="ifelse.html#cb140-3" tabindex="-1"></a><span class="do">## TRUE and FALSE cannot be redefined, thus safer to use</span></span></code></pre></div>
 </div>
 <div id="examples-of-logical-operations-in-r" class="section level3 hasAnchor" number="2.1.5">
 <h3><span class="header-section-number">2.1.5</span> Examples of logical operations in R<a href="ifelse.html#examples-of-logical-operations-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="ifelse.html#cb120-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">||</span> <span class="cn">FALSE</span>  <span class="do">## boolean OR</span></span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="ifelse.html#cb141-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">|</span> <span class="cn">FALSE</span>  <span class="do">## boolean OR</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="ifelse.html#cb122-1" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span>          <span class="do">## NOT operator</span></span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="ifelse.html#cb143-1" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span>          <span class="do">## NOT operator</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="ifelse.html#cb124-1" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span> <span class="sc">||</span> <span class="cn">TRUE</span>    <span class="do">## Which one will get evaluated first?</span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="ifelse.html#cb145-1" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span> <span class="sc">|</span> <span class="cn">TRUE</span>    <span class="do">## Which one will get evaluated first?</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="ifelse.html#cb126-1" tabindex="-1"></a><span class="sc">!</span> (<span class="cn">TRUE</span> <span class="sc">||</span> <span class="cn">TRUE</span>) <span class="do">## How about this time?</span></span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="ifelse.html#cb147-1" tabindex="-1"></a><span class="sc">!</span> (<span class="cn">TRUE</span> <span class="sc">|</span> <span class="cn">TRUE</span>) <span class="do">## How about this time?</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 </div>
-<div id="vs.-and-vs." class="section level3 hasAnchor" number="2.1.6">
-<h3><span class="header-section-number">2.1.6</span> &amp;&amp; vs. &amp; and || vs. |<a href="ifelse.html#vs.-and-vs." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="logical-operators-and-vectors" class="section level3 hasAnchor" number="2.1.6">
+<h3><span class="header-section-number">2.1.6</span> logical operators and vectors<a href="ifelse.html#logical-operators-and-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
-<li><p>You can also use <code>&amp;</code> for the logical <strong>AND</strong> operator.</p></li>
-<li><p>You can also use <code>|</code> for the logical <strong>OR</strong> operator.</p></li>
-<li><p>When comparing logical vectors of <strong>length 1</strong>:</p>
-<ul>
-<li>&amp;&amp; and &amp; will return the <strong>same thing</strong>.</li>
-<li>|| and | will return the <strong>same thing</strong>.</li>
-</ul></li>
-<li><p>&amp;&amp; vs. &amp; or || vs. | only differ when comparing <strong>logical vectors</strong> that have lengths <strong>longer than 1</strong>.</p></li>
+<li><p>You can also apply the logical operators <code>&amp;</code>, <code>|</code>, <code>!</code> to two vectors.</p></li>
+<li><p>As an example, let us first define two logical vectors <code>x</code> and <code>y</code> of length 4</p></li>
 </ul>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="ifelse.html#cb128-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="cn">FALSE</span>  <span class="do">## Same as TRUE &amp;&amp; FALSE</span></span></code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="ifelse.html#cb130-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">|</span> <span class="cn">FALSE</span>  <span class="do">## Same as TRUE || FALSE</span></span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<ul>
-<li>As an example of the distinction between &amp;&amp; and &amp;, let us define two logical vectors <code>x</code> and <code>y</code></li>
-</ul>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="ifelse.html#cb132-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb132-2"><a href="ifelse.html#cb132-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
-<span id="cb132-3"><a href="ifelse.html#cb132-3" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="ifelse.html#cb149-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb149-2"><a href="ifelse.html#cb149-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb149-3"><a href="ifelse.html#cb149-3" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="ifelse.html#cb134-1" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="ifelse.html#cb151-1" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
 <ul>
-<li>Let’s see what happens if we then run <code>x &amp;&amp; y</code> and <code>x &amp; y</code>:</li>
+<li><p>Applying the logical operator <code>&amp;</code> to <code>x</code> and <code>y</code> will apply an <strong>element-by-element</strong>
+logical <strong>and</strong> to the elements of <code>x</code> and <code>y</code>.</p></li>
+<li><p>That is, running <code>x &amp; y</code> will return the following result</p></li>
 </ul>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="ifelse.html#cb136-1" tabindex="-1"></a>x <span class="sc">&amp;&amp;</span> y  <span class="do">## &amp;&amp; just compares the first two elements </span></span>
-<span id="cb136-2"><a href="ifelse.html#cb136-2" tabindex="-1"></a>x <span class="sc">&amp;</span> y  <span class="do">## &amp; returns a vector comparing element-by-element</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="ifelse.html#cb153-1" tabindex="-1"></a>x <span class="sc">&amp;</span> y  <span class="do">## &amp; returns a vector comparing element-by-element</span></span></code></pre></div>
 <ul>
-<li>Similarly, let’s see what happens when we run <code>x || y</code> vs. <code>x | y</code>:</li>
+<li>Similarly, applying the logical operator <code>|</code> to <code>x</code> and <code>y</code> will apply an <strong>element-by-element</strong>
+logical <strong>or</strong> to the elements of <code>x</code> and <code>y</code>.</li>
 </ul>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="ifelse.html#cb137-1" tabindex="-1"></a>x <span class="sc">||</span> y  <span class="do">## || just compares the first two elements </span></span>
-<span id="cb137-2"><a href="ifelse.html#cb137-2" tabindex="-1"></a>x <span class="sc">|</span> y  <span class="do">## | returns a vector comparing element-by-element</span></span>
-<span id="cb137-3"><a href="ifelse.html#cb137-3" tabindex="-1"></a><span class="sc">!</span>x</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="ifelse.html#cb154-1" tabindex="-1"></a>x <span class="sc">|</span> y  <span class="do">## | returns a vector comparing element-by-element</span></span></code></pre></div>
+<ul>
+<li>Using the logical operator <code>!</code> with a vector will just return a vector where the <code>TRUE</code> values have been switched to <code>FALSE</code>
+and the <code>FALSE</code> values have been switched to <code>TRUE</code>:</li>
+</ul>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="ifelse.html#cb155-1" tabindex="-1"></a><span class="sc">!</span>x</span></code></pre></div>
+<pre><code>## [1] FALSE  TRUE FALSE  TRUE</code></pre>
+</div>
+<div id="vs.-and-vs." class="section level3 hasAnchor" number="2.1.7">
+<h3><span class="header-section-number">2.1.7</span> &amp;&amp; vs. &amp; and || vs. |<a href="ifelse.html#vs.-and-vs." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>I would suggest using <code>&amp;</code> for the logical <strong>AND</strong> operator and <code>|</code> for the logical <strong>OR</strong> operator.</p></li>
+<li><p>You may sometimes see <code>&amp;&amp;</code> and <code>||</code> being used in <strong>R</strong> code.</p></li>
+<li><p><code>&amp;&amp;</code> and <code>||</code> can only be used for comparing vectors of length 1.</p>
+<ul>
+<li>For vectors of length 1, they do the exact same thing as <code>&amp;</code> and <code>|</code></li>
+</ul></li>
+<li><p>For example,</p></li>
+</ul>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="ifelse.html#cb157-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="cn">FALSE</span>  <span class="do">## Same as TRUE &amp;&amp; FALSE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="ifelse.html#cb159-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="cn">FALSE</span>  </span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="ifelse.html#cb161-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">|</span> <span class="cn">FALSE</span>  <span class="do">## Same as TRUE || FALSE</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ifelse.html#cb163-1" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">||</span> <span class="cn">FALSE</span>  </span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 </div>
 <div id="if-and-if-else-statements" class="section level2 hasAnchor" number="2.2">
@@ -701,9 +715,9 @@ only if both <strong>A</strong> and <strong>B</strong> evaluate to true.</p></li
 <ul>
 <li>In <strong>R</strong>, the form of an <span style="color:#D96716"><strong>if statement</strong></span> is the following:</li>
 </ul>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="ifelse.html#cb138-1" tabindex="-1"></a><span class="cf">if</span>( condition ) {</span>
-<span id="cb138-2"><a href="ifelse.html#cb138-2" tabindex="-1"></a>    code_chunk1</span>
-<span id="cb138-3"><a href="ifelse.html#cb138-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="ifelse.html#cb165-1" tabindex="-1"></a><span class="cf">if</span>( condition ) {</span>
+<span id="cb165-2"><a href="ifelse.html#cb165-2" tabindex="-1"></a>    code_chunk1</span>
+<span id="cb165-3"><a href="ifelse.html#cb165-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p><code>condition</code> is usually a <strong>logical expression</strong>, but could just be a logical vector of length 1 (i.e., TRUE or FALSE).</p></li>
 <li><p>If <code>condition</code> evaluates to <strong>TRUE</strong>, <code>code_chunk1</code> will be executed.</p></li>
@@ -711,49 +725,72 @@ only if both <strong>A</strong> and <strong>B</strong> evaluate to true.</p></li
 <li><p>The code inside {…} will be executed
 only if the <strong>condition</strong> of the <strong>if statement</strong> is TRUE.</p></li>
 </ul>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="ifelse.html#cb139-1" tabindex="-1"></a><span class="cf">if</span> (<span class="cn">TRUE</span>) { <span class="co"># if condition is TRUE </span></span>
-<span id="cb139-2"><a href="ifelse.html#cb139-2" tabindex="-1"></a>  <span class="st">&quot;hello&quot;</span>   <span class="co"># this statement will run</span></span>
-<span id="cb139-3"><a href="ifelse.html#cb139-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="ifelse.html#cb166-1" tabindex="-1"></a><span class="cf">if</span> (<span class="cn">TRUE</span>) { <span class="co"># if condition is TRUE </span></span>
+<span id="cb166-2"><a href="ifelse.html#cb166-2" tabindex="-1"></a>  <span class="st">&quot;hello&quot;</span>   <span class="co"># this statement will run</span></span>
+<span id="cb166-3"><a href="ifelse.html#cb166-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;hello&quot;</code></pre>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="ifelse.html#cb141-1" tabindex="-1"></a><span class="cf">if</span> (<span class="cn">FALSE</span>) { <span class="co"># if condition is FALSE </span></span>
-<span id="cb141-2"><a href="ifelse.html#cb141-2" tabindex="-1"></a>  <span class="st">&quot;world&quot;</span>   <span class="co"># this statement will NOT run</span></span>
-<span id="cb141-3"><a href="ifelse.html#cb141-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="ifelse.html#cb168-1" tabindex="-1"></a><span class="cf">if</span> (<span class="cn">FALSE</span>) { <span class="co"># if condition is FALSE </span></span>
+<span id="cb168-2"><a href="ifelse.html#cb168-2" tabindex="-1"></a>  <span class="st">&quot;world&quot;</span>   <span class="co"># this statement will NOT run</span></span>
+<span id="cb168-3"><a href="ifelse.html#cb168-3" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="if-statement-examples" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> if statement examples<a href="ifelse.html#if-statement-examples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="ifelse.html#cb142-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb142-2"><a href="ifelse.html#cb142-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb142-3"><a href="ifelse.html#cb142-3" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;</span> y ) {</span>
-<span id="cb142-4"><a href="ifelse.html#cb142-4" tabindex="-1"></a>  <span class="st">&quot;x is smaller than y&quot;</span></span>
-<span id="cb142-5"><a href="ifelse.html#cb142-5" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Example 1: Running the following code will output the message in the <code>if</code> statement because the logical expression <code>x &lt; y</code> evalutes to TRUE</li>
+</ul>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="ifelse.html#cb169-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb169-2"><a href="ifelse.html#cb169-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb169-3"><a href="ifelse.html#cb169-3" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;</span> y ) {</span>
+<span id="cb169-4"><a href="ifelse.html#cb169-4" tabindex="-1"></a>  <span class="st">&quot;x is smaller than y&quot;</span></span>
+<span id="cb169-5"><a href="ifelse.html#cb169-5" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is smaller than y&quot;</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="ifelse.html#cb144-1" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> y ) {</span>
-<span id="cb144-2"><a href="ifelse.html#cb144-2" tabindex="-1"></a>  <span class="st">&quot;x is greater than y&quot;</span></span>
-<span id="cb144-3"><a href="ifelse.html#cb144-3" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="ifelse.html#cb145-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb145-2"><a href="ifelse.html#cb145-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb145-3"><a href="ifelse.html#cb145-3" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;</span> y ) {</span>
-<span id="cb145-4"><a href="ifelse.html#cb145-4" tabindex="-1"></a>  <span class="st">&quot;x is smaller than y&quot;</span></span>
-<span id="cb145-5"><a href="ifelse.html#cb145-5" tabindex="-1"></a>}</span>
-<span id="cb145-6"><a href="ifelse.html#cb145-6" tabindex="-1"></a></span>
-<span id="cb145-7"><a href="ifelse.html#cb145-7" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> y ) {</span>
-<span id="cb145-8"><a href="ifelse.html#cb145-8" tabindex="-1"></a>  <span class="st">&quot;x is greater than y&quot;</span></span>
-<span id="cb145-9"><a href="ifelse.html#cb145-9" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Example 2: Running the following code will not print out anything:</li>
+</ul>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="ifelse.html#cb171-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb171-2"><a href="ifelse.html#cb171-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb171-3"><a href="ifelse.html#cb171-3" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> y ) {</span>
+<span id="cb171-4"><a href="ifelse.html#cb171-4" tabindex="-1"></a>  <span class="st">&quot;x is greater than y&quot;</span></span>
+<span id="cb171-5"><a href="ifelse.html#cb171-5" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Example 3:</li>
+</ul>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="ifelse.html#cb172-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb172-2"><a href="ifelse.html#cb172-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb172-3"><a href="ifelse.html#cb172-3" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&lt;</span> y ) {</span>
+<span id="cb172-4"><a href="ifelse.html#cb172-4" tabindex="-1"></a>  <span class="st">&quot;x is smaller than y&quot;</span></span>
+<span id="cb172-5"><a href="ifelse.html#cb172-5" tabindex="-1"></a>}</span>
+<span id="cb172-6"><a href="ifelse.html#cb172-6" tabindex="-1"></a></span>
+<span id="cb172-7"><a href="ifelse.html#cb172-7" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> y ) {</span>
+<span id="cb172-8"><a href="ifelse.html#cb172-8" tabindex="-1"></a>  <span class="st">&quot;x is greater than y&quot;</span></span>
+<span id="cb172-9"><a href="ifelse.html#cb172-9" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is greater than y&quot;</code></pre>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="ifelse.html#cb147-1" tabindex="-1"></a><span class="cf">if</span>( <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span> ) {</span>
-<span id="cb147-2"><a href="ifelse.html#cb147-2" tabindex="-1"></a>    <span class="st">&quot;Hello&quot;</span></span>
-<span id="cb147-3"><a href="ifelse.html#cb147-3" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Example 4:</li>
+</ul>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="ifelse.html#cb174-1" tabindex="-1"></a><span class="cf">if</span>( <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span> ) {</span>
+<span id="cb174-2"><a href="ifelse.html#cb174-2" tabindex="-1"></a>    <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb174-3"><a href="ifelse.html#cb174-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Hello&quot;</code></pre>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="ifelse.html#cb149-1" tabindex="-1"></a><span class="cf">if</span>( <span class="st">&quot;dog&quot;</span> <span class="sc">==</span> <span class="st">&quot;cat&quot;</span> ) {</span>
-<span id="cb149-2"><a href="ifelse.html#cb149-2" tabindex="-1"></a>    <span class="st">&quot;Hello&quot;</span></span>
-<span id="cb149-3"><a href="ifelse.html#cb149-3" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="ifelse.html#cb150-1" tabindex="-1"></a>d <span class="ot">=</span> <span class="dv">2</span></span>
-<span id="cb150-2"><a href="ifelse.html#cb150-2" tabindex="-1"></a><span class="cf">if</span>( d <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">&amp;&amp;</span> d <span class="sc">==</span> <span class="fl">2.5</span>) {</span>
-<span id="cb150-3"><a href="ifelse.html#cb150-3" tabindex="-1"></a>    <span class="st">&quot;Hello&quot;</span></span>
-<span id="cb150-4"><a href="ifelse.html#cb150-4" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="ifelse.html#cb151-1" tabindex="-1"></a><span class="cf">if</span>( <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">||</span> <span class="dv">2</span> <span class="sc">==</span> <span class="fl">2.5</span>) {</span>
-<span id="cb151-2"><a href="ifelse.html#cb151-2" tabindex="-1"></a>    <span class="st">&quot;Hello&quot;</span></span>
-<span id="cb151-3"><a href="ifelse.html#cb151-3" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Example 5:</li>
+</ul>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="ifelse.html#cb176-1" tabindex="-1"></a><span class="cf">if</span>( <span class="st">&quot;dog&quot;</span> <span class="sc">==</span> <span class="st">&quot;cat&quot;</span> ) {</span>
+<span id="cb176-2"><a href="ifelse.html#cb176-2" tabindex="-1"></a>    <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb176-3"><a href="ifelse.html#cb176-3" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Example 6:</li>
+</ul>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="ifelse.html#cb177-1" tabindex="-1"></a>d <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb177-2"><a href="ifelse.html#cb177-2" tabindex="-1"></a><span class="cf">if</span>( d <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">&amp;&amp;</span> d <span class="sc">==</span> <span class="fl">2.5</span>) {</span>
+<span id="cb177-3"><a href="ifelse.html#cb177-3" tabindex="-1"></a>    <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb177-4"><a href="ifelse.html#cb177-4" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Example 7:</li>
+</ul>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="ifelse.html#cb178-1" tabindex="-1"></a><span class="cf">if</span>( <span class="dv">2</span> <span class="sc">&lt;</span> <span class="dv">3</span> <span class="sc">||</span> <span class="dv">2</span> <span class="sc">==</span> <span class="fl">2.5</span>) {</span>
+<span id="cb178-2"><a href="ifelse.html#cb178-2" tabindex="-1"></a>    <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb178-3"><a href="ifelse.html#cb178-3" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Hello&quot;</code></pre>
 </div>
 <div id="single-line-if-statements" class="section level3 hasAnchor" number="2.2.3">
@@ -763,18 +800,18 @@ only if the <strong>condition</strong> of the <strong>if statement</strong> is T
 you can write it immediately after <code>if(condition)</code> on the <strong>same line</strong>.</p></li>
 <li><p>Or, you can write the single-line statement on the line immediately below <code>if(condition)</code></p></li>
 </ul>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="ifelse.html#cb153-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb153-2"><a href="ifelse.html#cb153-2" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> <span class="cn">TRUE</span>) x <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>x <span class="co"># multiply x by 2</span></span>
-<span id="cb153-3"><a href="ifelse.html#cb153-3" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="ifelse.html#cb180-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb180-2"><a href="ifelse.html#cb180-2" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> <span class="cn">TRUE</span>) x <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>x <span class="co"># multiply x by 2</span></span>
+<span id="cb180-3"><a href="ifelse.html#cb180-3" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 <ul>
 <li>This <strong>single-line</strong> if statement is the same as using:</li>
 </ul>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="ifelse.html#cb155-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb155-2"><a href="ifelse.html#cb155-2" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> <span class="cn">TRUE</span>) { </span>
-<span id="cb155-3"><a href="ifelse.html#cb155-3" tabindex="-1"></a>    x <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>x <span class="co"># multiply x by 2</span></span>
-<span id="cb155-4"><a href="ifelse.html#cb155-4" tabindex="-1"></a>}</span>
-<span id="cb155-5"><a href="ifelse.html#cb155-5" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="ifelse.html#cb182-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb182-2"><a href="ifelse.html#cb182-2" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&gt;</span> <span class="dv">4</span> <span class="sc">&amp;</span> <span class="cn">TRUE</span>) { </span>
+<span id="cb182-3"><a href="ifelse.html#cb182-3" tabindex="-1"></a>    x <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span>x <span class="co"># multiply x by 2</span></span>
+<span id="cb182-4"><a href="ifelse.html#cb182-4" tabindex="-1"></a>}</span>
+<span id="cb182-5"><a href="ifelse.html#cb182-5" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 </div>
 </div>
@@ -785,11 +822,11 @@ you can write it immediately after <code>if(condition)</code> on the <strong>sam
 <li><p>This can be done with an <strong>if-else</strong> statement.</p></li>
 <li><p>In <strong>R</strong>, the form of an <strong>if-else</strong> statement is the following:</p></li>
 </ul>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="ifelse.html#cb157-1" tabindex="-1"></a><span class="cf">if</span>( condition ) {</span>
-<span id="cb157-2"><a href="ifelse.html#cb157-2" tabindex="-1"></a>    code_chunk1</span>
-<span id="cb157-3"><a href="ifelse.html#cb157-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb157-4"><a href="ifelse.html#cb157-4" tabindex="-1"></a>    code_chunk2</span>
-<span id="cb157-5"><a href="ifelse.html#cb157-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="ifelse.html#cb184-1" tabindex="-1"></a><span class="cf">if</span>( condition ) {</span>
+<span id="cb184-2"><a href="ifelse.html#cb184-2" tabindex="-1"></a>    code_chunk1</span>
+<span id="cb184-3"><a href="ifelse.html#cb184-3" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb184-4"><a href="ifelse.html#cb184-4" tabindex="-1"></a>    code_chunk2</span>
+<span id="cb184-5"><a href="ifelse.html#cb184-5" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p>As with if statements, <code>condition</code> is usually a logical expression, but could just be a logical vector (with a single element).</p></li>
 <li><p>If <code>condition</code> evaluates to <strong>TRUE</strong>, <code>code_chunk1</code> will be executed.</p></li>
@@ -799,35 +836,35 @@ you can write it immediately after <code>if(condition)</code> on the <strong>sam
 <ul>
 <li>As an example, let’s write an if-else statement that computes the <strong>absolute value</strong> of a number.</li>
 </ul>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="ifelse.html#cb158-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">3.2</span></span>
-<span id="cb158-2"><a href="ifelse.html#cb158-2" tabindex="-1"></a><span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> ) {</span>
-<span id="cb158-3"><a href="ifelse.html#cb158-3" tabindex="-1"></a>   abs_x <span class="ot">&lt;-</span> x   <span class="co"># assign the variable abs_x the </span></span>
-<span id="cb158-4"><a href="ifelse.html#cb158-4" tabindex="-1"></a>                <span class="co"># value stored in x</span></span>
-<span id="cb158-5"><a href="ifelse.html#cb158-5" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb158-6"><a href="ifelse.html#cb158-6" tabindex="-1"></a>   abs_x <span class="ot">&lt;-</span> <span class="sc">-</span>x   <span class="co"># assign the variable abs_x the </span></span>
-<span id="cb158-7"><a href="ifelse.html#cb158-7" tabindex="-1"></a>                 <span class="co"># negative of the value stored in x</span></span>
-<span id="cb158-8"><a href="ifelse.html#cb158-8" tabindex="-1"></a>}</span>
-<span id="cb158-9"><a href="ifelse.html#cb158-9" tabindex="-1"></a>abs_x   <span class="co"># print the value stored in abs_x</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="ifelse.html#cb185-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">3.2</span></span>
+<span id="cb185-2"><a href="ifelse.html#cb185-2" tabindex="-1"></a><span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> ) {</span>
+<span id="cb185-3"><a href="ifelse.html#cb185-3" tabindex="-1"></a>   abs_x <span class="ot">&lt;-</span> x   <span class="co"># assign the variable abs_x the </span></span>
+<span id="cb185-4"><a href="ifelse.html#cb185-4" tabindex="-1"></a>                <span class="co"># value stored in x</span></span>
+<span id="cb185-5"><a href="ifelse.html#cb185-5" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb185-6"><a href="ifelse.html#cb185-6" tabindex="-1"></a>   abs_x <span class="ot">&lt;-</span> <span class="sc">-</span>x   <span class="co"># assign the variable abs_x the </span></span>
+<span id="cb185-7"><a href="ifelse.html#cb185-7" tabindex="-1"></a>                 <span class="co"># negative of the value stored in x</span></span>
+<span id="cb185-8"><a href="ifelse.html#cb185-8" tabindex="-1"></a>}</span>
+<span id="cb185-9"><a href="ifelse.html#cb185-9" tabindex="-1"></a>abs_x   <span class="co"># print the value stored in abs_x</span></span></code></pre></div>
 <pre><code>## [1] 3.2</code></pre>
 <ul>
 <li>Another if-else example:</li>
 </ul>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="ifelse.html#cb160-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb160-2"><a href="ifelse.html#cb160-2" tabindex="-1"></a><span class="cf">if</span>( x<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> ) { <span class="co"># arithmetic operation x%%2 evaluated first</span></span>
-<span id="cb160-3"><a href="ifelse.html#cb160-3" tabindex="-1"></a>   <span class="st">&quot;Hello&quot;</span></span>
-<span id="cb160-4"><a href="ifelse.html#cb160-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb160-5"><a href="ifelse.html#cb160-5" tabindex="-1"></a>   <span class="st">&quot;world&quot;</span></span>
-<span id="cb160-6"><a href="ifelse.html#cb160-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="ifelse.html#cb187-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb187-2"><a href="ifelse.html#cb187-2" tabindex="-1"></a><span class="cf">if</span>( x<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> ) { <span class="co"># arithmetic operation x%%2 evaluated first</span></span>
+<span id="cb187-3"><a href="ifelse.html#cb187-3" tabindex="-1"></a>   <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb187-4"><a href="ifelse.html#cb187-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb187-5"><a href="ifelse.html#cb187-5" tabindex="-1"></a>   <span class="st">&quot;world&quot;</span></span>
+<span id="cb187-6"><a href="ifelse.html#cb187-6" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;world&quot;</code></pre>
 <ul>
 <li>Another if-else example:</li>
 </ul>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="ifelse.html#cb162-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb162-2"><a href="ifelse.html#cb162-2" tabindex="-1"></a><span class="cf">if</span>( x<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> x <span class="sc">&gt;</span> <span class="dv">4</span>) {</span>
-<span id="cb162-3"><a href="ifelse.html#cb162-3" tabindex="-1"></a>   <span class="st">&quot;Hello&quot;</span></span>
-<span id="cb162-4"><a href="ifelse.html#cb162-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb162-5"><a href="ifelse.html#cb162-5" tabindex="-1"></a>   <span class="st">&quot;world&quot;</span></span>
-<span id="cb162-6"><a href="ifelse.html#cb162-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="ifelse.html#cb189-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb189-2"><a href="ifelse.html#cb189-2" tabindex="-1"></a><span class="cf">if</span>( x<span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> x <span class="sc">&gt;</span> <span class="dv">4</span>) {</span>
+<span id="cb189-3"><a href="ifelse.html#cb189-3" tabindex="-1"></a>   <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb189-4"><a href="ifelse.html#cb189-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb189-5"><a href="ifelse.html#cb189-5" tabindex="-1"></a>   <span class="st">&quot;world&quot;</span></span>
+<span id="cb189-6"><a href="ifelse.html#cb189-6" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Hello&quot;</code></pre>
 <div id="if-else-if-chains" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> if-else-if chains<a href="ifelse.html#if-else-if-chains" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -837,43 +874,43 @@ than 2 conditions.</p></li>
 <li><p>For these cases, you can use an <strong>if - else if - else</strong> chain of conditional statements.</p></li>
 <li><p>The general syntax for an <strong>if - else if - else</strong> chain in <strong>R</strong> is:</p></li>
 </ul>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ifelse.html#cb164-1" tabindex="-1"></a><span class="cf">if</span> ( condition1 ) {  <span class="do">## If condition1 is TRUE,</span></span>
-<span id="cb164-2"><a href="ifelse.html#cb164-2" tabindex="-1"></a>    code_chunk1     <span class="do">##  code_chunk1 will be executed.</span></span>
-<span id="cb164-3"><a href="ifelse.html#cb164-3" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( condition2 ) { <span class="do">## If condition1 is FALSE</span></span>
-<span id="cb164-4"><a href="ifelse.html#cb164-4" tabindex="-1"></a>                           <span class="do">## and condiiton2 is TRUE,</span></span>
-<span id="cb164-5"><a href="ifelse.html#cb164-5" tabindex="-1"></a>    code_chunk2          <span class="do">## code_chunk2 will be executed</span></span>
-<span id="cb164-6"><a href="ifelse.html#cb164-6" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( condition3 ) { <span class="do">## If both conditions 1 and 2 are FALSE</span></span>
-<span id="cb164-7"><a href="ifelse.html#cb164-7" tabindex="-1"></a>                           <span class="do">## and condition3 is TRUE,</span></span>
-<span id="cb164-8"><a href="ifelse.html#cb164-8" tabindex="-1"></a>   code_chunk3             <span class="do">## code_chunk3 will be executed</span></span>
-<span id="cb164-9"><a href="ifelse.html#cb164-9" tabindex="-1"></a>}</span>
-<span id="cb164-10"><a href="ifelse.html#cb164-10" tabindex="-1"></a>.</span>
-<span id="cb164-11"><a href="ifelse.html#cb164-11" tabindex="-1"></a>.</span>
-<span id="cb164-12"><a href="ifelse.html#cb164-12" tabindex="-1"></a><span class="er">}</span> <span class="cf">else</span> {      <span class="do">## If all previous conditions are FALSE,</span></span>
-<span id="cb164-13"><a href="ifelse.html#cb164-13" tabindex="-1"></a>   else_chunk  <span class="do">##  else_chunk will be executed</span></span>
-<span id="cb164-14"><a href="ifelse.html#cb164-14" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="ifelse.html#cb191-1" tabindex="-1"></a><span class="cf">if</span> ( condition1 ) {  <span class="do">## If condition1 is TRUE,</span></span>
+<span id="cb191-2"><a href="ifelse.html#cb191-2" tabindex="-1"></a>    code_chunk1     <span class="do">##  code_chunk1 will be executed.</span></span>
+<span id="cb191-3"><a href="ifelse.html#cb191-3" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( condition2 ) { <span class="do">## If condition1 is FALSE</span></span>
+<span id="cb191-4"><a href="ifelse.html#cb191-4" tabindex="-1"></a>                           <span class="do">## and condiiton2 is TRUE,</span></span>
+<span id="cb191-5"><a href="ifelse.html#cb191-5" tabindex="-1"></a>    code_chunk2          <span class="do">## code_chunk2 will be executed</span></span>
+<span id="cb191-6"><a href="ifelse.html#cb191-6" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( condition3 ) { <span class="do">## If both conditions 1 and 2 are FALSE</span></span>
+<span id="cb191-7"><a href="ifelse.html#cb191-7" tabindex="-1"></a>                           <span class="do">## and condition3 is TRUE,</span></span>
+<span id="cb191-8"><a href="ifelse.html#cb191-8" tabindex="-1"></a>   code_chunk3             <span class="do">## code_chunk3 will be executed</span></span>
+<span id="cb191-9"><a href="ifelse.html#cb191-9" tabindex="-1"></a>}</span>
+<span id="cb191-10"><a href="ifelse.html#cb191-10" tabindex="-1"></a>.</span>
+<span id="cb191-11"><a href="ifelse.html#cb191-11" tabindex="-1"></a>.</span>
+<span id="cb191-12"><a href="ifelse.html#cb191-12" tabindex="-1"></a><span class="er">}</span> <span class="cf">else</span> {      <span class="do">## If all previous conditions are FALSE,</span></span>
+<span id="cb191-13"><a href="ifelse.html#cb191-13" tabindex="-1"></a>   else_chunk  <span class="do">##  else_chunk will be executed</span></span>
+<span id="cb191-14"><a href="ifelse.html#cb191-14" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>An if-else if-else example:</li>
 </ul>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="ifelse.html#cb165-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span></span>
-<span id="cb165-2"><a href="ifelse.html#cb165-2" tabindex="-1"></a><span class="cf">if</span> ( x <span class="sc">&lt;</span> <span class="dv">0</span> ) {        <span class="do">## If the condition is TRUE,</span></span>
-<span id="cb165-3"><a href="ifelse.html#cb165-3" tabindex="-1"></a>  <span class="st">&quot;x is negative&quot;</span>     <span class="do">## this statement will run.</span></span>
-<span id="cb165-4"><a href="ifelse.html#cb165-4" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( x <span class="sc">==</span> <span class="dv">0</span> ) {<span class="do">## If previous conditions are FALSE but this</span></span>
-<span id="cb165-5"><a href="ifelse.html#cb165-5" tabindex="-1"></a>  <span class="st">&quot;x is zero&quot;</span>         <span class="do">## is TRUE, this statement will run.</span></span>
-<span id="cb165-6"><a href="ifelse.html#cb165-6" tabindex="-1"></a>} <span class="cf">else</span> {              <span class="do">## If previous conditions are FALSE,</span></span>
-<span id="cb165-7"><a href="ifelse.html#cb165-7" tabindex="-1"></a>  <span class="st">&quot;x is positive&quot;</span>     <span class="do">## this statement will run.</span></span>
-<span id="cb165-8"><a href="ifelse.html#cb165-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="ifelse.html#cb192-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb192-2"><a href="ifelse.html#cb192-2" tabindex="-1"></a><span class="cf">if</span> ( x <span class="sc">&lt;</span> <span class="dv">0</span> ) {        <span class="do">## If the condition is TRUE,</span></span>
+<span id="cb192-3"><a href="ifelse.html#cb192-3" tabindex="-1"></a>  <span class="st">&quot;x is negative&quot;</span>     <span class="do">## this statement will run.</span></span>
+<span id="cb192-4"><a href="ifelse.html#cb192-4" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( x <span class="sc">==</span> <span class="dv">0</span> ) {<span class="do">## If previous conditions are FALSE but this</span></span>
+<span id="cb192-5"><a href="ifelse.html#cb192-5" tabindex="-1"></a>  <span class="st">&quot;x is zero&quot;</span>         <span class="do">## is TRUE, this statement will run.</span></span>
+<span id="cb192-6"><a href="ifelse.html#cb192-6" tabindex="-1"></a>} <span class="cf">else</span> {              <span class="do">## If previous conditions are FALSE,</span></span>
+<span id="cb192-7"><a href="ifelse.html#cb192-7" tabindex="-1"></a>  <span class="st">&quot;x is positive&quot;</span>     <span class="do">## this statement will run.</span></span>
+<span id="cb192-8"><a href="ifelse.html#cb192-8" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is positive&quot;</code></pre>
 <ul>
 <li>Another if-else if-else example:</li>
 </ul>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="ifelse.html#cb167-1" tabindex="-1"></a>message <span class="ot">&lt;-</span> <span class="st">&quot;second&quot;</span></span>
-<span id="cb167-2"><a href="ifelse.html#cb167-2" tabindex="-1"></a><span class="cf">if</span> ( message <span class="sc">==</span> <span class="st">&quot;first&quot;</span> ) {   </span>
-<span id="cb167-3"><a href="ifelse.html#cb167-3" tabindex="-1"></a>    <span class="st">&quot;hello&quot;</span></span>
-<span id="cb167-4"><a href="ifelse.html#cb167-4" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( message <span class="sc">==</span> <span class="st">&quot;second&quot;</span> ) {</span>
-<span id="cb167-5"><a href="ifelse.html#cb167-5" tabindex="-1"></a>    <span class="st">&quot;world&quot;</span></span>
-<span id="cb167-6"><a href="ifelse.html#cb167-6" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb167-7"><a href="ifelse.html#cb167-7" tabindex="-1"></a>    <span class="st">&quot;nothing&quot;</span></span>
-<span id="cb167-8"><a href="ifelse.html#cb167-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="ifelse.html#cb194-1" tabindex="-1"></a>message <span class="ot">&lt;-</span> <span class="st">&quot;second&quot;</span></span>
+<span id="cb194-2"><a href="ifelse.html#cb194-2" tabindex="-1"></a><span class="cf">if</span> ( message <span class="sc">==</span> <span class="st">&quot;first&quot;</span> ) {   </span>
+<span id="cb194-3"><a href="ifelse.html#cb194-3" tabindex="-1"></a>    <span class="st">&quot;hello&quot;</span></span>
+<span id="cb194-4"><a href="ifelse.html#cb194-4" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> ( message <span class="sc">==</span> <span class="st">&quot;second&quot;</span> ) {</span>
+<span id="cb194-5"><a href="ifelse.html#cb194-5" tabindex="-1"></a>    <span class="st">&quot;world&quot;</span></span>
+<span id="cb194-6"><a href="ifelse.html#cb194-6" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb194-7"><a href="ifelse.html#cb194-7" tabindex="-1"></a>    <span class="st">&quot;nothing&quot;</span></span>
+<span id="cb194-8"><a href="ifelse.html#cb194-8" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;world&quot;</code></pre>
 <hr />
 <ul>
@@ -887,18 +924,18 @@ than 2 conditions.</p></li>
 <li>You can certainly have if-else statements <strong>within</strong>
 a conditional statement.</li>
 </ul>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="ifelse.html#cb169-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">3</span></span>
-<span id="cb169-2"><a href="ifelse.html#cb169-2" tabindex="-1"></a><span class="cf">if</span> ( x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> ) {  <span class="do">## first condition</span></span>
-<span id="cb169-3"><a href="ifelse.html#cb169-3" tabindex="-1"></a>  <span class="cf">if</span> ( x <span class="sc">&lt;</span> <span class="dv">0</span>) {       <span class="do">## second condition </span></span>
-<span id="cb169-4"><a href="ifelse.html#cb169-4" tabindex="-1"></a>    <span class="st">&quot;x is even and negative&quot;</span></span>
-<span id="cb169-5"><a href="ifelse.html#cb169-5" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb169-6"><a href="ifelse.html#cb169-6" tabindex="-1"></a>    <span class="st">&quot;x is even and non-negative&quot;</span></span>
-<span id="cb169-7"><a href="ifelse.html#cb169-7" tabindex="-1"></a>  } </span>
-<span id="cb169-8"><a href="ifelse.html#cb169-8" tabindex="-1"></a>}  <span class="cf">else</span> <span class="cf">if</span> ( x <span class="sc">&lt;</span> <span class="dv">0</span> ) {<span class="do">## this if statement is not nested</span></span>
-<span id="cb169-9"><a href="ifelse.html#cb169-9" tabindex="-1"></a>  <span class="st">&quot;x is odd and negative&quot;</span>         </span>
-<span id="cb169-10"><a href="ifelse.html#cb169-10" tabindex="-1"></a>} <span class="cf">else</span> {              <span class="do">## not nested either</span></span>
-<span id="cb169-11"><a href="ifelse.html#cb169-11" tabindex="-1"></a>  <span class="st">&quot;x is odd and non-negative&quot;</span>     </span>
-<span id="cb169-12"><a href="ifelse.html#cb169-12" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="ifelse.html#cb196-1" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb196-2"><a href="ifelse.html#cb196-2" tabindex="-1"></a><span class="cf">if</span> ( x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span> ) {  <span class="do">## first condition</span></span>
+<span id="cb196-3"><a href="ifelse.html#cb196-3" tabindex="-1"></a>  <span class="cf">if</span> ( x <span class="sc">&lt;</span> <span class="dv">0</span>) {       <span class="do">## second condition </span></span>
+<span id="cb196-4"><a href="ifelse.html#cb196-4" tabindex="-1"></a>    <span class="st">&quot;x is even and negative&quot;</span></span>
+<span id="cb196-5"><a href="ifelse.html#cb196-5" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb196-6"><a href="ifelse.html#cb196-6" tabindex="-1"></a>    <span class="st">&quot;x is even and non-negative&quot;</span></span>
+<span id="cb196-7"><a href="ifelse.html#cb196-7" tabindex="-1"></a>  } </span>
+<span id="cb196-8"><a href="ifelse.html#cb196-8" tabindex="-1"></a>}  <span class="cf">else</span> <span class="cf">if</span> ( x <span class="sc">&lt;</span> <span class="dv">0</span> ) {<span class="do">## this if statement is not nested</span></span>
+<span id="cb196-9"><a href="ifelse.html#cb196-9" tabindex="-1"></a>  <span class="st">&quot;x is odd and negative&quot;</span>         </span>
+<span id="cb196-10"><a href="ifelse.html#cb196-10" tabindex="-1"></a>} <span class="cf">else</span> {              <span class="do">## not nested either</span></span>
+<span id="cb196-11"><a href="ifelse.html#cb196-11" tabindex="-1"></a>  <span class="st">&quot;x is odd and non-negative&quot;</span>     </span>
+<span id="cb196-12"><a href="ifelse.html#cb196-12" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is odd and non-negative&quot;</code></pre>
 </div>
 </div>
@@ -907,13 +944,13 @@ a conditional statement.</li>
 <ol style="list-style-type: decimal">
 <li>What will be printed to the screen if you run the <strong>R</strong> code below?</li>
 </ol>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="ifelse.html#cb171-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb171-2"><a href="ifelse.html#cb171-2" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">||</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb171-3"><a href="ifelse.html#cb171-3" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>x</span>
-<span id="cb171-4"><a href="ifelse.html#cb171-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb171-5"><a href="ifelse.html#cb171-5" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb171-6"><a href="ifelse.html#cb171-6" tabindex="-1"></a>}</span>
-<span id="cb171-7"><a href="ifelse.html#cb171-7" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="ifelse.html#cb198-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb198-2"><a href="ifelse.html#cb198-2" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">||</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb198-3"><a href="ifelse.html#cb198-3" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>x</span>
+<span id="cb198-4"><a href="ifelse.html#cb198-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb198-5"><a href="ifelse.html#cb198-5" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb198-6"><a href="ifelse.html#cb198-6" tabindex="-1"></a>}</span>
+<span id="cb198-7"><a href="ifelse.html#cb198-7" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 
 </div>
 </div>

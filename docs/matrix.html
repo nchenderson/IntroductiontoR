@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2024-08-23" />
+<meta name="date" content="2024-08-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,7 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.3" data-path="ifelse.html"><a href="ifelse.html#precedence-with-logical-operations"><i class="fa fa-check"></i><b>2.1.3</b> Precedence with logical operations</a></li>
 <li class="chapter" data-level="2.1.4" data-path="ifelse.html"><a href="ifelse.html#abbreviating-true-and-false-with-t-and-f"><i class="fa fa-check"></i><b>2.1.4</b> Abbreviating TRUE and FALSE with T and F</a></li>
 <li class="chapter" data-level="2.1.5" data-path="ifelse.html"><a href="ifelse.html#examples-of-logical-operations-in-r"><i class="fa fa-check"></i><b>2.1.5</b> Examples of logical operations in R</a></li>
-<li class="chapter" data-level="2.1.6" data-path="ifelse.html"><a href="ifelse.html#vs.-and-vs."><i class="fa fa-check"></i><b>2.1.6</b> &amp;&amp; vs. &amp; and || vs. |</a></li>
+<li class="chapter" data-level="2.1.6" data-path="ifelse.html"><a href="ifelse.html#logical-operators-and-vectors"><i class="fa fa-check"></i><b>2.1.6</b> logical operators and vectors</a></li>
+<li class="chapter" data-level="2.1.7" data-path="ifelse.html"><a href="ifelse.html#vs.-and-vs."><i class="fa fa-check"></i><b>2.1.7</b> &amp;&amp; vs. &amp; and || vs. |</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="ifelse.html"><a href="ifelse.html#if-and-if-else-statements"><i class="fa fa-check"></i><b>2.2</b> If and If-else statements</a>
 <ul>
@@ -365,7 +366,7 @@ a_{n1} &amp; a_{12} &amp; \ldots &amp; a_{np}
 with the <strong>matrix</strong> function.</p></li>
 <li><p>The form of the <strong>matrix</strong> function is</p></li>
 </ul>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="matrix.html#cb419-1" tabindex="-1"></a><span class="fu">matrix</span>(x, nrow, ncol)</span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="matrix.html#cb446-1" tabindex="-1"></a><span class="fu">matrix</span>(x, nrow, ncol)</span></code></pre></div>
 <ul>
 <li><strong>x</strong> is a <strong>vector</strong> that you want to convert into a matrix.
 <ul>
@@ -377,8 +378,8 @@ case the returned matrix will have all the same entries.</p></li>
 <li>If we wanted to create a matrix named <code>A</code> with <strong>2 rows</strong> and <strong>3 columns</strong> that contains
 <strong>only zeros</strong>, we could use the following code</li>
 </ul>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="matrix.html#cb420-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>) </span>
-<span id="cb420-2"><a href="matrix.html#cb420-2" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="matrix.html#cb447-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">3</span>) </span>
+<span id="cb447-2"><a href="matrix.html#cb447-2" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    0    0    0
 ## [2,]    0    0    0</code></pre>
@@ -386,9 +387,9 @@ case the returned matrix will have all the same entries.</p></li>
 <li><p>To <strong>convert</strong> a vector into a matrix</p></li>
 <li><p><strong>Convert</strong> the vector (1, 2, 3, 4, 5, 6) into a matrix with 2 rows and 3 columns</p></li>
 </ul>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="matrix.html#cb422-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>     <span class="co"># x is a vector of 1,2,3,4,5,6 </span></span>
-<span id="cb422-2"><a href="matrix.html#cb422-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># create a matrix from this vector</span></span>
-<span id="cb422-3"><a href="matrix.html#cb422-3" tabindex="-1"></a>B</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="matrix.html#cb449-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>     <span class="co"># x is a vector of 1,2,3,4,5,6 </span></span>
+<span id="cb449-2"><a href="matrix.html#cb449-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># create a matrix from this vector</span></span>
+<span id="cb449-3"><a href="matrix.html#cb449-3" tabindex="-1"></a>B</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    3    5
 ## [2,]    2    4    6</code></pre>
@@ -398,17 +399,17 @@ case the returned matrix will have all the same entries.</p></li>
 <li>This is referred to as filling in the entries “<strong>by column</strong>”</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="matrix.html#cb424-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>     <span class="co"># x is a vector of 1,2,3,4,5,6 </span></span>
-<span id="cb424-2"><a href="matrix.html#cb424-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># create a matrix from this vector</span></span>
-<span id="cb424-3"><a href="matrix.html#cb424-3" tabindex="-1"></a>B</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="matrix.html#cb451-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>     <span class="co"># x is a vector of 1,2,3,4,5,6 </span></span>
+<span id="cb451-2"><a href="matrix.html#cb451-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># create a matrix from this vector</span></span>
+<span id="cb451-3"><a href="matrix.html#cb451-3" tabindex="-1"></a>B</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    3    5
 ## [2,]    2    4    6</code></pre>
 <ul>
 <li>You can instead fill in the matrix entries <strong>by rows</strong> by using the <strong>keyword</strong> argument <code>byrow = TRUE</code></li>
 </ul>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="matrix.html#cb426-1" tabindex="-1"></a>D <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb426-2"><a href="matrix.html#cb426-2" tabindex="-1"></a>D</span></code></pre></div>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="matrix.html#cb453-1" tabindex="-1"></a>D <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb453-2"><a href="matrix.html#cb453-2" tabindex="-1"></a>D</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    2    3
 ## [2,]    4    5    6</code></pre>
@@ -416,15 +417,15 @@ case the returned matrix will have all the same entries.</p></li>
 <ul>
 <li>It is often useful to create a matrix which has <strong>all the same</strong> columns (or rows):</li>
 </ul>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="matrix.html#cb428-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># duplicates the column vector c(1,2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="matrix.html#cb455-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># duplicates the column vector c(1,2)</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    1    1
 ## [2,]    2    2    2</code></pre>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="matrix.html#cb430-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># this does not duplicate the row vector c(1,2,3)</span></span></code></pre></div>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="matrix.html#cb457-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># this does not duplicate the row vector c(1,2,3)</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    3    2
 ## [2,]    2    1    3</code></pre>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="matrix.html#cb432-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># but this one does!</span></span></code></pre></div>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="matrix.html#cb459-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># but this one does!</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    2    3
 ## [2,]    1    2    3</code></pre>
@@ -437,23 +438,23 @@ case the returned matrix will have all the same entries.</p></li>
 <li><p>To access the <span class="math inline">\((i,j)\)</span> <strong>element</strong> of a matrix <code>A</code>, use the syntax <code>A[i,j]</code></p></li>
 <li><p>As an example of this, let’s create a <span class="math inline">\(2 \times 3\)</span> matrix <code>A</code> and look at the <span class="math inline">\((2,1)\)</span> element of <code>A</code>:</p></li>
 </ul>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="matrix.html#cb434-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># creating a 2x3 matrix</span></span>
-<span id="cb434-2"><a href="matrix.html#cb434-2" tabindex="-1"></a>A                         <span class="co"># print the matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="matrix.html#cb461-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># creating a 2x3 matrix</span></span>
+<span id="cb461-2"><a href="matrix.html#cb461-2" tabindex="-1"></a>A                         <span class="co"># print the matrix</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    2    3
 ## [2,]    4    5    6</code></pre>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="matrix.html#cb436-1" tabindex="-1"></a>A[<span class="dv">2</span>,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="matrix.html#cb463-1" tabindex="-1"></a>A[<span class="dv">2</span>,<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <ul>
 <li><p>You can access different subsets of a matrix by using vectors of indeces rather than single numbers in the indexing bracket.</p></li>
 <li><p>For example, if you want to look at elements <span class="math inline">\((2, 1)\)</span> and <span class="math inline">\((2,2)\)</span> of <code>A</code>, you can use the following syntax:</p></li>
 </ul>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="matrix.html#cb438-1" tabindex="-1"></a>A[<span class="dv">2</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="matrix.html#cb465-1" tabindex="-1"></a>A[<span class="dv">2</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 4 5</code></pre>
 <ul>
 <li>Similarly, if you want to access all elements of <code>A</code> in either the first two rows or first two columns of <code>A</code>, you can use the following syntax:</li>
 </ul>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="matrix.html#cb440-1" tabindex="-1"></a>A[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="matrix.html#cb467-1" tabindex="-1"></a>A[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    2
 ## [2,]    4    5</code></pre>
@@ -463,23 +464,23 @@ case the returned matrix will have all the same entries.</p></li>
 <li>To access the entire <strong>kth row</strong> of <code>A</code>, use the syntax <code>A[k,]</code></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="matrix.html#cb442-1" tabindex="-1"></a>A[,<span class="dv">2</span>]  <span class="do">## access 2nd column of A</span></span></code></pre></div>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="matrix.html#cb469-1" tabindex="-1"></a>A[,<span class="dv">2</span>]  <span class="do">## access 2nd column of A</span></span></code></pre></div>
 <pre><code>## [1] 2 5</code></pre>
 <hr />
 <ul>
 <li>Using <strong>nrow()</strong> or <strong>ncol()</strong> let you see the number of
 <strong>rows</strong> or <strong>columns</strong> of a matrix.</li>
 </ul>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="matrix.html#cb444-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># creating a 2x3 matrix</span></span>
-<span id="cb444-2"><a href="matrix.html#cb444-2" tabindex="-1"></a></span>
-<span id="cb444-3"><a href="matrix.html#cb444-3" tabindex="-1"></a><span class="fu">nrow</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="matrix.html#cb471-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>) <span class="co"># creating a 2x3 matrix</span></span>
+<span id="cb471-2"><a href="matrix.html#cb471-2" tabindex="-1"></a></span>
+<span id="cb471-3"><a href="matrix.html#cb471-3" tabindex="-1"></a><span class="fu">nrow</span>(A)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="matrix.html#cb446-1" tabindex="-1"></a><span class="fu">ncol</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="matrix.html#cb473-1" tabindex="-1"></a><span class="fu">ncol</span>(A)</span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 <ul>
 <li><strong>dim</strong> will return <strong>both</strong> the number of rows and columns.</li>
 </ul>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="matrix.html#cb448-1" tabindex="-1"></a><span class="fu">dim</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="matrix.html#cb475-1" tabindex="-1"></a><span class="fu">dim</span>(A)</span></code></pre></div>
 <pre><code>## [1] 2 3</code></pre>
 <hr />
 <ul>
@@ -492,11 +493,11 @@ case the returned matrix will have all the same entries.</p></li>
 <li><p>For example if we access the “4th” and “5th” elements of a <span class="math inline">\(2 x 3\)</span>
 matrix</p></li>
 </ul>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="matrix.html#cb450-1" tabindex="-1"></a>A </span></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="matrix.html#cb477-1" tabindex="-1"></a>A </span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    2    3
 ## [2,]    4    5    6</code></pre>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="matrix.html#cb452-1" tabindex="-1"></a>A[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]          <span class="do">## accessing like a one-dimensional vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="matrix.html#cb479-1" tabindex="-1"></a>A[<span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>]          <span class="do">## accessing like a one-dimensional vector</span></span></code></pre></div>
 <pre><code>## [1] 5 3</code></pre>
 <ul>
 <li>I don’t really use this way of accessing matrix elements much though,
@@ -506,9 +507,9 @@ in some cases, it is more convenient (e.g., <code>A[ which(A &gt; 3) ]</code>)</
 <ul>
 <li>You can also access elements of a matrix <strong>like a vector</strong> using <strong>logical subsetting</strong></li>
 </ul>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="matrix.html#cb454-1" tabindex="-1"></a><span class="fu">which</span>( A <span class="sc">&gt;</span> <span class="dv">3</span>)      <span class="do">## getting indices with which</span></span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="matrix.html#cb481-1" tabindex="-1"></a><span class="fu">which</span>( A <span class="sc">&gt;</span> <span class="dv">3</span>)      <span class="do">## getting indices with which</span></span></code></pre></div>
 <pre><code>## [1] 2 4 6</code></pre>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="matrix.html#cb456-1" tabindex="-1"></a>A[ <span class="fu">which</span>(A<span class="sc">&gt;</span><span class="dv">3</span>) ]   <span class="do">## getting the elements greater than 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="matrix.html#cb483-1" tabindex="-1"></a>A[ <span class="fu">which</span>(A<span class="sc">&gt;</span><span class="dv">3</span>) ]   <span class="do">## getting the elements greater than 3</span></span></code></pre></div>
 <pre><code>## [1] 4 5 6</code></pre>
 </div>
 <div id="diagonals-of-matrices" class="section level3 hasAnchor" number="6.2.2">
@@ -522,7 +523,7 @@ the <strong>row index</strong> equals the <strong>column index</strong>.</p></li
 <li>You must provide the vector of <strong>diagonal elements</strong> as the input to <code>diag</code></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="matrix.html#cb458-1" tabindex="-1"></a><span class="fu">diag</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)   <span class="co"># 4x4 diagonal matrix with (1,2,3,4) as diagonals</span></span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="matrix.html#cb485-1" tabindex="-1"></a><span class="fu">diag</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)   <span class="co"># 4x4 diagonal matrix with (1,2,3,4) as diagonals</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    1    0    0    0
 ## [2,]    0    2    0    0
@@ -532,13 +533,13 @@ the <strong>row index</strong> equals the <strong>column index</strong>.</p></li
 <li>If you use <code>diag(A)</code> where the <strong>input</strong> argument <code>A</code> is a <strong>matrix</strong>, this
 will return the <strong>diagonal elements</strong> of <code>A</code>.</li>
 </ul>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="matrix.html#cb460-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb460-2"><a href="matrix.html#cb460-2" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="matrix.html#cb487-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb487-2"><a href="matrix.html#cb487-2" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="matrix.html#cb462-1" tabindex="-1"></a><span class="fu">diag</span>(A)   <span class="co"># returns diagonals of this matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="matrix.html#cb489-1" tabindex="-1"></a><span class="fu">diag</span>(A)   <span class="co"># returns diagonals of this matrix</span></span></code></pre></div>
 <pre><code>## [1] 1 5 9</code></pre>
 <hr />
 <ul>
@@ -548,9 +549,9 @@ will return the <strong>diagonal elements</strong> of <code>A</code>.</li>
 <li>Thus, you can use <code>upper.tri</code> to update the upper diagonal parts of a matrix.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="matrix.html#cb464-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb464-2"><a href="matrix.html#cb464-2" tabindex="-1"></a>x[<span class="fu">upper.tri</span>(x)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb464-3"><a href="matrix.html#cb464-3" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="matrix.html#cb491-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb491-2"><a href="matrix.html#cb491-2" tabindex="-1"></a>x[<span class="fu">upper.tri</span>(x)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb491-3"><a href="matrix.html#cb491-3" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    0    0
 ## [2,]    2    5    0
@@ -558,8 +559,8 @@ will return the <strong>diagonal elements</strong> of <code>A</code>.</li>
 <ul>
 <li>Similarly, <code>lower.tri(A)</code> allows you to look at the subset of entries on the “lower diagonal” part of a matrix.</li>
 </ul>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="matrix.html#cb466-1" tabindex="-1"></a>x[<span class="fu">lower.tri</span>(x,<span class="at">diag=</span><span class="cn">TRUE</span>)] <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">15</span></span>
-<span id="cb466-2"><a href="matrix.html#cb466-2" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="matrix.html#cb493-1" tabindex="-1"></a>x[<span class="fu">lower.tri</span>(x,<span class="at">diag=</span><span class="cn">TRUE</span>)] <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb493-2"><a href="matrix.html#cb493-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   10    0    0
 ## [2,]   11   13    0
@@ -573,32 +574,32 @@ will return the <strong>diagonal elements</strong> of <code>A</code>.</li>
 <li>The collection of <strong>row names</strong> of a matrix should be a <strong>vector</strong>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="matrix.html#cb468-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb468-2"><a href="matrix.html#cb468-2" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)</span>
-<span id="cb468-3"><a href="matrix.html#cb468-3" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="matrix.html#cb495-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb495-2"><a href="matrix.html#cb495-2" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)</span>
+<span id="cb495-3"><a href="matrix.html#cb495-3" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##   [,1] [,2] [,3]
 ## a    1    3    5
 ## b    2    4    6</code></pre>
 <ul>
 <li>You can actually access rows of a matrix <strong>by name</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="matrix.html#cb470-1" tabindex="-1"></a>x[<span class="dv">1</span>,] </span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="matrix.html#cb497-1" tabindex="-1"></a>x[<span class="dv">1</span>,] </span></code></pre></div>
 <pre><code>## [1] 1 3 5</code></pre>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="matrix.html#cb472-1" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)</span>
-<span id="cb472-2"><a href="matrix.html#cb472-2" tabindex="-1"></a>x[<span class="st">&quot;a&quot;</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="matrix.html#cb499-1" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)</span>
+<span id="cb499-2"><a href="matrix.html#cb499-2" tabindex="-1"></a>x[<span class="st">&quot;a&quot;</span>,]</span></code></pre></div>
 <pre><code>## [1] 1 3 5</code></pre>
 <ul>
 <li>Similarly, you can access <strong>columns</strong> of a matrix <strong>by name</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="matrix.html#cb474-1" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;c1&quot;</span>,<span class="st">&quot;c2&quot;</span>,<span class="st">&quot;c3&quot;</span>) </span>
-<span id="cb474-2"><a href="matrix.html#cb474-2" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="matrix.html#cb501-1" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;c1&quot;</span>,<span class="st">&quot;c2&quot;</span>,<span class="st">&quot;c3&quot;</span>) </span>
+<span id="cb501-2"><a href="matrix.html#cb501-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>##   c1 c2 c3
 ## a  1  3  5
 ## b  2  4  6</code></pre>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="matrix.html#cb476-1" tabindex="-1"></a>x[<span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="matrix.html#cb503-1" tabindex="-1"></a>x[<span class="dv">2</span>, <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)]</span></code></pre></div>
 <pre><code>## c2 c3 
 ##  4  6</code></pre>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="matrix.html#cb478-1" tabindex="-1"></a>x[<span class="st">&quot;b&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;c2&quot;</span>,<span class="st">&quot;c3&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="matrix.html#cb505-1" tabindex="-1"></a>x[<span class="st">&quot;b&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;c2&quot;</span>,<span class="st">&quot;c3&quot;</span>)]</span></code></pre></div>
 <pre><code>## c2 c3 
 ##  4  6</code></pre>
 </div>
@@ -612,13 +613,13 @@ by using the functions
 <li><code>rbind</code> (<strong>row</strong> bind)</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="matrix.html#cb480-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb480-2"><a href="matrix.html#cb480-2" tabindex="-1"></a>Y <span class="ot">&lt;-</span> X<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb480-3"><a href="matrix.html#cb480-3" tabindex="-1"></a><span class="fu">cbind</span>(X,Y)</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="matrix.html#cb507-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb507-2"><a href="matrix.html#cb507-2" tabindex="-1"></a>Y <span class="ot">&lt;-</span> X<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb507-3"><a href="matrix.html#cb507-3" tabindex="-1"></a><span class="fu">cbind</span>(X,Y)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
 ## [1,]    1    3    5    1    9   25
 ## [2,]    2    4    6    4   16   36</code></pre>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="matrix.html#cb482-1" tabindex="-1"></a><span class="fu">rbind</span>(X,Y)</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="matrix.html#cb509-1" tabindex="-1"></a><span class="fu">rbind</span>(X,Y)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    3    5
 ## [2,]    2    4    6
@@ -634,12 +635,12 @@ by using the functions
 take the sum (or average) of <strong>all</strong>
 the elements of a matrix:</p></li>
 </ul>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="matrix.html#cb484-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb484-2"><a href="matrix.html#cb484-2" tabindex="-1"></a><span class="fu">sum</span>(A)  <span class="co"># sum of all elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="matrix.html#cb511-1" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb511-2"><a href="matrix.html#cb511-2" tabindex="-1"></a><span class="fu">sum</span>(A)  <span class="co"># sum of all elements</span></span></code></pre></div>
 <pre><code>## [1] 21</code></pre>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="matrix.html#cb486-1" tabindex="-1"></a><span class="fu">mean</span>(A) <span class="co"># average of all elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="matrix.html#cb513-1" tabindex="-1"></a><span class="fu">mean</span>(A) <span class="co"># average of all elements</span></span></code></pre></div>
 <pre><code>## [1] 3.5</code></pre>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="matrix.html#cb488-1" tabindex="-1"></a><span class="fu">sd</span>(A)   <span class="co"># standard deviation of all elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="matrix.html#cb515-1" tabindex="-1"></a><span class="fu">sd</span>(A)   <span class="co"># standard deviation of all elements</span></span></code></pre></div>
 <pre><code>## [1] 1.870829</code></pre>
 <ul>
 <li>You can take the <strong>transpose</strong> of a matrix <code>A</code> using <code>t(A)</code>.
@@ -647,18 +648,18 @@ the elements of a matrix:</p></li>
 <li>You can <strong>convert</strong> a matrix <code>A</code> into a vector using <code>as.vector(A)</code> or simply <code>c(A)</code>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="matrix.html#cb490-1" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="matrix.html#cb517-1" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    3    5
 ## [2,]    2    4    6</code></pre>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="matrix.html#cb492-1" tabindex="-1"></a><span class="fu">t</span>(A)             <span class="do">## transpose of A (reverse role of rows/columns)</span></span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="matrix.html#cb519-1" tabindex="-1"></a><span class="fu">t</span>(A)             <span class="do">## transpose of A (reverse role of rows/columns)</span></span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    2
 ## [2,]    3    4
 ## [3,]    5    6</code></pre>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="matrix.html#cb494-1" tabindex="-1"></a><span class="fu">as.vector</span>( A )   <span class="do">## convert matrix to vector in column-wise order</span></span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="matrix.html#cb521-1" tabindex="-1"></a><span class="fu">as.vector</span>( A )   <span class="do">## convert matrix to vector in column-wise order</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 6</code></pre>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="matrix.html#cb496-1" tabindex="-1"></a><span class="fu">as.vector</span>( <span class="fu">t</span>(A) ) <span class="do">## convert matrix to vector in row-wise order</span></span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="matrix.html#cb523-1" tabindex="-1"></a><span class="fu">as.vector</span>( <span class="fu">t</span>(A) ) <span class="do">## convert matrix to vector in row-wise order</span></span></code></pre></div>
 <pre><code>## [1] 1 3 5 2 4 6</code></pre>
 <div id="mathematical-operations-with-matrices" class="section level3 hasAnchor" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Mathematical operations with matrices<a href="matrix.html#mathematical-operations-with-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -666,16 +667,16 @@ the elements of a matrix:</p></li>
 <li>Using <code>+,-,*,/</code> with two matrices performs <strong>element-wise</strong> addition,
 subtraction, multiplication, and division.</li>
 </ul>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="matrix.html#cb498-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)   </span>
-<span id="cb498-2"><a href="matrix.html#cb498-2" tabindex="-1"></a>x <span class="sc">+</span> y  <span class="co"># matrix addition (element-by-element)</span></span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="matrix.html#cb525-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)   </span>
+<span id="cb525-2"><a href="matrix.html#cb525-2" tabindex="-1"></a>x <span class="sc">+</span> y  <span class="co"># matrix addition (element-by-element)</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    2    4    6
 ## [2,]    8   10   12</code></pre>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="matrix.html#cb500-1" tabindex="-1"></a>x <span class="sc">-</span> y  <span class="co"># matrix subtraction (element-by-element)</span></span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="matrix.html#cb527-1" tabindex="-1"></a>x <span class="sc">-</span> y  <span class="co"># matrix subtraction (element-by-element)</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    0    0    0
 ## [2,]    0    0    0</code></pre>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="matrix.html#cb502-1" tabindex="-1"></a>x<span class="sc">*</span>y  <span class="co"># element-wise multiplication</span></span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="matrix.html#cb529-1" tabindex="-1"></a>x<span class="sc">*</span>y  <span class="co"># element-wise multiplication</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    9
 ## [2,]   16   25   36</code></pre>
@@ -683,11 +684,11 @@ subtraction, multiplication, and division.</li>
 <li><p>Note that <code>A*B</code> <strong>does not</strong> perform true matrix multiplication of matrices <code>A</code> and <code>B</code>.</p></li>
 <li><p>Matrix multiplication is done with <code>%*%</code></p></li>
 </ul>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="matrix.html#cb504-1" tabindex="-1"></a>x <span class="sc">%*%</span> <span class="fu">t</span>(y)  <span class="co"># (2x3) x (3x2) matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="matrix.html#cb531-1" tabindex="-1"></a>x <span class="sc">%*%</span> <span class="fu">t</span>(y)  <span class="co"># (2x3) x (3x2) matrix</span></span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]   14   32
 ## [2,]   32   77</code></pre>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="matrix.html#cb506-1" tabindex="-1"></a><span class="fu">t</span>(x) <span class="sc">%*%</span> y  <span class="co"># (3x2) x (2x3) matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="matrix.html#cb533-1" tabindex="-1"></a><span class="fu">t</span>(x) <span class="sc">%*%</span> y  <span class="co"># (3x2) x (2x3) matrix</span></span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]   17   22   27
 ## [2,]   22   29   36
@@ -701,29 +702,29 @@ subtraction, multiplication, and division.</li>
 <ul>
 <li>We can take the <strong>sum</strong> or <strong>mean</strong> of each row/column of a matrix by using either <code>rowSums</code>, <code>rowMeans</code>, <code>colSums</code>, or <code>colMeans</code>.</li>
 </ul>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="matrix.html#cb508-1" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="matrix.html#cb535-1" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    3    5
 ## [2,]    2    4    6</code></pre>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="matrix.html#cb510-1" tabindex="-1"></a><span class="fu">rowSums</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="matrix.html#cb537-1" tabindex="-1"></a><span class="fu">rowSums</span>(A)</span></code></pre></div>
 <pre><code>## [1]  9 12</code></pre>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="matrix.html#cb512-1" tabindex="-1"></a><span class="fu">colSums</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="matrix.html#cb539-1" tabindex="-1"></a><span class="fu">colSums</span>(A)</span></code></pre></div>
 <pre><code>## [1]  3  7 11</code></pre>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="matrix.html#cb514-1" tabindex="-1"></a><span class="fu">rowMeans</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="matrix.html#cb541-1" tabindex="-1"></a><span class="fu">rowMeans</span>(A)</span></code></pre></div>
 <pre><code>## [1] 3 4</code></pre>
 <ul>
 <li>While <code>rowSums</code> works perfectly fine, let’s try writing our own <strong>rowSums()</strong> function:</li>
 </ul>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="matrix.html#cb516-1" tabindex="-1"></a>myRowSums <span class="ot">&lt;-</span><span class="cf">function</span>(x){</span>
-<span id="cb516-2"><a href="matrix.html#cb516-2" tabindex="-1"></a>  ret <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,<span class="fu">nrow</span>(x)) <span class="do">## make an empty vector</span></span>
-<span id="cb516-3"><a href="matrix.html#cb516-3" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(x)) {</span>
-<span id="cb516-4"><a href="matrix.html#cb516-4" tabindex="-1"></a>    ret[i] <span class="ot">&lt;-</span><span class="fu">sum</span>(x[i,])  <span class="do">## take the sum of i-th row</span></span>
-<span id="cb516-5"><a href="matrix.html#cb516-5" tabindex="-1"></a>  }</span>
-<span id="cb516-6"><a href="matrix.html#cb516-6" tabindex="-1"></a>  <span class="fu">return</span> (ret)</span>
-<span id="cb516-7"><a href="matrix.html#cb516-7" tabindex="-1"></a>}</span>
-<span id="cb516-8"><a href="matrix.html#cb516-8" tabindex="-1"></a><span class="fu">rowSums</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="matrix.html#cb543-1" tabindex="-1"></a>myRowSums <span class="ot">&lt;-</span><span class="cf">function</span>(x){</span>
+<span id="cb543-2"><a href="matrix.html#cb543-2" tabindex="-1"></a>  ret <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>,<span class="fu">nrow</span>(x)) <span class="do">## make an empty vector</span></span>
+<span id="cb543-3"><a href="matrix.html#cb543-3" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(x)) {</span>
+<span id="cb543-4"><a href="matrix.html#cb543-4" tabindex="-1"></a>    ret[i] <span class="ot">&lt;-</span><span class="fu">sum</span>(x[i,])  <span class="do">## take the sum of i-th row</span></span>
+<span id="cb543-5"><a href="matrix.html#cb543-5" tabindex="-1"></a>  }</span>
+<span id="cb543-6"><a href="matrix.html#cb543-6" tabindex="-1"></a>  <span class="fu">return</span> (ret)</span>
+<span id="cb543-7"><a href="matrix.html#cb543-7" tabindex="-1"></a>}</span>
+<span id="cb543-8"><a href="matrix.html#cb543-8" tabindex="-1"></a><span class="fu">rowSums</span>(A)</span></code></pre></div>
 <pre><code>## [1]  9 12</code></pre>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="matrix.html#cb518-1" tabindex="-1"></a><span class="fu">myRowSums</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="matrix.html#cb545-1" tabindex="-1"></a><span class="fu">myRowSums</span>(A)</span></code></pre></div>
 <pre><code>## [1]  9 12</code></pre>
 <ul>
 <li><p>The implementation by the function <code>myRowSums</code> works fine.</p></li>
@@ -739,13 +740,13 @@ whenever we want to compute <strong>column-wise/row-wise</strong> summary statis
 </div>
 <div id="apply-dimension-wise-aggregation" class="section level3 hasAnchor" number="6.4.2">
 <h3><span class="header-section-number">6.4.2</span> <strong>apply()</strong>: dimension-wise aggregation<a href="matrix.html#apply-dimension-wise-aggregation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="matrix.html#cb520-1" tabindex="-1"></a><span class="fu">rowSums</span>(A)    <span class="do">## original row-wise sum</span></span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="matrix.html#cb547-1" tabindex="-1"></a><span class="fu">rowSums</span>(A)    <span class="do">## original row-wise sum</span></span></code></pre></div>
 <pre><code>## [1]  9 12</code></pre>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="matrix.html#cb522-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, sum) <span class="do">## this also performs row-wise sum</span></span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="matrix.html#cb549-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, sum) <span class="do">## this also performs row-wise sum</span></span></code></pre></div>
 <pre><code>## [1]  9 12</code></pre>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="matrix.html#cb524-1" tabindex="-1"></a><span class="fu">colSums</span>(A)    <span class="do">## original column-wise sum</span></span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="matrix.html#cb551-1" tabindex="-1"></a><span class="fu">colSums</span>(A)    <span class="do">## original column-wise sum</span></span></code></pre></div>
 <pre><code>## [1]  3  7 11</code></pre>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="matrix.html#cb526-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, sum) <span class="do">## this also performs column-wise sum</span></span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="matrix.html#cb553-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, sum) <span class="do">## this also performs column-wise sum</span></span></code></pre></div>
 <pre><code>## [1]  3  7 11</code></pre>
 <ul>
 <li><p><strong>First parameter</strong> of apply: the <strong>input matrix</strong>.</p></li>
@@ -755,23 +756,23 @@ whenever we want to compute <strong>column-wise/row-wise</strong> summary statis
 </ul></li>
 <li><p><strong>Third parameter</strong> of apply: <strong>function</strong> to evaluate for each row/column</p></li>
 </ul>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="matrix.html#cb528-1" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="matrix.html#cb555-1" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    3    5
 ## [2,]    2    4    6</code></pre>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="matrix.html#cb530-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, sum)  <span class="co"># row sums</span></span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="matrix.html#cb557-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, sum)  <span class="co"># row sums</span></span></code></pre></div>
 <pre><code>## [1]  9 12</code></pre>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="matrix.html#cb532-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, sum)  <span class="co"># column sums</span></span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="matrix.html#cb559-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, sum)  <span class="co"># column sums</span></span></code></pre></div>
 <pre><code>## [1]  3  7 11</code></pre>
 <ul>
 <li>Examples of using apply:</li>
 </ul>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="matrix.html#cb534-1" tabindex="-1"></a><span class="fu">colMeans</span>(A)  <span class="do">## original columnw-wise mean</span></span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="matrix.html#cb561-1" tabindex="-1"></a><span class="fu">colMeans</span>(A)  <span class="do">## original columnw-wise mean</span></span></code></pre></div>
 <pre><code>## [1] 1.5 3.5 5.5</code></pre>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="matrix.html#cb536-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, mean) <span class="do">## same as above</span></span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="matrix.html#cb563-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, mean) <span class="do">## same as above</span></span></code></pre></div>
 <pre><code>## [1] 1.5 3.5 5.5</code></pre>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="matrix.html#cb538-1" tabindex="-1"></a><span class="co"># colMax(A)   ## This will cause ERROR. colmax() does not exist!</span></span>
-<span id="cb538-2"><a href="matrix.html#cb538-2" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, max) <span class="do">## But this works!</span></span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="matrix.html#cb565-1" tabindex="-1"></a><span class="co"># colMax(A)   ## This will cause ERROR. colmax() does not exist!</span></span>
+<span id="cb565-2"><a href="matrix.html#cb565-2" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, max) <span class="do">## But this works!</span></span></code></pre></div>
 <pre><code>## [1] 2 4 6</code></pre>
 </div>
 <div id="using-apply-with-your-own-function" class="section level3 hasAnchor" number="6.4.3">
@@ -791,11 +792,11 @@ whenever we want to compute <strong>column-wise/row-wise</strong> summary statis
 <strong>flexibility</strong> it gives you.</p></li>
 <li><p>You can use <strong>your own</strong> functions to compute <strong>row-wise/column-wise summary measures</strong> for certain measures that may not be implemented in base <strong>R</strong>.</p></li>
 </ul>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="matrix.html#cb540-1" tabindex="-1"></a><span class="do">## define a function named sqsum</span></span>
-<span id="cb540-2"><a href="matrix.html#cb540-2" tabindex="-1"></a>sqsum <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb540-3"><a href="matrix.html#cb540-3" tabindex="-1"></a>  <span class="fu">return</span>( <span class="fu">sum</span>(x<span class="sc">*</span>x) )  <span class="do">## very simple implementation</span></span>
-<span id="cb540-4"><a href="matrix.html#cb540-4" tabindex="-1"></a>}</span>
-<span id="cb540-5"><a href="matrix.html#cb540-5" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, sqsum)    <span class="do">## run sqsum() funciton</span></span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="matrix.html#cb567-1" tabindex="-1"></a><span class="do">## define a function named sqsum</span></span>
+<span id="cb567-2"><a href="matrix.html#cb567-2" tabindex="-1"></a>sqsum <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb567-3"><a href="matrix.html#cb567-3" tabindex="-1"></a>  <span class="fu">return</span>( <span class="fu">sum</span>(x<span class="sc">*</span>x) )  <span class="do">## very simple implementation</span></span>
+<span id="cb567-4"><a href="matrix.html#cb567-4" tabindex="-1"></a>}</span>
+<span id="cb567-5"><a href="matrix.html#cb567-5" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, sqsum)    <span class="do">## run sqsum() funciton</span></span></code></pre></div>
 <pre><code>## [1] 35 56</code></pre>
 <hr />
 <ul>
@@ -803,25 +804,25 @@ whenever we want to compute <strong>column-wise/row-wise</strong> summary statis
 of the apply function.</p></li>
 <li><p>This can be convenient when using straightforward functions that can be written on a single line:</p></li>
 </ul>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="matrix.html#cb542-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, <span class="cf">function</span>(x) {<span class="fu">return</span> (<span class="fu">sum</span>(x<span class="sc">*</span>x))} )    <span class="do">## much simpler!</span></span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="matrix.html#cb569-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, <span class="cf">function</span>(x) {<span class="fu">return</span> (<span class="fu">sum</span>(x<span class="sc">*</span>x))} )    <span class="do">## much simpler!</span></span></code></pre></div>
 <pre><code>## [1] 35 56</code></pre>
 <ul>
 <li>Or, we can write the above apply statement in an even simpler form:</li>
 </ul>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="matrix.html#cb544-1" tabindex="-1"></a><span class="do">## You can omit return() and {} especially </span></span>
-<span id="cb544-2"><a href="matrix.html#cb544-2" tabindex="-1"></a><span class="do">## for simple function definitions</span></span>
-<span id="cb544-3"><a href="matrix.html#cb544-3" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">sum</span>(x<span class="sc">*</span>x) )    <span class="do">## Even simpler!</span></span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="matrix.html#cb571-1" tabindex="-1"></a><span class="do">## You can omit return() and {} especially </span></span>
+<span id="cb571-2"><a href="matrix.html#cb571-2" tabindex="-1"></a><span class="do">## for simple function definitions</span></span>
+<span id="cb571-3"><a href="matrix.html#cb571-3" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">sum</span>(x<span class="sc">*</span>x) )    <span class="do">## Even simpler!</span></span></code></pre></div>
 <pre><code>## [1] 35 56</code></pre>
 <hr />
 <ul>
 <li><strong>apply()</strong> can also return a <strong>matrix</strong></li>
 </ul>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="matrix.html#cb546-1" tabindex="-1"></a><span class="do">## if apply() returns a vector, each row stores results</span></span>
-<span id="cb546-2"><a href="matrix.html#cb546-2" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) )</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="matrix.html#cb573-1" tabindex="-1"></a><span class="do">## if apply() returns a vector, each row stores results</span></span>
+<span id="cb573-2"><a href="matrix.html#cb573-2" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) )</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1    2
 ## [2,]    5    6</code></pre>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="matrix.html#cb548-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) )</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="matrix.html#cb575-1" tabindex="-1"></a><span class="fu">apply</span>(A, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="fu">min</span>(x),<span class="fu">max</span>(x)) )</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    3    5
 ## [2,]    2    4    6</code></pre>
@@ -839,7 +840,7 @@ of the apply function.</p></li>
 </ul></li>
 <li>Suppose we define the matrix <code>X</code> as</li>
 </ol>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="matrix.html#cb550-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rbind</span>( <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>), <span class="at">each=</span><span class="dv">3</span>), <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">6</span>), <span class="at">each=</span><span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="matrix.html#cb577-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rbind</span>( <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>), <span class="at">each=</span><span class="dv">3</span>), <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">6</span>), <span class="at">each=</span><span class="dv">3</span>))</span></code></pre></div>
 <p>What will be the value of <code>apply(X, 2, sum)[2]</code>?</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Write a function called <code>PairwiseMedianDiffs</code> that

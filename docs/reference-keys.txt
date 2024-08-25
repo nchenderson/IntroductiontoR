@@ -21,6 +21,7 @@ logical-operators
 precedence-with-logical-operations
 abbreviating-true-and-false-with-t-and-f
 examples-of-logical-operations-in-r
+logical-operators-and-vectors
 vs.-and-vs.
 if-and-if-else-statements
 if-statements

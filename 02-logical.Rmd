@@ -56,33 +56,33 @@ knitr::kable(AddOperators, format = 'markdown', align=rep('c', 4), padding=4)
 
 * The first main logical operator we will discuss is the **logical AND**
 
-* In **R**, the logical operator **&&** is used to represent the logical **AND**
+* In **R**, the logical operator `&` is used to represent the logical **AND**
 
 * The **logical AND** is used to test whether or not two statements are **both** true.
 
-* For two logical expressions **A** and **B**, the logical expression **A && B** is true
+* For two logical expressions **A** and **B**, the logical expression **A & B** is true
 only if both **A** and **B** evaluate to true.
 
 ```{r, echo=TRUE}
-4 > 2 && 5/2 == 1   ## only the first statement is TRUE
-4 > 2 && "car" == "truck"   ## only the first statement is TRUE
-4 > 2 && 3 < 5   ## both statements are TRUE
+4 > 2 & 5/2 == 1   ## only the first statement is TRUE
+4 > 2 & "car" == "truck"   ## only the first statement is TRUE
+4 > 2 & 3 < 5   ## both statements are TRUE
 ```
 
 ---
 
 
-* The logical operator **||** is used in **R** to represent the logical **OR**.
+* The logical operator `|` is used in **R** to represent the logical **OR**.
 
-* For two Boolean expressions **A** and **B**, the Boolean expression **A || B** is true if at least one of **A** and **B** evaluates to true.
+* For two Boolean expressions **A** and **B**, the Boolean expression **A | B** is true if at least one of **A** and **B** evaluates to true.
 
-* Note that if **A** and **B** are both true, **A || B** will be true; **or** does not mean only one of
+* Note that if **A** and **B** are both true, **A | B** will be true; **or** does not mean only one of
 **A** and **B** is true.
 
 ```{r, echo=TRUE}
-4 > 2 || 5/2 == 1  ## only the first statement is TRUE
-4 > 2 || "car" == "truck"  ## only the first statement is TRUE
-4 > 2 || 3 < 5  ## both statements are TRUE
+4 > 2 | 5/2 == 1  ## only the first statement is TRUE
+4 > 2 | "car" == "truck"  ## only the first statement is TRUE
+4 > 2 | 3 < 5  ## both statements are TRUE
 ```
 
 
@@ -94,8 +94,8 @@ only if both **A** and **B** evaluate to true.
 
 ```{r, echo=TRUE}
 !4 > 2  
-!4 > 2 && 3 > 1  ## !4 > 2 is FALSE
-!(!4 > 2 && !3 > 1) ## expression in parentheses is evaluated first
+!4 > 2 & 3 > 1  ## !4 > 2 is FALSE
+!(!4 > 2 & !3 > 1) ## expression in parentheses is evaluated first
 ```
 
 ---
@@ -103,9 +103,9 @@ only if both **A** and **B** evaluate to true.
 * Note that we can apply logical operations to the keywords `TRUE` and `FALSE` themselves:
 ```{r, echo = TRUE}
 
-TRUE && FALSE ## logical AND
+TRUE & FALSE ## logical AND
 
-TRUE || FALSE ## logical OR
+TRUE | FALSE ## logical OR
 
 !TRUE  ## logical NOT
 
@@ -116,8 +116,8 @@ TRUE || FALSE ## logical OR
 ```{r, echo=FALSE}
 add.operator <- c("!","", "&&", "", "", "", "||", "", "", "")
 add.meaning <- c("Logical NOT", "", "Logical AND", "", "", "", "Logical OR", "", "", "")
-add.example <- c("!TRUE", "!FALSE", "FALSE && FALSE", "TRUE && FALSE", "FALSE && TRUE", "TRUE && TRUE",
-                 "FALSE || FALSE", "TRUE || FALSE", "FALSE || TRUE", "TRUE || TRUE")
+add.example <- c("!TRUE", "!FALSE", "FALSE & FALSE", "TRUE & FALSE", "FALSE & TRUE", "TRUE & TRUE",
+                 "FALSE | FALSE", "TRUE | FALSE", "FALSE | TRUE", "TRUE | TRUE")
 add.result <- c("FALSE", "TRUE", "FALSE", "FALSE", "FALSE", "TRUE", "FALSE", "TRUE", "TRUE", "TRUE")
 AddOperators <- data.frame(Operator=add.operator, Meaning=add.meaning, Example=add.example, Result = add.result)
 knitr::kable(AddOperators, format = 'markdown', align=rep('c', 4), padding=4)
@@ -126,7 +126,7 @@ knitr::kable(AddOperators, format = 'markdown', align=rep('c', 4), padding=4)
 ### Precedence with logical operations
 
 ```{r, echo=FALSE}
-add.operators <- c("&&, ||, !", "+, -", "*, /, %%", "**, ^", "(expressions ...)")
+add.operators <- c("&, |, !", "+, -", "*, /, %%", "**, ^", "(expressions ...)")
 add.description <- c("Boolean operators", "Addition and subtraction", "Multiplication, division, remainder", "Exponentiation", "Parenthesis")
 add.precedence <- c("Low", "", "","", "High")
 AddOperators <- data.frame(Operators=add.operators, Meaning=add.description, Precedence =add.precedence)
@@ -138,9 +138,6 @@ knitr::kable(AddOperators, format = 'markdown', align=rep('c', 3), padding=3)
 4 + 2 > 5
 4 + 2 == 6
 ```
-
-
-
 
 
 
@@ -180,35 +177,20 @@ F        ## F still represents FALSE
 
 ```{r, echo = TRUE}
 
-TRUE || FALSE  ## boolean OR
+TRUE | FALSE  ## boolean OR
 
 !TRUE          ## NOT operator
 
-!TRUE || TRUE    ## Which one will get evaluated first?
+!TRUE | TRUE    ## Which one will get evaluated first?
 
-! (TRUE || TRUE) ## How about this time?
+! (TRUE | TRUE) ## How about this time?
 ```
 
+### logical operators and vectors
 
-### && vs. & and || vs. |
+* You can also apply the logical operators `&`, `|`, `!` to two vectors.
 
-* You can also use `&` for the logical **AND** operator.
-
-* You can also use `|` for the logical **OR** operator.
-    
-* When comparing logical vectors of **length 1**:
-   + && and & will return the **same thing**. 
-   + || and  | will return the **same thing**.
-   
-* && vs. & or || vs. | only differ when comparing **logical vectors** that have lengths **longer than 1**.
-
-```{r, echo=TRUE}
-TRUE & FALSE  ## Same as TRUE && FALSE
-TRUE | FALSE  ## Same as TRUE || FALSE
-```
-
-
-* As an example of the distinction between && and &, let us define two logical vectors `x` and `y`
+* As an example, let us first define two logical vectors `x` and `y` of length 4
 ```{r, echo=TRUE}
 x <- c(TRUE, FALSE, TRUE, FALSE)
 y <- c(TRUE, TRUE, FALSE, FALSE)
@@ -216,19 +198,46 @@ x
 y
 ```
 
-* Let's see what happens if we then run `x && y` and `x & y`:
+* Applying the logical operator `&` to `x` and `y` will apply an **element-by-element** 
+logical **and** to the elements of `x` and `y`.
 
+* That is, running `x & y` will return the following result
 ```{r, echo=TRUE, eval=FALSE}
-x && y  ## && just compares the first two elements 
 x & y  ## & returns a vector comparing element-by-element
 ```
 
-* Similarly, let's see what happens when we run `x || y` vs. `x | y`:
+* Similarly, applying the logical operator `|` to `x` and `y` will apply an **element-by-element** 
+logical **or** to the elements of `x` and `y`.
 ```{r, echo=TRUE, eval=FALSE}
-x || y  ## || just compares the first two elements 
 x | y  ## | returns a vector comparing element-by-element
+```
+
+* Using the logical operator `!` with a vector will just return a vector where the `TRUE` values have been switched to `FALSE`
+and the `FALSE` values have been switched to `TRUE`:
+```{r}
 !x
 ```
+
+
+### && vs. & and || vs. |
+
+* I would suggest using `&` for the logical **AND** operator and `|` for the logical **OR** operator.
+
+* You may sometimes see `&&` and `||` being used in **R** code.
+
+* `&&` and `||` can only be used for comparing vectors of length 1.
+ 
+    - For vectors of length 1, they do the exact same thing as `&` and `|`
+
+* For example,
+```{r, echo=TRUE}
+TRUE & FALSE  ## Same as TRUE && FALSE
+TRUE & FALSE  
+
+TRUE | FALSE  ## Same as TRUE || FALSE
+TRUE || FALSE  
+```
+
 
 ## If and If-else statements 
 
@@ -266,6 +275,7 @@ if (FALSE) { # if condition is FALSE
 
 ### if statement examples
 
+* Example 1: Running the following code will output the message in the `if` statement because the logical expression `x < y` evalutes to TRUE
 ```{r, echo = TRUE}
 
 x <- 1
@@ -273,14 +283,19 @@ y <- 2
 if (x < y ) {
   "x is smaller than y"
 }
+```
 
+* Example 2: Running the following code will not print out anything:
+```{r}
+x <- 1
+y <- 2
 if (x > y ) {
   "x is greater than y"
 }
 ```
 
 
-
+* Example 3:
 ```{r, echo = TRUE}
 
 x <- 3
@@ -295,19 +310,21 @@ if (x > y ) {
 ```
 
 
-
+* Example 4:
 ```{r, echo=TRUE}
 if( 2 < 3 ) {
     "Hello"
 }
 ```
 
+* Example 5:
 ```{r, echo=TRUE}
 if( "dog" == "cat" ) {
     "Hello"
 }
 ```
 
+* Example 6:
 ```{r, echo=TRUE}
 d = 2
 if( d < 3 && d == 2.5) {
@@ -315,6 +332,7 @@ if( d < 3 && d == 2.5) {
 }
 ```
 
+* Example 7:
 ```{r, echo=TRUE}
 if( 2 < 3 || 2 == 2.5) {
     "Hello"

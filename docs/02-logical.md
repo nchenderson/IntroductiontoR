@@ -77,16 +77,16 @@ x
 
 * The first main logical operator we will discuss is the **logical AND**
 
-* In **R**, the logical operator **&&** is used to represent the logical **AND**
+* In **R**, the logical operator `&` is used to represent the logical **AND**
 
 * The **logical AND** is used to test whether or not two statements are **both** true.
 
-* For two logical expressions **A** and **B**, the logical expression **A && B** is true
+* For two logical expressions **A** and **B**, the logical expression **A & B** is true
 only if both **A** and **B** evaluate to true.
 
 
 ``` r
-4 > 2 && 5/2 == 1   ## only the first statement is TRUE
+4 > 2 & 5/2 == 1   ## only the first statement is TRUE
 ```
 
 ```
@@ -94,7 +94,7 @@ only if both **A** and **B** evaluate to true.
 ```
 
 ``` r
-4 > 2 && "car" == "truck"   ## only the first statement is TRUE
+4 > 2 & "car" == "truck"   ## only the first statement is TRUE
 ```
 
 ```
@@ -102,7 +102,7 @@ only if both **A** and **B** evaluate to true.
 ```
 
 ``` r
-4 > 2 && 3 < 5   ## both statements are TRUE
+4 > 2 & 3 < 5   ## both statements are TRUE
 ```
 
 ```
@@ -112,16 +112,16 @@ only if both **A** and **B** evaluate to true.
 ---
 
 
-* The logical operator **||** is used in **R** to represent the logical **OR**.
+* The logical operator `|` is used in **R** to represent the logical **OR**.
 
-* For two Boolean expressions **A** and **B**, the Boolean expression **A || B** is true if at least one of **A** and **B** evaluates to true.
+* For two Boolean expressions **A** and **B**, the Boolean expression **A | B** is true if at least one of **A** and **B** evaluates to true.
 
-* Note that if **A** and **B** are both true, **A || B** will be true; **or** does not mean only one of
+* Note that if **A** and **B** are both true, **A | B** will be true; **or** does not mean only one of
 **A** and **B** is true.
 
 
 ``` r
-4 > 2 || 5/2 == 1  ## only the first statement is TRUE
+4 > 2 | 5/2 == 1  ## only the first statement is TRUE
 ```
 
 ```
@@ -129,7 +129,7 @@ only if both **A** and **B** evaluate to true.
 ```
 
 ``` r
-4 > 2 || "car" == "truck"  ## only the first statement is TRUE
+4 > 2 | "car" == "truck"  ## only the first statement is TRUE
 ```
 
 ```
@@ -137,7 +137,7 @@ only if both **A** and **B** evaluate to true.
 ```
 
 ``` r
-4 > 2 || 3 < 5  ## both statements are TRUE
+4 > 2 | 3 < 5  ## both statements are TRUE
 ```
 
 ```
@@ -161,7 +161,7 @@ only if both **A** and **B** evaluate to true.
 ```
 
 ``` r
-!4 > 2 && 3 > 1  ## !4 > 2 is FALSE
+!4 > 2 & 3 > 1  ## !4 > 2 is FALSE
 ```
 
 ```
@@ -169,7 +169,7 @@ only if both **A** and **B** evaluate to true.
 ```
 
 ``` r
-!(!4 > 2 && !3 > 1) ## expression in parentheses is evaluated first
+!(!4 > 2 & !3 > 1) ## expression in parentheses is evaluated first
 ```
 
 ```
@@ -181,7 +181,7 @@ only if both **A** and **B** evaluate to true.
 * Note that we can apply logical operations to the keywords `TRUE` and `FALSE` themselves:
 
 ``` r
-TRUE && FALSE ## logical AND
+TRUE & FALSE ## logical AND
 ```
 
 ```
@@ -189,7 +189,7 @@ TRUE && FALSE ## logical AND
 ```
 
 ``` r
-TRUE || FALSE ## logical OR
+TRUE | FALSE ## logical OR
 ```
 
 ```
@@ -207,29 +207,29 @@ TRUE || FALSE ## logical OR
 * The below table summarizes the logical operations discussed.
   
 
-|      Operator      |      Meaning      |            Example             |    Result    |
-|:------------------:|:-----------------:|:------------------------------:|:------------:|
-|         !          |    Logical NOT    |             !TRUE              |    FALSE     |
-|                    |                   |             !FALSE             |     TRUE     |
-|         &&         |    Logical AND    |         FALSE && FALSE         |    FALSE     |
-|                    |                   |         TRUE && FALSE          |    FALSE     |
-|                    |                   |         FALSE && TRUE          |    FALSE     |
-|                    |                   |          TRUE && TRUE          |     TRUE     |
-|    &#124;&#124;    |    Logical OR     |    FALSE &#124;&#124; FALSE    |    FALSE     |
-|                    |                   |    TRUE &#124;&#124; FALSE     |     TRUE     |
-|                    |                   |    FALSE &#124;&#124; TRUE     |     TRUE     |
-|                    |                   |     TRUE &#124;&#124; TRUE     |     TRUE     |
+|      Operator      |      Meaning      |         Example          |    Result    |
+|:------------------:|:-----------------:|:------------------------:|:------------:|
+|         !          |    Logical NOT    |          !TRUE           |    FALSE     |
+|                    |                   |          !FALSE          |     TRUE     |
+|         &&         |    Logical AND    |      FALSE & FALSE       |    FALSE     |
+|                    |                   |       TRUE & FALSE       |    FALSE     |
+|                    |                   |       FALSE & TRUE       |    FALSE     |
+|                    |                   |       TRUE & TRUE        |     TRUE     |
+|    &#124;&#124;    |    Logical OR     |    FALSE &#124; FALSE    |    FALSE     |
+|                    |                   |    TRUE &#124; FALSE     |     TRUE     |
+|                    |                   |    FALSE &#124; TRUE     |     TRUE     |
+|                    |                   |     TRUE &#124; TRUE     |     TRUE     |
 
 ### Precedence with logical operations
 
 
-|        Operators        |                 Meaning                 |   Precedence   |
-|:-----------------------:|:---------------------------------------:|:--------------:|
-|   &&, &#124;&#124;, !   |            Boolean operators            |      Low       |
-|          +, -           |        Addition and subtraction         |                |
-|        *, /, %%         |   Multiplication, division, remainder   |                |
-|          **, ^          |             Exponentiation              |                |
-|    (expressions ...)    |               Parenthesis               |      High      |
+|       Operators       |                 Meaning                 |   Precedence   |
+|:---------------------:|:---------------------------------------:|:--------------:|
+|     &, &#124;, !      |            Boolean operators            |      Low       |
+|         +, -          |        Addition and subtraction         |                |
+|       *, /, %%        |   Multiplication, division, remainder   |                |
+|         **, ^         |             Exponentiation              |                |
+|   (expressions ...)   |               Parenthesis               |      High      |
 
 * Mathematical operations are generally performed before logical operations.
 
@@ -248,9 +248,6 @@ TRUE || FALSE ## logical OR
 ```
 ## [1] TRUE
 ```
-
-
-
 
 
 
@@ -325,7 +322,7 @@ F        ## F still represents FALSE
 
 
 ``` r
-TRUE || FALSE  ## boolean OR
+TRUE | FALSE  ## boolean OR
 ```
 
 ```
@@ -341,7 +338,7 @@ TRUE || FALSE  ## boolean OR
 ```
 
 ``` r
-!TRUE || TRUE    ## Which one will get evaluated first?
+!TRUE | TRUE    ## Which one will get evaluated first?
 ```
 
 ```
@@ -349,45 +346,18 @@ TRUE || FALSE  ## boolean OR
 ```
 
 ``` r
-! (TRUE || TRUE) ## How about this time?
+! (TRUE | TRUE) ## How about this time?
 ```
 
 ```
 ## [1] FALSE
 ```
 
+### logical operators and vectors
 
-### && vs. & and || vs. |
+* You can also apply the logical operators `&`, `|`, `!` to two vectors.
 
-* You can also use `&` for the logical **AND** operator.
-
-* You can also use `|` for the logical **OR** operator.
-    
-* When comparing logical vectors of **length 1**:
-   + && and & will return the **same thing**. 
-   + || and  | will return the **same thing**.
-   
-* && vs. & or || vs. | only differ when comparing **logical vectors** that have lengths **longer than 1**.
-
-
-``` r
-TRUE & FALSE  ## Same as TRUE && FALSE
-```
-
-```
-## [1] FALSE
-```
-
-``` r
-TRUE | FALSE  ## Same as TRUE || FALSE
-```
-
-```
-## [1] TRUE
-```
-
-
-* As an example of the distinction between && and &, let us define two logical vectors `x` and `y`
+* As an example, let us first define two logical vectors `x` and `y` of length 4
 
 ``` r
 x <- c(TRUE, FALSE, TRUE, FALSE)
@@ -407,21 +377,78 @@ y
 ## [1]  TRUE  TRUE FALSE FALSE
 ```
 
-* Let's see what happens if we then run `x && y` and `x & y`:
+* Applying the logical operator `&` to `x` and `y` will apply an **element-by-element** 
+logical **and** to the elements of `x` and `y`.
 
+* That is, running `x & y` will return the following result
 
 ``` r
-x && y  ## && just compares the first two elements 
 x & y  ## & returns a vector comparing element-by-element
 ```
 
-* Similarly, let's see what happens when we run `x || y` vs. `x | y`:
+* Similarly, applying the logical operator `|` to `x` and `y` will apply an **element-by-element** 
+logical **or** to the elements of `x` and `y`.
 
 ``` r
-x || y  ## || just compares the first two elements 
 x | y  ## | returns a vector comparing element-by-element
+```
+
+* Using the logical operator `!` with a vector will just return a vector where the `TRUE` values have been switched to `FALSE`
+and the `FALSE` values have been switched to `TRUE`:
+
+``` r
 !x
 ```
+
+```
+## [1] FALSE  TRUE FALSE  TRUE
+```
+
+
+### && vs. & and || vs. |
+
+* I would suggest using `&` for the logical **AND** operator and `|` for the logical **OR** operator.
+
+* You may sometimes see `&&` and `||` being used in **R** code.
+
+* `&&` and `||` can only be used for comparing vectors of length 1.
+ 
+    - For vectors of length 1, they do the exact same thing as `&` and `|`
+
+* For example,
+
+``` r
+TRUE & FALSE  ## Same as TRUE && FALSE
+```
+
+```
+## [1] FALSE
+```
+
+``` r
+TRUE & FALSE  
+```
+
+```
+## [1] FALSE
+```
+
+``` r
+TRUE | FALSE  ## Same as TRUE || FALSE
+```
+
+```
+## [1] TRUE
+```
+
+``` r
+TRUE || FALSE  
+```
+
+```
+## [1] TRUE
+```
+
 
 ## If and If-else statements 
 
@@ -466,6 +493,7 @@ if (FALSE) { # if condition is FALSE
 
 ### if statement examples
 
+* Example 1: Running the following code will output the message in the `if` statement because the logical expression `x < y` evalutes to TRUE
 
 ``` r
 x <- 1
@@ -479,14 +507,18 @@ if (x < y ) {
 ## [1] "x is smaller than y"
 ```
 
+* Example 2: Running the following code will not print out anything:
+
 ``` r
+x <- 1
+y <- 2
 if (x > y ) {
   "x is greater than y"
 }
 ```
 
 
-
+* Example 3:
 
 ``` r
 x <- 3
@@ -505,7 +537,7 @@ if (x > y ) {
 ```
 
 
-
+* Example 4:
 
 ``` r
 if( 2 < 3 ) {
@@ -517,6 +549,7 @@ if( 2 < 3 ) {
 ## [1] "Hello"
 ```
 
+* Example 5:
 
 ``` r
 if( "dog" == "cat" ) {
@@ -524,6 +557,7 @@ if( "dog" == "cat" ) {
 }
 ```
 
+* Example 6:
 
 ``` r
 d = 2
@@ -532,6 +566,7 @@ if( d < 3 && d == 2.5) {
 }
 ```
 
+* Example 7:
 
 ``` r
 if( 2 < 3 || 2 == 2.5) {

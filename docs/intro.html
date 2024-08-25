@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2024-08-23" />
+<meta name="date" content="2024-08-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,7 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1.3" data-path="ifelse.html"><a href="ifelse.html#precedence-with-logical-operations"><i class="fa fa-check"></i><b>2.1.3</b> Precedence with logical operations</a></li>
 <li class="chapter" data-level="2.1.4" data-path="ifelse.html"><a href="ifelse.html#abbreviating-true-and-false-with-t-and-f"><i class="fa fa-check"></i><b>2.1.4</b> Abbreviating TRUE and FALSE with T and F</a></li>
 <li class="chapter" data-level="2.1.5" data-path="ifelse.html"><a href="ifelse.html#examples-of-logical-operations-in-r"><i class="fa fa-check"></i><b>2.1.5</b> Examples of logical operations in R</a></li>
-<li class="chapter" data-level="2.1.6" data-path="ifelse.html"><a href="ifelse.html#vs.-and-vs."><i class="fa fa-check"></i><b>2.1.6</b> &amp;&amp; vs. &amp; and || vs. |</a></li>
+<li class="chapter" data-level="2.1.6" data-path="ifelse.html"><a href="ifelse.html#logical-operators-and-vectors"><i class="fa fa-check"></i><b>2.1.6</b> logical operators and vectors</a></li>
+<li class="chapter" data-level="2.1.7" data-path="ifelse.html"><a href="ifelse.html#vs.-and-vs."><i class="fa fa-check"></i><b>2.1.7</b> &amp;&amp; vs. &amp; and || vs. |</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="ifelse.html"><a href="ifelse.html#if-and-if-else-statements"><i class="fa fa-check"></i><b>2.2</b> If and If-else statements</a>
 <ul>
@@ -470,16 +471,18 @@ and <strong>columns</strong> (which usually represent different variables).</p>
 ## 5 N10575   2002 Fixed wing multi … EMBRAER      EMB-…       2    55    NA Turbo…
 ## 6 N105UW   1999 Fixed wing multi … AIRBUS INDU… A320…       2   182    NA Turbo…</code></pre>
 <ul>
-<li><p>The <code>planes</code> data frame has 9 variables.
-<code>tailnum</code>: The tail number of the plane. This number is a unique identifier for each plane
-<code>year</code>: The year the plane manufactured.
-<code>type</code>: The type of plane.
-<code>manufacturer</code>: manufacturer of the plane
-<code>model</code>: model of the plane
-<code>engines</code>: number of engines that the plane has
-<code>seats</code>: number of seats that the plane has
-<code>speed</code>: Average cruising speed in mph.
-<code>engine</code>: Type of engine.</p></li>
+<li><p>The <code>planes</code> data frame has 9 variables.</p>
+<ul>
+<li><code>tailnum</code>: The tail number of the plane. This number is a unique identifier for each plane.</li>
+<li><code>year</code>: The year the plane manufactured.</li>
+<li><code>type</code>: The type of plane.</li>
+<li><code>manufacturer</code>: The manufacturer of the plane.</li>
+<li><code>model</code>: The model of the plane.</li>
+<li><code>engines</code>: The number of engines that the plane has.</li>
+<li><code>seats</code>: The number of seats that the plane has.</li>
+<li><code>speed</code>: Average cruising speed in mph.</li>
+<li><code>engine</code>: Type of engine.</li>
+</ul></li>
 <li><p>Running the command <code>help(planes)</code> can give <strong>more information</strong> about this dataset.</p></li>
 </ul>
 </div>
@@ -908,6 +911,72 @@ expressions into the <strong>R</strong> console:</li>
 </div>
 <div id="brief-introduction-to-vectors-in-r" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Brief introduction to vectors in R<a href="intro.html#brief-introduction-to-vectors-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>The vector is probably the most fundamental data structure in R.</p></li>
+<li><p>A vector is essentially a <strong>collection</strong> of elements that all have the same “type”.</p>
+<ul>
+<li><p>For example, a vector can be composed of a collection of numbers or a collection of characters.</p></li>
+<li><p>However, a vector cannot contain both numbers and characters.</p></li>
+</ul></li>
+</ul>
+<hr />
+<ul>
+<li><p>As an example, we can create a vector named <code>x</code> that contains the numbers 1, 7, and 4.</p>
+<ul>
+<li>This is done with the following <strong>R</strong> code:</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="intro.html#cb71-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">4</span>)</span></code></pre></div>
+<ul>
+<li><p>The variable <code>x</code> is a <strong>vector of length 3</strong>. The first element of <code>x</code> is 1, the second element of <code>x</code> is 7,
+and the third element of <code>x</code> is 4.</p></li>
+<li><p>You can <strong>access</strong> elements of the vector <code>x</code> by using the <code>[i]</code> syntax.</p></li>
+<li><p>For example, if you wanted to look at the second element of <code>x</code> you would use:</p></li>
+</ul>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="intro.html#cb72-1" tabindex="-1"></a>x[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<hr />
+<ul>
+<li><p>For vectors that contain numeric values, <strong>R</strong> has many built-in functions that can compute
+<strong>summary statistics</strong> about the numbers the vector.</p></li>
+<li><p>For example, if we create the vector <code>y</code> that has values 1, 3, 10, 8,</p></li>
+</ul>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="intro.html#cb74-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">8</span>)</span></code></pre></div>
+<p>then we can easily compute the <strong>minimum, median, maximum, and standard deviation</strong> of this vector with the following R code:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="intro.html#cb75-1" tabindex="-1"></a><span class="fu">min</span>(y)     <span class="do">## minimum of y</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="intro.html#cb77-1" tabindex="-1"></a><span class="fu">median</span>(y)  <span class="do">## median of y</span></span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="intro.html#cb79-1" tabindex="-1"></a><span class="fu">max</span>(y)     <span class="do">## maximum of y</span></span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="intro.html#cb81-1" tabindex="-1"></a><span class="fu">sd</span>(y)      <span class="do">## standard deviation of y</span></span></code></pre></div>
+<pre><code>## [1] 4.203173</code></pre>
+<hr />
+<ul>
+<li><p>As we saw in the <code>nycflights</code> example, when we extract a data variable from a data frame, <strong>R</strong>
+returns the data variable as a <strong>vector</strong>.</p></li>
+<li><p>For example, if we extract the <code>seats</code> variable from the <code>planes</code> data frame and assign it to
+a variable named <code>num_seats</code>, then <code>num_seats</code> will be a numeric vector</p></li>
+</ul>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="intro.html#cb83-1" tabindex="-1"></a>num_seats <span class="ot">&lt;-</span> planes<span class="sc">$</span>seats</span></code></pre></div>
+<ul>
+<li>The vector <code>num_seats</code> has 3322 elements in it:</li>
+</ul>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="intro.html#cb84-1" tabindex="-1"></a><span class="fu">length</span>( num_seats )</span></code></pre></div>
+<pre><code>## [1] 3322</code></pre>
+<ul>
+<li>The 10th element of <code>num_seats</code> is 182:</li>
+</ul>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="intro.html#cb86-1" tabindex="-1"></a>num_seats[<span class="dv">10</span>]</span></code></pre></div>
+<pre><code>## [1] 182</code></pre>
+<ul>
+<li>The <strong>mean</strong> of the elements in <code>num_seats</code> is 154.3</li>
+</ul>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="intro.html#cb88-1" tabindex="-1"></a><span class="fu">mean</span>(num_seats)</span></code></pre></div>
+<pre><code>## [1] 154.3164</code></pre>
+<p>and the largest number inside the <code>num_seats</code> vector is 450:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="intro.html#cb90-1" tabindex="-1"></a><span class="dv">450</span></span></code></pre></div>
+<pre><code>## [1] 450</code></pre>
 </div>
 <div id="exercises" class="section level2 hasAnchor" number="1.7">
 <h2><span class="header-section-number">1.7</span> Exercises<a href="intro.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>

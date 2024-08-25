@@ -135,15 +135,16 @@ head(planes)
 ```
 
 * The `planes` data frame has 9 variables.
-`tailnum`: The tail number of the plane. This number is a unique identifier for each plane
-`year`: The year the plane manufactured.
-`type`: The type of plane.
-`manufacturer`: manufacturer of the plane
-`model`: model of the plane
-`engines`: number of engines that the plane has
-`seats`: number of seats that the plane has
-`speed`: Average cruising speed in mph.
-`engine`: Type of engine.
+
+    - `tailnum`: The tail number of the plane. This number is a unique identifier for each plane.
+    - `year`: The year the plane manufactured.
+    - `type`: The type of plane.
+    - `manufacturer`: The manufacturer of the plane.
+    - `model`: The model of the plane.
+    - `engines`: The number of engines that the plane has.
+    - `seats`: The number of seats that the plane has.
+    - `speed`: Average cruising speed in mph.
+    - `engine`: Type of engine.
 
 * Running the command `help(planes)` can give **more information** about this dataset.
 
@@ -503,6 +504,84 @@ expressions into the **R** console:
 ```
 
 ## Brief introduction to vectors in R
+
+* The vector is probably the most fundamental data structure in R.
+
+* A vector is essentially a **collection** of elements that all have the same "type".
+
+    - For example, a vector can be composed of a collection of numbers or a collection of characters.
+    
+    - However, a vector cannot contain both numbers and characters.
+
+---
+
+* As an example, we can create a vector named `x` that contains the numbers 1, 7, and 4.
+ 
+    - This is done with the following **R** code:
+    
+```{r}
+x <- c(1, 7, 4)
+```
+
+* The variable `x` is a **vector of length 3**. The first element of `x` is 1, the second element of `x` is 7,
+and the third element of `x` is 4.
+
+* You can **access** elements of the vector `x` by using the `[i]` syntax.
+
+* For example, if you wanted to look at the second element of `x` you would use:
+```{r}
+x[2]
+```
+
+
+---
+
+* For vectors that contain numeric values, **R** has many built-in functions that can compute
+**summary statistics** about the numbers the vector.
+
+* For example, if we create the vector `y` that has values 1, 3, 10, 8,
+```{r}
+y <- c(1, 3, 10, 8)
+```
+then we can easily compute the **minimum, median, maximum, and standard deviation** of this vector with the following R code:
+```{r}
+min(y)     ## minimum of y
+median(y)  ## median of y
+max(y)     ## maximum of y
+sd(y)      ## standard deviation of y
+```
+
+---
+
+* As we saw in the `nycflights` example, when we extract a data variable from a data frame, **R** 
+returns the data variable as a **vector**.
+
+* For example, if we extract the `seats` variable from the `planes` data frame and assign it to
+a variable named `num_seats`, then `num_seats` will be a numeric vector
+```{r}
+num_seats <- planes$seats
+```
+
+* The vector `num_seats` has 3322 elements in it:
+```{r}
+length( num_seats )
+```
+
+* The 10th element of `num_seats` is 182:
+```{r}
+num_seats[10]
+```
+
+* The **mean** of the elements in `num_seats` is 154.3
+```{r}
+mean(num_seats)
+```
+and the largest number inside the `num_seats` vector is 450:
+```{r}
+450
+```
+
+
 
 ## Exercises
 
