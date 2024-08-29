@@ -30,6 +30,7 @@ single-line-if-statements
 if-else-statements
 if-else-if-chains
 nested-if-else-statements
+the-ifelse-function
 exercises-1
 functions
 built-in-r-functions

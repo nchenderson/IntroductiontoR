@@ -826,12 +826,11 @@ vector `c(6, 0, 9, 10, 11, 12)`.
 ### Logical operations with vectors
 
 * You can do **AND** and **OR**-type operations with logical vectors.
-    + Remember that `&` acts like a **"vector version"** of `&&`
-    + Remember that `|` acts like a **"vector version"** of `||`
+    + This will apply the logical operation each element at a time.
 
 
 ``` r
-c(TRUE, TRUE, FALSE) & c(TRUE,FALSE,FALSE) # element-wise
+c(TRUE, TRUE, FALSE) & c(TRUE,FALSE,FALSE) # element-wise logical and
 ```
 
 ```
@@ -839,7 +838,7 @@ c(TRUE, TRUE, FALSE) & c(TRUE,FALSE,FALSE) # element-wise
 ```
 
 ``` r
-c(TRUE, TRUE, FALSE) | c(TRUE,FALSE,FALSE) # element-wise
+c(TRUE, TRUE, FALSE) | c(TRUE,FALSE,FALSE) # element-wise logical or
 ```
 
 ```

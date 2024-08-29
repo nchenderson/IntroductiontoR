@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2024-08-24" />
+<meta name="date" content="2024-08-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -187,7 +187,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.1" data-path="ifelse.html"><a href="ifelse.html#if-else-if-chains"><i class="fa fa-check"></i><b>2.3.1</b> if-else-if chains</a></li>
 <li class="chapter" data-level="2.3.2" data-path="ifelse.html"><a href="ifelse.html#nested-if-else-statements"><i class="fa fa-check"></i><b>2.3.2</b> Nested if-else statements</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="ifelse.html"><a href="ifelse.html#exercises-1"><i class="fa fa-check"></i><b>2.4</b> Exercises</a></li>
+<li class="chapter" data-level="2.4" data-path="ifelse.html"><a href="ifelse.html#the-ifelse-function"><i class="fa fa-check"></i><b>2.4</b> The ifelse function</a></li>
+<li class="chapter" data-level="2.5" data-path="ifelse.html"><a href="ifelse.html#exercises-1"><i class="fa fa-check"></i><b>2.5</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3</b> Functions in R</a>
 <ul>
@@ -371,12 +372,12 @@ which <strong>folder</strong> it is in and that you can find the file path for t
 <li><p>For example, if the <strong>gapminder</strong> data was stored in a folder with path <strong>“~/IntrotoR/Data</strong>, we could first type</p></li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="fileinput.html#cb712-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/IntrotoR/Data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="fileinput.html#cb717-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/IntrotoR/Data&quot;</span>)</span></code></pre></div>
 <ul>
 <li>After running <code>setwd</code>, we can now load in the <strong>gapminder</strong> dataset (stored as <code>gapminder_full.csv</code> on my computer) using <code>read.csv</code></li>
 </ul>
-<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="fileinput.html#cb713-1" tabindex="-1"></a>fname <span class="ot">&lt;-</span> <span class="st">&quot;gapminder_full.csv&quot;</span></span>
-<span id="cb713-2"><a href="fileinput.html#cb713-2" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(fname)</span></code></pre></div>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="fileinput.html#cb718-1" tabindex="-1"></a>fname <span class="ot">&lt;-</span> <span class="st">&quot;gapminder_full.csv&quot;</span></span>
+<span id="cb718-2"><a href="fileinput.html#cb718-2" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(fname)</span></code></pre></div>
 <hr />
 <ul>
 <li><p>To import a .csv file (or any other text file) in <strong>Rstudio</strong>, you can also click on the <strong>Import Dataset</strong> button on the top right panel.</p></li>
@@ -392,8 +393,8 @@ for reading in rectangular data stored in text files.</p>
 <li><p><strong>read.table()</strong> can do the same thing as <strong>read.csv()</strong>. The main difference is that the default settings of <strong>read.csv()</strong> are setup to handle .csv files nicely.</p></li>
 <li><p>For example, we could read in the <strong>gapminder</strong> data with <strong>read.table()</strong> using:</p></li>
 </ul>
-<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="fileinput.html#cb714-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(fname, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>) <span class="co"># Set header=TRUE</span></span>
-<span id="cb714-2"><a href="fileinput.html#cb714-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="fileinput.html#cb719-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(fname, <span class="at">header=</span><span class="cn">TRUE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>) <span class="co"># Set header=TRUE</span></span>
+<span id="cb719-2"><a href="fileinput.html#cb719-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>##       country year population continent life_exp  gdp_cap
 ## 1 Afghanistan 1952    8425333      Asia   28.801 779.4453
 ## 2 Afghanistan 1957    9240934      Asia   30.332 820.8530
@@ -405,9 +406,9 @@ for reading in rectangular data stored in text files.</p>
 <ul>
 <li>You can look at the <strong>first few rows</strong> of a loaded data frame using <code>head</code>:</li>
 </ul>
-<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="fileinput.html#cb716-1" tabindex="-1"></a><span class="fu">dim</span>(gapminder) <span class="co"># 1704 observations, 6 variables</span></span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="fileinput.html#cb721-1" tabindex="-1"></a><span class="fu">dim</span>(gapminder) <span class="co"># 1704 observations, 6 variables</span></span></code></pre></div>
 <pre><code>## [1] 1704    6</code></pre>
-<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="fileinput.html#cb718-1" tabindex="-1"></a><span class="fu">head</span>(gapminder, <span class="dv">8</span>)  <span class="do">## look at first 8 rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb723-1"><a href="fileinput.html#cb723-1" tabindex="-1"></a><span class="fu">head</span>(gapminder, <span class="dv">8</span>)  <span class="do">## look at first 8 rows</span></span></code></pre></div>
 <pre><code>##       country year population continent life_exp  gdp_cap
 ## 1 Afghanistan 1952    8425333      Asia   28.801 779.4453
 ## 2 Afghanistan 1957    9240934      Asia   30.332 820.8530
@@ -417,13 +418,13 @@ for reading in rectangular data stored in text files.</p>
 ## 6 Afghanistan 1977   14880372      Asia   38.438 786.1134
 ## 7 Afghanistan 1982   12881816      Asia   39.854 978.0114
 ## 8 Afghanistan 1987   13867957      Asia   40.822 852.3959</code></pre>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="fileinput.html#cb720-1" tabindex="-1"></a>gapminder<span class="sc">$</span>country[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># note that country is a factor</span></span></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="fileinput.html#cb725-1" tabindex="-1"></a>gapminder<span class="sc">$</span>country[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># note that country is a factor</span></span></code></pre></div>
 <pre><code>## [1] &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot;</code></pre>
 <hr />
 <ul>
 <li>Looking at the <strong>structure</strong> of the data frame using <code>str()</code></li>
 </ul>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="fileinput.html#cb722-1" tabindex="-1"></a><span class="fu">str</span>( gapminder )</span></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="fileinput.html#cb727-1" tabindex="-1"></a><span class="fu">str</span>( gapminder )</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    1704 obs. of  6 variables:
 ##  $ country   : chr  &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; ...
 ##  $ year      : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -435,8 +436,8 @@ for reading in rectangular data stored in text files.</p>
 <ul>
 <li>Reading strings as <strong>non-factors</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="fileinput.html#cb724-1" tabindex="-1"></a>gapminder_nofac <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(fname, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb724-2"><a href="fileinput.html#cb724-2" tabindex="-1"></a><span class="fu">head</span>(gapminder_nofac)</span></code></pre></div>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="fileinput.html#cb729-1" tabindex="-1"></a>gapminder_nofac <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(fname, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb729-2"><a href="fileinput.html#cb729-2" tabindex="-1"></a><span class="fu">head</span>(gapminder_nofac)</span></code></pre></div>
 <pre><code>##       country year population continent life_exp  gdp_cap
 ## 1 Afghanistan 1952    8425333      Asia   28.801 779.4453
 ## 2 Afghanistan 1957    9240934      Asia   30.332 820.8530
@@ -444,7 +445,7 @@ for reading in rectangular data stored in text files.</p>
 ## 4 Afghanistan 1967   11537966      Asia   34.020 836.1971
 ## 5 Afghanistan 1972   13079460      Asia   36.088 739.9811
 ## 6 Afghanistan 1977   14880372      Asia   38.438 786.1134</code></pre>
-<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="fileinput.html#cb726-1" tabindex="-1"></a>gapminder_nofac<span class="sc">$</span>country[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># No more &quot;levels&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="fileinput.html#cb731-1" tabindex="-1"></a>gapminder_nofac<span class="sc">$</span>country[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># No more &quot;levels&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot; &quot;Afghanistan&quot;</code></pre>
 <hr />
 <ul>
@@ -454,8 +455,8 @@ for reading in rectangular data stored in text files.</p>
 in the “header” line of the .csv file:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="fileinput.html#cb728-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(fname, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">skip=</span><span class="dv">1</span>) </span>
-<span id="cb728-2"><a href="fileinput.html#cb728-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="fileinput.html#cb733-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(fname, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">skip=</span><span class="dv">1</span>) </span>
+<span id="cb733-2"><a href="fileinput.html#cb733-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>##            V1   V2       V3   V4     V5       V6
 ## 1 Afghanistan 1952  8425333 Asia 28.801 779.4453
 ## 2 Afghanistan 1957  9240934 Asia 30.332 820.8530
@@ -466,8 +467,8 @@ in the “header” line of the .csv file:</li>
 <ul>
 <li>Or, skip the header and the first two rows of the .csv file</li>
 </ul>
-<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="fileinput.html#cb730-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(fname, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">skip=</span><span class="dv">3</span>) </span>
-<span id="cb730-2"><a href="fileinput.html#cb730-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="fileinput.html#cb735-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.table</span>(fname, <span class="at">header=</span><span class="cn">FALSE</span>, <span class="at">sep=</span><span class="st">&quot;,&quot;</span>,<span class="at">skip=</span><span class="dv">3</span>) </span>
+<span id="cb735-2"><a href="fileinput.html#cb735-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>##            V1   V2       V3   V4     V5       V6
 ## 1 Afghanistan 1962 10267083 Asia 31.997 853.1007
 ## 2 Afghanistan 1967 11537966 Asia 34.020 836.1971
@@ -481,19 +482,19 @@ in the “header” line of the .csv file:</li>
 <ul>
 <li>You can read in a dataset directly from a URL:</li>
 </ul>
-<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="fileinput.html#cb732-1" tabindex="-1"></a><span class="co"># Read in ignoring the fact that there is a header line</span></span>
-<span id="cb732-2"><a href="fileinput.html#cb732-2" tabindex="-1"></a>urlname <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;https://web.stanford.edu/~hastie/&quot;</span>,</span>
-<span id="cb732-3"><a href="fileinput.html#cb732-3" tabindex="-1"></a>                 <span class="st">&quot;ElemStatLearn/datasets/bone.data&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb732-4"><a href="fileinput.html#cb732-4" tabindex="-1"></a>bone_dat <span class="ot">&lt;-</span> <span class="fu">read.table</span>(urlname)</span>
-<span id="cb732-5"><a href="fileinput.html#cb732-5" tabindex="-1"></a><span class="fu">head</span>(bone_dat, <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="fileinput.html#cb737-1" tabindex="-1"></a><span class="co"># Read in ignoring the fact that there is a header line</span></span>
+<span id="cb737-2"><a href="fileinput.html#cb737-2" tabindex="-1"></a>urlname <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;https://web.stanford.edu/~hastie/&quot;</span>,</span>
+<span id="cb737-3"><a href="fileinput.html#cb737-3" tabindex="-1"></a>                 <span class="st">&quot;ElemStatLearn/datasets/bone.data&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb737-4"><a href="fileinput.html#cb737-4" tabindex="-1"></a>bone_dat <span class="ot">&lt;-</span> <span class="fu">read.table</span>(urlname)</span>
+<span id="cb737-5"><a href="fileinput.html#cb737-5" tabindex="-1"></a><span class="fu">head</span>(bone_dat, <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##      V1    V2     V3          V4
 ## 1 idnum   age gender      spnbmd
 ## 2     1  11.7   male  0.01808067
 ## 3     1  12.7   male  0.06010929
 ## 4     1 13.75   male 0.005857545</code></pre>
-<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="fileinput.html#cb734-1" tabindex="-1"></a><span class="co"># Set header=TRUE to read in top line as the variable names</span></span>
-<span id="cb734-2"><a href="fileinput.html#cb734-2" tabindex="-1"></a>bone_dat2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(urlname, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
-<span id="cb734-3"><a href="fileinput.html#cb734-3" tabindex="-1"></a><span class="fu">head</span>(bone_dat2, <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="fileinput.html#cb739-1" tabindex="-1"></a><span class="co"># Set header=TRUE to read in top line as the variable names</span></span>
+<span id="cb739-2"><a href="fileinput.html#cb739-2" tabindex="-1"></a>bone_dat2 <span class="ot">&lt;-</span> <span class="fu">read.table</span>(urlname, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
+<span id="cb739-3"><a href="fileinput.html#cb739-3" tabindex="-1"></a><span class="fu">head</span>(bone_dat2, <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##   idnum   age gender      spnbmd
 ## 1     1 11.70   male 0.018080670
 ## 2     1 12.70   male 0.060109290

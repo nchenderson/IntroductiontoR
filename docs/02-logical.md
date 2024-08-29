@@ -3,7 +3,6 @@
 # Logical Expressions and If-Else Statements in R {#ifelse}
 
 
-
 ## Logical Expression in R
 
 * A **Logical** expression is an expression that evaluates to either **TRUE** or **FALSE**.
@@ -426,7 +425,7 @@ TRUE & FALSE  ## Same as TRUE && FALSE
 ```
 
 ``` r
-TRUE & FALSE  
+TRUE && FALSE  
 ```
 
 ```
@@ -470,8 +469,7 @@ if( condition ) {
 * You actually do not have to **indent** the code in `code_chunk1`, but I would **recommend** that you do indent.
 
 
-* The code inside {...} will be executed 
-only if the **condition** of the **if statement** is TRUE.
+* The code inside {...} will be executed only if the **condition** of the **if statement** is TRUE.
 
 
 ``` r
@@ -635,7 +633,7 @@ if( condition ) {
 
 ---
 
-* As an example, let's write an if-else statement that computes the **absolute value** of a number.
+* As an example, let's write an **if-else** statement that computes the **absolute value** of a number.
 
 
 ``` r
@@ -753,10 +751,21 @@ if ( message == "first" ) {
 
 ---
 
-* Be careful about the **location** of **else** in if-else if-else statements
+* Be careful about the **location** of `else` in if-else if-else statements
 
-* In **R**, you do not want to start a line with **else if** or **else**.
+* In **R**, you **do not** want to start a line with `else if` or `else`.
 
+* For example, the following **if-else** statement will not run
+
+``` r
+x <- 3
+if(x < 0) {
+  "x is negative"
+}
+else {
+   "x is not negative"
+}
+```
 
 ### Nested if-else statements 
 
@@ -784,19 +793,63 @@ if ( x %% 2 == 0 ) {  ## first condition
 ```
 
 
+## The ifelse function
+
+* The `ifelse` function is a useful function that acts as a **"vectorized"** if-else statement.
+
+
+
 ## Exercises
 
 1. What will be printed to the screen if you run the **R** code below?
 
 ``` r
 x <- 2
-if(3 < 2 || TRUE) {
+if(3 < 2 | TRUE) {
     x <- 2*x
 } else {
     x <- 0
 }
 print(x)
 ```
+
+
+2. What will be printed to the screen if you run the **R** code below?
+
+``` r
+x <- 2
+if(3 < 2 | TRUE) {
+    x <- 2*x
+} else {
+    x <- 0
+}
+print(x)
+```
+
+3. What number will be printed to the screen if you run the **R** code below?
+
+``` r
+if(3 > 2 & 4 > 3) {
+    x <- 2
+} else if(3 > 2 | 3 < 4) {
+    x <- 3
+} else {
+    x <- 4
+}
+```
+
+
+4. What will the value of the variable `z` be after running the following code: 
+
+``` r
+z <- 1
+x <- c(1, -1)
+if(x[1] > 0 & (x[2] > 0 | TRUE) ) {
+    z <- 5*z 
+}
+```
+
+
 
 
 

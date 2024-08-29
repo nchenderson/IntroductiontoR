@@ -394,5 +394,17 @@ first_while(rep(1:3, each=4), 2)
 
 ## Exercises
 
+1. What will the value of the variable `count` be after running the following code: 
 
-
+``` r
+x <- rep(c(-1,1), each=3)
+y <- x > 0
+x <- c(3, 3, 3, 5, 5)
+count <- 0
+for(k in 1:4) {
+   count <- count + 1
+   if( x[k] != x[k+1]) {
+        break
+   } 
+}
+```
