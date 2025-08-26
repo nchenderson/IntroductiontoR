@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2024-09-02" />
+<meta name="date" content="2025-08-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -66,7 +66,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -212,6 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="functions.html"><a href="functions.html#more-examples-of-writing-functions"><i class="fa fa-check"></i><b>3.5</b> More Examples of Writing Functions</a>
 <ul>
 <li class="chapter" data-level="3.5.1" data-path="functions.html"><a href="functions.html#example-1-passfail-from-a-weighted-average"><i class="fa fa-check"></i><b>3.5.1</b> Example 1: Pass/Fail from a Weighted Average</a></li>
+<li class="chapter" data-level="3.5.2" data-path="functions.html"><a href="functions.html#example-2-1"><i class="fa fa-check"></i><b>3.5.2</b> Example 2: …</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="functions.html"><a href="functions.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a></li>
 </ul></li>
@@ -400,17 +401,17 @@ datasets.</p></li>
 <li><p>One of the built-in datasets is the <strong>PlantGrowth</strong> dataset.</p></li>
 <li><p>You can <strong>load</strong> this dataset into your <strong>R</strong> session by typing in</p></li>
 </ul>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="dataframe.html#cb641-1" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="dataframe.html#cb645-1" tabindex="-1"></a><span class="fu">data</span>(PlantGrowth)</span></code></pre></div>
 <ul>
 <li>Check that <code>PlantGrowth</code> is a data frame by using</li>
 </ul>
-<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="dataframe.html#cb642-1" tabindex="-1"></a><span class="fu">class</span>(PlantGrowth)</span></code></pre></div>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="dataframe.html#cb646-1" tabindex="-1"></a><span class="fu">class</span>(PlantGrowth)</span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <hr />
 <ul>
 <li>You can display the first few rows of the <strong>PlantGrowth</strong> data by using <code>head()</code>:</li>
 </ul>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="dataframe.html#cb644-1" tabindex="-1"></a><span class="fu">head</span>( PlantGrowth )</span></code></pre></div>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="dataframe.html#cb648-1" tabindex="-1"></a><span class="fu">head</span>( PlantGrowth )</span></code></pre></div>
 <pre><code>##   weight group
 ## 1   4.17  ctrl
 ## 2   5.58  ctrl
@@ -424,7 +425,7 @@ datasets.</p></li>
 <li>This can be seen by applying <code>dim()</code> to the data frame:</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="dataframe.html#cb646-1" tabindex="-1"></a><span class="fu">dim</span>( PlantGrowth )</span></code></pre></div>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="dataframe.html#cb650-1" tabindex="-1"></a><span class="fu">dim</span>( PlantGrowth )</span></code></pre></div>
 <pre><code>## [1] 30  2</code></pre>
 <div id="creating-data-frames" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Creating Data Frames<a href="dataframe.html#creating-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -432,9 +433,9 @@ datasets.</p></li>
 <li><p>The main way to <strong>create</strong> a data frame in R is to use the function <code>data.frame</code>.</p></li>
 <li><p>To create a data frame with 5 observations and two variables named <strong>x</strong> and <strong>y</strong>:</p></li>
 </ul>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="dataframe.html#cb648-1" tabindex="-1"></a><span class="co"># x and y have to be the same length</span></span>
-<span id="cb648-2"><a href="dataframe.html#cb648-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), <span class="at">y=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">25</span>))</span>
-<span id="cb648-3"><a href="dataframe.html#cb648-3" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="dataframe.html#cb652-1" tabindex="-1"></a><span class="co"># x and y have to be the same length</span></span>
+<span id="cb652-2"><a href="dataframe.html#cb652-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>), <span class="at">y=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">25</span>))</span>
+<span id="cb652-3"><a href="dataframe.html#cb652-3" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##   x  y
 ## 1 1  1
 ## 2 2  4
@@ -444,15 +445,15 @@ datasets.</p></li>
 <ul>
 <li><strong>Converting</strong> a data frame to a matrix</li>
 </ul>
-<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="dataframe.html#cb650-1" tabindex="-1"></a>df.mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(df) <span class="do">## How a Data Frame looks like  </span></span>
-<span id="cb650-2"><a href="dataframe.html#cb650-2" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="dataframe.html#cb654-1" tabindex="-1"></a>df.mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(df) <span class="do">## How a Data Frame looks like  </span></span>
+<span id="cb654-2"><a href="dataframe.html#cb654-2" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##   x  y
 ## 1 1  1
 ## 2 2  4
 ## 3 3  9
 ## 4 4 16
 ## 5 5 25</code></pre>
-<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="dataframe.html#cb652-1" tabindex="-1"></a>df.mat  <span class="do">## How a matrix looks like</span></span></code></pre></div>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="dataframe.html#cb656-1" tabindex="-1"></a>df.mat  <span class="do">## How a matrix looks like</span></span></code></pre></div>
 <pre><code>##      x  y
 ## [1,] 1  1
 ## [2,] 2  4
@@ -462,23 +463,7 @@ datasets.</p></li>
 <ul>
 <li>You can use <code>as.data.frame</code> to convert a matrix into a data frame.</li>
 </ul>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="dataframe.html#cb654-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">2</span>) </span>
-<span id="cb654-2"><a href="dataframe.html#cb654-2" tabindex="-1"></a><span class="fu">colnames</span>(X) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)</span>
-<span id="cb654-3"><a href="dataframe.html#cb654-3" tabindex="-1"></a>X.df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(X)</span>
-<span id="cb654-4"><a href="dataframe.html#cb654-4" tabindex="-1"></a>X</span></code></pre></div>
-<pre><code>##      a b
-## [1,] 1 4
-## [2,] 2 5
-## [3,] 3 6</code></pre>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="dataframe.html#cb656-1" tabindex="-1"></a>X.df</span></code></pre></div>
-<pre><code>##   a b
-## 1 1 4
-## 2 2 5
-## 3 3 6</code></pre>
-<ul>
-<li>Remember that a data frame can take <strong>heterogeneous</strong> data types.</li>
-</ul>
-<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="dataframe.html#cb658-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;bc&quot;</span>))</span>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="dataframe.html#cb658-1" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">2</span>) </span>
 <span id="cb658-2"><a href="dataframe.html#cb658-2" tabindex="-1"></a><span class="fu">colnames</span>(X) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)</span>
 <span id="cb658-3"><a href="dataframe.html#cb658-3" tabindex="-1"></a>X.df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(X)</span>
 <span id="cb658-4"><a href="dataframe.html#cb658-4" tabindex="-1"></a>X</span></code></pre></div>
@@ -487,6 +472,22 @@ datasets.</p></li>
 ## [2,] 2 5
 ## [3,] 3 6</code></pre>
 <div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="dataframe.html#cb660-1" tabindex="-1"></a>X.df</span></code></pre></div>
+<pre><code>##   a b
+## 1 1 4
+## 2 2 5
+## 3 3 6</code></pre>
+<ul>
+<li>Remember that a data frame can take <strong>heterogeneous</strong> data types.</li>
+</ul>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="dataframe.html#cb662-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;bc&quot;</span>))</span>
+<span id="cb662-2"><a href="dataframe.html#cb662-2" tabindex="-1"></a><span class="fu">colnames</span>(X) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>)</span>
+<span id="cb662-3"><a href="dataframe.html#cb662-3" tabindex="-1"></a>X.df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(X)</span>
+<span id="cb662-4"><a href="dataframe.html#cb662-4" tabindex="-1"></a>X</span></code></pre></div>
+<pre><code>##      a b
+## [1,] 1 4
+## [2,] 2 5
+## [3,] 3 6</code></pre>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="dataframe.html#cb664-1" tabindex="-1"></a>X.df</span></code></pre></div>
 <pre><code>##   a b
 ## 1 1 4
 ## 2 2 5
@@ -500,22 +501,22 @@ datasets.</p></li>
 <li>This is done in exactly the <strong>same way</strong> as with a <strong>matrix</strong>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="dataframe.html#cb662-1" tabindex="-1"></a>df[,<span class="dv">1</span>]   <span class="do">## access a column just like a matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="dataframe.html#cb666-1" tabindex="-1"></a>df[,<span class="dv">1</span>]   <span class="do">## access a column just like a matrix</span></span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="dataframe.html#cb664-1" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,] <span class="do">## access rows like matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="dataframe.html#cb668-1" tabindex="-1"></a>df[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,] <span class="do">## access rows like matrix</span></span></code></pre></div>
 <pre><code>##   x y
 ## 1 1 a
 ## 2 2 a</code></pre>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="dataframe.html#cb666-1" tabindex="-1"></a>df[<span class="dv">2</span>, <span class="dv">1</span>] <span class="do">## access individual elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="dataframe.html#cb670-1" tabindex="-1"></a>df[<span class="dv">2</span>, <span class="dv">1</span>] <span class="do">## access individual elements</span></span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <ul>
 <li>You can access the data from a specific variable <strong>by name</strong>
 using the syntax: <code>df_name$var_name</code>.</li>
 </ul>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="dataframe.html#cb668-1" tabindex="-1"></a>df<span class="sc">$</span>y   <span class="do">## access a column by name</span></span></code></pre></div>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="dataframe.html#cb672-1" tabindex="-1"></a>df<span class="sc">$</span>y   <span class="do">## access a column by name</span></span></code></pre></div>
 <pre><code>## [1] &quot;a&quot;  &quot;a&quot;  &quot;bc&quot;</code></pre>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="dataframe.html#cb670-1" tabindex="-1"></a>       <span class="do">## what happens if we omit a comma?</span></span>
-<span id="cb670-2"><a href="dataframe.html#cb670-2" tabindex="-1"></a>df[<span class="dv">1</span>]  <span class="do">## (Remember that df is actually list)</span></span></code></pre></div>
+<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="dataframe.html#cb674-1" tabindex="-1"></a>       <span class="do">## what happens if we omit a comma?</span></span>
+<span id="cb674-2"><a href="dataframe.html#cb674-2" tabindex="-1"></a>df[<span class="dv">1</span>]  <span class="do">## (Remember that df is actually list)</span></span></code></pre></div>
 <pre><code>##   x
 ## 1 1
 ## 2 2
@@ -523,28 +524,28 @@ using the syntax: <code>df_name$var_name</code>.</li>
 <ul>
 <li>Differences in element access between matrices and data frames:</li>
 </ul>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="dataframe.html#cb672-1" tabindex="-1"></a>df.mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(df) </span>
-<span id="cb672-2"><a href="dataframe.html#cb672-2" tabindex="-1"></a>df[<span class="dv">2</span>] <span class="co">#df[10] will not work</span></span></code></pre></div>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="dataframe.html#cb676-1" tabindex="-1"></a>df.mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(df) </span>
+<span id="cb676-2"><a href="dataframe.html#cb676-2" tabindex="-1"></a>df[<span class="dv">2</span>] <span class="co">#df[10] will not work</span></span></code></pre></div>
 <pre><code>##    y
 ## 1  a
 ## 2  a
 ## 3 bc</code></pre>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="dataframe.html#cb674-1" tabindex="-1"></a>df.mat[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="dataframe.html#cb678-1" tabindex="-1"></a>df.mat[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;2&quot;</code></pre>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="dataframe.html#cb676-1" tabindex="-1"></a>df.mat[<span class="dv">10</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="dataframe.html#cb680-1" tabindex="-1"></a>df.mat[<span class="dv">10</span>]</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
 <ul>
 <li><strong>Modifying</strong> data frames:</li>
 </ul>
-<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="dataframe.html#cb678-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;bc&quot;</span>)) </span>
-<span id="cb678-2"><a href="dataframe.html#cb678-2" tabindex="-1"></a>df<span class="sc">$</span>z <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;def&quot;</span>,<span class="st">&quot;123&quot;</span>,<span class="st">&quot;123&quot;</span>) <span class="do">## adding a new column</span></span>
-<span id="cb678-3"><a href="dataframe.html#cb678-3" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="dataframe.html#cb682-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;a&quot;</span>,<span class="st">&quot;bc&quot;</span>)) </span>
+<span id="cb682-2"><a href="dataframe.html#cb682-2" tabindex="-1"></a>df<span class="sc">$</span>z <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;def&quot;</span>,<span class="st">&quot;123&quot;</span>,<span class="st">&quot;123&quot;</span>) <span class="do">## adding a new column</span></span>
+<span id="cb682-3"><a href="dataframe.html#cb682-3" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##   x  y   z
 ## 1 1  a def
 ## 2 2  a 123
 ## 3 3 bc 123</code></pre>
-<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="dataframe.html#cb680-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">w=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>))</span>
-<span id="cb680-2"><a href="dataframe.html#cb680-2" tabindex="-1"></a><span class="fu">cbind</span>(df,df2)  <span class="co"># combine columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="dataframe.html#cb684-1" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">w=</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>))</span>
+<span id="cb684-2"><a href="dataframe.html#cb684-2" tabindex="-1"></a><span class="fu">cbind</span>(df,df2)  <span class="co"># combine columns</span></span></code></pre></div>
 <pre><code>##   x  y   z     w
 ## 1 1  a def  TRUE
 ## 2 2  a 123 FALSE
@@ -552,8 +553,8 @@ using the syntax: <code>df_name$var_name</code>.</li>
 <ul>
 <li><strong>Adding</strong> new rows to a data frame:</li>
 </ul>
-<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="dataframe.html#cb682-1" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="dv">4</span>,<span class="at">y=</span><span class="st">&quot;a&quot;</span>,<span class="at">z=</span><span class="st">&quot;def&quot;</span>) </span>
-<span id="cb682-2"><a href="dataframe.html#cb682-2" tabindex="-1"></a><span class="fu">rbind</span>(df,df3)  </span></code></pre></div>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="dataframe.html#cb686-1" tabindex="-1"></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="dv">4</span>,<span class="at">y=</span><span class="st">&quot;a&quot;</span>,<span class="at">z=</span><span class="st">&quot;def&quot;</span>) </span>
+<span id="cb686-2"><a href="dataframe.html#cb686-2" tabindex="-1"></a><span class="fu">rbind</span>(df,df3)  </span></code></pre></div>
 <pre><code>##   x  y   z
 ## 1 1  a def
 ## 2 2  a 123
@@ -562,16 +563,16 @@ using the syntax: <code>df_name$var_name</code>.</li>
 </div>
 <div id="subsetting-data-frames" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Subsetting data frames<a href="dataframe.html#subsetting-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="dataframe.html#cb684-1" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="dataframe.html#cb688-1" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##   x  y   z
 ## 1 1  a def
 ## 2 2  a 123
 ## 3 3 bc 123</code></pre>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="dataframe.html#cb686-1" tabindex="-1"></a><span class="fu">subset</span>(df, x<span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="dataframe.html#cb690-1" tabindex="-1"></a><span class="fu">subset</span>(df, x<span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>##   x  y   z
 ## 2 2  a 123
 ## 3 3 bc 123</code></pre>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="dataframe.html#cb688-1" tabindex="-1"></a><span class="fu">subset</span>(df, x<span class="sc">&gt;</span><span class="dv">1</span> <span class="sc">&amp;</span> y <span class="sc">==</span><span class="st">&quot;a&quot;</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="dataframe.html#cb692-1" tabindex="-1"></a><span class="fu">subset</span>(df, x<span class="sc">&gt;</span><span class="dv">1</span> <span class="sc">&amp;</span> y <span class="sc">==</span><span class="st">&quot;a&quot;</span>)  </span></code></pre></div>
 <pre><code>##   x y   z
 ## 2 2 a 123</code></pre>
 </div>
@@ -580,8 +581,8 @@ using the syntax: <code>df_name$var_name</code>.</li>
 <ol style="list-style-type: decimal">
 <li>For this exercise, you will use the <code>Loblolly</code> dataset which is a built-in <strong>R</strong> dataset. You can load the <code>Loblolly</code> data frame and look at the first few rows with the following commands:</li>
 </ol>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="dataframe.html#cb690-1" tabindex="-1"></a><span class="fu">data</span>(Loblolly)</span>
-<span id="cb690-2"><a href="dataframe.html#cb690-2" tabindex="-1"></a><span class="fu">head</span>(Loblolly)</span></code></pre></div>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="dataframe.html#cb694-1" tabindex="-1"></a><span class="fu">data</span>(Loblolly)</span>
+<span id="cb694-2"><a href="dataframe.html#cb694-2" tabindex="-1"></a><span class="fu">head</span>(Loblolly)</span></code></pre></div>
 <ul>
 <li>In <code>Loblolly</code>, each different value of the variable <code>Seed</code> variable corresponds to a different tree.
 <ul>

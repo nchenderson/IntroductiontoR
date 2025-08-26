@@ -46,6 +46,7 @@ specifying-function-arguments-with-keywords
 example-1-2
 more-examples-of-writing-functions
 example-1-passfail-from-a-weighted-average
+example-2-1
 exercises-2
 loops
 for-loops

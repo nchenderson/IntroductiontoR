@@ -13,7 +13,7 @@
   + An **integrated development environment** (IDE) for programming in **R**.
   + Provides many add-ons to **R** available in a single interface.
   + Developed by RStudio, Inc.
-  + Available in both **free** (AGPLv3) and commercial editions at [https://www.rstudio.com](https://www.rstudio.com)
+  + Available in both **free** (AGPLv3) and commercial editions at [https://posit.co/download/rstudio-desktop/#download](https://posit.co/download/rstudio-desktop/#download)
 
 
 ---
@@ -684,7 +684,7 @@ expressions into the **R** console:
 
 
 ``` r
-1 + 2 *3 ^ 4 # power > mult/div > add/sub
+1 + 2 *3 ^ 4 # exponentiation > mult/div > add/sub
 ```
 
 ```
@@ -692,7 +692,7 @@ expressions into the **R** console:
 ```
 
 ``` r
-(1 + 2 ) *3 ^ 4 # parenthesis > power
+(1 + 2 ) *3 ^ 4 # parenthesis > exponentiation
 ```
 
 ```
@@ -910,7 +910,14 @@ directly in the **R** console.
 to a variable named `x` and prints the result in the Console when you run
 the script.
 
-3. Which of the following is **NOT** a valid variable name in **R**?
+3. What will be the value of the variable `y` after running the following code?
+
+``` r
+x <- c(1, 3, 7, 2)
+y <- x[2] + max(x)^2
+```
+
+4. Which of the following is **NOT** a valid variable name in **R**?
     + .independent_variable3
     + _independent_variable3
     + independent_variable3

@@ -517,6 +517,57 @@ WeightedGrade(grades=c(90, 95, 80, 86), weights=c(10, 10, 40, 40), scheme="B" )
 ```
 
 
+### Example 2: ...
+
+* Let's write an **R** function called `RepSumLT` that computes the proportion where two vectors with a certain
+repeating are less than a user-supplied cutoff value.
+
+* We would like the `RepSumLT` function to have the following structure
+
+``` r
+RepSumLT <- function(x, m, tau=0) { 
+   
+}
+```
+
+
+* **Function Input:** We want the argument `x` in `RepSumLT` to be a vector.
+
+    - Both `m` and `tau` should be vectors of length $1$. The only element of `m` should be a positive integer.
+
+
+* **Function Output:** The function should return the **proportion** of indices where both elements of the vectors `rep(x, times=m)`
+and `rep(x, each=m)` are less than or equal to `tau`.
+
+
+
+* As an example, the function call 
+`RepSumLT(x=c(1,2), m=2, tau=1)` should return the value $0.25$ because 
+`c(1, 2, 1, 2)` and `c(1, 1, 2, 2)` are vectors of length 4 and are only both less than or equal to $1$ 
+at vector index $1$.
+
+* Here is one way to write the function so that it satisfies the above description: 
+
+``` r
+RepSumLT <- function(x, m, tau=0) {
+    y <- rep(x, times=m)
+    z <- rep(x, each=m)
+    ans <- mean((y <= tau)*(z <= tau))
+    return(ans)
+}
+```
+
+* Let's try running `RepSumLT` on a few examples:
+
+``` r
+RepSumLT(x=1:10, m=3, tau=3)
+RepSumLT(x=-10:10, m=3)
+RepSumLT(x=seq(0.2, 5.2, by=0.45), m=4, tau=3.0)
+RepSumLT(x=seq(-3.2, 5.2, by=0.45), m=4)
+```
+
+
+
 ## Exercises
 
 1. Suppose we define the function `quiz` as
