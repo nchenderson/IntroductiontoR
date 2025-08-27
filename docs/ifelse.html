@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2025-08-25" />
+<meta name="date" content="2025-08-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3</b> Functions in R</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="functions.html"><a href="functions.html#built-in-r-functions"><i class="fa fa-check"></i><b>3.1</b> Built-in R functions</a></li>
-<li class="chapter" data-level="3.2" data-path="functions.html"><a href="functions.html#construction-your-own-r-functions"><i class="fa fa-check"></i><b>3.2</b> Construction your own R functions</a>
+<li class="chapter" data-level="3.2" data-path="functions.html"><a href="functions.html#constructing-your-own-r-functions"><i class="fa fa-check"></i><b>3.2</b> Constructing your own R functions</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="functions.html"><a href="functions.html#function-definition-syntax"><i class="fa fa-check"></i><b>3.2.1</b> Function Definition Syntax</a></li>
 <li class="chapter" data-level="3.2.2" data-path="functions.html"><a href="functions.html#example-1"><i class="fa fa-check"></i><b>3.2.2</b> Example 1</a></li>
@@ -956,49 +956,112 @@ a conditional statement.</li>
 <div id="the-ifelse-function" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> The ifelse function<a href="ifelse.html#the-ifelse-function" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>The <code>ifelse</code> function is a useful function that acts as a <strong>“vectorized”</strong> if-else statement.</li>
+<li><p>The <code>ifelse</code> function is a useful function that acts as a <strong>“vectorized”</strong> if-else statement.</p></li>
+<li><p>The general form of the <code>ifelse</code> function is</p></li>
 </ul>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="ifelse.html#cb204-1" tabindex="-1"></a><span class="fu">ifelse</span>(test, yes, no)</span></code></pre></div>
+<pre><code>- `test` is either a logical vector or a logical expression that evaluates to a logical vector
+- `yes` is the value to return for each element where `test` is `TRUE`
+- `no` is the value to return for each element where `test` is `FALSE`</code></pre>
+<ul>
+<li>Note that the <code>ifelse</code> function will return a <strong>vector</strong> of the same length as <code>test</code></li>
+</ul>
+<hr />
+<ul>
+<li>As an example of running the <code>ifelse</code> function, let’s see what it returns if we choose
+<code>test</code> as the logical vector <code>c(TRUE, FALSE, TRUE)</code> and <code>yes = 5</code> and <code>no = -5</code>:</li>
+</ul>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="ifelse.html#cb206-1" tabindex="-1"></a><span class="fu">ifelse</span>( <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>), <span class="dv">5</span>, <span class="sc">-</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  5 -5  5</code></pre>
+<ul>
+<li>The <code>ifelse</code> function returns the vector <code>c(5, -5, 5)</code>.
+<ul>
+<li>The first element of <code>test</code> is <code>TRUE</code>, so the first element of the returned vector is 5.</li>
+<li>The second element of <code>test</code> is <code>FALSE</code>, so the second element of the returned vector is -5.</li>
+<li>The third element of <code>test</code> is <code>TRUE</code>, so the third element of the returned vector is 5.</li>
+</ul></li>
+</ul>
+<hr />
+<ul>
+<li><p>It is more typical to use a <strong>logical expression</strong> as the <strong>first argument</strong> of <code>ifelse</code> rather than
+explicitly using a logical vector as the first argument.</p></li>
+<li><p>For example, suppose we have defined the variable <code>x</code> as</p></li>
+</ul>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="ifelse.html#cb208-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">10</span>)</span></code></pre></div>
+<ul>
+<li>Then, the following call of <code>ifelse</code> will return the <strong>same vector</strong> as running <code>ifelse( c(TRUE, FALSE, TRUE), 5, -5)</code></li>
+</ul>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="ifelse.html#cb209-1" tabindex="-1"></a><span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  5 -5  5</code></pre>
+<ul>
+<li>Inside the <code>ifelse</code> function call above, the logical expression <code>x &gt; 0</code> evaluates to the logical vector <code>c(TRUE, FALSE, TRUE)</code>.</li>
+</ul>
+<hr />
+<ul>
+<li><p>As another example, suppose we have data collected on two biomarkers.</p></li>
+<li><p>The first biomarker is a numeric score and the second biomarker is the result of a test that is either “positive” or “negative”.</p></li>
+<li><p>If the value of the first biomarker is greater than 10 <strong>and</strong> the second biomarker is “positive”, then the patient
+is considered to be “high risk”. Otherwise, the patient is considered to be “low risk”.</p></li>
+<li><p>The <code>ifelse</code> function is very useful for using the information from these <strong>two biomarkers</strong> to create a “high risk” vs. “low risk” variable.</p></li>
+<li><p>If the patient biomarker information is stored in the vectors <code>biomarker1</code> and <code>biomarker2</code>, the following code uses <code>ifelse</code> to create
+a new vector <code>risk.category</code> which labels patients as either “high risk” or “low risk”</p></li>
+</ul>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="ifelse.html#cb211-1" tabindex="-1"></a>biomarker1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">6.5</span>, <span class="fl">27.3</span>, <span class="fl">2.1</span>, <span class="fl">5.4</span>, <span class="fl">12.1</span>, <span class="fl">17.3</span>)</span>
+<span id="cb211-2"><a href="ifelse.html#cb211-2" tabindex="-1"></a>biomarker2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;pos&quot;</span>, <span class="st">&quot;pos&quot;</span>, <span class="st">&quot;neg&quot;</span>, <span class="st">&quot;pos&quot;</span>, <span class="st">&quot;neg&quot;</span>, <span class="st">&quot;pos&quot;</span>)</span>
+<span id="cb211-3"><a href="ifelse.html#cb211-3" tabindex="-1"></a></span>
+<span id="cb211-4"><a href="ifelse.html#cb211-4" tabindex="-1"></a>risk.category <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(biomarker1 <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> biomarker2<span class="sc">==</span><span class="st">&quot;pos&quot;</span>, <span class="st">&quot;high&quot;</span>, <span class="st">&quot;low&quot;</span>)</span>
+<span id="cb211-5"><a href="ifelse.html#cb211-5" tabindex="-1"></a>risk.category</span></code></pre></div>
+<pre><code>## [1] &quot;low&quot;  &quot;high&quot; &quot;low&quot;  &quot;low&quot;  &quot;low&quot;  &quot;high&quot;</code></pre>
 </div>
 <div id="exercises-1" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> Exercises<a href="ifelse.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
 <li>What will be printed to the screen if you run the <strong>R</strong> code below?</li>
 </ol>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="ifelse.html#cb204-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb204-2"><a href="ifelse.html#cb204-2" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb204-3"><a href="ifelse.html#cb204-3" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>x</span>
-<span id="cb204-4"><a href="ifelse.html#cb204-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb204-5"><a href="ifelse.html#cb204-5" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb204-6"><a href="ifelse.html#cb204-6" tabindex="-1"></a>}</span>
-<span id="cb204-7"><a href="ifelse.html#cb204-7" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="ifelse.html#cb213-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb213-2"><a href="ifelse.html#cb213-2" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb213-3"><a href="ifelse.html#cb213-3" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>x</span>
+<span id="cb213-4"><a href="ifelse.html#cb213-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb213-5"><a href="ifelse.html#cb213-5" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb213-6"><a href="ifelse.html#cb213-6" tabindex="-1"></a>}</span>
+<span id="cb213-7"><a href="ifelse.html#cb213-7" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>What will be printed to the screen if you run the <strong>R</strong> code below?</li>
 </ol>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="ifelse.html#cb205-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb205-2"><a href="ifelse.html#cb205-2" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb205-3"><a href="ifelse.html#cb205-3" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>x</span>
-<span id="cb205-4"><a href="ifelse.html#cb205-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb205-5"><a href="ifelse.html#cb205-5" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb205-6"><a href="ifelse.html#cb205-6" tabindex="-1"></a>}</span>
-<span id="cb205-7"><a href="ifelse.html#cb205-7" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="ifelse.html#cb214-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb214-2"><a href="ifelse.html#cb214-2" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb214-3"><a href="ifelse.html#cb214-3" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span>x</span>
+<span id="cb214-4"><a href="ifelse.html#cb214-4" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb214-5"><a href="ifelse.html#cb214-5" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb214-6"><a href="ifelse.html#cb214-6" tabindex="-1"></a>}</span>
+<span id="cb214-7"><a href="ifelse.html#cb214-7" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>What number will be printed to the screen if you run the <strong>R</strong> code below?</li>
 </ol>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="ifelse.html#cb206-1" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
-<span id="cb206-2"><a href="ifelse.html#cb206-2" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb206-3"><a href="ifelse.html#cb206-3" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">4</span>) {</span>
-<span id="cb206-4"><a href="ifelse.html#cb206-4" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb206-5"><a href="ifelse.html#cb206-5" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb206-6"><a href="ifelse.html#cb206-6" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb206-7"><a href="ifelse.html#cb206-7" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="ifelse.html#cb215-1" tabindex="-1"></a><span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">4</span> <span class="sc">&gt;</span> <span class="dv">3</span>) {</span>
+<span id="cb215-2"><a href="ifelse.html#cb215-2" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb215-3"><a href="ifelse.html#cb215-3" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(<span class="dv">3</span> <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">3</span> <span class="sc">&lt;</span> <span class="dv">4</span>) {</span>
+<span id="cb215-4"><a href="ifelse.html#cb215-4" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb215-5"><a href="ifelse.html#cb215-5" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb215-6"><a href="ifelse.html#cb215-6" tabindex="-1"></a>    x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb215-7"><a href="ifelse.html#cb215-7" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>What will the value of the variable <code>z</code> be after running the following code:</li>
 </ol>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="ifelse.html#cb207-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb207-2"><a href="ifelse.html#cb207-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb207-3"><a href="ifelse.html#cb207-3" tabindex="-1"></a><span class="cf">if</span>(x[<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> (x[<span class="dv">2</span>] <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">|</span> <span class="cn">TRUE</span>) ) {</span>
-<span id="cb207-4"><a href="ifelse.html#cb207-4" tabindex="-1"></a>    z <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">*</span>z </span>
-<span id="cb207-5"><a href="ifelse.html#cb207-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="ifelse.html#cb216-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb216-2"><a href="ifelse.html#cb216-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb216-3"><a href="ifelse.html#cb216-3" tabindex="-1"></a><span class="cf">if</span>(x[<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> (x[<span class="dv">2</span>] <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">|</span> <span class="cn">TRUE</span>) ) {</span>
+<span id="cb216-4"><a href="ifelse.html#cb216-4" tabindex="-1"></a>    z <span class="ot">&lt;-</span> <span class="dv">5</span><span class="sc">*</span>z </span>
+<span id="cb216-5"><a href="ifelse.html#cb216-5" tabindex="-1"></a>}</span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Suppose we use the <code>ifelse</code> function to create the vector <code>w</code> using the following code:</li>
+</ol>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="ifelse.html#cb217-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb217-2"><a href="ifelse.html#cb217-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;d&quot;</span>, <span class="st">&quot;a&quot;</span>)</span>
+<span id="cb217-3"><a href="ifelse.html#cb217-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb217-4"><a href="ifelse.html#cb217-4" tabindex="-1"></a></span>
+<span id="cb217-5"><a href="ifelse.html#cb217-5" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">ifelse</span>((x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">|</span> y<span class="sc">==</span><span class="st">&quot;a&quot;</span>) <span class="sc">&amp;</span> z<span class="sc">==</span><span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code></pre></div>
+<p>What is the value of <code>w[3]</code> and what is the value of <code>sum(w)</code>.</p>
 
 </div>
 </div>

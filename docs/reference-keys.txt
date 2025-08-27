@@ -35,7 +35,7 @@ the-ifelse-function
 exercises-1
 functions
 built-in-r-functions
-construction-your-own-r-functions
+constructing-your-own-r-functions
 function-definition-syntax
 example-1
 example-2

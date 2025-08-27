@@ -24,7 +24,7 @@
  
 * There are many other **R** packages available which contain many useful functions.
 
-## Construction your own R functions
+## Constructing your own R functions
 
 * You can write **your own** functions as needed. 
 

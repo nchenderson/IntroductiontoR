@@ -797,6 +797,84 @@ if ( x %% 2 == 0 ) {  ## first condition
 
 * The `ifelse` function is a useful function that acts as a **"vectorized"** if-else statement.
 
+* The general form of the `ifelse` function is
+
+``` r
+ifelse(test, yes, no)
+```
+    
+    - `test` is either a logical vector or a logical expression that evaluates to a logical vector
+    - `yes` is the value to return for each element where `test` is `TRUE`
+    - `no` is the value to return for each element where `test` is `FALSE`
+    
+* Note that the `ifelse` function will return a **vector** of the same length as `test`
+
+---
+
+* As an example of running the `ifelse` function, let's see what it returns if we choose
+`test` as the logical vector `c(TRUE, FALSE, TRUE)` and `yes = 5` and `no = -5`:
+
+``` r
+ifelse( c(TRUE, FALSE, TRUE), 5, -5)
+```
+
+```
+## [1]  5 -5  5
+```
+
+* The `ifelse` function returns the vector `c(5, -5, 5)`.
+    - The first element of `test` is `TRUE`, so the first element of the returned vector is 5.
+    - The second element of `test` is `FALSE`, so the second element of the returned vector is -5.
+    - The third element of `test` is `TRUE`, so the third element of the returned vector is 5.
+
+---
+
+* It is more typical to use a **logical expression** as the **first argument** of `ifelse` rather than
+explicitly using a logical vector as the first argument. 
+
+* For example, suppose we have defined the variable `x` as
+
+``` r
+x <- c(2, -2, 10)
+```
+
+* Then, the following call of `ifelse` will return the **same vector** as running `ifelse( c(TRUE, FALSE, TRUE), 5, -5)`
+
+``` r
+ifelse(x > 0, 5, -5)
+```
+
+```
+## [1]  5 -5  5
+```
+
+* Inside the `ifelse` function call above, the logical expression `x > 0` evaluates to the logical vector `c(TRUE, FALSE, TRUE)`.
+
+---
+
+* As another example, suppose we have data collected on two biomarkers.
+
+* The first biomarker is a numeric score and the second biomarker is the result of a test that is either "positive" or "negative".
+
+* If the value of the first biomarker is greater than 10 **and** the second biomarker is "positive", then the patient
+is considered to be "high risk". Otherwise, the patient is considered to be "low risk".
+
+* The `ifelse` function is very useful for using the information from these **two biomarkers** to create a "high risk" vs. "low risk" variable.  
+
+* If the patient biomarker information is stored in the vectors `biomarker1` and `biomarker2`, the following code uses `ifelse` to create
+a new vector `risk.category` which labels patients as either "high risk" or "low risk"
+
+``` r
+biomarker1 <- c(6.5, 27.3, 2.1, 5.4, 12.1, 17.3)
+biomarker2 <- c("pos", "pos", "neg", "pos", "neg", "pos")
+
+risk.category <- ifelse(biomarker1 > 10 & biomarker2=="pos", "high", "low")
+risk.category
+```
+
+```
+## [1] "low"  "high" "low"  "low"  "low"  "high"
+```
 
 
 ## Exercises
@@ -849,6 +927,16 @@ if(x[1] > 0 & (x[2] > 0 | TRUE) ) {
 }
 ```
 
+5. Suppose we use the `ifelse` function to create the vector `w` using the following code:
+
+``` r
+x <- c(-1, 0, -2, 2, -3, 4)
+y <- c("a", "c", "a", "b", "d", "a")
+z <- c(2, 2, 2, 2, 0, 0)
+
+w <- ifelse((x > 0 | y=="a") & z==2, 1, 0)
+```
+What is the value of `w[3]` and what is the value of `sum(w)`.
 
 
 

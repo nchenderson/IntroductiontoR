@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Henderson" />
 
 
-<meta name="date" content="2025-08-25" />
+<meta name="date" content="2025-08-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>3</b> Functions in R</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="functions.html"><a href="functions.html#built-in-r-functions"><i class="fa fa-check"></i><b>3.1</b> Built-in R functions</a></li>
-<li class="chapter" data-level="3.2" data-path="functions.html"><a href="functions.html#construction-your-own-r-functions"><i class="fa fa-check"></i><b>3.2</b> Construction your own R functions</a>
+<li class="chapter" data-level="3.2" data-path="functions.html"><a href="functions.html#constructing-your-own-r-functions"><i class="fa fa-check"></i><b>3.2</b> Constructing your own R functions</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="functions.html"><a href="functions.html#function-definition-syntax"><i class="fa fa-check"></i><b>3.2.1</b> Function Definition Syntax</a></li>
 <li class="chapter" data-level="3.2.2" data-path="functions.html"><a href="functions.html#example-1"><i class="fa fa-check"></i><b>3.2.2</b> Example 1</a></li>
@@ -377,8 +377,8 @@ are usually loaded by default as well.</li>
 <li><p>There are many other <strong>R</strong> packages available which contain many useful functions.</p></li>
 </ul>
 </div>
-<div id="construction-your-own-r-functions" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Construction your own R functions<a href="functions.html#construction-your-own-r-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="constructing-your-own-r-functions" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Constructing your own R functions<a href="functions.html#constructing-your-own-r-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>You can write <strong>your own</strong> functions as needed.</p></li>
 <li><p>While base R and the many available R packages have a wide range of useful functions, being able to write <strong>your own</strong> functions gives you much greater <strong>flexibility</strong> when working with <strong>R</strong>.</p></li>
@@ -394,32 +394,32 @@ are usually loaded by default as well.</li>
 </ul></li>
 <li>The general syntax for writing your own <strong>R</strong> function is:</li>
 </ul>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="functions.html#cb208-1" tabindex="-1"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(params){ </span>
-<span id="cb208-2"><a href="functions.html#cb208-2" tabindex="-1"></a>     <span class="do">## function_name is the name of the function </span></span>
-<span id="cb208-3"><a href="functions.html#cb208-3" tabindex="-1"></a>     <span class="do">## params name of the input variable within this function </span></span>
-<span id="cb208-4"><a href="functions.html#cb208-4" tabindex="-1"></a> </span>
-<span id="cb208-5"><a href="functions.html#cb208-5" tabindex="-1"></a>     statement1  <span class="do">## statements executed when the function is called</span></span>
-<span id="cb208-6"><a href="functions.html#cb208-6" tabindex="-1"></a>     statement2  <span class="do">## statements convert params into some value to be </span></span>
-<span id="cb208-7"><a href="functions.html#cb208-7" tabindex="-1"></a>      ...        <span class="do">## returned</span></span>
-<span id="cb208-8"><a href="functions.html#cb208-8" tabindex="-1"></a>     <span class="fu">return</span>(return_value)  <span class="do">## return the variable return_value</span></span>
-<span id="cb208-9"><a href="functions.html#cb208-9" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="functions.html#cb218-1" tabindex="-1"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(params){ </span>
+<span id="cb218-2"><a href="functions.html#cb218-2" tabindex="-1"></a>     <span class="do">## function_name is the name of the function </span></span>
+<span id="cb218-3"><a href="functions.html#cb218-3" tabindex="-1"></a>     <span class="do">## params name of the input variable within this function </span></span>
+<span id="cb218-4"><a href="functions.html#cb218-4" tabindex="-1"></a> </span>
+<span id="cb218-5"><a href="functions.html#cb218-5" tabindex="-1"></a>     statement1  <span class="do">## statements executed when the function is called</span></span>
+<span id="cb218-6"><a href="functions.html#cb218-6" tabindex="-1"></a>     statement2  <span class="do">## statements convert params into some value to be </span></span>
+<span id="cb218-7"><a href="functions.html#cb218-7" tabindex="-1"></a>      ...        <span class="do">## returned</span></span>
+<span id="cb218-8"><a href="functions.html#cb218-8" tabindex="-1"></a>     <span class="fu">return</span>(return_value)  <span class="do">## return the variable return_value</span></span>
+<span id="cb218-9"><a href="functions.html#cb218-9" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="example-1" class="section level3 hasAnchor" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Example 1<a href="functions.html#example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>Let’s <strong>write a function</strong> that takes a number as an input and returns the <strong>square</strong> of that number.</li>
 </ul>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="functions.html#cb209-1" tabindex="-1"></a><span class="do">## define a new function named square</span></span>
-<span id="cb209-2"><a href="functions.html#cb209-2" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="do">## function name: square, argument : x</span></span>
-<span id="cb209-3"><a href="functions.html#cb209-3" tabindex="-1"></a>   <span class="fu">return</span>(x<span class="sc">*</span>x)           <span class="do">## returns x*x</span></span>
-<span id="cb209-4"><a href="functions.html#cb209-4" tabindex="-1"></a>} </span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="functions.html#cb219-1" tabindex="-1"></a><span class="do">## define a new function named square</span></span>
+<span id="cb219-2"><a href="functions.html#cb219-2" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="do">## function name: square, argument : x</span></span>
+<span id="cb219-3"><a href="functions.html#cb219-3" tabindex="-1"></a>   <span class="fu">return</span>(x<span class="sc">*</span>x)           <span class="do">## returns x*x</span></span>
+<span id="cb219-4"><a href="functions.html#cb219-4" tabindex="-1"></a>} </span></code></pre></div>
 <ul>
 <li><p>Once we have defined <code>square</code>, we can use it as many times as we would like.</p></li>
 <li><p>After defining the function, each time the function is used is referred to as
 <strong>calling</strong> the function.</p></li>
 <li><p>Let’s try <strong>calling</strong> <code>square</code> with an input number of <code>10</code>:</p></li>
 </ul>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="functions.html#cb210-1" tabindex="-1"></a><span class="fu">square</span>(<span class="dv">10</span>)    <span class="do">## example of using the function square</span></span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="functions.html#cb220-1" tabindex="-1"></a><span class="fu">square</span>(<span class="dv">10</span>)    <span class="do">## example of using the function square</span></span></code></pre></div>
 <pre><code>## [1] 100</code></pre>
 </div>
 <div id="example-2" class="section level3 hasAnchor" number="3.2.3">
@@ -429,28 +429,28 @@ are usually loaded by default as well.</li>
 + if the input number if <strong>positive and odd</strong>, return the number <strong>1</strong>
 + if the input number is <strong>not positive and even</strong>, return the number <strong>-2</strong>
 + if the input number if <strong>not positive and odd</strong>, return the number <strong>-1</strong></p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="functions.html#cb212-1" tabindex="-1"></a>PositiveEven  <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
-<span id="cb212-2"><a href="functions.html#cb212-2" tabindex="-1"></a>   <span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span> ) {</span>
-<span id="cb212-3"><a href="functions.html#cb212-3" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb212-4"><a href="functions.html#cb212-4" tabindex="-1"></a>   } <span class="cf">else</span> <span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">1</span> ){</span>
-<span id="cb212-5"><a href="functions.html#cb212-5" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb212-6"><a href="functions.html#cb212-6" tabindex="-1"></a>   } <span class="cf">else</span> <span class="cf">if</span>( x <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span>) {</span>
-<span id="cb212-7"><a href="functions.html#cb212-7" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span></span>
-<span id="cb212-8"><a href="functions.html#cb212-8" tabindex="-1"></a>   } <span class="cf">else</span> {</span>
-<span id="cb212-9"><a href="functions.html#cb212-9" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb212-10"><a href="functions.html#cb212-10" tabindex="-1"></a>   }</span>
-<span id="cb212-11"><a href="functions.html#cb212-11" tabindex="-1"></a>   <span class="fu">return</span>( return_value )</span>
-<span id="cb212-12"><a href="functions.html#cb212-12" tabindex="-1"></a>} </span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="functions.html#cb222-1" tabindex="-1"></a>PositiveEven  <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
+<span id="cb222-2"><a href="functions.html#cb222-2" tabindex="-1"></a>   <span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span> ) {</span>
+<span id="cb222-3"><a href="functions.html#cb222-3" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb222-4"><a href="functions.html#cb222-4" tabindex="-1"></a>   } <span class="cf">else</span> <span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">1</span> ){</span>
+<span id="cb222-5"><a href="functions.html#cb222-5" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb222-6"><a href="functions.html#cb222-6" tabindex="-1"></a>   } <span class="cf">else</span> <span class="cf">if</span>( x <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span>) {</span>
+<span id="cb222-7"><a href="functions.html#cb222-7" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span></span>
+<span id="cb222-8"><a href="functions.html#cb222-8" tabindex="-1"></a>   } <span class="cf">else</span> {</span>
+<span id="cb222-9"><a href="functions.html#cb222-9" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb222-10"><a href="functions.html#cb222-10" tabindex="-1"></a>   }</span>
+<span id="cb222-11"><a href="functions.html#cb222-11" tabindex="-1"></a>   <span class="fu">return</span>( return_value )</span>
+<span id="cb222-12"><a href="functions.html#cb222-12" tabindex="-1"></a>} </span></code></pre></div>
 <ul>
 <li>Now, let’s look at a few examples of <strong>calling</strong> <code>PositiveEven</code>:</li>
 </ul>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="functions.html#cb213-1" tabindex="-1"></a><span class="fu">PositiveEven</span>(<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="functions.html#cb223-1" tabindex="-1"></a><span class="fu">PositiveEven</span>(<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="functions.html#cb215-1" tabindex="-1"></a><span class="fu">PositiveEven</span>(<span class="sc">-</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="functions.html#cb225-1" tabindex="-1"></a><span class="fu">PositiveEven</span>(<span class="sc">-</span><span class="dv">6</span>)</span></code></pre></div>
 <pre><code>## [1] -2</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="functions.html#cb217-1" tabindex="-1"></a><span class="fu">PositiveEven</span>(<span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="functions.html#cb227-1" tabindex="-1"></a><span class="fu">PositiveEven</span>(<span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] -2</code></pre>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="functions.html#cb219-1" tabindex="-1"></a><span class="fu">PositiveEven</span>(<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="functions.html#cb229-1" tabindex="-1"></a><span class="fu">PositiveEven</span>(<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <hr />
 <ul>
@@ -458,32 +458,32 @@ are usually loaded by default as well.</li>
 having our function throw an error whenever the
 user inputs a number that is <strong>not</strong> an integer.</li>
 </ul>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="functions.html#cb221-1" tabindex="-1"></a>PositiveEvenSafe <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="co"># Function named PositiveEvenSafe</span></span>
-<span id="cb221-2"><a href="functions.html#cb221-2" tabindex="-1"></a>   <span class="cf">if</span>( x<span class="sc">%%</span><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">0</span>) { <span class="co"># x%%1 will equal 0 if x is an integer </span></span>
-<span id="cb221-3"><a href="functions.html#cb221-3" tabindex="-1"></a>       <span class="fu">stop</span>(<span class="st">&quot;x must be an integer&quot;</span>)  </span>
-<span id="cb221-4"><a href="functions.html#cb221-4" tabindex="-1"></a>       <span class="co"># The stop function will stop the execution </span></span>
-<span id="cb221-5"><a href="functions.html#cb221-5" tabindex="-1"></a>       <span class="co"># of the function and will return an error</span></span>
-<span id="cb221-6"><a href="functions.html#cb221-6" tabindex="-1"></a>       </span>
-<span id="cb221-7"><a href="functions.html#cb221-7" tabindex="-1"></a>   }</span>
-<span id="cb221-8"><a href="functions.html#cb221-8" tabindex="-1"></a>   <span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span> ) {</span>
-<span id="cb221-9"><a href="functions.html#cb221-9" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb221-10"><a href="functions.html#cb221-10" tabindex="-1"></a>   } <span class="cf">else</span> <span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">1</span> ){</span>
-<span id="cb221-11"><a href="functions.html#cb221-11" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb221-12"><a href="functions.html#cb221-12" tabindex="-1"></a>   } <span class="cf">else</span> <span class="cf">if</span>( x <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span>) {</span>
-<span id="cb221-13"><a href="functions.html#cb221-13" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span></span>
-<span id="cb221-14"><a href="functions.html#cb221-14" tabindex="-1"></a>   } <span class="cf">else</span> {</span>
-<span id="cb221-15"><a href="functions.html#cb221-15" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb221-16"><a href="functions.html#cb221-16" tabindex="-1"></a>   }</span>
-<span id="cb221-17"><a href="functions.html#cb221-17" tabindex="-1"></a>   <span class="fu">return</span>( return_value )</span>
-<span id="cb221-18"><a href="functions.html#cb221-18" tabindex="-1"></a>} </span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="functions.html#cb231-1" tabindex="-1"></a>PositiveEvenSafe <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="co"># Function named PositiveEvenSafe</span></span>
+<span id="cb231-2"><a href="functions.html#cb231-2" tabindex="-1"></a>   <span class="cf">if</span>( x<span class="sc">%%</span><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">0</span>) { <span class="co"># x%%1 will equal 0 if x is an integer </span></span>
+<span id="cb231-3"><a href="functions.html#cb231-3" tabindex="-1"></a>       <span class="fu">stop</span>(<span class="st">&quot;x must be an integer&quot;</span>)  </span>
+<span id="cb231-4"><a href="functions.html#cb231-4" tabindex="-1"></a>       <span class="co"># The stop function will stop the execution </span></span>
+<span id="cb231-5"><a href="functions.html#cb231-5" tabindex="-1"></a>       <span class="co"># of the function and will return an error</span></span>
+<span id="cb231-6"><a href="functions.html#cb231-6" tabindex="-1"></a>       </span>
+<span id="cb231-7"><a href="functions.html#cb231-7" tabindex="-1"></a>   }</span>
+<span id="cb231-8"><a href="functions.html#cb231-8" tabindex="-1"></a>   <span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span> ) {</span>
+<span id="cb231-9"><a href="functions.html#cb231-9" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb231-10"><a href="functions.html#cb231-10" tabindex="-1"></a>   } <span class="cf">else</span> <span class="cf">if</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">1</span> ){</span>
+<span id="cb231-11"><a href="functions.html#cb231-11" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb231-12"><a href="functions.html#cb231-12" tabindex="-1"></a>   } <span class="cf">else</span> <span class="cf">if</span>( x <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> x<span class="sc">%%</span><span class="dv">2</span><span class="sc">==</span><span class="dv">0</span>) {</span>
+<span id="cb231-13"><a href="functions.html#cb231-13" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span></span>
+<span id="cb231-14"><a href="functions.html#cb231-14" tabindex="-1"></a>   } <span class="cf">else</span> {</span>
+<span id="cb231-15"><a href="functions.html#cb231-15" tabindex="-1"></a>       return_value <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb231-16"><a href="functions.html#cb231-16" tabindex="-1"></a>   }</span>
+<span id="cb231-17"><a href="functions.html#cb231-17" tabindex="-1"></a>   <span class="fu">return</span>( return_value )</span>
+<span id="cb231-18"><a href="functions.html#cb231-18" tabindex="-1"></a>} </span></code></pre></div>
 <ul>
 <li>Now, let’s see what happens if we call the function <code>PositiveEvenSafe</code> with
 the argument <code>x = 2</code> and then <code>x = 7.1</code></li>
 </ul>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="functions.html#cb222-1" tabindex="-1"></a><span class="fu">PositiveEvenSafe</span>(<span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="functions.html#cb232-1" tabindex="-1"></a><span class="fu">PositiveEvenSafe</span>(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="functions.html#cb224-1" tabindex="-1"></a><span class="fu">PositiveEvenSafe</span>(<span class="fl">7.1</span>)</span>
-<span id="cb224-2"><a href="functions.html#cb224-2" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">PositiveEvenSafe</span>(<span class="fl">7.1</span>) <span class="sc">:</span> x must be an integer</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="functions.html#cb234-1" tabindex="-1"></a><span class="fu">PositiveEvenSafe</span>(<span class="fl">7.1</span>)</span>
+<span id="cb234-2"><a href="functions.html#cb234-2" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">PositiveEvenSafe</span>(<span class="fl">7.1</span>) <span class="sc">:</span> x must be an integer</span></code></pre></div>
 </div>
 <div id="rules-for-choosing-function-names" class="section level3 hasAnchor" number="3.2.4">
 <h3><span class="header-section-number">3.2.4</span> Rules for choosing function names<a href="functions.html#rules-for-choosing-function-names" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -532,7 +532,7 @@ as a function name or variable name.</p></li>
 <ul>
 <li>You can find the list of <strong>reserved words</strong> in <strong>R</strong> by typing</li>
 </ul>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="functions.html#cb225-1" tabindex="-1"></a>?reserved</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="functions.html#cb235-1" tabindex="-1"></a>?reserved</span></code></pre></div>
 <p>directly in the R console</p>
 </div>
 </div>
@@ -559,17 +559,17 @@ as a function name or variable name.</p></li>
 <li>As an example, let’s write a function that adds 3 numbers and, <strong>as a default</strong>,
 sets one of these numbers to zero:</li>
 </ul>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="functions.html#cb226-1" tabindex="-1"></a>add3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, <span class="at">z=</span><span class="dv">0</span>) {</span>
-<span id="cb226-2"><a href="functions.html#cb226-2" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">+</span> y <span class="sc">+</span> z)</span>
-<span id="cb226-3"><a href="functions.html#cb226-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="functions.html#cb236-1" tabindex="-1"></a>add3 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, <span class="at">z=</span><span class="dv">0</span>) {</span>
+<span id="cb236-2"><a href="functions.html#cb236-2" tabindex="-1"></a>    <span class="fu">return</span>(x <span class="sc">+</span> y <span class="sc">+</span> z)</span>
+<span id="cb236-3"><a href="functions.html#cb236-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>The <strong>default</strong> value for <code>z</code> here is <span class="math inline">\(0\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="functions.html#cb227-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="dv">1</span>, <span class="dv">2</span>)     <span class="do">## omit z</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="functions.html#cb237-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="dv">1</span>, <span class="dv">2</span>)     <span class="do">## omit z</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="functions.html#cb229-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>)  <span class="do">## this should give the same as add3(1,2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="functions.html#cb239-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>)  <span class="do">## this should give the same as add3(1,2)</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="functions.html#cb231-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="do">## set z to 3 instead of 0</span></span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="functions.html#cb241-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="do">## set z to 3 instead of 0</span></span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 </div>
 </div>
@@ -581,11 +581,11 @@ order but by <strong>names</strong> with <strong>keyword arguments</strong>.</p>
 <li><p><strong>Keyword arguments</strong>: have to do with how you <strong>call</strong> a function - not with the function definition itself.</p></li>
 <li><p>For example, we could call our function <code>add3</code> with <strong>keywords</strong> in the following way:</p></li>
 </ul>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="functions.html#cb233-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)      <span class="co"># Call function using original positions</span></span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="functions.html#cb243-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)      <span class="co"># Call function using original positions</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="functions.html#cb235-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">y=</span><span class="dv">2</span>, <span class="at">z=</span><span class="dv">1</span>) <span class="co"># Call function using keywords</span></span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="functions.html#cb245-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">y=</span><span class="dv">2</span>, <span class="at">z=</span><span class="dv">1</span>) <span class="co"># Call function using keywords</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="functions.html#cb237-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="at">y=</span><span class="dv">2</span>, <span class="at">x=</span><span class="dv">2</span>, <span class="at">z=</span><span class="dv">1</span>) <span class="co"># With keywords, position does not matter</span></span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="functions.html#cb247-1" tabindex="-1"></a><span class="fu">add3</span>(<span class="at">y=</span><span class="dv">2</span>, <span class="at">x=</span><span class="dv">2</span>, <span class="at">z=</span><span class="dv">1</span>) <span class="co"># With keywords, position does not matter</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <div id="example-1-2" class="section level3 hasAnchor" number="3.4.1">
 <h3><span class="header-section-number">3.4.1</span> Example 1<a href="functions.html#example-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -595,42 +595,42 @@ order but by <strong>names</strong> with <strong>keyword arguments</strong>.</p>
 <li>The <strong>default</strong> value of <code>z</code> is <span class="math inline">\(0\)</span>, and the <strong>default</strong> value of <code>w</code> is <strong>TRUE</strong>.</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="functions.html#cb239-1" tabindex="-1"></a>foo <span class="ot">&lt;-</span> <span class="cf">function</span> (x, y, <span class="at">z=</span><span class="dv">0</span>, <span class="at">w=</span><span class="cn">TRUE</span>) { </span>
-<span id="cb239-2"><a href="functions.html#cb239-2" tabindex="-1"></a>    <span class="cf">if</span>(w) {</span>
-<span id="cb239-3"><a href="functions.html#cb239-3" tabindex="-1"></a>       <span class="dv">1000</span><span class="sc">*</span>x <span class="sc">+</span> <span class="dv">100</span><span class="sc">*</span>y <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>z  <span class="do">## this is equivalent to return(...)</span></span>
-<span id="cb239-4"><a href="functions.html#cb239-4" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb239-5"><a href="functions.html#cb239-5" tabindex="-1"></a>       <span class="dv">1000</span><span class="sc">*</span>x <span class="sc">-</span> <span class="dv">100</span><span class="sc">*</span>y <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>z</span>
-<span id="cb239-6"><a href="functions.html#cb239-6" tabindex="-1"></a>    }</span>
-<span id="cb239-7"><a href="functions.html#cb239-7" tabindex="-1"></a>} </span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="functions.html#cb249-1" tabindex="-1"></a>foo <span class="ot">&lt;-</span> <span class="cf">function</span> (x, y, <span class="at">z=</span><span class="dv">0</span>, <span class="at">w=</span><span class="cn">TRUE</span>) { </span>
+<span id="cb249-2"><a href="functions.html#cb249-2" tabindex="-1"></a>    <span class="cf">if</span>(w) {</span>
+<span id="cb249-3"><a href="functions.html#cb249-3" tabindex="-1"></a>       <span class="dv">1000</span><span class="sc">*</span>x <span class="sc">+</span> <span class="dv">100</span><span class="sc">*</span>y <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>z  <span class="do">## this is equivalent to return(...)</span></span>
+<span id="cb249-4"><a href="functions.html#cb249-4" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb249-5"><a href="functions.html#cb249-5" tabindex="-1"></a>       <span class="dv">1000</span><span class="sc">*</span>x <span class="sc">-</span> <span class="dv">100</span><span class="sc">*</span>y <span class="sc">+</span> <span class="dv">10</span><span class="sc">*</span>z</span>
+<span id="cb249-6"><a href="functions.html#cb249-6" tabindex="-1"></a>    }</span>
+<span id="cb249-7"><a href="functions.html#cb249-7" tabindex="-1"></a>} </span></code></pre></div>
 <ul>
 <li>Let’s try <strong>calling</strong> <code>foo</code> using the <strong>original position</strong> of the
 arguments in the function definition.</li>
 </ul>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="functions.html#cb240-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">5</span>,<span class="cn">TRUE</span>) <span class="do">## specify all arguments</span></span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="functions.html#cb250-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">5</span>,<span class="cn">TRUE</span>) <span class="do">## specify all arguments</span></span></code></pre></div>
 <pre><code>## [1] 9350</code></pre>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="functions.html#cb242-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">5</span>)      <span class="do">## omit argument w</span></span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="functions.html#cb252-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="dv">3</span>, <span class="dv">5</span>)      <span class="do">## omit argument w</span></span></code></pre></div>
 <pre><code>## [1] 9350</code></pre>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="functions.html#cb244-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="dv">3</span>)       <span class="do">## omit both z and w</span></span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="functions.html#cb254-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="dv">3</span>)       <span class="do">## omit both z and w</span></span></code></pre></div>
 <pre><code>## [1] 9300</code></pre>
 <ul>
 <li>Now, let’s try calling <code>foo</code> using <strong>keyword</strong> arguments and
 change the orders of <code>x</code> and <code>y</code>.</li>
 </ul>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="functions.html#cb246-1" tabindex="-1"></a><span class="do">## foo(9)      ## this will cause error because y is unknown</span></span>
-<span id="cb246-2"><a href="functions.html#cb246-2" tabindex="-1"></a><span class="fu">foo</span>(<span class="at">x=</span><span class="dv">9</span>, <span class="at">y=</span><span class="dv">5</span>)   <span class="do">## specify x and y as keyword arguments</span></span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="functions.html#cb256-1" tabindex="-1"></a><span class="do">## foo(9)      ## this will cause error because y is unknown</span></span>
+<span id="cb256-2"><a href="functions.html#cb256-2" tabindex="-1"></a><span class="fu">foo</span>(<span class="at">x=</span><span class="dv">9</span>, <span class="at">y=</span><span class="dv">5</span>)   <span class="do">## specify x and y as keyword arguments</span></span></code></pre></div>
 <pre><code>## [1] 9500</code></pre>
 <ul>
 <li>We can even switch the positions of <code>x</code> and <code>y</code> when using <strong>keyword</strong>
 arguments</li>
 </ul>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="functions.html#cb248-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="at">y=</span><span class="dv">5</span>, <span class="at">x=</span><span class="dv">9</span>)  <span class="do">## when using keywords, argument order doesn&#39;t matter</span></span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="functions.html#cb258-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="at">y=</span><span class="dv">5</span>, <span class="at">x=</span><span class="dv">9</span>)  <span class="do">## when using keywords, argument order doesn&#39;t matter</span></span></code></pre></div>
 <pre><code>## [1] 9500</code></pre>
 <ul>
 <li>You can even <strong>mix</strong> which arguments you specify as positional and keyword:</li>
 </ul>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="functions.html#cb250-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="at">y=</span><span class="dv">5</span>)     <span class="do">## specify x as positional, y as keyword argument</span></span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="functions.html#cb260-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="at">y=</span><span class="dv">5</span>)     <span class="do">## specify x as positional, y as keyword argument</span></span></code></pre></div>
 <pre><code>## [1] 9500</code></pre>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="functions.html#cb252-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="at">z=</span><span class="dv">3</span>, <span class="at">y=</span><span class="dv">5</span>)  <span class="do">## y,z are keyword arguments, x is positional</span></span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="functions.html#cb262-1" tabindex="-1"></a><span class="fu">foo</span>(<span class="dv">9</span>, <span class="at">z=</span><span class="dv">3</span>, <span class="at">y=</span><span class="dv">5</span>)  <span class="do">## y,z are keyword arguments, x is positional</span></span></code></pre></div>
 <pre><code>## [1] 9530</code></pre>
 </div>
 </div>
@@ -643,9 +643,9 @@ arguments</li>
 and outputs whether or not a student has “passed” or “failed” the course - using two possible criteria for choosing Pass/Fail.</p></li>
 <li><p>We would like the R function to have the following structure</p></li>
 </ul>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="functions.html#cb254-1" tabindex="-1"></a>WeightedGrade <span class="ot">&lt;-</span> <span class="cf">function</span>(grades, weights, <span class="at">scheme=</span><span class="st">&quot;A&quot;</span>) { </span>
-<span id="cb254-2"><a href="functions.html#cb254-2" tabindex="-1"></a>   </span>
-<span id="cb254-3"><a href="functions.html#cb254-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="functions.html#cb264-1" tabindex="-1"></a>WeightedGrade <span class="ot">&lt;-</span> <span class="cf">function</span>(grades, weights, <span class="at">scheme=</span><span class="st">&quot;A&quot;</span>) { </span>
+<span id="cb264-2"><a href="functions.html#cb264-2" tabindex="-1"></a>   </span>
+<span id="cb264-3"><a href="functions.html#cb264-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p><strong>Function Input:</strong> We want the inputs <code>grades</code> and <code>weights</code> to be both numeric vectors of the same length.</p>
 <ul>
@@ -674,45 +674,45 @@ and return <code>"Fail"</code> if the weighted grade average is less than or equ
 <ul>
 <li>Here is one way to write the function so that it satisfies the above description:</li>
 </ul>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="functions.html#cb255-1" tabindex="-1"></a>WeightedGrade <span class="ot">&lt;-</span> <span class="cf">function</span>(grades, weights, <span class="at">scheme=</span><span class="st">&quot;A&quot;</span>) {</span>
-<span id="cb255-2"><a href="functions.html#cb255-2" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">sum</span>(weights) <span class="sc">!=</span> <span class="dv">100</span>) {</span>
-<span id="cb255-3"><a href="functions.html#cb255-3" tabindex="-1"></a>        <span class="do">## if sum(weights)!=100, return NA</span></span>
-<span id="cb255-4"><a href="functions.html#cb255-4" tabindex="-1"></a>        ans <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb255-5"><a href="functions.html#cb255-5" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span>(scheme<span class="sc">==</span><span class="st">&quot;A&quot;</span>) {</span>
-<span id="cb255-6"><a href="functions.html#cb255-6" tabindex="-1"></a>        <span class="do">## if sum(weights)==100 and scheme is A, use the </span></span>
-<span id="cb255-7"><a href="functions.html#cb255-7" tabindex="-1"></a>        <span class="do">## following Pass/Fail rule</span></span>
-<span id="cb255-8"><a href="functions.html#cb255-8" tabindex="-1"></a>        weighted_avg <span class="ot">&lt;-</span> <span class="fu">sum</span>(weights<span class="sc">*</span>grades)<span class="sc">/</span><span class="fu">sum</span>(weights)</span>
-<span id="cb255-9"><a href="functions.html#cb255-9" tabindex="-1"></a>        <span class="cf">if</span>(weighted_avg <span class="sc">&gt;</span> <span class="dv">60</span>) {</span>
-<span id="cb255-10"><a href="functions.html#cb255-10" tabindex="-1"></a>            ans <span class="ot">&lt;-</span> <span class="st">&quot;Pass&quot;</span></span>
-<span id="cb255-11"><a href="functions.html#cb255-11" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
-<span id="cb255-12"><a href="functions.html#cb255-12" tabindex="-1"></a>            ans <span class="ot">&lt;-</span> <span class="st">&quot;Fail&quot;</span></span>
-<span id="cb255-13"><a href="functions.html#cb255-13" tabindex="-1"></a>        }</span>
-<span id="cb255-14"><a href="functions.html#cb255-14" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb255-15"><a href="functions.html#cb255-15" tabindex="-1"></a>        <span class="do">## if sum(weights)==100 and scheme is not A, use the </span></span>
-<span id="cb255-16"><a href="functions.html#cb255-16" tabindex="-1"></a>        <span class="do">## following Pass/Fail rule</span></span>
-<span id="cb255-17"><a href="functions.html#cb255-17" tabindex="-1"></a>        weighted_avg <span class="ot">&lt;-</span> <span class="fu">sum</span>(weights<span class="sc">*</span>grades)<span class="sc">/</span><span class="fu">sum</span>(weights)</span>
-<span id="cb255-18"><a href="functions.html#cb255-18" tabindex="-1"></a>        <span class="cf">if</span>(weighted_avg <span class="sc">&gt;</span> <span class="dv">80</span>) {</span>
-<span id="cb255-19"><a href="functions.html#cb255-19" tabindex="-1"></a>           ans <span class="ot">&lt;-</span> <span class="st">&quot;Pass&quot;</span></span>
-<span id="cb255-20"><a href="functions.html#cb255-20" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
-<span id="cb255-21"><a href="functions.html#cb255-21" tabindex="-1"></a>           ans <span class="ot">&lt;-</span> <span class="st">&quot;Fail&quot;</span></span>
-<span id="cb255-22"><a href="functions.html#cb255-22" tabindex="-1"></a>        }</span>
-<span id="cb255-23"><a href="functions.html#cb255-23" tabindex="-1"></a>    }</span>
-<span id="cb255-24"><a href="functions.html#cb255-24" tabindex="-1"></a>    <span class="fu">return</span>(ans)</span>
-<span id="cb255-25"><a href="functions.html#cb255-25" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="functions.html#cb265-1" tabindex="-1"></a>WeightedGrade <span class="ot">&lt;-</span> <span class="cf">function</span>(grades, weights, <span class="at">scheme=</span><span class="st">&quot;A&quot;</span>) {</span>
+<span id="cb265-2"><a href="functions.html#cb265-2" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">sum</span>(weights) <span class="sc">!=</span> <span class="dv">100</span>) {</span>
+<span id="cb265-3"><a href="functions.html#cb265-3" tabindex="-1"></a>        <span class="do">## if sum(weights)!=100, return NA</span></span>
+<span id="cb265-4"><a href="functions.html#cb265-4" tabindex="-1"></a>        ans <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb265-5"><a href="functions.html#cb265-5" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span>(scheme<span class="sc">==</span><span class="st">&quot;A&quot;</span>) {</span>
+<span id="cb265-6"><a href="functions.html#cb265-6" tabindex="-1"></a>        <span class="do">## if sum(weights)==100 and scheme is A, use the </span></span>
+<span id="cb265-7"><a href="functions.html#cb265-7" tabindex="-1"></a>        <span class="do">## following Pass/Fail rule</span></span>
+<span id="cb265-8"><a href="functions.html#cb265-8" tabindex="-1"></a>        weighted_avg <span class="ot">&lt;-</span> <span class="fu">sum</span>(weights<span class="sc">*</span>grades)<span class="sc">/</span><span class="fu">sum</span>(weights)</span>
+<span id="cb265-9"><a href="functions.html#cb265-9" tabindex="-1"></a>        <span class="cf">if</span>(weighted_avg <span class="sc">&gt;</span> <span class="dv">60</span>) {</span>
+<span id="cb265-10"><a href="functions.html#cb265-10" tabindex="-1"></a>            ans <span class="ot">&lt;-</span> <span class="st">&quot;Pass&quot;</span></span>
+<span id="cb265-11"><a href="functions.html#cb265-11" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb265-12"><a href="functions.html#cb265-12" tabindex="-1"></a>            ans <span class="ot">&lt;-</span> <span class="st">&quot;Fail&quot;</span></span>
+<span id="cb265-13"><a href="functions.html#cb265-13" tabindex="-1"></a>        }</span>
+<span id="cb265-14"><a href="functions.html#cb265-14" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb265-15"><a href="functions.html#cb265-15" tabindex="-1"></a>        <span class="do">## if sum(weights)==100 and scheme is not A, use the </span></span>
+<span id="cb265-16"><a href="functions.html#cb265-16" tabindex="-1"></a>        <span class="do">## following Pass/Fail rule</span></span>
+<span id="cb265-17"><a href="functions.html#cb265-17" tabindex="-1"></a>        weighted_avg <span class="ot">&lt;-</span> <span class="fu">sum</span>(weights<span class="sc">*</span>grades)<span class="sc">/</span><span class="fu">sum</span>(weights)</span>
+<span id="cb265-18"><a href="functions.html#cb265-18" tabindex="-1"></a>        <span class="cf">if</span>(weighted_avg <span class="sc">&gt;</span> <span class="dv">80</span>) {</span>
+<span id="cb265-19"><a href="functions.html#cb265-19" tabindex="-1"></a>           ans <span class="ot">&lt;-</span> <span class="st">&quot;Pass&quot;</span></span>
+<span id="cb265-20"><a href="functions.html#cb265-20" tabindex="-1"></a>        } <span class="cf">else</span> {</span>
+<span id="cb265-21"><a href="functions.html#cb265-21" tabindex="-1"></a>           ans <span class="ot">&lt;-</span> <span class="st">&quot;Fail&quot;</span></span>
+<span id="cb265-22"><a href="functions.html#cb265-22" tabindex="-1"></a>        }</span>
+<span id="cb265-23"><a href="functions.html#cb265-23" tabindex="-1"></a>    }</span>
+<span id="cb265-24"><a href="functions.html#cb265-24" tabindex="-1"></a>    <span class="fu">return</span>(ans)</span>
+<span id="cb265-25"><a href="functions.html#cb265-25" tabindex="-1"></a>}</span></code></pre></div>
 <hr />
 <ul>
 <li>Now, let’s test out our function by doing a few example runs:</li>
 </ul>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="functions.html#cb256-1" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">scheme=</span><span class="st">&quot;B&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="functions.html#cb266-1" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">scheme=</span><span class="st">&quot;B&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Fail&quot;</code></pre>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="functions.html#cb258-1" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">scheme=</span><span class="st">&quot;A&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="functions.html#cb268-1" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">50</span>), <span class="at">scheme=</span><span class="st">&quot;A&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Pass&quot;</code></pre>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="functions.html#cb260-1" tabindex="-1"></a><span class="do">## Note that scheme is a default argument</span></span>
-<span id="cb260-2"><a href="functions.html#cb260-2" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">50</span>) ) </span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="functions.html#cb270-1" tabindex="-1"></a><span class="do">## Note that scheme is a default argument</span></span>
+<span id="cb270-2"><a href="functions.html#cb270-2" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">50</span>) ) </span></code></pre></div>
 <pre><code>## [1] &quot;Pass&quot;</code></pre>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="functions.html#cb262-1" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="functions.html#cb272-1" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">40</span>) )</span></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="functions.html#cb264-1" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">95</span>, <span class="dv">80</span>, <span class="dv">86</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">40</span>), <span class="at">scheme=</span><span class="st">&quot;B&quot;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="functions.html#cb274-1" tabindex="-1"></a><span class="fu">WeightedGrade</span>(<span class="at">grades=</span><span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">95</span>, <span class="dv">80</span>, <span class="dv">86</span>), <span class="at">weights=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">40</span>, <span class="dv">40</span>), <span class="at">scheme=</span><span class="st">&quot;B&quot;</span> )</span></code></pre></div>
 <pre><code>## [1] &quot;Pass&quot;</code></pre>
 </div>
 <div id="example-2-1" class="section level3 hasAnchor" number="3.5.2">
@@ -722,9 +722,9 @@ and return <code>"Fail"</code> if the weighted grade average is less than or equ
 repeating are less than a user-supplied cutoff value.</p></li>
 <li><p>We would like the <code>RepSumLT</code> function to have the following structure</p></li>
 </ul>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="functions.html#cb266-1" tabindex="-1"></a>RepSumLT <span class="ot">&lt;-</span> <span class="cf">function</span>(x, m, <span class="at">tau=</span><span class="dv">0</span>) { </span>
-<span id="cb266-2"><a href="functions.html#cb266-2" tabindex="-1"></a>   </span>
-<span id="cb266-3"><a href="functions.html#cb266-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="functions.html#cb276-1" tabindex="-1"></a>RepSumLT <span class="ot">&lt;-</span> <span class="cf">function</span>(x, m, <span class="at">tau=</span><span class="dv">0</span>) { </span>
+<span id="cb276-2"><a href="functions.html#cb276-2" tabindex="-1"></a>   </span>
+<span id="cb276-3"><a href="functions.html#cb276-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p><strong>Function Input:</strong> We want the argument <code>x</code> in <code>RepSumLT</code> to be a vector.</p>
 <ul>
@@ -738,19 +738,19 @@ and <code>rep(x, each=m)</code> are less than or equal to <code>tau</code>.</p><
 at vector index <span class="math inline">\(1\)</span>.</p></li>
 <li><p>Here is one way to write the function so that it satisfies the above description:</p></li>
 </ul>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="functions.html#cb267-1" tabindex="-1"></a>RepSumLT <span class="ot">&lt;-</span> <span class="cf">function</span>(x, m, <span class="at">tau=</span><span class="dv">0</span>) {</span>
-<span id="cb267-2"><a href="functions.html#cb267-2" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">rep</span>(x, <span class="at">times=</span>m)</span>
-<span id="cb267-3"><a href="functions.html#cb267-3" tabindex="-1"></a>    z <span class="ot">&lt;-</span> <span class="fu">rep</span>(x, <span class="at">each=</span>m)</span>
-<span id="cb267-4"><a href="functions.html#cb267-4" tabindex="-1"></a>    ans <span class="ot">&lt;-</span> <span class="fu">mean</span>((y <span class="sc">&lt;=</span> tau)<span class="sc">*</span>(z <span class="sc">&lt;=</span> tau))</span>
-<span id="cb267-5"><a href="functions.html#cb267-5" tabindex="-1"></a>    <span class="fu">return</span>(ans)</span>
-<span id="cb267-6"><a href="functions.html#cb267-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="functions.html#cb277-1" tabindex="-1"></a>RepSumLT <span class="ot">&lt;-</span> <span class="cf">function</span>(x, m, <span class="at">tau=</span><span class="dv">0</span>) {</span>
+<span id="cb277-2"><a href="functions.html#cb277-2" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="fu">rep</span>(x, <span class="at">times=</span>m)</span>
+<span id="cb277-3"><a href="functions.html#cb277-3" tabindex="-1"></a>    z <span class="ot">&lt;-</span> <span class="fu">rep</span>(x, <span class="at">each=</span>m)</span>
+<span id="cb277-4"><a href="functions.html#cb277-4" tabindex="-1"></a>    ans <span class="ot">&lt;-</span> <span class="fu">mean</span>((y <span class="sc">&lt;=</span> tau)<span class="sc">*</span>(z <span class="sc">&lt;=</span> tau))</span>
+<span id="cb277-5"><a href="functions.html#cb277-5" tabindex="-1"></a>    <span class="fu">return</span>(ans)</span>
+<span id="cb277-6"><a href="functions.html#cb277-6" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>Let’s try running <code>RepSumLT</code> on a few examples:</li>
 </ul>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="functions.html#cb268-1" tabindex="-1"></a><span class="fu">RepSumLT</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">m=</span><span class="dv">3</span>, <span class="at">tau=</span><span class="dv">3</span>)</span>
-<span id="cb268-2"><a href="functions.html#cb268-2" tabindex="-1"></a><span class="fu">RepSumLT</span>(<span class="at">x=</span><span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">m=</span><span class="dv">3</span>)</span>
-<span id="cb268-3"><a href="functions.html#cb268-3" tabindex="-1"></a><span class="fu">RepSumLT</span>(<span class="at">x=</span><span class="fu">seq</span>(<span class="fl">0.2</span>, <span class="fl">5.2</span>, <span class="at">by=</span><span class="fl">0.45</span>), <span class="at">m=</span><span class="dv">4</span>, <span class="at">tau=</span><span class="fl">3.0</span>)</span>
-<span id="cb268-4"><a href="functions.html#cb268-4" tabindex="-1"></a><span class="fu">RepSumLT</span>(<span class="at">x=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="fl">3.2</span>, <span class="fl">5.2</span>, <span class="at">by=</span><span class="fl">0.45</span>), <span class="at">m=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="functions.html#cb278-1" tabindex="-1"></a><span class="fu">RepSumLT</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">m=</span><span class="dv">3</span>, <span class="at">tau=</span><span class="dv">3</span>)</span>
+<span id="cb278-2"><a href="functions.html#cb278-2" tabindex="-1"></a><span class="fu">RepSumLT</span>(<span class="at">x=</span><span class="sc">-</span><span class="dv">10</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">m=</span><span class="dv">3</span>)</span>
+<span id="cb278-3"><a href="functions.html#cb278-3" tabindex="-1"></a><span class="fu">RepSumLT</span>(<span class="at">x=</span><span class="fu">seq</span>(<span class="fl">0.2</span>, <span class="fl">5.2</span>, <span class="at">by=</span><span class="fl">0.45</span>), <span class="at">m=</span><span class="dv">4</span>, <span class="at">tau=</span><span class="fl">3.0</span>)</span>
+<span id="cb278-4"><a href="functions.html#cb278-4" tabindex="-1"></a><span class="fu">RepSumLT</span>(<span class="at">x=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="fl">3.2</span>, <span class="fl">5.2</span>, <span class="at">by=</span><span class="fl">0.45</span>), <span class="at">m=</span><span class="dv">4</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="exercises-2" class="section level2 hasAnchor" number="3.6">
@@ -758,19 +758,19 @@ at vector index <span class="math inline">\(1\)</span>.</p></li>
 <ol style="list-style-type: decimal">
 <li>Suppose we define the function <code>quiz</code> as</li>
 </ol>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="functions.html#cb269-1" tabindex="-1"></a>quiz <span class="ot">&lt;-</span> <span class="cf">function</span>(bool_var1, <span class="at">x=</span><span class="dv">0</span>, <span class="at">bool_var2 =</span> <span class="cn">TRUE</span>) {</span>
-<span id="cb269-2"><a href="functions.html#cb269-2" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb269-3"><a href="functions.html#cb269-3" tabindex="-1"></a>    <span class="cf">if</span>(bool_var1 <span class="sc">&amp;</span> bool_var2) {</span>
-<span id="cb269-4"><a href="functions.html#cb269-4" tabindex="-1"></a>        y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb269-5"><a href="functions.html#cb269-5" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb269-6"><a href="functions.html#cb269-6" tabindex="-1"></a>        <span class="cf">if</span>(bool_var1) {</span>
-<span id="cb269-7"><a href="functions.html#cb269-7" tabindex="-1"></a>            y <span class="ot">&lt;-</span> x <span class="sc">-</span> <span class="dv">2</span></span>
-<span id="cb269-8"><a href="functions.html#cb269-8" tabindex="-1"></a>        }</span>
-<span id="cb269-9"><a href="functions.html#cb269-9" tabindex="-1"></a>    }</span>
-<span id="cb269-10"><a href="functions.html#cb269-10" tabindex="-1"></a>    <span class="fu">return</span>(y)</span>
-<span id="cb269-11"><a href="functions.html#cb269-11" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="functions.html#cb279-1" tabindex="-1"></a>quiz <span class="ot">&lt;-</span> <span class="cf">function</span>(bool_var1, <span class="at">x=</span><span class="dv">0</span>, <span class="at">bool_var2 =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb279-2"><a href="functions.html#cb279-2" tabindex="-1"></a>    y <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb279-3"><a href="functions.html#cb279-3" tabindex="-1"></a>    <span class="cf">if</span>(bool_var1 <span class="sc">&amp;</span> bool_var2) {</span>
+<span id="cb279-4"><a href="functions.html#cb279-4" tabindex="-1"></a>        y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb279-5"><a href="functions.html#cb279-5" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb279-6"><a href="functions.html#cb279-6" tabindex="-1"></a>        <span class="cf">if</span>(bool_var1) {</span>
+<span id="cb279-7"><a href="functions.html#cb279-7" tabindex="-1"></a>            y <span class="ot">&lt;-</span> x <span class="sc">-</span> <span class="dv">2</span></span>
+<span id="cb279-8"><a href="functions.html#cb279-8" tabindex="-1"></a>        }</span>
+<span id="cb279-9"><a href="functions.html#cb279-9" tabindex="-1"></a>    }</span>
+<span id="cb279-10"><a href="functions.html#cb279-10" tabindex="-1"></a>    <span class="fu">return</span>(y)</span>
+<span id="cb279-11"><a href="functions.html#cb279-11" tabindex="-1"></a>}</span></code></pre></div>
 <p>What value does the following function call return?</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="functions.html#cb270-1" tabindex="-1"></a><span class="fu">quiz</span>(<span class="cn">FALSE</span>, <span class="fl">1.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="functions.html#cb280-1" tabindex="-1"></a><span class="fu">quiz</span>(<span class="cn">FALSE</span>, <span class="fl">1.3</span>)</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Write an <strong>R function</strong> that implements the following
 mathematical function in <strong>R</strong></li>
@@ -791,9 +791,9 @@ and should return <code>NA</code> if <code>y</code> does not equal either <span 
 of three entered numbers which are greater than <span class="math inline">\(0\)</span>.
 The function should have the following <strong>function definition</strong></li>
 </ol>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="functions.html#cb271-1" tabindex="-1"></a>PropGtZero <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, z, <span class="at">gt=</span><span class="cn">TRUE</span>) {</span>
-<span id="cb271-2"><a href="functions.html#cb271-2" tabindex="-1"></a>  </span>
-<span id="cb271-3"><a href="functions.html#cb271-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="functions.html#cb281-1" tabindex="-1"></a>PropGtZero <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, z, <span class="at">gt=</span><span class="cn">TRUE</span>) {</span>
+<span id="cb281-2"><a href="functions.html#cb281-2" tabindex="-1"></a>  </span>
+<span id="cb281-3"><a href="functions.html#cb281-3" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li><p>If <code>gt=TRUE</code>, then <code>PropGtZero</code> should return the proportion of the numbers <code>x</code>, <code>y</code>, <code>z</code> which are greater than <span class="math inline">\(0\)</span>.</p></li>
 <li><p>If <code>gt=FALSE</code>, then <code>PropGtZero</code> should return the
