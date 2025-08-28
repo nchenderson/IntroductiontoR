@@ -6,7 +6,7 @@
 
   + To **modularize** a task so that we can reuse the same code in many places.
  
-  + To increase **readability** of code.
+  + To increase the **readability** of your code.
 
   + To reduce **redundancy** and reduce the number of errors.
 
